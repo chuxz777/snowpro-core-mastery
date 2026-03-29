@@ -1,0 +1,1607 @@
+{
+  "exam": "Practice Test No. 21",
+  "questions": [
+    {
+      "number": 1,
+      "text": "What will be the retention period for an object if the parameter MIN_DATA_RETENTION_TIME_IN_DAYS is set at the account level and the DATA_RETENTION_TIME_IN_DAYS is set at the object level?",
+      "options": {
+        "a": "The retention period will be equal to the value of the parameter DATA_RETENTION_TIME_IN_DAYS set at the object level.",
+        "b": "The retention period will be equal to the greatest of the two values of parameters DATA_RETENTION_TIME_IN_DAYS set at the object level, and MIN_DATA_RETENTION_TIME_IN_DAYS set at the account level.",
+        "c": "The retention period will be equal to the value of the parameter MIN_DATA_RETENTION_TIME_IN_DAYS set at the account level.",
+        "d": "The retention period will be equal to the lesser of the two values of parameters DATA_RETENTION_TIME_IN_DAYS set at the object level and MIN_DATA_RETENTION_TIME_IN_DAYS set at the account level"
+      },
+      "answer": "b",
+      "explanation": "Snowflake ensure compliance by using the larger value between the object-level setting and the account-level minimum floor.",
+      "category1": "Storage",
+      "category2": "Time Travel"
+    },
+    {
+      "number": 2,
+      "text": "What is the MINIMUM Snowflake edition required to create a materialized view?",
+      "options": {
+        "a": "Standard",
+        "b": "Enterprise",
+        "c": "Business Critical",
+        "d": "Virtual Private Snowflake (VPS)"
+      },
+      "answer": "b",
+      "explanation": "Materialized views are an optimization feature restricted to Enterprise edition and higher.",
+      "category1": "Performance",
+      "category2": "Materialized Views"
+    },
+    {
+      "number": 3,
+      "text": "What's the default size for a newly-provisioned Snowpark-optimized virtual warehouse?",
+      "options": {
+        "a": "X-Large",
+        "b": "Large",
+        "c": "Medium",
+        "d": "Small"
+      },
+      "answer": "c",
+      "explanation": "Snowpark-optimized warehouses, which provide more memory per node, default to a Medium size.",
+      "category1": "Performance",
+      "category2": "Virtual Warehouses"
+    },
+    {
+      "number": 4,
+      "text": "Which Snowflake feature enables loading data from cloud storage as soon as files are available in a stage?",
+      "options": {
+        "a": "COPY_INTO <location> command",
+        "b": "Data replication",
+        "c": "Snowpipe",
+        "d": "Direct share"
+      },
+      "answer": "c",
+      "explanation": "Snowpipe uses event notifications to ingest data in micro-batches immediately upon file arrival in a stage.",
+      "category1": "Data Loading",
+      "category2": "Snowpipe"
+    },
+    {
+      "number": 5,
+      "text": "How is unstructured data managed in Snowflake?",
+      "options": {
+        "a": "Snowflake stores unstructured data in external cloud storage containers and uses third-party tools to query data.",
+        "b": "Snowflake natively stores, manages and supports queries of unstructured data within the platform.",
+        "c": "Snowflake requires the use of server-side encryption on internal stages containing unstructured data.",
+        "d": "Unstructured data must be converted to structured data before it can be placed into Snowflake storage."
+      },
+      "answer": "b",
+      "explanation": "Unstructured data management relies on stages (internal or external) and directory tables to store and process files.",
+      "category1": "Data Types",
+      "category2": "Unstructured Data"
+    },
+    {
+      "number": 6,
+      "text": "By default, which Snowflake role has the ability to manage grants?",
+      "options": {
+        "a": "SYSADMIN",
+        "b": "USERADMIN",
+        "c": "SECURITYADMIN",
+        "d": "ORGADMIN"
+      },
+      "answer": "c",
+      "explanation": "SECURITYADMIN is the system role that inherently possesses the MANAGE GRANTS privilege.",
+      "category1": "Security",
+      "category2": "Access Control"
+    },
+    {
+      "number": 7,
+      "text": "Which Snowflake objects can be defined with future grants? (Select TWO)",
+      "options": {
+        "a": "Schemas",
+        "b": "Databases",
+        "c": "Masking policies",
+        "d": "External functions",
+        "e": "Virtual warehouses"
+      },
+      "answer": ["a", "b"],
+      "explanation": "Future grants allow you to pre-define permissions for objects not yet created within a specific database or schema.",
+      "category1": "Security",
+      "category2": "Access Control"
+    },
+    {
+      "number": 8,
+      "text": "If a network policy is applied at both the account and user levels, which policy takes precedence?",
+      "options": {
+        "a": "The account-level policy",
+        "b": "The user-level policy",
+        "c": "The most-restrictive policy",
+        "d": "The policy that was applied first"
+      },
+      "answer": "b",
+      "explanation": "Snowflake prioritizes the most specific policy; a user-level network policy overrides the account-level setting.",
+      "category1": "Security",
+      "category2": "Network Policies"
+    },
+    {
+      "number": 9,
+      "text": "Which function is used to retrieve the filename for a file stored on a stage?",
+      "options": {
+        "a": "GET_RELATIVE_PATH",
+        "b": "GET_STAGE_LOCATION",
+        "c": "BUILD_STAGE_FILE_URL",
+        "d": "GET_OBJECT_REFERENCES"
+      },
+      "answer": "a",
+      "explanation": "GET_RELATIVE_PATH is used to extract the file path relative to the stage, which identifies the specific file.",
+      "category1": "Data Loading",
+      "category2": "Stage Functions"
+    },
+    {
+      "number": 10,
+      "text": "What information in the Query Profile can be used to improve the performance of the query when it is run again?",
+      "options": {
+        "a": "Use the recommended SQL syntax changes that will improve partition pruning.",
+        "b": "Identify which parts of the query were most resource intensive.",
+        "c": "Implement the recommended query revisions.",
+        "d": "Follow the recommended virtual warehouse configuration changes to avoid memory spillage."
+      },
+      "answer": "b",
+      "explanation": "The Query Profile provides detailed execution statistics to pinpoint bottlenecks like heavy scans or joins.",
+      "category1": "Performance",
+      "category2": "Query Profile"
+    },
+    {
+      "number": 11,
+      "text": "Which function will convert semi-structured data to a relational data representation?",
+      "options": {
+        "a": "PARSE_JSON",
+        "b": "FLATTEN",
+        "c": "OBJECT_CONSTRUCT",
+        "d": "OBJECT_AGG"
+      },
+      "answer": "b",
+      "explanation": "FLATTEN is a table function used to unnest hierarchical data into a relational row/column format.",
+      "category1": "Data Types",
+      "category2": "Semi-structured Data"
+    },
+    {
+      "number": 12,
+      "text": "Which Snowpark element represents a data set and provides ways to operate on the data?",
+      "options": {
+        "a": "List",
+        "b": "Table",
+        "c": "Array",
+        "d": "DataFrame"
+      },
+      "answer": "d",
+      "explanation": "DataFrames are the primary structure in Snowpark for defining and executing data transformations.",
+      "category1": "Overview",
+      "category2": "Snowpark"
+    },
+    {
+      "number": 13,
+      "text": "Which virtual warehouse configuration requires the maximum number of clusters to be equal to the minimum number of clusters?",
+      "options": {
+        "a": "Auto-scale mode",
+        "b": "Maximized mode",
+        "c": "Standard scaling policy",
+        "d": "Economy scaling policy"
+      },
+      "answer": "b",
+      "explanation": "Maximized mode forces a constant number of clusters by setting MIN and MAX to the same value.",
+      "category1": "Performance",
+      "category2": "Virtual Warehouses"
+    },
+    {
+      "number": 14,
+      "text": "Which database objects can be shared using Secure Data Sharing? (Select TWO)",
+      "options": {
+        "a": "Users",
+        "b": "Roles",
+        "c": "Stages",
+        "d": "Tables",
+        "e": "Dynamic tables"
+      },
+      "answer": ["d", "e"],
+      "explanation": "Tables and Dynamic Tables are among the primary objects that can be included in a Snowflake share.",
+      "category1": "Data Sharing",
+      "category2": "Secure Data Sharing"
+    },
+    {
+      "number": 15,
+      "text": "What statement describes Snowflake data architecture?",
+      "options": {
+        "a": "NoSQL warehouse as a service.",
+        "b": "Single-node, isolated data.",
+        "c": "Multi-cluster, shared data.",
+        "d": "Centralized data storage and processing."
+      },
+      "answer": "c",
+      "explanation": "Snowflake is characterized by its separation of storage and compute, creating a multi-cluster shared data environment.",
+      "category1": "Overview",
+      "category2": "Architecture"
+    },
+    {
+      "number": 16,
+      "text": "What metadata is stored for each micro-partition? (Select TWO)",
+      "options": {
+        "a": "The number of distinct values.",
+        "b": "The clustering key used in the table.",
+        "c": "The average depth of values for each of the columns.",
+        "d": "The range of values for each of the columns in the full table.",
+        "e": "The minimum and maximum values for each of the columns."
+      },
+      "answer": ["a", "e"],
+      "explanation": "Snowflake stores min/max values and distinct counts for every column within each micro-partition to enable pruning.",
+      "category1": "Storage",
+      "category2": "Micro-partitions"
+    },
+    {
+      "number": 17,
+      "text": "What does creating a resource monitor for a virtual warehouse allow a user to do?",
+      "options": {
+        "a": "Schedule when the warehouse starts and stops.",
+        "b": "Track and control the credits consumed by the warehouse.",
+        "c": "Monitor the real-time performance of all queries running on the warehouse.",
+        "d": "Automatically adjust the settings of the warehouse based on the workload."
+      },
+      "answer": "b",
+      "explanation": "Resource monitors track credit usage and can trigger actions like suspension to prevent overspending.",
+      "category1": "Performance",
+      "category2": "Resource Monitors"
+    },
+    {
+      "number": 18,
+      "text": "Which models are supported for Snowflake access control? (Select TWO).",
+      "options": {
+        "a": "UAC (User Access Control)",
+        "b": "RBAC (Role-Based Access Control)",
+        "c": "DAC (Discretionary Access Control)",
+        "d": "OAC (Object Access Control)",
+        "e": "EBAC (Entity-Based Access Control)"
+      },
+      "answer": ["b", "c"],
+      "explanation": "Snowflake access control is a hybrid of Discretionary (DAC) and Role-Based (RBAC) models.",
+      "category1": "Security",
+      "category2": "Access Control"
+    },
+    {
+      "number": 19,
+      "text": "Which connectors support Multi-Factor Authentication (MFA) token caching when connecting to Snowflake? (Select TWO)",
+      "options": {
+        "a": "JDBC",
+        "b": "Go",
+        "c": "PHP",
+        "d": "Node.js",
+        "e": "Python"
+      },
+      "answer": ["a", "e"],
+      "explanation": "The JDBC and Python connectors support caching tokens to streamline subsequent MFA-protected logins.",
+      "category1": "Security",
+      "category2": "Authentication"
+    },
+    {
+      "number": 20,
+      "text": "Who can access the results of a previously-executed query?",
+      "options": {
+        "a": "The user who executed the query.",
+        "b": "The role that executed the query.",
+        "c": "An ACCOUNTADMIN.",
+        "d": "A SYSADMIN."
+      },
+      "answer": "b",
+      "explanation": "Query result cache access is scoped to the specific role that originally executed the query.",
+      "category1": "Security",
+      "category2": "Access Control"
+    },
+    {
+      "number": 21,
+      "text": "A company stores Personal Identifiable Information (PII) in Snowflake across multiple countries, including the United States, Canada, and the United Kingdom. How can Snowflake be used to automatically identify data, in order to support data governance requirements for each country?",
+      "options": {
+        "a": "Tag all columns directly that contain PII.",
+        "b": "Create a custom User-Defined Function (UDF).",
+        "c": "Use semantic category classification.",
+        "d": "Implement a third-party service to protect the data."
+      },
+      "answer": "c",
+      "explanation": "Classification analyzes data using ML to proposed semantic categories like PII to aid in discovery and protection.",
+      "category1": "Security",
+      "category2": "Governance"
+    },
+    {
+      "number": 22,
+      "text": "What kind of values does a User-Defined Function (UDF) return? (Select TWO)",
+      "options": {
+        "a": "Dictionary",
+        "b": "List",
+        "c": "Object",
+        "d": "Scalar",
+        "e": "Tabular"
+      },
+      "answer": ["d", "e"],
+      "explanation": "UDFs return either a single scalar value per input or a set of rows (tabular/UDTF).",
+      "category1": "Querying",
+      "category2": "UDFs"
+    },
+    {
+      "number": 23,
+      "text": "How can storage costs be MINIMIZED while maintaining the history and integrity of a table?",
+      "options": {
+        "a": "Decrease the Time Travel retention period.",
+        "b": "Convert the table type to transient.",
+        "c": "Use zero-copy clones of the table.",
+        "d": "Enable automatic clustering."
+      },
+      "answer": "c",
+      "explanation": "Zero-copy clones share the same micro-partitions as the original, incurring no additional storage costs until the data is modified.",
+      "category1": "Storage",
+      "category2": "Cloning"
+    },
+    {
+      "number": 24,
+      "text": "Which Snowflake object will consume credits during automatic background maintenance?",
+      "options": {
+        "a": "View",
+        "b": "Table",
+        "c": "External table",
+        "d": "Materialized view"
+      },
+      "answer": "d",
+      "explanation": "Materialized views consume credits for the background serverless service that keeps them refreshed.",
+      "category1": "Performance",
+      "category2": "Materialized Views"
+    },
+    {
+      "number": 25,
+      "text": "In a SPLIT_PART function, what will the returned value be if the partNumber is out of range?",
+      "options": {
+        "a": "-1",
+        "b": "An empty string",
+        "c": "The full string",
+        "d": "An error"
+      },
+      "answer": "b",
+      "explanation": "SPLIT_PART returns an empty string if the requested part index is higher than the actual parts found.",
+      "category1": "Querying",
+      "category2": "SQL Functions"
+    },
+    {
+      "number": 26,
+      "text": "If file format options or copy options are specified in multiple locations, which location will take precedence?",
+      "options": {
+        "a": "A COPY_INTO <table> statement.",
+        "b": "A stage definition.",
+        "c": "A table definition.",
+        "d": "A schema definition."
+      },
+      "answer": "a",
+      "explanation": "Options defined directly in the COPY statement override those set at the stage, table, or schema levels.",
+      "category1": "Data Loading",
+      "category2": "COPY INTO"
+    },
+    {
+      "number": 27,
+      "text": "What Snowflake feature or service is used to prevent third-parties from reading data while in transit?",
+      "options": {
+        "a": "Network policies",
+        "b": "Cloning",
+        "c": "End-to-end encryption",
+        "d": "Incremental data snapshots"
+      },
+      "answer": "c",
+      "explanation": "TLS encryption ensures that data is protected from interception as it travels between clients and Snowflake.",
+      "category1": "Security",
+      "category2": "Encryption"
+    },
+    {
+      "number": 28,
+      "text": "Which Snowflake features or services are designed to support data recovery without impacting ongoing operations? (Select TWO)",
+      "options": {
+        "a": "Time Travel",
+        "b": "Micro-partitioning",
+        "c": "Fail-safe",
+        "d": "Local caching of data within virtual warehouses",
+        "e": "Materialized Views"
+      },
+      "answer": ["a", "c"],
+      "explanation": "Time Travel provides user-managed recovery, while Fail-safe acts as a backup managed by Snowflake support.",
+      "category1": "Storage",
+      "category2": "Data Recovery"
+    },
+    {
+      "number": 29,
+      "text": "What will happen if multiple identical COPY_INTO <table> statements, using the default settings, are executed at the same time?",
+      "options": {
+        "a": "The statements will load the data only once in the table.",
+        "b": "The statements will duplicate the data in the table.",
+        "c": "The statements will fail with an error relating to reading the same file.",
+        "d": "The statements will overwrite the data in the table."
+      },
+      "answer": "a",
+      "explanation": "Snowflake's load history tracking prevents duplicate files from being ingested twice unless explicitly forced.",
+      "category1": "Data Loading",
+      "category2": "COPY INTO"
+    },
+    {
+      "number": 30,
+      "text": "What triggers the automated maintenance of a table's clustering key after it has been defined?",
+      "options": {
+        "a": "A scheduled task established by the ORGADMIN.",
+        "b": "A time-based schedule set by the user.",
+        "c": "A Snowflake determination based on the table size.",
+        "d": "A Snowflake determination that the table will benefit from maintenance."
+      },
+      "answer": "d",
+      "explanation": "The automatic clustering service triggers re-clustering based on Snowflake's assessment of whether it will improve query efficiency.",
+      "category1": "Performance",
+      "category2": "Clustering"
+    },
+    {
+      "number": 31,
+      "text": "A security review identified several roles that are no longer being used. Which of the roles can be dropped?",
+      "options": {
+        "a": "USERADMIN",
+        "b": "PUBLIC",
+        "c": "ACCOUNTADMIN",
+        "d": "FINANCEADMIN"
+      },
+      "answer": "d",
+      "explanation": "System roles like USERADMIN, PUBLIC, and ACCOUNTADMIN are permanent; custom roles like FINANCEADMIN can be dropped.",
+      "category1": "Security",
+      "category2": "Access Control"
+    },
+    {
+      "number": 32,
+      "text": "How can a user access information about a query execution plan without consuming virtual warehouse compute resources?",
+      "options": {
+        "a": "Use the EXPLAIN function.",
+        "b": "Review the Query Profile metrics",
+        "c": "Review the data in the Account_Usage view.",
+        "d": "Use the Snowsight dashboard."
+      },
+      "answer": "a",
+      "explanation": "EXPLAIN compiles the query and outputs the execution plan without using a virtual warehouse.",
+      "category1": "Performance",
+      "category2": "Query Optimization"
+    },
+    {
+      "number": 33,
+      "text": "What happens to event notifications that are received when an automated Snowpipe is paused?",
+      "options": {
+        "a": "They are immediately dropped from the internal metadata.",
+        "b": "They are stored indefinitely in the internal metadata until the pipe is manually resumed.",
+        "c": "They are permanently stored in the internal metadata and processed once the pipe is resumed.",
+        "d": "They enter a retention period of 14 days, after which they are dropped from the internal metadata."
+      },
+      "answer": "d",
+      "explanation": "Notifications received while Snowpipe is paused have a 14-day lifespan before being discarded from metadata.",
+      "category1": "Data Loading",
+      "category2": "Snowpipe"
+    },
+    {
+      "number": 34,
+      "text": "What does the VALUE column represent in the output of a FLATTEN function used as a parameter when loading data into Snowflake?",
+      "options": {
+        "a": "The key to the exploded value",
+        "b": "The path to the data element that needs to be flattened",
+        "c": "An index of all of the elements that are in an ARRAY",
+        "d": "The content of the element of a flattened ARRAY or OBJECT"
+      },
+      "answer": "d",
+      "explanation": "The VALUE column in FLATTEN contains the data element (value) for the current array index or object key.",
+      "category1": "Data Types",
+      "category2": "Semi-structured Data"
+    },
+    {
+      "number": 35,
+      "text": "Which authentication method requires access to a secure file that is only stored on the user's local device?",
+      "options": {
+        "a": "Password authentication.",
+        "b": "Key-pair authentication.",
+        "c": "Multi-Factor Authentication (MFA).",
+        "d": "Federal authentication."
+      },
+      "answer": "b",
+      "explanation": "Key-pair authentication requires an RSA private key file stored on the user's computer.",
+      "category1": "Security",
+      "category2": "Authentication"
+    },
+    {
+      "number": 36,
+      "text": "A query of data used in a dashboard is performing poorly. The query aggregates data that only changes at the end of the business day, recalculating every time the dashboard is viewed. How can the query performance be improved?",
+      "options": {
+        "a": "Ensure that only the columns needed in the dashboard are selected.",
+        "b": "Recommend that a dedicated warehouse be used to view the dashboard.",
+        "c": "Create a row access policy so users see only selected data.",
+        "d": "Create a materialized view of the query."
+      },
+      "answer": "d",
+      "explanation": "Materialized views pre-calculate aggregations, making them much faster for dashboards with stable daily data.",
+      "category1": "Performance",
+      "category2": "Materialized Views"
+    },
+    {
+      "number": 37,
+      "text": "When unloading data, setting which COPY_INTO <location> parameter will ensure that string fields in tables with zero length will be treated as NULL values?",
+      "options": {
+        "a": "NULL_IF('')",
+        "b": "EMPTY_FIELD_AS_NULL = TRUE",
+        "c": "NULL = TRUE",
+        "d": "SELECT * from null_<location>"
+      },
+      "answer": "a",
+      "explanation": "The NULL_IF parameter defines what character sequence in the source is converted to a NULL in the output.",
+      "category1": "Data Unloading",
+      "category2": "COPY INTO"
+    },
+    {
+      "number": 38,
+      "text": "How does Snowflake support Multi-Factor Authentication (MFA) with a second factor device?",
+      "options": {
+        "a": "Through Role-Based Access Control (RBAC)",
+        "b": "Through integration with OAuth",
+        "c": "Using time-based, one-time passcodes",
+        "d": "Using federated authentication and Single Sign-On (SSO)"
+      },
+      "answer": "c",
+      "explanation": "Snowflake MFA uses Duo Security and time-based codes (TOTP) or push notifications.",
+      "category1": "Security",
+      "category2": "Authentication"
+    },
+    {
+      "number": 39,
+      "text": "When using COPY INTO <location> command to generate CSV files from data in a Snowflake table, which parameter is used to create the files in a GZIP compression format?",
+      "options": {
+        "a": "COMPRESSION = DEFLATE",
+        "b": "COMPRESSION = AUTO",
+        "c": "COMPRESSION = NONE",
+        "d": "COMPRESSION = BZ2"
+      },
+      "answer": "b",
+      "explanation": "AUTO compression in COPY INTO defaults to GZIP format for unloaded files.",
+      "category1": "Data Unloading",
+      "category2": "COPY INTO"
+    },
+    {
+      "number": 40,
+      "text": "Which least-privileged role is required to create a resource monitor?",
+      "options": {
+        "a": "USERADMIN",
+        "b": "SECURITYADMIN",
+        "c": "ACCOUNTADMIN",
+        "d": "SYSADMIN"
+      },
+      "answer": "c",
+      "explanation": "Resource monitor management is an account-level administrative task assigned to ACCOUNTADMIN by default.",
+      "category1": "Security",
+      "category2": "Access Control"
+    },
+    {
+      "number": 41,
+      "text": "At what levels can a network policy be configured in Snowflake? (Select TWO)",
+      "options": {
+        "a": "Role level",
+        "b": "User level",
+        "c": "Account level",
+        "d": "Database level",
+        "e": "Virtual warehouse level"
+      },
+      "answer": ["b", "c"],
+      "explanation": "Network policies can be applied globally at the Account level or to specific Users.",
+      "category1": "Security",
+      "category2": "Network Policies"
+    },
+    {
+      "number": 42,
+      "text": "How can a Data Exchange Administrator provide a user with account access to a Data Exchange?",
+      "options": {
+        "a": "Grant the user the USERADMIN role",
+        "b": "Add the user to the Data Exchange",
+        "c": "Enable the IMPORT SHARE privilege and grant this privilege to the user.",
+        "d": "Create a new database for the Data Exchange and provide access to the user."
+      },
+      "answer": "b",
+      "explanation": "Data Exchange membership is managed by adding specific accounts/users to the group by an administrator.",
+      "category1": "Data Sharing",
+      "category2": "Data Exchange"
+    },
+    {
+      "number": 43,
+      "text": "Which Snowflake data governance feature supports the tracking of sensitive data for compliance, discovery, protection, and resource usage?",
+      "options": {
+        "a": "Object tagging",
+        "b": "Data classification",
+        "c": "Row access policies",
+        "d": "Object dependencies"
+      },
+      "answer": "b",
+      "explanation": "Data classification uses ML to discover and track PII and other sensitive data attributes.",
+      "category1": "Security",
+      "category2": "Governance"
+    },
+    {
+      "number": 44,
+      "text": "Which function estimates the number of distinct values in a column without scanning the entire table?",
+      "options": {
+        "a": "COUNT(DISTINCT)",
+        "b": "APROX_PERCENTILE_ESTIMATE",
+        "c": "APROX_COUNT_DISTINCT",
+        "d": "ARRAY_UNIQUE_AGG"
+      },
+      "answer": "c",
+      "explanation": "APPROX_COUNT_DISTINCT uses probabilistic estimation to calculate distinct counts efficiently.",
+      "category1": "Querying",
+      "category2": "SQL Functions"
+    },
+    {
+      "number": 45,
+      "text": "What is the minimum Snowflake edition required to use object tagging?",
+      "options": {
+        "a": "Standard",
+        "b": "Enterprise",
+        "c": "Business Critical",
+        "d": "Virtual Private Snowflake (VPS)"
+      },
+      "answer": "b",
+      "explanation": "Object tagging is a governance feature introduced in the Enterprise edition.",
+      "category1": "Security",
+      "category2": "Governance"
+    },
+    {
+      "number": 46,
+      "text": "If a multi-cluster virtual warehouse is running in Auto-scale mode, how are workloads with unpredictable usage patterns handled?",
+      "options": {
+        "a": "Snowflake automatically resizes the warehouse based on usage requirements.",
+        "b": "Snowflake automatically starts and stops additional clusters as needed.",
+        "c": "Snowflake notifies users when to adjust the number of clusters to improve workload performance.",
+        "d": "Snowflake automatically starts additional clusters when the primary cluster reaches 50% capacity."
+      },
+      "answer": "b",
+      "explanation": "Auto-scale mode handles varying load by dynamically adjusting the number of active clusters.",
+      "category1": "Performance",
+      "category2": "Virtual Warehouses"
+    },
+    {
+      "number": 47,
+      "text": "What is the result of running this SQL command? ALTER WAREHOUSE MY_WH SET AUTO_SUSPEND = 0",
+      "options": {
+        "a": "The warehouse MY_WH will never suspend.",
+        "b": "The warehouse MY_WH will suspend immediately after every query execution.",
+        "c": "The warehouse MY_WH will suspend when the first query completes, and will not resume.",
+        "d": "The query will fail with an error that says that there is an invalid value for AUTO_SUSPEND."
+      },
+      "answer": "a",
+      "explanation": "Setting AUTO_SUSPEND to 0 disables automatic suspension for that warehouse.",
+      "category1": "Performance",
+      "category2": "Virtual Warehouses"
+    },
+    {
+      "number": 48,
+      "text": "What languages can be used to write User-Defined Functions (UDF's)? (Select TWO)",
+      "options": {
+        "a": "Groovy",
+        "b": "JavaScript",
+        "c": "Python",
+        "d": "Spark",
+        "e": "Golang"
+      },
+      "answer": ["b", "c"],
+      "explanation": "JavaScript and Python are two native languages supported for Snowflake UDF logic.",
+      "category1": "Querying",
+      "category2": "UDFs"
+    },
+    {
+      "number": 49,
+      "text": "When would creating and using a standard view be preferable to using a materialized view?",
+      "options": {
+        "a": "The underlying query of the view is run on large data sets.",
+        "b": "The underlying query of the view takes a lot of time to run.",
+        "c": "The view results change often.",
+        "d": "The underlying query of the view is resource-intensive."
+      },
+      "answer": "c",
+      "explanation": "Standard views are better for frequently changing data to avoid the high re-clustering/maintenance costs of materialized views.",
+      "category1": "Performance",
+      "category2": "Views"
+    },
+    {
+      "number": 50,
+      "text": "Which Snowflake object type can be used to restrict users from viewing the DDL associated with an object?",
+      "options": {
+        "a": "Materialized view",
+        "b": "Secure view",
+        "c": "Data masking policy",
+        "d": "Stored procedure"
+      },
+      "answer": "b",
+      "explanation": "Secure views hide the internal DDL and SQL logic from users without OWNERSHIP privileges.",
+      "category1": "Security",
+      "category2": "Secure Objects"
+    },
+    {
+      "number": 51,
+      "text": "How does resizing a virtual warehouse affect Snowflake billing?",
+      "options": {
+        "a": "Each time a warehouse is resized, 1 credit is billed.",
+        "b": "Each time a warehouse is resized, each second of usage is billed.",
+        "c": "A warehouse can be resized an unlimited number of times without consuming any credits.",
+        "d": "When a warehouse is resized to a larger size it is billed for 1 minute of usage."
+      },
+      "answer": "b",
+      "explanation": "Resizing is billed by the second based on the active size of the compute resource.",
+      "category1": "Overview",
+      "category2": "Billing"
+    },
+    {
+      "number": 52,
+      "text": "Which Snowflake native tool can be used to diagnose and troubleshoot network connections?",
+      "options": {
+        "a": "SnowSQL",
+        "b": "Snowflake Python connector",
+        "c": "Snowsight",
+        "d": "SnowCD"
+      },
+      "answer": "d",
+      "explanation": "SnowCD (Snowflake Connectivity Diagnostic) specifically tests your network connection to Snowflake endpoints.",
+      "category1": "Overview",
+      "category2": "Tools"
+    },
+    {
+      "number": 53,
+      "text": "Which step will reduce costs when backing up a table?",
+      "options": {
+        "a": "Clone the table",
+        "b": "Unload the table data to a stage",
+        "c": "Share the table data with an account in another region",
+        "d": "Copy the table using a Create Table as Select (CTAS) statement"
+      },
+      "answer": "a",
+      "explanation": "Cloning uses metadata pointers and doesn't duplicate storage costs until data is actually changed.",
+      "category1": "Storage",
+      "category2": "Cloning"
+    },
+    {
+      "number": 54,
+      "text": "Which commands in a query will benefit from the Query Acceleration Service? (Select TWO)",
+      "options": {
+        "a": "UPDATE",
+        "b": "TRUNCATE",
+        "c": "INSERT",
+        "d": "DELETE",
+        "e": "CREATE TABLE AS SELECT (CTAS)"
+      },
+      "answer": ["c", "e"],
+      "explanation": "QAS accelerates operations involving large scans like complex INSERTs and CTAS statements.",
+      "category1": "Performance",
+      "category2": "Query Acceleration"
+    },
+    {
+      "number": 55,
+      "text": "What are the benefits of using a persisted query results in Snowflake? (Select TWO)",
+      "options": {
+        "a": "Optimization of queries that select from hybrid tables.",
+        "b": "Reduction of the time it takes to run a query.",
+        "c": "Optimization of queries that include external functions.",
+        "d": "Availability of query results for additional processing.",
+        "e": "Query performance optimization when table micro-partitions have changed."
+      },
+      "answer": ["b", "d"],
+      "explanation": "Persisted result cache allows for instantaneous repeat queries and post-processing using RESULT_SCAN.",
+      "category1": "Performance",
+      "category2": "Caching"
+    },
+    {
+      "number": 56,
+      "text": "What is the MAXIMUM data retention period for transient databases when using the Snowflake Enterprise edition?",
+      "options": {
+        "a": "1 day",
+        "b": "7 days",
+        "c": "30 days",
+        "d": "90 days"
+      },
+      "answer": "a",
+      "explanation": "Transient objects are limited to 1 day of Time Travel retention and no Fail-safe.",
+      "category1": "Storage",
+      "category2": "Time Travel"
+    },
+    {
+      "number": 57,
+      "text": "What tasks should be performed with SnowSQL? (Select TWO)",
+      "options": {
+        "a": "Sharing data with customers that do not have a Snowflake account.",
+        "b": "Running queries and performing Data Definition Language (DDL) and Data Manipulation Language (DML) operations.",
+        "c": "Running commands for Streamlit",
+        "d": "Loading and unloading data into tables.",
+        "e": "Visualizing data with graphs and charts."
+      },
+      "answer": ["b", "d"],
+      "explanation": "SnowSQL is the command-line interface for executing SQL and moving data via PUT/GET.",
+      "category1": "Overview",
+      "category2": "Tools"
+    },
+    {
+      "number": 58,
+      "text": "Which Snowflake objects can have a clustering key? (Select TWO)",
+      "options": {
+        "a": "Secure view",
+        "b": "Hybrid table",
+        "c": "Directory table",
+        "d": "Standard table",
+        "e": "Materialized view"
+      },
+      "answer": ["d", "e"],
+      "explanation": "Clustering keys can be defined on permanent tables and materialized views to improve performance.",
+      "category1": "Performance",
+      "category2": "Clustering"
+    },
+    {
+      "number": 59,
+      "text": "The ORDERS table contains 12000 rows. Which query will return 10 rows that are randomly sampled from the table every time the query is run?",
+      "options": {
+        "a": "select * from ORDERS tablesample (10 rows);",
+        "b": "select * from ORDERS fetch 10;",
+        "c": "select * from ORDERS sample (10);",
+        "d": "select * from ORDERS limit 10;"
+      },
+      "answer": "a",
+      "explanation": "The TABLESAMPLE clause is used specifically for random sampling of records.",
+      "category1": "Querying",
+      "category2": "Sampling"
+    },
+    {
+      "number": 60,
+      "text": "On which Snowflake objects can a Data Metric Function (DMF) be set? (Select TWO)",
+      "options": {
+        "a": "Hybrid table",
+        "b": "Stream object",
+        "c": "Dynamic table",
+        "d": "External table",
+        "e": "Shared table"
+      },
+      "answer": ["a", "c"],
+      "explanation": "DMFs for data quality monitoring can be applied to standard, hybrid, and dynamic tables.",
+      "category1": "Security",
+      "category2": "Governance"
+    },
+    {
+      "number": 61,
+      "text": "Use of which features or objects will incur Snowflake storage costs? (Select TWO)",
+      "options": {
+        "a": "Fail-safe",
+        "b": "Cache results",
+        "c": "External tables",
+        "d": "Transient tables",
+        "e": "Inbound shares"
+      },
+      "answer": ["a", "d"],
+      "explanation": "Storage costs apply to permanent table data (Fail-safe included) and transient table data.",
+      "category1": "Storage",
+      "category2": "Billing"
+    },
+    {
+      "number": 62,
+      "text": "Which resource monitor setting will cancel all active queries in a virtual warehouse when the threshold is reached?",
+      "options": {
+        "a": "NOTIFY",
+        "b": "NOTIFY_USERS",
+        "c": "SUSPEND",
+        "d": "SUSPEND_IMMEDIATE"
+      },
+      "answer": "d",
+      "explanation": "SUSPEND_IMMEDIATE cancels all running queries as soon as the credit threshold is hit.",
+      "category1": "Performance",
+      "category2": "Resource Monitors"
+    },
+    {
+      "number": 63,
+      "text": "When is a DataFrame processed in Snowpark?",
+      "options": {
+        "a": "When the DataFrame is created.",
+        "b": "When a collect() action is triggered.",
+        "c": "When there is sufficient memory available in the virtual warehouse.",
+        "d": "When a new transformation is applied on the DataFrame."
+      },
+      "answer": "b",
+      "explanation": "Snowpark follows lazy execution; work is only performed when an action like collect() is called.",
+      "category1": "Overview",
+      "category2": "Snowpark"
+    },
+    {
+      "number": 64,
+      "text": "While unloading a Snowflake table data into a CSV file, a user notes that float column values are being truncated. Use of which data format would preserve the float column values?",
+      "options": {
+        "a": "ORC",
+        "b": "PARQUET",
+        "c": "JSON",
+        "d": "AVRO"
+      },
+      "answer": "b",
+      "explanation": "Parquet is a binary format that maintains the original precision of floating-point numbers.",
+      "category1": "Data Unloading",
+      "category2": "File Formats"
+    },
+    {
+      "number": 65,
+      "text": "Which Snowflake service is managed within the Cloud Services layer?",
+      "options": {
+        "a": "Data storage",
+        "b": "File compression",
+        "c": "Query processing",
+        "d": "Infrastructure management"
+      },
+      "answer": "d",
+      "explanation": "The Cloud Services layer manages account infrastructure, metadata, and authentication.",
+      "category1": "Overview",
+      "category2": "Architecture"
+    },
+    {
+      "number": 66,
+      "text": "What sequence of commands will unload data into a local directory?",
+      "options": {
+        "a": "COPY_INTO",
+        "b": "List",
+        "c": "Get"
+      },
+      "answer": ["a", "b", "c"],
+      "explanation": "Data must be copied to a stage (COPY INTO), verified (LIST), and then downloaded locally (GET).",
+      "category1": "Data Unloading",
+      "category2": "Unloading Workflow"
+    },
+    {
+      "number": 67,
+      "text": "What is the MINIMUM Snowflake edition required to add masking policies to selectively mask plain-text data in a table?",
+      "options": {
+        "a": "Standard",
+        "b": "Enterprise",
+        "c": "Business Critical",
+        "d": "Virtual Private Snowflake (VPS)"
+      },
+      "answer": "b",
+      "explanation": "Dynamic Data Masking requires Enterprise edition or higher.",
+      "category1": "Security",
+      "category2": "Masking"
+    },
+    {
+      "number": 68,
+      "text": "Which data type can be used for floating-point numbers without losing precision?",
+      "options": {
+        "a": "NUMBER",
+        "b": "INTERGER",
+        "c": "BINARY",
+        "d": "VARIANT"
+      },
+      "answer": "a",
+      "explanation": "NUMBER (Fixed-point) stores exact values with a specified precision (up to 38 digits).",
+      "category1": "Data Types",
+      "category2": "Numeric Types"
+    },
+    {
+      "number": 69,
+      "text": "Which object can be used to query the data loading history for the last 365 days for a Snowflake account?",
+      "options": {
+        "a": "The database INFORMATION_SCHEMA.DATA_TRANSFER_HISTORY table function",
+        "b": "The SNOWFLAKE.ACCOUNT_USAGE.DATA_TRANSFER_HISTORY view",
+        "c": "The database INFORMATION_SCHEMA.COPY_HISTORY table function",
+        "d": "The SNOWFLAKE.ACCOUNT_USAGE.COPY_HISTORY view"
+      },
+      "answer": "d",
+      "explanation": "ACCOUNT_USAGE.COPY_HISTORY stores a long-term (365-day) record of all file ingestion.",
+      "category1": "Data Loading",
+      "category2": "Monitoring"
+    },
+    {
+      "number": 70,
+      "text": "If a table was dropped and the DATA_RETENTION_TIME_IN_DAYS was set to 0, how can the data from the table be recovered?",
+      "options": {
+        "a": "By creating a failover group.",
+        "b": "By creating a Snowflake Support ticket.",
+        "c": "By running the UNDROP TABLE command.",
+        "d": "By running the CLONE... BEFORE command."
+      },
+      "answer": "b",
+      "explanation": "Without Time Travel, recovery must go through Fail-safe via Snowflake Support.",
+      "category1": "Storage",
+      "category2": "Data Recovery"
+    },
+    {
+      "number": 71,
+      "text": "How can unstructured data be processed in a Snowflake stage? (Select TWO)",
+      "options": {
+        "a": "Use a SQL procedure.",
+        "b": "Use external functions.",
+        "c": "Use a C# procedure.",
+        "d": "Implement a Golang (Go) User-Defined Function (UDF).",
+        "e": "Implement a Python User-Defined Function (UDF)."
+      },
+      "answer": ["b", "e"],
+      "explanation": "Python UDFs can read file streams from stages, and external functions can process file metadata/URLs.",
+      "category1": "Data Types",
+      "category2": "Unstructured Data"
+    },
+    {
+      "number": 72,
+      "text": "While working with unstructured data, which file function generates a Snowflake-hosted file URL to a staged file using the user session?",
+      "options": {
+        "a": "GET_PRESIGNED_URL",
+        "b": "GET_ABSOLUTE_PATH",
+        "c": "BUILD_STAGE_FILE_URL",
+        "d": "BUILD_SCOPED_FILE_URL"
+      },
+      "answer": "d",
+      "explanation": "Scoped URLs are session-specific and restricted to the current user's role.",
+      "category1": "Data Types",
+      "category2": "Unstructured Data"
+    },
+    {
+      "number": 73,
+      "text": "When loading JSON files that contain NULL values, which file format option should be set to = TRUE?",
+      "options": {
+        "a": "NULL_IF",
+        "b": "STRIP_NULL_VALUES",
+        "c": "EMPTY_FIELD_AS_NULL",
+        "d": "RETURN_ERRORS"
+      },
+      "answer": "b",
+      "explanation": "STRIP_NULL_VALUES removes fields with null values, allowing them to be handled as missing in the VARIANT column.",
+      "category1": "Data Loading",
+      "category2": "Semi-structured Data"
+    },
+    {
+      "number": 74,
+      "text": "Which transformation operations can be used when loading data into a table using the COPY_INTO <table> command?",
+      "options": {
+        "a": "Using a JOIN or GROUP BY aggregation.",
+        "b": "Using column reordering and column omission operations.",
+        "c": "Filtering the results of a FROM clause using a WHERE clause",
+        "d": "Using the ORDER BY, LIMIT, FETCH and TOP keywords in SELECT statements"
+      },
+      "answer": "b",
+      "explanation": "COPY INTO allows basic projections like column selection, casting, and reordering.",
+      "category1": "Data Loading",
+      "category2": "COPY INTO"
+    },
+    {
+      "number": 75,
+      "text": "What data type should be used to store hierarchical semi-structured data in Snowflake?",
+      "options": {
+        "a": "OBJECT",
+        "b": "ARRAY",
+        "c": "VARIANT",
+        "d": "STRING"
+      },
+      "answer": "c",
+      "explanation": "VARIANT is the universal data type for storing all hierarchical semi-structured formats like JSON.",
+      "category1": "Data Types",
+      "category2": "Semi-structured Data"
+    },
+    {
+      "number": 76,
+      "text": "What is run with a CALL statement?",
+      "options": {
+        "a": "System functions",
+        "b": "Tasks",
+        "c": "Stored procedures",
+        "d": "External functions"
+      },
+      "answer": "c",
+      "explanation": "Stored procedures are standalone blocks of logic executed using the CALL command.",
+      "category1": "Querying",
+      "category2": "Stored Procedures"
+    },
+    {
+      "number": 77,
+      "text": "Using what type of table will help MINIMIZE storage costs for tables that contain non-critical data and change frequently?",
+      "options": {
+        "a": "Temporary table",
+        "b": "Transient table",
+        "c": "Dynamic table",
+        "d": "Hybrid table"
+      },
+      "answer": "b",
+      "explanation": "Transient tables avoid Fail-safe costs, making them cheaper for high-churn, non-critical data.",
+      "category1": "Storage",
+      "category2": "Table Types"
+    },
+    {
+      "number": 78,
+      "text": "A size X-Small virtual warehouse ran for 90 seconds, and was shut down. The warehouse was then run for another 30 seconds before being shut down again. How many seconds will be billed?",
+      "options": {
+        "a": "120 seconds",
+        "b": "180 seconds",
+        "c": "150 seconds",
+        "d": "90 seconds"
+      },
+      "answer": "a",
+      "explanation": "Total usage is 120s (90s + 30s), exceeding the 60s minimum on the first run.",
+      "category1": "Overview",
+      "category2": "Billing"
+    },
+    {
+      "number": 79,
+      "text": "What command will return a list of files that have been unloaded to a user stage?",
+      "options": {
+        "a": "DESC @~",
+        "b": "GET @~",
+        "c": "SHOW @~",
+        "d": "LIST @~"
+      },
+      "answer": "d",
+      "explanation": "LIST is the standard command for showing files in a Snowflake stage.",
+      "category1": "Data Loading",
+      "category2": "Monitoring"
+    },
+    {
+      "number": 80,
+      "text": "Which function will return the URL for an external stage by using the stage name as the input?",
+      "options": {
+        "a": "GET_ABSOLUTE_PATH",
+        "b": "GET_PRESIGNED_URL",
+        "c": "GET_STAGE_LOCATION",
+        "d": "BUILD_STAGE_FILE_URL"
+      },
+      "answer": "c",
+      "explanation": "GET_STAGE_LOCATION returns the cloud storage bucket location linked to a specific stage.",
+      "category1": "Data Loading",
+      "category2": "Stage Functions"
+    },
+    {
+      "number": 81,
+      "text": "Which database object can be created as temporary for a given session?",
+      "options": {
+        "a": "View",
+        "b": "Stage",
+        "c": "Stored procedure",
+        "d": "User-Defined Function (UDF)"
+      },
+      "answer": "b",
+      "explanation": "Temporary stages can be defined that exist only for the life of the current session.",
+      "category1": "Storage",
+      "category2": "Stages"
+    },
+    {
+      "number": 82,
+      "text": "Which keywords can be used interchangeably when performing data sampling in Snowflake? (Select TWO)",
+      "options": {
+        "a": "Block/limit",
+        "b": "Sample / Tablesample",
+        "c": "Bernoulli / Row",
+        "d": "Repeatable / Sample",
+        "e": "Row/Seed"
+      },
+      "answer": ["b", "c"],
+      "explanation": "SAMPLE and TABLESAMPLE are equivalent, and BERNOULLI is a type of row-based sampling.",
+      "category1": "Querying",
+      "category2": "Sampling"
+    },
+    {
+      "number": 83,
+      "text": "What is a fundamental characteristic of Snowflake micro-partitions?",
+      "options": {
+        "a": "They can be read directly as files.",
+        "b": "They serve as an index for Snowflake tables.",
+        "c": "They are sized based on Time Travel requirements.",
+        "d": "Once established, they cannot be changed."
+      },
+      "answer": "d",
+      "explanation": "Snowflake micro-partitions are immutable; modifications always result in the writing of new partitions.",
+      "category1": "Storage",
+      "category2": "Micro-partitions"
+    },
+    {
+      "number": 84,
+      "text": "Which option will replace NULL values with an empty string while unloading data into a file?",
+      "options": {
+        "a": "null_if=('NULL')",
+        "b": "null_if =('')",
+        "c": "FIELD_OPTIONALLY_ENCLOSED_BY = NONE",
+        "d": "EMPTY_FIELD_AS_NULL = TRUE"
+      },
+      "answer": "b",
+      "explanation": "The NULL_IF parameter specifies the string representation of SQL NULLs in unloaded files.",
+      "category1": "Data Unloading",
+      "category2": "COPY INTO"
+    },
+    {
+      "number": 85,
+      "text": "What would be the outcome of querying a VARIANT column using an invalid path?",
+      "options": {
+        "a": "NULL",
+        "b": "Undefined data",
+        "c": "An empty string",
+        "d": "An invalid identifier error"
+      },
+      "answer": "a",
+      "explanation": "Queries to missing keys in a VARIANT object return a SQL NULL.",
+      "category1": "Data Types",
+      "category2": "Semi-structured Data"
+    },
+    {
+      "number": 86,
+      "text": "What is the MINIMUN role required to create database objects?",
+      "options": {
+        "a": "ACCOUNTADMIN",
+        "b": "USERADMIN",
+        "c": "SECURITYADMIN",
+        "d": "SYSADMIN"
+      },
+      "answer": "d",
+      "explanation": "SYSADMIN is the intended role for standard object creation and ownership.",
+      "category1": "Security",
+      "category2": "Access Control"
+    },
+    {
+      "number": 87,
+      "text": "Which Snowflake feature allows data providers to share data with consumers who do not have Snowflake accounts?",
+      "options": {
+        "a": "Reader accounts",
+        "b": "Provider accounts",
+        "c": "Outbound data share",
+        "d": "Inbound data share"
+      },
+      "answer": "a",
+      "explanation": "Reader accounts provide a Snowflake managed instance for third parties without their own account.",
+      "category1": "Data Sharing",
+      "category2": "Collaboration"
+    },
+    {
+      "number": 88,
+      "text": "When using COPY INTO <location> command to generate CSV files from data in a Snowflake table, which option would compress the file using the default algorithm?",
+      "options": {
+        "a": "DEFLATE",
+        "b": "AUTO",
+        "c": "NONE",
+        "d": "ZSTD"
+      },
+      "answer": "b",
+      "explanation": "AUTO compression defaults to GZIP when unloading data to stages.",
+      "category1": "Data Unloading",
+      "category2": "COPY INTO"
+    },
+    {
+      "number": 89,
+      "text": "Which virtual warehouse configuration enables horizontal scaling?",
+      "options": {
+        "a": "Increasing the WAREHOUSE_SIZE",
+        "b": "Increasing the MAX_CLUSTER_COUNT",
+        "c": "Increasing the MAX_CONCURRENCY_LEVEL",
+        "d": "Increasing the MIN_CLUSTER_COUNT"
+      },
+      "answer": "b",
+      "explanation": "Horizontal scaling specifically refers to adding clusters to handle more concurrent queries.",
+      "category1": "Performance",
+      "category2": "Virtual Warehouses"
+    },
+    {
+      "number": 90,
+      "text": "How can a data provider deliver data privately to multiple data consumers, at no cost for the consumers?",
+      "options": {
+        "a": "Data Exchange",
+        "b": "Database replication",
+        "c": "Snowflake Marketplace",
+        "d": "Unload the data to external storage"
+      },
+      "answer": "a",
+      "explanation": "Data Exchanges facilitate private sharing where providers can subsidize consumer costs.",
+      "category1": "Data Sharing",
+      "category2": "Collaboration"
+    },
+    {
+      "number": 91,
+      "text": "Which object or feature can be used to monitor access to shared data?",
+      "options": {
+        "a": "Resource monitor",
+        "b": "Access control",
+        "c": "QUERY_HISTORY view",
+        "d": "ACCESS_HISTORY view"
+      },
+      "answer": "d",
+      "explanation": "ACCESS_HISTORY tracks data access across the account, including shared databases.",
+      "category1": "Governance",
+      "category2": "Monitoring"
+    },
+    {
+      "number": 92,
+      "text": "How can queries be identified that would benefit from the query acceleration service?",
+      "options": {
+        "a": "Review the Query Profile to assess the effectiveness of the query pruning.",
+        "b": "Access the QUERY_ACCELERATION_ELIGIBLE view",
+        "c": "Enable the QUERY_ACCELERATION_MAX_SCALE_FACTOR = 1 parameter.",
+        "d": "Access the WAREHOUSE_METERING_HISTORY view"
+      },
+      "answer": "b",
+      "explanation": "This view identifies historical queries that the service could have improved.",
+      "category1": "Performance",
+      "category2": "Monitoring"
+    },
+    {
+      "number": 93,
+      "text": "In Snowflake, what allows users to perform recursive queries?",
+      "options": {
+        "a": "QUALIFY",
+        "b": "LATERLAL",
+        "c": "PIVOT",
+        "d": "CONNECT BY"
+      },
+      "answer": "d",
+      "explanation": "CONNECT BY is the native clause used for recursive hierarchy traversal in Snowflake.",
+      "category1": "Querying",
+      "category2": "SQL Clauses"
+    },
+    {
+      "number": 94,
+      "text": "What parameter setting will MAXIMIZE parallel processing when unloading data from Snowflake?",
+      "options": {
+        "a": "SINGLE = TRUE",
+        "b": "SINGLE = FALSE",
+        "c": "DETAILED_OUTPUT = TRUE",
+        "d": "DETAILED_OUTPUT = FALSE"
+      },
+      "answer": "b",
+      "explanation": "SINGLE = FALSE allows Snowflake to use multiple threads to write multiple files simultaneously.",
+      "category1": "Data Unloading",
+      "category2": "COPY INTO"
+    },
+    {
+      "number": 95,
+      "text": "For how long is data history reported in the QUERY_HISTORY view?",
+      "options": {
+        "a": "24 hours",
+        "b": "7 days",
+        "c": "14 days",
+        "d": "1 year"
+      },
+      "answer": "d",
+      "explanation": "QUERY_HISTORY in the Account Usage schema maintains up to 365 days of record.",
+      "category1": "Governance",
+      "category2": "Monitoring"
+    },
+    {
+      "number": 96,
+      "text": "How are clusters handled when the Economy scaling policy is set on a multi-cluster virtual warehouse?",
+      "options": {
+        "a": "A new cluster starts when the system detects that there is one or more queries queued waiting for an available cluster",
+        "b": "A new cluster will start every 60 seconds if there are queued queries that have been waiting for more than 30 seconds",
+        "c": "A new cluster starts only if the system estimates that the queued queries will require resources that will keep the new cluster",
+        "d": "A cluster will shut down after 3 system checks indicating that the cluster has been under-utilized for a minimum of 6 minutes"
+      },
+      "answer": "c",
+      "explanation": "Economy policy prioritizes conservation, only starting clusters if it anticipates sustained work for them.",
+      "category1": "Performance",
+      "category2": "Virtual Warehouses"
+    },
+    {
+      "number": 97,
+      "text": "When would the use of the query acceleration service be MOST beneficial? (Select TWO)",
+      "options": {
+        "a": "When most queries have no filters or aggregate clauses",
+        "b": "When analytical queries are performed frequently at unschedule times",
+        "c": "When queries typically include a LIMIT clause without an ORDER BY clause",
+        "d": "When queries with small scans and highly-selective filters are run frequently",
+        "e": "When the data workloads for most queries have large, unpredictable data volumes"
+      },
+      "answer": ["b", "e"],
+      "explanation": "The service is ideal for handling sporadic, large scan workloads efficiently.",
+      "category1": "Performance",
+      "category2": "Query Acceleration"
+    },
+    {
+      "number": 98,
+      "text": "Which table function will automatically detect the file metadata schema for a set of staged semi-structured data files, and then retrieve the column definitions?",
+      "options": {
+        "a": "VALIDATE",
+        "b": "INFER_SCHEMA",
+        "c": "SPLIT_TO_TABLE",
+        "d": "GET_OBJECT_REFERENCES"
+      },
+      "answer": "b",
+      "explanation": "INFER_SCHEMA analyzes staged files (Parquet, Avro, etc.) to determine their internal structure.",
+      "category1": "Data Loading",
+      "category2": "Semi-structured Data"
+    },
+    {
+      "number": 99,
+      "text": "What does an integration between Snowflake and Microsoft Private Link or AWS PrivateLink support?",
+      "options": {
+        "a": "The isolation of data within a Snowflake account",
+        "b": "The use of Secure Data Sharing among Snowflake accounts",
+        "c": "A Virtual Private Network (VPN) between a user and Snowflake",
+        "d": "A secure, direct connection to Snowflake that does not use the internet"
+      },
+      "answer": "d",
+      "explanation": "PrivateLink enables private network connectivity directly to Snowflake without using the public internet.",
+      "category1": "Security",
+      "category2": "Networking"
+    },
+    {
+      "number": 100,
+      "text": "Which step will increase security related to user access to a Snowflake account?",
+      "options": {
+        "a": "Set up a User-Defined Function (UDF) to run a daily report identifying all security-related session parameters used in the last 24 hours",
+        "b": "Restrict access to Snowflake to known networks using a network policy",
+        "c": "Establish a very short session timeout parameter",
+        "d": "Default all new users to a PUBLIC role with restrictive permissions"
+      },
+      "answer": "b",
+      "explanation": "Network policies protect account access by limiting incoming requests to trusted IP ranges.",
+      "category1": "Security",
+      "category2": "Network Policies"
+    },
+    {
+      "number": 101,
+      "text": "On which objects can the REMOVE command be applied? (Select TWO)",
+      "options": {
+        "a": "Directory tables",
+        "b": "External tables",
+        "c": "External stages",
+        "d": "Internal stages",
+        "e": "Streams"
+      },
+      "answer": ["c", "d"],
+      "explanation": "REMOVE (RM) is used to delete files from both internal and external stages.",
+      "category1": "Data Loading",
+      "category2": "Stage Management"
+    },
+    {
+      "number": 102,
+      "text": "What can be used to improve the performance of queries that are run on an external table?",
+      "options": {
+        "a": "Search optimization service",
+        "b": "Query acceleration service",
+        "c": "Clustering key",
+        "d": "Materialized view"
+      },
+      "answer": "d",
+      "explanation": "A materialized view caches external data within Snowflake storage, bypassing slower cloud object store scans.",
+      "category1": "Performance",
+      "category2": "External Tables"
+    },
+    {
+      "number": 103,
+      "text": "Which Snowflake table stores file-level metadata about unstructured data files in a stage, including the size, last-modified timestamp, and Snowflake file URL?",
+      "options": {
+        "a": "Directory table",
+        "b": "External table",
+        "c": "Dynamic table",
+        "d": "Iceberg table"
+      },
+      "answer": "a",
+      "explanation": "Directory tables serve as built-in catalogs for unstructured data file metadata on stages.",
+      "category1": "Data Types",
+      "category2": "Unstructured Data"
+    },
+    {
+      "number": 104,
+      "text": "Which Query Profile operator can be used to identify inefficient micro-partition pruning?",
+      "options": {
+        "a": "Generator",
+        "b": "Internal Object",
+        "c": "TableScan",
+        "d": "Aggregate"
+      },
+      "answer": "c",
+      "explanation": "TableScan metrics show total versus scanned partitions, revealing how effectively Snowflake pruned the data.",
+      "category1": "Performance",
+      "category2": "Query Profile"
+    },
+    {
+      "number": 105,
+      "text": "Which feature uses a Snowflake key with a customer-managed key to protect data?",
+      "options": {
+        "a": "Trust Center",
+        "b": "Tri-Secret Secure",
+        "c": "Key-pair authentication",
+        "d": "Multi-Factor Authentication (MFA)"
+      },
+      "answer": "b",
+      "explanation": "Tri-Secret Secure combines account-level, data-level, and user-managed keys for multi-layered protection.",
+      "category1": "Security",
+      "category2": "Encryption"
+    },
+    {
+      "number": 106,
+      "text": "Which combination of permissions are required to create a pipe in Snowflake? (Select TWO)",
+      "options": {
+        "a": "USAGE on the virtual warehouse",
+        "b": "CREATE PIPE at the schema level",
+        "c": "CREATE SCHEMA at the database level",
+        "d": "OWNERSHIP on the table in the pipe definition",
+        "e": "SELECT and INSERT on the table in the pipe definition"
+      },
+      "answer": ["b", "e"],
+      "explanation": "A pipe requires the permission to create the object and the ability to interact with the target table data.",
+      "category1": "Data Loading",
+      "category2": "Snowpipe"
+    },
+    {
+      "number": 107,
+      "text": "A global company needs to share financial reports with managers who are in different regions. Managers should only see the data from their respective regions. How can these requirements be met with the LEAST amount of operational overhead?",
+      "options": {
+        "a": "Create unique views for each regions",
+        "b": "Build individual reports for each manager",
+        "c": "User row-level security on the source data table used to generate the reports",
+        "d": "Apply Dynamic Data Masking based on a custom role assigned to each manager"
+      },
+      "answer": "c",
+      "explanation": "Row Access Policies provide dynamic filtering based on user attributes, avoiding the need for multiple objects.",
+      "category1": "Security",
+      "category2": "Row-level Security"
+    },
+    {
+      "number": 108,
+      "text": "A user reports poor query performance when running a SEARCH_IP query. How can performance be improved?",
+      "options": {
+        "a": "Alter the warehouse and set the maximum cluster count to 3",
+        "b": "Alter the warehouse to enable the query acceleration service",
+        "c": "Alter the table to add search optimization on the IP column",
+        "d": "Alter the table to add clustering on the IP column"
+      },
+      "answer": "c",
+      "explanation": "Search Optimization is designed to accelerate point-lookups like IP searches in massive tables.",
+      "category1": "Performance",
+      "category2": "Search Optimization"
+    },
+    {
+      "number": 109,
+      "text": "Which command should be used to drop files from an internal or external stage?",
+      "options": {
+        "a": "DELETE",
+        "b": "DROP",
+        "c": "REMOVE",
+        "d": "TRUNCATE"
+      },
+      "answer": "c",
+      "explanation": "REMOVE is the specific DDL/DML command for purging files from staged storage.",
+      "category1": "Data Loading",
+      "category2": "Stage Management"
+    },
+    {
+      "number": 110,
+      "text": "What metrics will the SHOW TABLES command in Snowsight provide?",
+      "options": {
+        "a": "Time Travel bytes",
+        "b": "Active bytes",
+        "c": "Fail-safe bytes",
+        "d": "Retained for clone bytes"
+      },
+      "answer": "b",
+      "explanation": "SHOW TABLES displays basic table metadata, including current active data usage.",
+      "category1": "Monitoring",
+      "category2": "Storage Metrics"
+    },
+    {
+      "number": 111,
+      "text": "Which type of Snowflake security policy requires users to re-authenticate after a given period of inactivity?",
+      "options": {
+        "a": "Network policy",
+        "b": "Password policy",
+        "c": "Authenticate policy",
+        "d": "Session policy"
+      },
+      "answer": "d",
+      "explanation": "Session policies define connection lifespans and inactivity timeouts for users.",
+      "category1": "Security",
+      "category2": "Authentication"
+    },
+    {
+      "number": 112,
+      "text": "Which statement will execute a stored procedure?",
+      "options": {
+        "a": "CALL proc1 (SELECT COUNT(*) FROM <table>);",
+        "b": "CALL proc1(1) + proc1(2);",
+        "c": "CALL proc1(1) + 1;",
+        "d": "CALL proc1(proc2(1));"
+      },
+      "answer": "a",
+      "explanation": "Stored procedures are triggered as standalone statements using the CALL keyword.",
+      "category1": "Querying",
+      "category2": "Stored Procedures"
+    },
+    {
+      "number": 113,
+      "text": "What are the possible values within a METADATA$ACTION column in a Snowflake stream? (Select TWO)",
+      "options": {
+        "a": "INSERT",
+        "b": "UPDATE",
+        "c": "DELETE",
+        "d": "TRUNCATE",
+        "e": "UPSERT"
+      },
+      "answer": ["a", "c"],
+      "explanation": "Streams record row-level changes by labeling them as either an INSERT or a DELETE.",
+      "category1": "Storage",
+      "category2": "Streams"
+    }
+  ]
+}

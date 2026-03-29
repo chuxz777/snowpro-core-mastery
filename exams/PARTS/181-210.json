@@ -1,0 +1,374 @@
+[
+  {
+    "number": 181,
+    "text": "True or False: Snowflake provides a way to restore a table that was accidentally dropped using the UNDROP command.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Data Protection"
+  },
+  {
+    "number": 182,
+    "text": "Which of the following describes a 'Transient' table?",
+    "options": {
+      "a": "It exists only for the duration of a single session.",
+      "b": "It has no Fail-safe period but persists across sessions.",
+      "c": "It is a read-only copy of a Permanent table.",
+      "d": "It is stored in the Cloud Services layer instead of the Storage layer."
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Storage"
+  },
+  {
+    "number": 183,
+    "text": "When unloading data, what does the 'MAX_FILE_SIZE' parameter control?",
+    "options": {
+      "a": "The maximum size of the total data set to be unloaded.",
+      "b": "The maximum upper limit of an individual file size created on the stage.",
+      "c": "The maximum number of rows per file.",
+      "d": "The compression ratio of the files."
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Data Movement"
+  },
+  {
+    "number": 184,
+    "text": "True or False: A Virtual Warehouse can be configured to automatically scale based on the number of queries in the queue.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Compute"
+  },
+  {
+    "number": 185,
+    "text": "Which command is used to see the list of files currently residing in an Internal Stage?",
+    "options": {
+      "a": "SHOW FILES",
+      "b": "LIST @stage_name",
+      "c": "SELECT * FROM @stage_name",
+      "d": "DESC STAGE @stage_name"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Data Movement"
+  },
+  {
+    "number": 186,
+    "text": "Which role is primarily responsible for creating and managing users and roles within the RBAC hierarchy?",
+    "options": {
+      "a": "SYSADMIN",
+      "b": "USERADMIN",
+      "c": "PUBLIC",
+      "d": "ACCOUNTADMIN"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Security"
+  },
+  {
+    "number": 187,
+    "text": "What is the primary benefit of 'Search Optimization Service' in Snowflake?",
+    "options": {
+      "a": "It speeds up large table scans.",
+      "b": "It improves the performance of point lookup queries on large tables.",
+      "c": "It reduces the cost of data storage.",
+      "d": "It automates the creation of clustering keys."
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Performance"
+  },
+  {
+    "number": 188,
+    "text": "True or False: Snowflake allows the use of standard SQL for querying semi-structured data like XML and JSON.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Storage"
+  },
+  {
+    "number": 189,
+    "text": "Which of the following are characteristics of a 'Temporary' table? (Choose two.)",
+    "options": {
+      "a": "It persists after the session ends.",
+      "b": "It is only visible to the user who created it.",
+      "c": "It does not incur any storage costs.",
+      "d": "It is dropped automatically at the end of the session."
+    },
+    "answer": ["b", "d"],
+    "explanation": "",
+    "category": "Storage"
+  },
+  {
+    "number": 190,
+    "text": "What is the maximum Time Travel retention period for a Transient table?",
+    "options": {
+      "a": "0 days",
+      "b": "1 day",
+      "c": "7 days",
+      "d": "90 days"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Data Protection"
+  },
+  {
+    "number": 191,
+    "text": "Which function allows you to look into the contents of a VARIANT column and produce a set of rows (one for each element)?",
+    "options": {
+      "a": "EXPAND()",
+      "b": "FLATTEN()",
+      "c": "SPLIT()",
+      "d": "EXPLODE()"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Storage"
+  },
+  {
+    "number": 192,
+    "text": "True or False: Data in Snowflake is encrypted using a hierarchical key model managed by Snowflake.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Security"
+  },
+  {
+    "number": 193,
+    "text": "How does Snowflake charge for the Cloud Services layer?",
+    "options": {
+      "a": "It is always free.",
+      "b": "It is charged only if usage exceeds 10% of daily compute credits.",
+      "c": "It is a flat monthly fee.",
+      "d": "It is charged per user per hour."
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Account Management"
+  },
+  {
+    "number": 194,
+    "text": "What does 'Clustering Depth' indicate for a table?",
+    "options": {
+      "a": "The number of columns in the clustering key.",
+      "b": "How well the table is partitioned relative to the clustering key.",
+      "c": "The total size of the micro-partitions.",
+      "d": "The time it takes to scan the table."
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Storage"
+  },
+  {
+    "number": 195,
+    "text": "True or False: You can share a secure view that joins data from multiple databases within your account.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Sharing"
+  },
+  {
+    "number": 196,
+    "text": "Which tool is the primary CLI (Command Line Interface) for connecting to Snowflake?",
+    "options": {
+      "a": "SnowCli",
+      "b": "SnowSQL",
+      "c": "SnowTerm",
+      "d": "SnowShell"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 197,
+    "text": "What happens to the 'Load History' of a table if the table is truncated?",
+    "options": {
+      "a": "The load history is deleted.",
+      "b": "The load history is preserved.",
+      "c": "The load history is reset for that day only.",
+      "d": "The table cannot be truncated if it has load history."
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Data Movement"
+  },
+  {
+    "number": 198,
+    "text": "True or False: Multi-cluster warehouses are available in the Standard Edition of Snowflake.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Account Management"
+  },
+  {
+    "number": 199,
+    "text": "Which view provides information about the credits consumed by 'Auto-Clustering'?",
+    "options": {
+      "a": "AUTOMATIC_CLUSTERING_HISTORY",
+      "b": "CLUSTERING_METERING_HISTORY",
+      "c": "WAREHOUSE_METERING_HISTORY",
+      "d": "TABLE_STORAGE_METRICS"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Account Management"
+  },
+  {
+    "number": 200,
+    "text": "What is the primary difference between a 'Standard' and an 'Enterprise' edition account regarding Time Travel?",
+    "options": {
+      "a": "Standard doesn't support Time Travel.",
+      "b": "Standard is limited to 1 day; Enterprise allows up to 90 days.",
+      "c": "Standard allows up to 90 days; Enterprise allows up to 365 days.",
+      "d": "There is no difference."
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Account Management"
+  },
+  {
+    "number": 201,
+    "text": "Which statement is true regarding Snowflake's support for ACID properties?",
+    "options": {
+      "a": "Snowflake only supports Atomic and Consistent properties.",
+      "b": "Snowflake is fully ACID compliant.",
+      "c": "Snowflake is ACID compliant only for single-row inserts.",
+      "d": "Snowflake does not support ACID properties."
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 202,
+    "text": "True or False: To use the 'PUT' command, you must use a Snowflake client like SnowSQL or a driver.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Data Movement"
+  },
+  {
+    "number": 203,
+    "text": "Which column in the Query History page helps identify the Warehouse that ran the query?",
+    "options": {
+      "a": "Warehouse ID",
+      "b": "Warehouse Name",
+      "c": "Compute Resource",
+      "d": "Cluster Name"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 204,
+    "text": "What is the impact of a 'Full Outer Join' on two very large tables that are not clustered similarly?",
+    "options": {
+      "a": "High probability of query failing due to timeout.",
+      "b": "Increased probability of spilling data to remote storage.",
+      "c": "The query will automatically trigger auto-clustering.",
+      "d": "No impact, Snowflake handles this via Cloud Services."
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Performance"
+  },
+  {
+    "number": 205,
+    "text": "True or False: When sharing data, the Data Provider pays for the storage and the Data Consumer pays for the compute used to query the shared data.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Sharing"
+  },
+  {
+    "number": 206,
+    "text": "Which Snowflake object allows you to group multiple SQL statements together and execute them as a single unit?",
+    "options": {
+      "a": "Task",
+      "b": "Stored Procedure",
+      "c": "UDF",
+      "d": "Sequence"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 207,
+    "text": "In a Multi-cluster Warehouse, what does the 'Economy' scaling policy prioritize?",
+    "options": {
+      "a": "Speed of query execution.",
+      "b": "Conserving credits by keeping clusters busy.",
+      "c": "Automatically resizing clusters.",
+      "d": "Enabling MFA for all users."
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Compute"
+  },
+  {
+    "number": 208,
+    "text": "True or False: Snowflake allows the creation of 'External Tables' that query data sitting in an S3 bucket without importing it.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Storage"
+  },
+  {
+    "number": 209,
+    "text": "Which of the following describes 'Fail-safe' storage? (Choose two.)",
+    "options": {
+      "a": "It is configurable by the user.",
+      "b": "It provides 7 days of additional protection after Time Travel.",
+      "c": "It can be used to recover data from any point in the last 90 days.",
+      "d": "It can only be accessed by Snowflake Support."
+    },
+    "answer": ["b", "d"],
+    "explanation": "",
+    "category": "Data Protection"
+  },
+  {
+    "number": 210,
+    "text": "What is the primary reason for a 'Virtual Warehouse' to be in a 'Starting' state for a long period?",
+    "options": {
+      "a": "Wait time for cloud provider to provision resources.",
+      "b": "The warehouse is too small for the query.",
+      "c": "MFA is required to start the warehouse.",
+      "d": "The database is currently being cloned."
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Compute"
+  }
+]

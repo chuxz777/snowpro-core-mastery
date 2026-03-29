@@ -1,0 +1,2856 @@
+[
+  {
+    "number": 1226,
+    "text": "Which of the following describes the difference between a 'Temporary' and a 'Transient' table? (Choose two.)",
+    "options": {
+      "a": "Temporary tables have a Fail-safe period; Transient tables do not.",
+      "b": "Transient tables are only visible to the user who created them.",
+      "c": "Permanent tables support up to 90 days of Time Travel (Enterprise); Transient tables are limited to 1 day.",
+      "d": "Transient tables are automatically dropped at the end of the session."
+    },
+    "answer": ["a", "c"],
+    "explanation": "",
+    "category": "Storage"
+  },
+  {
+    "number": 1227,
+    "text": "True or False: Snowflake allows you to share data with accounts that are in different cloud regions using a 'Direct Share'.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Sharing"
+  },
+  {
+    "number": 1228,
+    "text": "What is the primary function of the 'Information Schema'?",
+    "options": {
+      "a": "To store the actual row data for tables.",
+      "b": "To provide a set of views and system functions for querying metadata about objects in a database.",
+      "c": "To manage the credit billing for the account.",
+      "d": "To provide a history of all logins."
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 1229,
+    "text": "Which role is recommended for daily administrative tasks such as creating warehouses and managing schemas?",
+    "options": {
+      "a": "USERADMIN",
+      "b": "SECURITYADMIN",
+      "c": "SYSADMIN",
+      "d": "PUBLIC"
+    },
+    "answer": ["c"],
+    "explanation": "",
+    "category": "Security"
+  },
+  {
+    "number": 1230,
+    "text": "What is the default 'Time Travel' retention period for a new table if not explicitly set?",
+    "options": {
+      "a": "0 days",
+      "b": "1 day",
+      "c": "7 days",
+      "d": "90 days"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Data Protection"
+  },
+  {
+    "number": 1231,
+    "text": "True or False: In a 'Multi-cluster Warehouse', clusters are always added and removed one at a time.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Compute"
+  },
+  {
+    "number": 1232,
+    "text": "Which Snowflake component handles the 'Query Optimization' process?",
+    "options": {
+      "a": "Storage Layer",
+      "b": "Compute Layer",
+      "c": "Cloud Services Layer",
+      "d": "Metadata Cache"
+    },
+    "answer": ["c"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 1233,
+    "text": "What does the 'STRIP_OUTER_ARRAY' option do when loading JSON data?",
+    "options": {
+      "a": "It removes the last character of the JSON string.",
+      "b": "It removes the square brackets at the beginning and end of a JSON file and loads each element as a separate row.",
+      "c": "It converts JSON to CSV.",
+      "d": "It deletes empty arrays."
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Data Movement"
+  },
+  {
+    "number": 1234,
+    "text": "True or False: You can set a 'Network Policy' at the Account level and override it at the User level.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Security"
+  },
+  {
+    "number": 1235,
+    "text": "Which command is used to see the list of 'Functions' in a schema?",
+    "options": {
+      "a": "LIST FUNCTIONS",
+      "b": "SHOW FUNCTIONS",
+      "c": "DESCRIBE FUNCTIONS",
+      "d": "GET FUNCTIONS"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 1236,
+    "text": "What is the primary benefit of 'Micro-partitions'?",
+    "options": {
+      "a": "They allow for data to be stored in an uncompressed format for speed.",
+      "b": "They enable granular pruning, allowing Snowflake to read only the necessary parts of a table.",
+      "c": "They are managed by the user to optimize storage.",
+      "d": "They allow for 'Zero-copy cloning' of individual rows."
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Storage"
+  },
+  {
+    "number": 1237,
+    "text": "Which view is used to see the credit consumption for 'Materialized View' maintenance?",
+    "options": {
+      "a": "MATERIALIZED_VIEW_REFRESH_HISTORY",
+      "b": "WAREHOUSE_METERING_HISTORY",
+      "c": "AUTOMATIC_CLUSTERING_HISTORY",
+      "d": "STORAGE_USAGE"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Account Management"
+  },
+  {
+    "number": 1238,
+    "text": "True or False: Snowflake 'Shares' can contain objects from multiple different databases.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Sharing"
+  },
+  {
+    "number": 1239,
+    "text": "What is 'Snowpark'?",
+    "options": {
+      "a": "A specialized cloud region for Snowflake.",
+      "b": "A developer framework that allows building data applications using non-SQL languages like Python and Java.",
+      "c": "The internal storage engine of Snowflake.",
+      "d": "A training environment for new users."
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 1240,
+    "text": "Which command is used to delete all data from a table but keep the table structure?",
+    "options": {
+      "a": "DROP TABLE",
+      "b": "DELETE FROM TABLE",
+      "c": "TRUNCATE TABLE",
+      "d": "REMOVE TABLE"
+    },
+    "answer": ["c"],
+    "explanation": "",
+    "category": "Storage"
+  },
+  {
+    "number": 1241,
+    "text": "True or False: All Virtual Warehouses in an account share the same 'Local Disk Cache'.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Compute"
+  },
+  {
+    "number": 1242,
+    "text": "What is the primary purpose of 'Single Sign-On' (SSO) in Snowflake?",
+    "options": {
+      "a": "To allow users to log in with one set of credentials managed by an external identity provider.",
+      "b": "To limit a user to only one active session at a time.",
+      "c": "To encrypt passwords.",
+      "d": "To bypass MFA."
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Security"
+  },
+  {
+    "number": 1243,
+    "text": "Which command is used to upload a file from a local machine to a Snowflake internal stage?",
+    "options": {
+      "a": "COPY INTO",
+      "b": "GET",
+      "c": "PUT",
+      "d": "INSERT"
+    },
+    "answer": ["c"],
+    "explanation": "",
+    "category": "Data Movement"
+  },
+  {
+    "number": 1244,
+    "text": "What happens to the 'Time Travel' data when a Permanent table is dropped?",
+    "options": {
+      "a": "It is immediately deleted.",
+      "b": "It is preserved and the table can be recovered using UNDROP within the retention period.",
+      "c": "It is moved to Fail-safe.",
+      "d": "It is moved to a backup stage."
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Data Protection"
+  },
+  {
+    "number": 1245,
+    "text": "Which role is required to manage 'Organizational' settings and multiple accounts?",
+    "options": {
+      "a": "ACCOUNTADMIN",
+      "b": "SYSADMIN",
+      "c": "ORGADMIN",
+      "d": "SECURITYADMIN"
+    },
+    "answer": ["c"],
+    "explanation": "",
+    "category": "Security"
+  },
+  {
+    "number": 1246,
+    "text": "True or False: Snowflake 'External Functions' can call a web service hosted on AWS Lambda.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 1247,
+    "text": "What is the default file format for 'unloading' data if not specified?",
+    "options": {
+      "a": "JSON",
+      "b": "Parquet",
+      "c": "CSV (Gzip compressed)",
+      "d": "Avro"
+    },
+    "answer": ["c"],
+    "explanation": "",
+    "category": "Data Movement"
+  },
+  {
+    "number": 1248,
+    "text": "Which of the following is true regarding 'Zero-copy cloning'?",
+    "options": {
+      "a": "It creates a physical copy of all the data files.",
+      "b": "It creates a new set of metadata pointing to the same data files as the original.",
+      "c": "It is only available for Tables.",
+      "d": "It requires the warehouse to be sized 'Large' or above."
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Storage"
+  },
+  {
+    "number": 1249,
+    "text": "What is the purpose of 'Row Access Policies'?",
+    "options": {
+      "a": "To limit how many rows can be inserted at once.",
+      "b": "To filter query results based on the user's role and session criteria.",
+      "c": "To speed up the loading of large rows.",
+      "d": "To manage the storage of individual rows."
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Security"
+  },
+  {
+    "number": 1250,
+    "text": "Which Snowflake interface provides a graphical view of a query's execution plan?",
+    "options": {
+      "a": "SnowSQL",
+      "b": "The 'Query Profile' tab in the Web UI",
+      "c": "The 'History' tab in the Web UI",
+      "d": "Snow Cli"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Performance"
+  },
+  {
+    "number": 1251,
+    "text": "Which of the following describes 'Search Optimization' in Snowflake?",
+    "options": {
+      "a": "It is a feature that optimizes the search bar in the Snowsight UI.",
+      "b": "It builds a persistent data structure for faster point lookup queries.",
+      "c": "It is only available for semi-structured data types.",
+      "d": "It requires manual re-indexing by the user."
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Performance"
+  },
+  {
+    "number": 1252,
+    "text": "True or False: Data in 'Fail-safe' can be queried by users with the ACCOUNTADMIN role.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Data Protection"
+  },
+  {
+    "number": 1253,
+    "text": "Which of the following objects can have 'Object Tags' applied? (Choose three.)",
+    "options": {
+      "a": "Databases",
+      "b": "Warehouses",
+      "c": "Users",
+      "d": "Micro-partitions"
+    },
+    "answer": ["a", "b", "c"],
+    "explanation": "",
+    "category": "Account Management"
+  },
+  {
+    "number": 1254,
+    "text": "What is the primary purpose of 'Single Sign-On' (SSO)?",
+    "options": {
+      "a": "To allow users to log into multiple services with one set of credentials.",
+      "b": "To restrict a user to only one active session.",
+      "c": "To provide a second layer of security after the password.",
+      "d": "To encrypt data transmission."
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Security"
+  },
+  {
+    "number": 1255,
+    "text": "Which command is used to see the metadata of all columns in a specific table?",
+    "options": {
+      "a": "SHOW COLUMNS",
+      "b": "DESCRIBE TABLE",
+      "c": "LIST COLUMNS",
+      "d": "GET COLUMNS"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 1256,
+    "text": "True or False: Snowflake manages the 'scaling up' of a warehouse automatically based on complexity.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Compute"
+  },
+  {
+    "number": 1257,
+    "text": "Which Snowflake component handles coordination of concurrent queries on a single warehouse?",
+    "options": {
+      "a": "Compute Layer",
+      "b": "Cloud Services Layer",
+      "c": "Storage Layer",
+      "d": "Metadata Cache"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 1258,
+    "text": "What happens to credit consumption when a warehouse is 'Suspended'?",
+    "options": {
+      "a": "It continues at a 50% rate.",
+      "b": "It stops immediately (billing is per-second).",
+      "c": "It stops after the 60-second minimum is met.",
+      "d": "It stops at the end of the hour."
+    },
+    "answer": ["c"],
+    "explanation": "",
+    "category": "Account Management"
+  },
+  {
+    "number": 1259,
+    "text": "Which role is the most privileged in the Snowflake RBAC hierarchy?",
+    "options": {
+      "a": "SYSADMIN",
+      "b": "SECURITYADMIN",
+      "c": "ACCOUNTADMIN",
+      "d": "ORGADMIN"
+    },
+    "answer": ["c"],
+    "explanation": "",
+    "category": "Security"
+  },
+  {
+    "number": 1260,
+    "text": "True or False: Snowflake allows the creation of 'External Tables' in Azure Blob storage.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Storage"
+  },
+  {
+    "number": 1261,
+    "text": "What is the purpose of 'Time Travel'?",
+    "options": {
+      "a": "To predict future growth.",
+      "b": "To access and restore data modified or deleted over a specified window.",
+      "c": "To speed up historical queries.",
+      "d": "To archive data."
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Data Protection"
+  },
+  {
+    "number": 1262,
+    "text": "Which command is used to see the list of 'Resource Monitors'?",
+    "options": {
+      "a": "LIST RESOURCE_MONITORS",
+      "b": "SHOW RESOURCE_MONITORS",
+      "c": "DESCRIBE RESOURCE_MONITORS",
+      "d": "GET RESOURCE_MONITORS"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Account Management"
+  },
+  {
+    "number": 1263,
+    "text": "True or False: Snowflake charges a premium for optimized storage format compared to raw size.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Storage"
+  },
+  {
+    "number": 1264,
+    "text": "Which function converts a JSON string into a VARIANT type?",
+    "options": {
+      "a": "TO_VARIANT",
+      "b": "PARSE_JSON",
+      "c": "CAST_JSON",
+      "d": "EXTRACT_JSON"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Storage"
+  },
+  {
+    "number": 1265,
+    "text": "What is the result of 'Scaling Out' a warehouse?",
+    "options": {
+      "a": "Increasing the T-shirt size.",
+      "b": "Adding clusters to handle more concurrent queries.",
+      "c": "Adding more disk space.",
+      "d": "Moving regions."
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Compute"
+  },
+  {
+    "number": 1266,
+    "text": "Which role is primarily responsible for managing Users and Roles?",
+    "options": {
+      "a": "SYSADMIN",
+      "b": "USERADMIN",
+      "c": "PUBLIC",
+      "d": "ACCOUNTADMIN"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Security"
+  },
+  {
+    "number": 1267,
+    "text": "True or False: Snowflake supports 'Multi-factor Authentication' (MFA) for all users.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Security"
+  },
+  {
+    "number": 1268,
+    "text": "Which command is used to create a clone of a database?",
+    "options": {
+      "a": "CREATE DATABASE ... COPY",
+      "b": "CREATE DATABASE ... CLONE",
+      "c": "COPY DATABASE",
+      "d": "REPLICATE DATABASE"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Storage"
+  },
+  {
+    "number": 1269,
+    "text": "What is the default character for field delimiting in the COPY command?",
+    "options": {
+      "a": "Tab",
+      "b": "Comma",
+      "c": "Semicolon",
+      "d": "Pipe"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Data Movement"
+  },
+  {
+    "number": 1270,
+    "text": "True or False: A warehouse consumes credits while in 'Starting' state.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Account Management"
+  },
+  {
+    "number": 1271,
+    "text": "Which of the following describes 'Search Optimization Service'?",
+    "options": {
+      "a": "Replaces clustering.",
+      "b": "Improves performance of point lookup queries on large tables.",
+      "c": "Free tool for all users.",
+      "d": "Automatically tags all objects."
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Performance"
+  },
+  {
+    "number": 1272,
+    "text": "What is the benefit of the 'Snowflake Data Marketplace'?",
+    "options": {
+      "a": "Organized ETL.",
+      "b": "Discovery and querying of third-party data directly without movement.",
+      "c": "Buying hardware.",
+      "d": "Selling accounts."
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Sharing"
+  },
+  {
+    "number": 1273,
+    "text": "Which role manages 'Organizational' tasks like creating new accounts?",
+    "options": {
+      "a": "ACCOUNTADMIN",
+      "b": "ORGADMIN",
+      "c": "SYSADMIN",
+      "d": "SECURITYADMIN"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Security"
+  },
+  {
+    "number": 1274,
+    "text": "True or False: Data shared via a 'Share' object is read-only for the consumer.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Sharing"
+  },
+  {
+    "number": 1275,
+    "text": "What is 'Pruning' in Snowflake?",
+    "options": {
+      "a": "Deleting old data.",
+      "b": "Skipping micro-partitions that don't contain data relevant to the query based on metadata.",
+      "c": "Reducing warehouse size.",
+      "d": "Removing metadata."
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Storage"
+  },
+  {
+    "number": 1276,
+    "text": "Which edition is the first to include 'Time Travel' up to 90 days?",
+    "options": {
+      "a": "Standard",
+      "b": "Enterprise",
+      "c": "Business Critical",
+      "d": "VPS"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Account Management"
+  },
+  {
+    "number": 1277,
+    "text": "True or False: A 'Transient' table survives a session disconnect.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Storage"
+  },
+  {
+    "number": 1278,
+    "text": "Which Snowflake component handles 'Transaction Management'?",
+    "options": {
+      "a": "Storage Layer",
+      "b": "Compute Layer",
+      "c": "Cloud Services Layer",
+      "d": "Network Layer"
+    },
+    "answer": ["c"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 1279,
+    "text": "What does 'ON_ERROR = ABORT_STATEMENT' do in COPY INTO?",
+    "options": {
+      "a": "Skips errors.",
+      "b": "Stops load and rolls back transaction if any error is encountered.",
+      "c": "Retries the file.",
+      "d": "Suspends the warehouse."
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Data Movement"
+  },
+  {
+    "number": 1280,
+    "text": "Which command downloads a file from a Snowflake stage to local machine?",
+    "options": {
+      "a": "COPY INTO",
+      "b": "PUT",
+      "c": "GET",
+      "d": "EXPORT"
+    },
+    "answer": ["c"],
+    "explanation": "",
+    "category": "Data Movement"
+  },
+  {
+    "number": 1281,
+    "text": "True or False: Zero-copy cloning can be performed on a Table but not a Schema.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Storage"
+  },
+  {
+    "number": 1282,
+    "text": "Which role is primarily used to manage 'Security' and 'Access Control'?",
+    "options": {
+      "a": "SYSADMIN",
+      "b": "SECURITYADMIN",
+      "c": "ACCOUNTADMIN",
+      "d": "USERADMIN"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Security"
+  },
+  {
+    "number": 1283,
+    "text": "What is the purpose of 'Dynamic Data Masking'?",
+    "options": {
+      "a": "Encryption on stage.",
+      "b": "Obscuring sensitive results based on user role without changing data.",
+      "c": "Compression.",
+      "d": "Deletion."
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Security"
+  },
+  {
+    "number": 1284,
+    "text": "Which view is used to monitor account level credit consumption?",
+    "options": {
+      "a": "ACCOUNT_METERING_HISTORY",
+      "b": "WAREHOUSE_METERING_HISTORY",
+      "c": "CREDIT_HISTORY",
+      "d": "DAILY_HISTORY"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Account Management"
+  },
+  {
+    "number": 1285,
+    "text": "True or False: Snowflake allows the use of 'External Functions' to call an external API.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 1286,
+    "text": "What is the default T-shirt size for a Warehouse?",
+    "options": {
+      "a": "Small",
+      "b": "X-Small",
+      "c": "Medium",
+      "d": "Large"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Compute"
+  },
+  {
+    "number": 1287,
+    "text": "Which role is the only one that can see 'Billing' in the classic UI?",
+    "options": {
+      "a": "SYSADMIN",
+      "b": "ACCOUNTADMIN",
+      "c": "SECURITYADMIN",
+      "d": "ORGADMIN"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Security"
+  },
+  {
+    "number": 1288,
+    "text": "True or False: Snowflake 'Snowpipe' uses a virtual warehouse.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Data Movement"
+  },
+  {
+    "number": 1289,
+    "text": "Which command is used to see the list of 'Pipes'?",
+    "options": {
+      "a": "LIST PIPES",
+      "b": "SHOW PIPES",
+      "c": "DESCRIBE PIPES",
+      "d": "GET PIPES"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Account Management"
+  },
+  {
+    "number": 1290,
+    "text": "What is 'Fail-safe' in Snowflake?",
+    "options": {
+      "a": "A storage cache.",
+      "b": "A 7-day period following Time Travel where Snowflake support can recover data from hardware failure.",
+      "c": "Bypassing MFA.",
+      "d": "A backup tool."
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Data Protection"
+  },
+  {
+    "number": 1291,
+    "text": "Which view allows you to see the list of all 'Tasks'?",
+    "options": {
+      "a": "TASKS",
+      "b": "SHOW_TASKS",
+      "c": "TASK_HISTORY",
+      "d": "LIST_TASKS"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Account Management"
+  },
+  {
+    "number": 1292,
+    "text": "True or False: Snowflake handles encryption in transit automatically.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Security"
+  },
+  {
+    "number": 1293,
+    "text": "What is the primary function of a 'Task'?",
+    "options": {
+      "a": "Load data.",
+      "b": "Execute a single SQL statement or stored procedure on a recurring schedule.",
+      "c": "Monitor performance.",
+      "d": "Archive data."
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 1294,
+    "text": "Which layer of architecture handles 'Access Control'?",
+    "options": {
+      "a": "Storage",
+      "b": "Compute",
+      "c": "Cloud Services",
+      "d": "Network"
+    },
+    "answer": ["c"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 1295,
+    "text": "True or False: A 'Transient' table survives a system crash.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Storage"
+  },
+  {
+    "number": 1296,
+    "text": "Which command is used to see the list of 'Users'?",
+    "options": {
+      "a": "LIST USERS",
+      "b": "SHOW USERS",
+      "c": "DESCRIBE USERS",
+      "d": "GET USERS"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Security"
+  },
+  {
+    "number": 1297,
+    "text": "What is the result of 'Scaling Up' a Virtual Warehouse?",
+    "options": {
+      "a": "Adding more clusters.",
+      "b": "Increasing the T-shirt size.",
+      "c": "Moving regions.",
+      "d": "Adding storage."
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Compute"
+  },
+  {
+    "number": 1298,
+    "text": "Which edition is required for PrivateLink?",
+    "options": {
+      "a": "Standard",
+      "b": "Enterprise",
+      "c": "Business Critical",
+      "d": "VPS"
+    },
+    "answer": ["c"],
+    "explanation": "",
+    "category": "Account Management"
+  },
+  {
+    "number": 1299,
+    "text": "True or False: Masking Policy can be applied to a column in a View.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Security"
+  },
+  {
+    "number": 1300,
+    "text": "Which component handles 'Query Parsing'?",
+    "options": {
+      "a": "Compute Layer",
+      "b": "Cloud Services Layer",
+      "c": "Storage Layer",
+      "d": "Metadata Cache"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 1301,
+    "text": "True or False: Snowflake allows sharing with other accounts in same region without 'Data Exchange'.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Sharing"
+  },
+  {
+    "number": 1302,
+    "text": "Primary function of 'Resource Monitors'?",
+    "options": {
+      "a": "Monitor performance.",
+      "b": "Set limits on credit consumption and notify or suspend.",
+      "c": "Monitor storage.",
+      "d": "Track logins."
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Account Management"
+  },
+  {
+    "number": 1303,
+    "text": "True or False: Snowflake supports 'External Functions'.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 1304,
+    "text": "Command to see 'Stages'?",
+    "options": {
+      "a": "LIST STAGES",
+      "b": "SHOW STAGES",
+      "c": "DESCRIBE STAGES",
+      "d": "GET STAGES"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Data Movement"
+  },
+  {
+    "number": 1305,
+    "text": "Max file size recommended for data loading?",
+    "options": {
+      "a": "100 MB compressed.",
+      "b": "100 MB to 250 MB compressed.",
+      "c": "1 GB.",
+      "d": "5 GB."
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Data Movement"
+  },
+  {
+    "number": 1306,
+    "text": "True or False: Row Access Policies filter rows by user role.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Security"
+  },
+  {
+    "number": 1307,
+    "text": "View for history of all 'Task' executions?",
+    "options": {
+      "a": "TASK_HISTORY",
+      "b": "SHOW_TASKS",
+      "c": "EXECUTION_LOG",
+      "d": "SCHEDULED_TASKS"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Account Management"
+  },
+  {
+    "number": 1308,
+    "text": "Default T-shirt size if not specified?",
+    "options": {
+      "a": "X-Small",
+      "b": "Small",
+      "c": "Medium",
+      "d": "Large"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Compute"
+  },
+  {
+    "number": 1309,
+    "text": "True or False: Secure View protects underlying SQL from unauthorized users.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Security"
+  },
+  {
+    "number": 1310,
+    "text": "Command to see 'Clustering Depth'?",
+    "options": {
+      "a": "SHOW CLUSTERING",
+      "b": "SELECT SYSTEM$CLUSTERING_DEPTH(...)",
+      "c": "DESCRIBE CLUSTER",
+      "d": "LIST CLUSTERS"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Storage"
+  },
+  {
+    "number": 1311,
+    "text": "Purpose of 'Dynamic Data Masking'?",
+    "options": {
+      "a": "Disk encryption.",
+      "b": "Obscure sensitive data based on user role/permissions.",
+      "c": "Compression.",
+      "d": "Deletion."
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Security"
+  },
+  {
+    "number": 1312,
+    "text": "True or False: Resource Monitor can be set at individual warehouse level.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Account Management"
+  },
+  {
+    "number": 1313,
+    "text": "Snowflake interface is a CLI tool?",
+    "options": {
+      "a": "Snowsight",
+      "b": "SnowSQL",
+      "c": "Classic Console",
+      "d": "Web UI"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 1314,
+    "text": "DML stands for?",
+    "options": {
+      "a": "Data Management Language",
+      "b": "Data Manipulation Language",
+      "c": "Database Modeling Logic",
+      "d": "Data Maintenance Layer"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 1315,
+    "text": "True or False: Tri-Secret Secure is for customer-managed keys.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Security"
+  },
+  {
+    "number": 1316,
+    "text": "Command to see DDL of an existing table?",
+    "options": {
+      "a": "DESCRIBE TABLE",
+      "b": "SHOW CREATE TABLE",
+      "c": "SELECT GET_DDL('table', 'name')",
+      "d": "GET SCHEMA"
+    },
+    "answer": ["c"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 1317,
+    "text": "Diff between Permanent and Transient? (Choose two.)",
+    "options": {
+      "a": "Perm has Fail-safe; Trans doesn't.",
+      "b": "Trans only visible to creator.",
+      "c": "Perm supports 90 day Time Travel; Trans 1 day.",
+      "d": "Trans auto-dropped."
+    },
+    "answer": ["a", "c"],
+    "explanation": "",
+    "category": "Storage"
+  },
+  {
+    "number": 1318,
+    "text": "True or False: Can share across regions using 'Private Link'.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Sharing"
+  },
+  {
+    "number": 1319,
+    "text": "Primary function of 'Information Schema'?",
+    "options": {
+      "a": "Storing row data.",
+      "b": "Views and system functions for querying metadata about objects.",
+      "c": "Managing credit billing.",
+      "d": "Login history."
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 1320,
+    "text": "Role recommended for ownership and schema management?",
+    "options": {
+      "a": "USERADMIN",
+      "b": "SECURITYADMIN",
+      "c": "SYSADMIN",
+      "d": "PUBLIC"
+    },
+    "answer": ["c"],
+    "explanation": "",
+    "category": "Security"
+  },
+  {
+    "number": 1321,
+    "text": "Default Time Travel retention if not set?",
+    "options": {
+      "a": "0 days",
+      "b": "1 day",
+      "c": "7 days",
+      "d": "90 days"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Data Protection"
+  },
+  {
+    "number": 1322,
+    "text": "True or False: Multi-cluster warehouse clusters add/remove one at a time.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Compute"
+  },
+  {
+    "number": 1323,
+    "text": "Component that handles Query Optimization?",
+    "options": {
+      "a": "Storage Layer",
+      "b": "Compute Layer",
+      "c": "Cloud Services Layer",
+      "d": "Metadata Cache"
+    },
+    "answer": ["c"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 1324,
+    "text": "What does STRIP_OUTER_ARRAY do?",
+    "options": {
+      "a": "Removes last character.",
+      "b": "Removes square brackets and loads each element as separate row.",
+      "c": "JSON to CSV.",
+      "d": "Deletes empty arrays."
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Data Movement"
+  },
+  {
+    "number": 1325,
+    "text": "True or False: Can override Account Network Policy at User level.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Security"
+  },
+  {
+    "number": 1326,
+    "text": "Command to see 'Functions' in a schema?",
+    "options": {
+      "a": "LIST FUNCTIONS",
+      "b": "SHOW FUNCTIONS",
+      "c": "DESCRIBE FUNCTIONS",
+      "d": "GET FUNCTIONS"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 1327,
+    "text": "Primary benefit of 'Micro-partitions'?",
+    "options": {
+      "a": "Uncompressed storage.",
+      "b": "Granular pruning skipping irrelevant data.",
+      "c": "User-managed storage.",
+      "d": "Zero-copy cloning of rows."
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Storage"
+  },
+  {
+    "number": 1328,
+    "text": "View used for materialized view maintenance consumption?",
+    "options": {
+      "a": "MATERIALIZED_VIEW_REFRESH_HISTORY",
+      "b": "WAREHOUSE_METERING_HISTORY",
+      "c": "AUTOMATIC_CLUSTERING_HISTORY",
+      "d": "STORAGE_USAGE"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Account Management"
+  },
+  {
+    "number": 1329,
+    "text": "True or False: Shares can contain objects from multiple databases.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Sharing"
+  },
+  {
+    "number": 1330,
+    "text": "What is 'Snowpark'?",
+    "options": {
+      "a": "Cloud region.",
+      "b": "Framework for Python, Java, Scala data apps.",
+      "c": "Internal storage engine.",
+      "d": "Training environment."
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 1331,
+    "text": "Command to delete all data but keep structure?",
+    "options": {
+      "a": "DROP TABLE",
+      "b": "DELETE FROM TABLE",
+      "c": "TRUNCATE TABLE",
+      "d": "REMOVE TABLE"
+    },
+    "answer": ["c"],
+    "explanation": "",
+    "category": "Storage"
+  },
+  {
+    "number": 1332,
+    "text": "True or False: Warehouses share same Local Disk Cache.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Compute"
+  },
+  {
+    "number": 1333,
+    "text": "Primary purpose of SSO?",
+    "options": {
+      "a": "Login with external IdP credentials.",
+      "b": "One concurrent session.",
+      "c": "Encrypt passwords.",
+      "d": "Bypass MFA."
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Security"
+  },
+  {
+    "number": 1334,
+    "text": "Command to upload file via SnowSQL?",
+    "options": {
+      "a": "COPY INTO",
+      "b": "GET",
+      "c": "PUT",
+      "d": "INSERT"
+    },
+    "answer": ["c"],
+    "explanation": "",
+    "category": "Data Movement"
+  },
+  {
+    "number": 1335,
+    "text": "What happens to Time Travel when Perm table is dropped?",
+    "options": {
+      "a": "Purged.",
+      "b": "Preserved, UNDROP-able.",
+      "c": "Moved to Fail-safe.",
+      "d": "Moved to stage."
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Data Protection"
+  },
+  {
+    "number": 1336,
+    "text": "Role for manage Organizational settings?",
+    "options": {
+      "a": "ACCOUNTADMIN",
+      "b": "SYSADMIN",
+      "c": "ORGADMIN",
+      "d": "SECURITYADMIN"
+    },
+    "answer": ["c"],
+    "explanation": "",
+    "category": "Security"
+  },
+  {
+    "number": 1337,
+    "text": "True or False: External Functions can call AWS Lambda.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 1338,
+    "text": "Default file format for unloading?",
+    "options": {
+      "a": "JSON",
+      "b": "Parquet",
+      "c": "CSV (Gzip)",
+      "d": "Avro"
+    },
+    "answer": ["c"],
+    "explanation": "",
+    "category": "Data Movement"
+  },
+  {
+    "number": 1339,
+    "text": "True or False: Zero-copy cloning creates physical copy of data.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Storage"
+  },
+  {
+    "number": 1340,
+    "text": "Purpose of Row Access Policies?",
+    "options": {
+      "a": "Limit ingestion speed.",
+      "b": "Filter results by role/criteria.",
+      "c": "Speed up row inserts.",
+      "d": "Row storage management."
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Security"
+  },
+  {
+    "number": 1341,
+    "text": "Snowflake UI for graphical execution plan?",
+    "options": {
+      "a": "SnowSQL.",
+      "b": "Query Profile tab.",
+      "c": "History tab.",
+      "d": "Snow Cli."
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Performance"
+  },
+  {
+    "number": 1342,
+    "text": "Which describes Search Optimization Service?",
+    "options": {
+      "a": "Snowsight UI bar optimization.",
+      "b": "Persistent structure for faster point lookups.",
+      "c": "Semi-structured only.",
+      "d": "Manual re-indexing."
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Performance"
+  },
+  {
+    "number": 1343,
+    "text": "True or False: Fail-safe queryable by ACCOUNTADMIN.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Data Protection"
+  },
+  {
+    "number": 1344,
+    "text": "Objects for Object Tags? (Choose three.)",
+    "options": {
+      "a": "Databases",
+      "b": "Warehouses",
+      "c": "Users",
+      "d": "Micro-partitions"
+    },
+    "answer": ["a", "b", "c"],
+    "explanation": "",
+    "category": "Account Management"
+  },
+  {
+    "number": 1345,
+    "text": "Primary purpose of SSO?",
+    "options": {
+      "a": "Login with one set of credentials for multiple services.",
+      "b": "Limit concurrent sessions.",
+      "c": "Password security layer.",
+      "d": "Encrypt transmission."
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Security"
+  },
+  {
+    "number": 1346,
+    "text": "Command to see table column metadata?",
+    "options": {
+      "a": "SHOW COLUMNS",
+      "b": "DESCRIBE TABLE",
+      "c": "LIST COLUMNS",
+      "d": "GET COLUMNS"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 1347,
+    "text": "True or False: Snowflake scales up (T-shirt size) automatically.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Compute"
+  },
+  {
+    "number": 1348,
+    "text": "Component that handles coordination of concurrent queries?",
+    "options": {
+      "a": "Compute Layer",
+      "b": "Cloud Services Layer",
+      "c": "Storage Layer",
+      "d": "Metadata Cache"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 1349,
+    "text": "Warehouse credit consumption when Suspended?",
+    "options": {
+      "a": "50% rate.",
+      "b": "Stops immediately.",
+      "c": "Stops after 60-second minimum.",
+      "d": "Stops at end of hour."
+    },
+    "answer": ["c"],
+    "explanation": "",
+    "category": "Account Management"
+  },
+  {
+    "number": 1350,
+    "text": "Most privileged role in RBAC hierarchy?",
+    "options": {
+      "a": "SYSADMIN",
+      "b": "SECURITYADMIN",
+      "c": "ACCOUNTADMIN",
+      "d": "ORGADMIN"
+    },
+    "answer": ["c"],
+    "explanation": "",
+    "category": "Security"
+  },
+  {
+    "number": 1351,
+    "text": "True or False: External Tables can query Azure Blob storage.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Storage"
+  },
+  {
+    "number": 1352,
+    "text": "Purpose of Time Travel?",
+    "options": {
+      "a": "Predict storage.",
+      "b": "Access/restore changed or deleted data over window.",
+      "c": "Speed up historical queries.",
+      "d": "Archive data."
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Data Protection"
+  },
+  {
+    "number": 1353,
+    "text": "Command to see Resource Monitors?",
+    "options": {
+      "a": "LIST RESOURCE_MONITORS",
+      "b": "SHOW RESOURCE_MONITORS",
+      "c": "DESCRIBE RESOURCE_MONITORS",
+      "d": "GET RESOURCE_MONITORS"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Account Management"
+  },
+  {
+    "number": 1354,
+    "text": "True or False: Snowflake charges premium for optimized storage.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Storage"
+  },
+  {
+    "number": 1355,
+    "text": "Function to convert JSON string to VARIANT?",
+    "options": {
+      "a": "TO_VARIANT",
+      "b": "PARSE_JSON",
+      "c": "CAST_JSON",
+      "d": "EXTRACT_JSON"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Storage"
+  },
+  {
+    "number": 1356,
+    "text": "Result of Scaling Out?",
+    "options": {
+      "a": "Increasing size.",
+      "b": "Adding clusters to handle concurrency.",
+      "c": "Adding disk space.",
+      "d": "Moving regions."
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Compute"
+  },
+  {
+    "number": 1357,
+    "text": "Role for managing Users and Roles?",
+    "options": {
+      "a": "SYSADMIN",
+      "b": "USERADMIN",
+      "c": "PUBLIC",
+      "d": "ACCOUNTADMIN"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Security"
+  },
+  {
+    "number": 1358,
+    "text": "True or False: Snowflake supports MFA for all users.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Security"
+  },
+  {
+    "number": 1359,
+    "text": "Command to create database clone?",
+    "options": {
+      "a": "CREATE DATABASE ... COPY",
+      "b": "CREATE DATABASE ... CLONE",
+      "c": "COPY DATABASE",
+      "d": "REPLICATE DATABASE"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Storage"
+  },
+  {
+    "number": 1360,
+    "text": "Default character for field delimiter in COPY?",
+    "options": {
+      "a": "Tab",
+      "b": "Comma",
+      "c": "Semicolon",
+      "d": "Pipe"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Data Movement"
+  },
+  {
+    "number": 1361,
+    "text": "True or False: Warehouse consumes credits in Starting state.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Account Management"
+  },
+  {
+    "number": 1362,
+    "text": "Describes Search Optimization Service?",
+    "options": {
+      "a": "Replaces clustering.",
+      "b": "Background service improving performance of point lookup queries.",
+      "c": "Free tool.",
+      "d": "Automatic tagging."
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Performance"
+  },
+  {
+    "number": 1363,
+    "text": "Benefit of Data Marketplace?",
+    "options": {
+      "a": "ETL.",
+      "b": "Discovery/querying third-party data directly.",
+      "c": "Hardware.",
+      "d": "Selling accounts."
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Sharing"
+  },
+  {
+    "number": 1364,
+    "text": "Role to manage Organizational tasks?",
+    "options": {
+      "a": "ACCOUNTADMIN",
+      "b": "ORGADMIN",
+      "c": "SYSADMIN",
+      "d": "SECURITYADMIN"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Security"
+  },
+  {
+    "number": 1365,
+    "text": "True or False: Shared data is read-only.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Sharing"
+  },
+  {
+    "number": 1366,
+    "text": "What is Pruning?",
+    "options": {
+      "a": "Deleting old data.",
+      "b": "Skipping micro-partitions based on metadata and filters.",
+      "c": "Reducing warehouse size.",
+      "d": "Removing metadata."
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Storage"
+  },
+  {
+    "number": 1367,
+    "text": "Edition that includes Time Travel up to 90 days?",
+    "options": {
+      "a": "Standard",
+      "b": "Enterprise",
+      "c": "Business Critical",
+      "d": "VPS"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Account Management"
+  },
+  {
+    "number": 1368,
+    "text": "True or False: Transient survives session disconnect.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Storage"
+  },
+  {
+    "number": 1369,
+    "text": "Component that handles Transaction Management?",
+    "options": {
+      "a": "Storage Layer",
+      "b": "Compute Layer",
+      "c": "Cloud Services Layer",
+      "d": "Network Layer"
+    },
+    "answer": ["c"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 1370,
+    "text": "ON_ERROR=ABORT_STATEMENT in COPY INTO?",
+    "options": {
+      "a": "Skips errors.",
+      "b": "Stops entire load and rolls back transaction on any error.",
+      "c": "Retries file.",
+      "d": "Suspends warehouse."
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Data Movement"
+  },
+  {
+    "number": 1371,
+    "text": "Command to download file from Snowflake internal stage?",
+    "options": {
+      "a": "COPY INTO",
+      "b": "PUT",
+      "c": "GET",
+      "d": "EXPORT"
+    },
+    "answer": ["c"],
+    "explanation": "",
+    "category": "Data Movement"
+  },
+  {
+    "number": 1372,
+    "text": "True or False: Zero-copy cloning can be done on Table but not Schema.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Storage"
+  },
+  {
+    "number": 1373,
+    "text": "Role for Security and Access Control?",
+    "options": {
+      "a": "SYSADMIN",
+      "b": "SECURITYADMIN",
+      "c": "ACCOUNTADMIN",
+      "d": "USERADMIN"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Security"
+  },
+  {
+    "number": 1374,
+    "text": "Purpose of Dynamic Data Masking?",
+    "options": {
+      "a": "Encrypt files.",
+      "b": "Obscure sensitive data based on user role.",
+      "c": "Compress JSON.",
+      "d": "Delete data."
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Security"
+  },
+  {
+    "number": 1375,
+    "text": "View for credit consumption of entire account?",
+    "options": {
+      "a": "ACCOUNT_METERING_HISTORY",
+      "b": "WAREHOUSE_METERING_HISTORY",
+      "c": "CREDIT_HISTORY",
+      "d": "DAILY_HISTORY"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Account Management"
+  },
+  {
+    "number": 1376,
+    "text": "True or False: Snowflake allow using External Functions to call external API.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 1377,
+    "text": "Default T-shirt size for Warehouse?",
+    "options": {
+      "a": "Small",
+      "b": "X-Small",
+      "c": "Medium",
+      "d": "Large"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Compute"
+  },
+  {
+    "number": 1378,
+    "text": "Role that can see Billing in UI?",
+    "options": {
+      "a": "SYSADMIN",
+      "b": "ACCOUNTADMIN",
+      "c": "SECURITYADMIN",
+      "d": "ORGADMIN"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Security"
+  },
+  {
+    "number": 1379,
+    "text": "True or False: Snowflake Snowpipe uses virtual warehouse.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Data Movement"
+  },
+  {
+    "number": 1380,
+    "text": "Command to see list of Pipes?",
+    "options": {
+      "a": "LIST PIPES",
+      "b": "SHOW PIPES",
+      "c": "DESCRIBE PIPES",
+      "d": "GET PIPES"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Account Management"
+  },
+  {
+    "number": 1381,
+    "text": "What is Fail-safe?",
+    "options": {
+      "a": "Storage cache.",
+      "b": "7-day period for Snowflake support recovery.",
+      "c": "Bypass MFA.",
+      "d": "Backup tool."
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Data Protection"
+  },
+  {
+    "number": 1382,
+    "text": "View for all Tasks in an account?",
+    "options": {
+      "a": "TASKS",
+      "b": "SHOW_TASKS",
+      "c": "TASK_HISTORY",
+      "d": "LIST_TASKS"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Account Management"
+  },
+  {
+    "number": 1383,
+    "text": "True or False: Snowflake handles encryption in transit automatically.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Security"
+  },
+  {
+    "number": 1384,
+    "text": "Primary function of a Task?",
+    "options": {
+      "a": "Load data.",
+      "b": "Execute a SQL statement or stored procedure on recurring schedule.",
+      "c": "Monitor performance.",
+      "d": "Archive data."
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 1385,
+    "text": "Layer that handles Access Control?",
+    "options": {
+      "a": "Storage",
+      "b": "Compute",
+      "c": "Cloud Services",
+      "d": "Network"
+    },
+    "answer": ["c"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 1386,
+    "text": "True or False: Transient survives crash.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Storage"
+  },
+  {
+    "number": 1387,
+    "text": "Command to see Users?",
+    "options": {
+      "a": "LIST USERS",
+      "b": "SHOW USERS",
+      "c": "DESCRIBE USERS",
+      "d": "GET USERS"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Security"
+  },
+  {
+    "number": 1388,
+    "text": "Result of Scaling Up?",
+    "options": {
+      "a": "Adding clusters.",
+      "b": "Increasing T-shirt size.",
+      "c": "Moving regions.",
+      "d": "Adding storage."
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Compute"
+  },
+  {
+    "number": 1389,
+    "text": "Edition for Business Critical PrivateLink?",
+    "options": {
+      "a": "Standard",
+      "b": "Enterprise",
+      "c": "Business Critical",
+      "d": "VPS"
+    },
+    "answer": ["c"],
+    "explanation": "",
+    "category": "Account Management"
+  },
+  {
+    "number": 1390,
+    "text": "True or False: Can apply Masking Policy to a column in a View.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Security"
+  },
+  {
+    "number": 1391,
+    "text": "Component for Query Parsing?",
+    "options": {
+      "a": "Compute Layer",
+      "b": "Cloud Services Layer",
+      "c": "Storage Layer",
+      "d": "Metadata Cache"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 1392,
+    "text": "True or False: Can share with accounts in same region without 'Data Exchange'.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Sharing"
+  },
+  {
+    "number": 1393,
+    "text": "Function of Resource Monitors?",
+    "options": {
+      "a": "Monitor performance.",
+      "b": "Limit credit consumption, notify or suspend.",
+      "c": "Monitor storage.",
+      "d": "Track logins."
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Account Management"
+  },
+  {
+    "number": 1394,
+    "text": "True or False: External Functions call APIs.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 1395,
+    "text": "Command to see Stages?",
+    "options": {
+      "a": "LIST STAGES",
+      "b": "SHOW STAGES",
+      "c": "DESCRIBE STAGES",
+      "d": "GET STAGES"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Data Movement"
+  },
+  {
+    "number": 1396,
+    "text": "Max file size recommended for data loading?",
+    "options": {
+      "a": "100 MB compressed.",
+      "b": "100 MB to 250 MB compressed.",
+      "c": "1 GB.",
+      "d": "5 GB."
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Data Movement"
+  },
+  {
+    "number": 1397,
+    "text": "True or False: Row Access Policies filter rows by user role.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Security"
+  },
+  {
+    "number": 1398,
+    "text": "View for history of all Task executions?",
+    "options": {
+      "a": "TASK_HISTORY",
+      "b": "SHOW_TASKS",
+      "c": "EXECUTION_LOG",
+      "d": "SCHEDULED_TASKS"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Account Management"
+  },
+  {
+    "number": 1399,
+    "text": "Default T-shirt size if not specified?",
+    "options": {
+      "a": "X-Small",
+      "b": "Small",
+      "c": "Medium",
+      "d": "Large"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Compute"
+  },
+  {
+    "number": 1400,
+    "text": "True or False: Secure View protects underlying SQL from unauthorized users.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Security"
+  },
+  {
+    "number": 1401,
+    "text": "Command to see Clustering Depth?",
+    "options": {
+      "a": "SHOW CLUSTERING",
+      "b": "SELECT SYSTEM$CLUSTERING_DEPTH(...)",
+      "c": "DESCRIBE CLUSTER",
+      "d": "LIST CLUSTERS"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Storage"
+  },
+  {
+    "number": 1402,
+    "text": "Purpose of Dynamic Data Masking?",
+    "options": {
+      "a": "Encryption.",
+      "b": "Obscure sensitive data based on user role.",
+      "c": "Compression.",
+      "d": "Deletion."
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Security"
+  },
+  {
+    "number": 1403,
+    "text": "True or False: Resource Monitor can be set at Warehouse level.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Account Management"
+  },
+  {
+    "number": 1404,
+    "text": "Snowflake interface CLI tool?",
+    "options": {
+      "a": "Snowsight",
+      "b": "SnowSQL",
+      "c": "Classic Console",
+      "d": "Web UI"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 1405,
+    "text": "DML stands for?",
+    "options": {
+      "a": "Data Management Language",
+      "b": "Data Manipulation Language",
+      "c": "Database Modeling Logic",
+      "d": "Data Maintenance Layer"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 1406,
+    "text": "True or False: Tri-Secret Secure is for customer-managed keys.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Security"
+  },
+  {
+    "number": 1407,
+    "text": "Command for DDL of a table?",
+    "options": {
+      "a": "DESCRIBE TABLE",
+      "b": "SHOW CREATE TABLE",
+      "c": "SELECT GET_DDL('table', 'name')",
+      "d": "GET SCHEMA"
+    },
+    "answer": ["c"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 1408,
+    "text": "Diff between Permanent and Transient? (Choose two.)",
+    "options": {
+      "a": "Perm has Fail-safe; Trans doesn't.",
+      "b": "Trans only visible to creator.",
+      "c": "Perm supports 90 day Time Travel; Trans 1 day.",
+      "d": "Trans auto-dropped."
+    },
+    "answer": ["a", "c"],
+    "explanation": "",
+    "category": "Storage"
+  },
+  {
+    "number": 1409,
+    "text": "True or False: Can share across regions using 'Private Link'.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Sharing"
+  },
+  {
+    "number": 1410,
+    "text": "Function of Information Schema?",
+    "options": {
+      "a": "Storing row data.",
+      "b": "Metadata querying about objects.",
+      "c": "Managing credit billing.",
+      "d": "Login history."
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 1411,
+    "text": "Role for schema management and ownership?",
+    "options": {
+      "a": "USERADMIN",
+      "b": "SECURITYADMIN",
+      "c": "SYSADMIN",
+      "d": "PUBLIC"
+    },
+    "answer": ["c"],
+    "explanation": "",
+    "category": "Security"
+  },
+  {
+    "number": 1412,
+    "text": "Default Time Travel if not set?",
+    "options": {
+      "a": "0 days",
+      "b": "1 day",
+      "c": "7 days",
+      "d": "90 days"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Data Protection"
+  },
+  {
+    "number": 1413,
+    "text": "True or False: Clusters add/remove one at a time.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Compute"
+  },
+  {
+    "number": 1414,
+    "text": "Component for Query Optimization?",
+    "options": {
+      "a": "Storage Layer",
+      "b": "Compute Layer",
+      "c": "Cloud Services Layer",
+      "d": "Metadata Cache"
+    },
+    "answer": ["c"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 1415,
+    "text": "What does STRIP_OUTER_ARRAY do?",
+    "options": {
+      "a": "Removes last character.",
+      "b": "Removes square brackets and loads each element as separate row.",
+      "c": "JSON to CSV.",
+      "d": "Deletes empty arrays."
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Data Movement"
+  },
+  {
+    "number": 1416,
+    "text": "True or False: Can override Account Network Policy at User level.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Security"
+  },
+  {
+    "number": 1417,
+    "text": "Command for Functions in schema?",
+    "options": {
+      "a": "LIST FUNCTIONS",
+      "b": "SHOW FUNCTIONS",
+      "c": "DESCRIBE FUNCTIONS",
+      "d": "GET FUNCTIONS"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 1418,
+    "text": "Benefit of Micro-partitions?",
+    "options": {
+      "a": "Uncompressed storage.",
+      "b": "Granular pruning skipping irrelevant data.",
+      "c": "User-managed storage.",
+      "d": "Zero-copy cloning."
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Storage"
+  },
+  {
+    "number": 1419,
+    "text": "View for materialized view maintenance credits?",
+    "options": {
+      "a": "MATERIALIZED_VIEW_REFRESH_HISTORY",
+      "b": "WAREHOUSE_METERING_HISTORY",
+      "c": "AUTOMATIC_CLUSTERING_HISTORY",
+      "d": "STORAGE_USAGE"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Account Management"
+  },
+  {
+    "number": 1420,
+    "text": "True or False: Shares contain objects from multiple databases.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Sharing"
+  },
+  {
+    "number": 1421,
+    "text": "What is Snowpark?",
+    "options": {
+      "a": "Cloud region.",
+      "b": "Framework for Python, Java, Scala apps.",
+      "c": "Internal storage engine.",
+      "d": "Training environment."
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 1422,
+    "text": "Command to delete all data but keep structure?",
+    "options": {
+      "a": "DROP TABLE",
+      "b": "DELETE FROM TABLE",
+      "c": "TRUNCATE TABLE",
+      "d": "REMOVE TABLE"
+    },
+    "answer": ["c"],
+    "explanation": "",
+    "category": "Storage"
+  },
+  {
+    "number": 1423,
+    "text": "True or False: Warehouses share same Local Disk Cache.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Compute"
+  },
+  {
+    "number": 1424,
+    "text": "Primary purpose of SSO?",
+    "options": {
+      "a": "Login with external IdP credentials.",
+      "b": "Limit concurrent sessions.",
+      "c": "Encrypt passwords.",
+      "d": "Bypass MFA."
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Security"
+  },
+  {
+    "number": 1425,
+    "text": "Command for upload file?",
+    "options": {
+      "a": "COPY INTO",
+      "b": "GET",
+      "c": "PUT",
+      "d": "INSERT"
+    },
+    "answer": ["c"],
+    "explanation": "",
+    "category": "Data Movement"
+  },
+  {
+    "number": 1426,
+    "text": "True or False: Zero-copy cloning can be used on a Schema.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Storage"
+  },
+  {
+    "number": 1427,
+    "text": "Snowflake interface is a web-based UI for data analysis and visualization?",
+    "options": {
+      "a": "SnowSQL",
+      "b": "Snowsight",
+      "c": "Classic Console",
+      "d": "SnowCli"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 1428,
+    "text": "What is the default character used to separate fields in a CSV file in Snowflake?",
+    "options": {
+      "a": "Tab",
+      "b": "Semicolon",
+      "c": "Comma",
+      "d": "Pipe"
+    },
+    "answer": ["c"],
+    "explanation": "",
+    "category": "Data Movement"
+  },
+  {
+    "number": 1429,
+    "text": "True or False: Snowflake 'Snowpark' can be used to build data pipelines using Python.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 1430,
+    "text": "Which view allows you to see the list of all 'Tasks' in an account?",
+    "options": {
+      "a": "TASKS",
+      "b": "SHOW_TASKS",
+      "c": "TASK_HISTORY",
+      "d": "LIST_TASKS"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Account Management"
+  },
+  {
+    "number": 1431,
+    "text": "What does 'Pruning' refer to in Snowflake?",
+    "options": {
+      "a": "Deleting old data.",
+      "b": "Skipping micro-partitions that do not contain relevant data for a query.",
+      "c": "Reducing the warehouse size.",
+      "d": "Cleaning up the metadata layer."
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Storage"
+  },
+  {
+    "number": 1432,
+    "text": "True or False: 'MFA' is enabled by default for all Snowflake users.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Security"
+  },
+  {
+    "number": 1433,
+    "text": "Which command is used to see the list of 'Pipes' in your account?",
+    "options": {
+      "a": "LIST PIPES",
+      "b": "SHOW PIPES",
+      "c": "DESCRIBE PIPES",
+      "d": "GET PIPES"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Account Management"
+  },
+  {
+    "number": 1434,
+    "text": "What is the primary benefit of 'Snowpipe'?",
+    "options": {
+      "a": "It is faster than the COPY command.",
+      "b": "It provides near real-time data ingestion from cloud storage.",
+      "c": "It does not require a Warehouse.",
+      "d": "It is a free service."
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Data Movement"
+  },
+  {
+    "number": 1435,
+    "text": "True or False: A 'Task' can be part of a 'Directed Acyclic Graph' (DAG) of tasks.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 1436,
+    "text": "Which view provides history of all data loads performed using the COPY command in the last 64 days?",
+    "options": {
+      "a": "LOAD_HISTORY (Information Schema)",
+      "b": "LOAD_HISTORY (Account Usage)",
+      "c": "COPY_LOG",
+      "d": "DATA_INGESTION_LOG"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Data Movement"
+  },
+  {
+    "number": 1437,
+    "text": "What happens if a Virtual Warehouse is 'Suspended' and a new query is submitted to it?",
+    "options": {
+      "a": "The query fails.",
+      "b": "The warehouse automatically resumes (if auto-resume is ON) and then runs the query.",
+      "c": "The query is queued until a user manually starts the warehouse.",
+      "d": "The query is moved to a different warehouse."
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Compute"
+  },
+  {
+    "number": 1438,
+    "text": "True or False: Snowflake allows the use of 'Policy Tags' to manage data masking policies.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Security"
+  },
+  {
+    "number": 1439,
+    "text": "Which command allows you to view the privileges granted to a specific user?",
+    "options": {
+      "a": "SHOW GRANTS TO USER",
+      "b": "DESCRIBE USER",
+      "c": "SHOW PRIVILEGES FOR USER",
+      "d": "LIST USER GRANTS"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Security"
+  },
+  {
+    "number": 1440,
+    "text": "What is the impact of 'Auto-clustering' on table availability?",
+    "options": {
+      "a": "The table is locked while clustering.",
+      "b": "The table remains available for querying and DML during the process.",
+      "c": "The table is read-only during clustering.",
+      "d": "The table is suspended."
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Storage"
+  },
+  {
+    "number": 1441,
+    "text": "True or False: Snowflake 'Stored Procedures' can be written in Python.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 1442,
+    "text": "Which Snowflake edition is required for 'Multi-cluster Warehouse' support?",
+    "options": {
+      "a": "Standard",
+      "b": "Enterprise",
+      "c": "Business Critical",
+      "d": "Virtual Private Snowflake"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Account Management"
+  },
+  {
+    "number": 1443,
+    "text": "What is the primary function of 'Resource Monitors'?",
+    "options": {
+      "a": "To monitor query performance.",
+      "b": "To set limits on credit consumption and notify admins or suspend warehouses.",
+      "c": "To monitor storage growth.",
+      "d": "To track user login history."
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Account Management"
+  },
+  {
+    "number": 1444,
+    "text": "True or False: Snowflake supports 'External Functions' which allow calling an API outside Snowflake.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 1445,
+    "text": "Which command is used to see the list of 'Stages'?",
+    "options": {
+      "a": "LIST STAGES",
+      "b": "SHOW STAGES",
+      "c": "DESCRIBE STAGES",
+      "d": "GET STAGES"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Data Movement"
+  },
+  {
+    "number": 1446,
+    "text": "What is the maximum file size recommended for data loading in Snowflake?",
+    "options": {
+      "a": "100 MB compressed",
+      "b": "100 MB to 250 MB compressed",
+      "c": "1 GB",
+      "d": "5 GB"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Data Movement"
+  },
+  {
+    "number": 1447,
+    "text": "True or False: Snowflake allows the use of 'Row Access Policies' to filter rows based on user role.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Security"
+  },
+  {
+    "number": 1448,
+    "text": "Which view provides history of all 'Task' executions in an account?",
+    "options": {
+      "a": "TASK_HISTORY",
+      "b": "SHOW_TASKS",
+      "c": "EXECUTION_LOG",
+      "d": "SCHEDULED_TASKS"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Account Management"
+  },
+  {
+    "number": 1449,
+    "text": "What is the default T-shirt size for a new Virtual Warehouse if not specified?",
+    "options": {
+      "a": "X-Small",
+      "b": "Small",
+      "c": "Medium",
+      "d": "Large"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Compute"
+  },
+  {
+    "number": 1450,
+    "text": "True or False: A 'Secure View' protects the underlying SQL query from being seen by unauthorized users.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Security"
+  },
+  {
+    "number": 1451,
+    "text": "Which command is used to see the 'Clustering Depth' of a table?",
+    "options": {
+      "a": "SHOW CLUSTERING",
+      "b": "SELECT SYSTEM$CLUSTERING_DEPTH(...)",
+      "c": "DESCRIBE CLUSTER",
+      "d": "LIST CLUSTERS"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Storage"
+  },
+  {
+    "number": 1452,
+    "text": "What is the purpose of 'Dynamic Data Masking'?",
+    "options": {
+      "a": "To encrypt data on disk.",
+      "b": "To obscure sensitive data in query results based on the user's role/permissions.",
+      "c": "To compress data.",
+      "d": "To delete data after use."
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Security"
+  },
+  {
+    "number": 1453,
+    "text": "True or False: You can set a 'Resource Monitor' at the individual Warehouse level.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Account Management"
+  },
+  {
+    "number": 1454,
+    "text": "How is data stored in the storage layer?",
+    "options": {
+      "a": "In the storage format requirements of the cloud provider",
+      "b": "In its original format and structure",
+      "c": "In an optimized, compressed, columnar format",
+      "d": "In the defined file size, structure, and compression"
+    },
+    "answer": ["c"],
+    "explanation": "",
+    "category": "Storage"
+  },
+  {
+    "number": 1455,
+    "text": "If a query is being used to unload a 1 TB table into a stage, which keyword will be shown in the Query History?",
+    "options": {
+      "a": "INSERT",
+      "b": "UNLOAD",
+      "c": "COPY",
+      "d": "UPDATE"
+    },
+    "answer": ["c"],
+    "explanation": "",
+    "category": "Data Movement"
+  }
+]

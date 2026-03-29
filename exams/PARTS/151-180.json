@@ -1,0 +1,372 @@
+[
+  {
+    "number": 151,
+    "text": "What is the recommended size for data files when loading into Snowflake for optimal parallel processing?",
+    "options": {
+      "a": "1 MB to 5 MB",
+      "b": "10 MB to 100 MB",
+      "c": "100 MB to 250 MB (compressed)",
+      "d": "1 GB to 2 GB"
+    },
+    "answer": ["c"],
+    "explanation": "",
+    "category": "Data Movement"
+  },
+  {
+    "number": 152,
+    "text": "True or False: A data share can be created from a database that was itself created from a share.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Sharing"
+  },
+  {
+    "number": 153,
+    "text": "Which of the following statements about the Snowflake information_schema are true? (Choose two.)",
+    "options": {
+      "a": "It contains historical data for the last 365 days.",
+      "b": "It is a set of system-defined views and table functions.",
+      "c": "It is specific to each database created in the account.",
+      "d": "It provides account-level usage metrics like credit consumption."
+    },
+    "answer": ["b", "c"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 154,
+    "text": "Which command is used to bring a staged file into a Snowflake table?",
+    "options": {
+      "a": "PUT",
+      "b": "GET",
+      "c": "COPY INTO",
+      "d": "IMPORT"
+    },
+    "answer": ["c"],
+    "explanation": "",
+    "category": "Data Movement"
+  },
+  {
+    "number": 155,
+    "text": "True or False: Snowflake allows you to pay for storage and compute separately.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 156,
+    "text": "How long is the default Time Travel retention period for Standard Edition accounts?",
+    "options": {
+      "a": "0 days",
+      "b": "1 day",
+      "c": "7 days",
+      "d": "90 days"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Data Protection"
+  },
+  {
+    "number": 157,
+    "text": "Which role has the highest level of privilege in a Snowflake account?",
+    "options": {
+      "a": "SYSADMIN",
+      "b": "SECURITYADMIN",
+      "c": "ACCOUNTADMIN",
+      "d": "USERADMIN"
+    },
+    "answer": ["c"],
+    "explanation": "",
+    "category": "Security"
+  },
+  {
+    "number": 158,
+    "text": "True or False: Virtual Warehouses are required to use the Snowflake Data Marketplace.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Sharing"
+  },
+  {
+    "number": 159,
+    "text": "What does 'Zero-Copy Cloning' mean in Snowflake?",
+    "options": {
+      "a": "Data is duplicated only if the original table is deleted.",
+      "b": "The metadata is copied, but the underlying data remains shared until changed.",
+      "c": "Data is copied to a new storage bucket immediately.",
+      "d": "Only the schema definition is copied, not the data."
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Storage"
+  },
+  {
+    "number": 160,
+    "text": "Which of the following is an example of 'Scaling Out'?",
+    "options": {
+      "a": "Changing a Small warehouse to a Large warehouse.",
+      "b": "Adding more clusters to a multi-cluster warehouse.",
+      "c": "Increasing the size of the storage layer.",
+      "d": "Running multiple COPY commands simultaneously."
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Compute"
+  },
+  {
+    "number": 161,
+    "text": "True or False: Snowflake handles all encryption of data at rest automatically using AES-256.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Security"
+  },
+  {
+    "number": 162,
+    "text": "Which view should you query to see credit usage by a specific Virtual Warehouse?",
+    "options": {
+      "a": "WAREHOUSE_METERING_HISTORY",
+      "b": "CREDIT_USAGE_LOG",
+      "c": "ACCOUNT_METRICS",
+      "d": "COMPUTE_HISTORY"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Account Management"
+  },
+  {
+    "number": 163,
+    "text": "What is the maximum number of days for Time Travel in Enterprise Edition?",
+    "options": {
+      "a": "1 day",
+      "b": "14 days",
+      "c": "45 days",
+      "d": "90 days"
+    },
+    "answer": ["d"],
+    "explanation": "",
+    "category": "Data Protection"
+  },
+  {
+    "number": 164,
+    "text": "True or False: External Stages can point to folders in Amazon S3, Google Cloud Storage, or Microsoft Azure.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Data Movement"
+  },
+  {
+    "number": 165,
+    "text": "Which Snowflake component is responsible for query optimization and security?",
+    "options": {
+      "a": "Storage Layer",
+      "b": "Compute Layer",
+      "c": "Cloud Services Layer",
+      "d": "Processing Layer"
+    },
+    "answer": ["c"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 166,
+    "text": "What happens to a query if the Virtual Warehouse it is running on is resized?",
+    "options": {
+      "a": "The query is cancelled and must be restarted.",
+      "b": "The query continues to run on the original resources until completion.",
+      "c": "The query immediately gains access to the new resources.",
+      "d": "The query is paused and resumed once resizing is finished."
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Compute"
+  },
+  {
+    "number": 167,
+    "text": "True or False: Snowflake supports Python and Scala for Snowpark.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 168,
+    "text": "Which of the following can be used to monitor storage usage in Snowflake? (Choose two.)",
+    "options": {
+      "a": "Snowflake Web UI",
+      "b": "Resource Monitors",
+      "c": "Information Schema",
+      "d": "CloudWatch"
+    },
+    "answer": ["a", "c"],
+    "explanation": "",
+    "category": "Account Management"
+  },
+  {
+    "number": 169,
+    "text": "How many days of history are available in the Account Usage views?",
+    "options": {
+      "a": "7 days",
+      "b": "30 days",
+      "c": "180 days",
+      "d": "365 days"
+    },
+    "answer": ["d"],
+    "explanation": "",
+    "category": "Account Management"
+  },
+  {
+    "number": 170,
+    "text": "True or False: A user can belong to multiple roles at the same time in Snowflake.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Security"
+  },
+  {
+    "number": 171,
+    "text": "Which of the following are benefits of Snowflake's multi-cluster architecture? (Choose two.)",
+    "options": {
+      "a": "Eliminates resource contention.",
+      "b": "Reduces storage costs.",
+      "c": "Allows for near-infinite concurrency.",
+      "d": "Enables manual data partitioning."
+    },
+    "answer": ["a", "c"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 172,
+    "text": "What is the purpose of the 'PURGE' option in a COPY command?",
+    "options": {
+      "a": "It deletes the data from the Snowflake table after loading.",
+      "b": "It removes the source files from the stage after a successful load.",
+      "c": "It clears the query cache.",
+      "d": "It drops the table after the load is finished."
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Data Movement"
+  },
+  {
+    "number": 173,
+    "text": "True or False: Fail-safe is intended for use in accidental data deletion by users.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Data Protection"
+  },
+  {
+    "number": 174,
+    "text": "Which command allows a user to see the internal structure of a staged file without loading it?",
+    "options": {
+      "a": "DESCRIBE STAGE",
+      "b": "LIST @stage",
+      "c": "SELECT from @stage",
+      "d": "SHOW FILES"
+    },
+    "answer": ["c"],
+    "explanation": "",
+    "category": "Data Movement"
+  },
+  {
+    "number": 175,
+    "text": "What is a 'Resource Monitor' primarily used for?",
+    "options": {
+      "a": "Controlling storage growth.",
+      "b": "Monitoring query performance.",
+      "c": "Managing and limiting credit consumption by warehouses.",
+      "d": "Tracking user logins."
+    },
+    "answer": ["c"],
+    "explanation": "",
+    "category": "Account Management"
+  },
+  {
+    "number": 176,
+    "text": "True or False: Snowflake can run on a private cloud (on-premises).",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 177,
+    "text": "Which metadata is stored for each micro-partition? (Choose three.)",
+    "options": {
+      "a": "Range of values (min/max).",
+      "b": "Number of distinct values.",
+      "c": "The actual row data.",
+      "d": "Null count."
+    },
+    "answer": ["a", "b", "d"],
+    "explanation": "",
+    "category": "Storage"
+  },
+  {
+    "number": 178,
+    "text": "What is the standard size of a micro-partition before compression?",
+    "options": {
+      "a": "16 MB",
+      "b": "50 MB to 500 MB",
+      "c": "1 GB",
+      "d": "5 GB"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Storage"
+  },
+  {
+    "number": 179,
+    "text": "True or False: Data shared via a Snowflake Share can be updated by the Consumer.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Sharing"
+  },
+  {
+    "number": 180,
+    "text": "Which function is used to convert a JSON string into a VARIANT type?",
+    "options": {
+      "a": "TO_VARIANT()",
+      "b": "PARSE_JSON()",
+      "c": "CAST_AS_JSON()",
+      "d": "FLATTEN()"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Storage"
+  }
+]

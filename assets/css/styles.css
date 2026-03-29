@@ -1,0 +1,134 @@
+:root { 
+    --app-bg: #f8fafc; 
+    --card-bg: #ffffff; 
+    --accent: #2563eb; 
+    --txt-main: #1e293b; 
+    --txt-muted: #64748b; 
+    --border-clr: #e2e8f0; 
+}
+.dark { 
+    --app-bg: #0f172a; 
+    --card-bg: #1e293b; 
+    --accent: #38bdf8; 
+    --txt-main: #f1f5f9; 
+    --txt-muted: #94a3b8; 
+    --border-clr: #334155; 
+}
+.hidden { 
+    display: none !important; 
+}
+
+::-webkit-scrollbar { 
+    width: 8px; 
+    height: 4px; 
+}
+::-webkit-scrollbar-track { 
+    background: var(--app-bg); 
+}
+::-webkit-scrollbar-thumb { 
+    background: var(--border-clr); 
+    border-radius: 10px; 
+}
+
+.opt-correct { 
+    border-color: #10b981 !important; 
+    background-color: rgba(16, 185, 129, 0.1) !important; 
+    color: #10b981 !important; 
+}
+.opt-incorrect { 
+    border-color: #ef4444 !important; 
+    background-color: rgba(239, 68, 68, 0.1) !important; 
+    color: #ef4444 !important; 
+}
+.opt-strike { 
+    opacity: 0.3; 
+    text-decoration: line-through; 
+    filter: grayscale(1); 
+    transform: scale(0.98); 
+}
+.step-badge { 
+    background: var(--accent); 
+    color: white; 
+    padding: 4px 10px; 
+    border-radius: 8px; 
+    font-size: 11px; 
+    font-weight: 900; 
+    margin-right: 14px; 
+    display: inline-block; 
+}
+
+.max-w-6xl { 
+    max-width: 95% !important; 
+    width: 1400px; 
+    transition: all 0.4s ease; 
+    margin-bottom: 50px; 
+}
+
+.nav-scroller { 
+    display: flex; 
+    align-items: center; 
+    gap: 0.5rem; 
+    overflow-x: auto; 
+    white-space: nowrap; 
+    -webkit-overflow-scrolling: touch; 
+    scrollbar-width: none; 
+}
+.nav-scroller::-webkit-scrollbar { 
+    display: none; 
+}
+
+.nav-pass { 
+    background-color: #10b981 !important; 
+    color: white !important; 
+    border-color: #10b981 !important; 
+}
+.nav-fail { 
+    background-color: #ef4444 !important; 
+    color: white !important; 
+    border-color: #ef4444 !important; 
+}
+.nav-completed { 
+    border-color: var(--accent) !important; 
+    color: var(--accent) !important; 
+}
+.nav-active { 
+    border-width: 3px !important; 
+    transform: scale(1.05); 
+    z-index: 10; 
+    border-color: var(--accent) !important; 
+}
+
+body.focus-active #main-nav, body.focus-active #sidebar-nav { 
+    display: none !important; 
+}
+body.focus-active .max-w-6xl { 
+    width: 900px !important; 
+    margin-top: 40px; 
+}
+
+.pass-badge { 
+    background: #10b981; 
+    color: white; 
+    padding: 2px 8px; 
+    border-radius: 6px; 
+    font-size: 9px; 
+    font-weight: 900; 
+    text-transform: uppercase; 
+}
+.fail-badge { 
+    background: #ef4444; 
+    color: white; 
+    padding: 2px 8px; 
+    border-radius: 6px; 
+    font-size: 9px; 
+    font-weight: 900; 
+    text-transform: uppercase; 
+}
+
+@keyframes pop { 
+    0% { transform: scale(0.9); opacity: 0; } 
+    100% { transform: scale(1); opacity: 1; } 
+}
+.animate-pop { 
+    animation: pop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+}

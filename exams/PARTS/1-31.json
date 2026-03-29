@@ -1,0 +1,390 @@
+[
+  {
+    "number": 1,
+    "text": "Snowflake provides a mechanism for its customers to override its natural clustering algorithms. This method is:",
+    "options": {
+      "a": "Micro-partitions",
+      "b": "Clustering keys",
+      "c": "Key partitions",
+      "d": "Clustered partitions"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Storage"
+  },
+  {
+    "number": 2,
+    "text": "Which of the following are valid Snowflake Virtual Warehouse Scaling Policies? (Choose two.)",
+    "options": {
+      "a": "Custom",
+      "b": "Economy",
+      "c": "Optimized",
+      "d": "Standard"
+    },
+    "answer": ["b", "d"],
+    "explanation": "",
+    "category": "Compute"
+  },
+  {
+    "number": 3,
+    "text": "True or False: A single database can exist in more than one Snowflake account.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 4,
+    "text": "Which of the following roles is recommended to be used to create and manage users and roles?",
+    "options": {
+      "a": "SYSADMIN",
+      "b": "SECURITYADMIN",
+      "c": "PUBLIC",
+      "d": "ACCOUNTADMIN"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Security"
+  },
+  {
+    "number": 5,
+    "text": "True or False: Bulk unloading of data from Snowflake supports the use of a SELECT statement.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Data Movement"
+  },
+  {
+    "number": 6,
+    "text": "Select the different types of Internal Stages: (Choose three.)",
+    "options": {
+      "a": "Named Stage",
+      "b": "User Stage",
+      "c": "Table Stage",
+      "d": "Schema Stage"
+    },
+    "answer": ["a", "b", "c"],
+    "explanation": "",
+    "category": "Storage"
+  },
+  {
+    "number": 7,
+    "text": "True or False: A customer using SnowSQL / native connectors will be unable to also use the Snowflake Web Interface (UI) unless access to the Ul is explicitly granted by support.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 8,
+    "text": "Account-level storage usage can be monitored via:",
+    "options": {
+      "a": "The Snowflake Web Interface (UI) in the Databases section",
+      "b": "The Snowflake Web Interface (UI) in the Account -> Billing & Usage section",
+      "c": "The Information Schema -> ACCOUNT_USAGE_HISTORY View",
+      "d": "The Account Usage Schema -> ACCOUNT_USAGE_METRICS View"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Account Management"
+  },
+  {
+    "number": 9,
+    "text": "Credit Consumption by the Compute Layer (Virtual Warehouses) is based on: (Choose two.)",
+    "options": {
+      "a": "Number of users",
+      "b": "Warehouse size",
+      "c": "Amount of data processed",
+      "d": "# of clusters for the Warehouse"
+    },
+    "answer": ["b", "d"],
+    "explanation": "",
+    "category": "Compute"
+  },
+  {
+    "number": 10,
+    "text": "Which statement best describes clustering?",
+    "options": {
+      "a": "Clustering represents the way data is grouped together and stored within Snowflake's micro-partitions",
+      "b": "The database administrator must define the clustering methodology for each Snowflake table",
+      "c": "The clustering key must be included on the COPY command when loading data into Snowflake",
+      "d": "Clustering can be disabled within a Snowflake account"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Storage"
+  },
+  {
+    "number": 11,
+    "text": "True or False: The COPY command must specify a File Format in order to execute.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Data Movement"
+  },
+  {
+    "number": 12,
+    "text": "Which of the following commands sets the Virtual Warehouse for a session?",
+    "options": {
+      "a": "COPY WAREHOUSE FROM <<config file>>;",
+      "b": "SET WAREHOUSE = <<warehouse name>>;",
+      "c": "USE WAREHOUSE <<warehouse name>>;",
+      "d": "USE VIRTUAL_WAREHOUSE <<warehouse name>>;"
+    },
+    "answer": ["c"],
+    "explanation": "",
+    "category": "Compute"
+  },
+  {
+    "number": 13,
+    "text": "Which of the following objects can be cloned? (Choose four.)",
+    "options": {
+      "a": "Tables",
+      "b": "Named File Formats",
+      "c": "Schemas",
+      "d": "Shares",
+      "e": "Databases",
+      "f": "Users"
+    },
+    "answer": ["a", "b", "c", "e"],
+    "explanation": "",
+    "category": "Data Protection"
+  },
+  {
+    "number": 14,
+    "text": "Which object allows you to limit the number of credits consumed within a Snowflake account?",
+    "options": {
+      "a": "Account Usage Tracking",
+      "b": "Resource Monitor",
+      "c": "Warehouse Limit Parameter",
+      "d": "Credit Consumption Tracker"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Account Management"
+  },
+  {
+    "number": 15,
+    "text": "Snowflake is designed for which type of workloads? (Choose two.)",
+    "options": {
+      "a": "OLAP (Analytics) workloads",
+      "b": "OLTP (Transactional) workloads",
+      "c": "Concurrent workloads",
+      "d": "On-premise workloads"
+    },
+    "answer": ["a", "c"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 16,
+    "text": "What are the three layers that make up Snowflake's architecture? (Choose three.)",
+    "options": {
+      "a": "Compute",
+      "b": "Tri-Secret Secure",
+      "c": "Storage",
+      "d": "Cloud Services"
+    },
+    "answer": ["a", "c", "d"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 17,
+    "text": "Why would a customer size a Virtual Warehouse from an X-Small to a Medium?",
+    "options": {
+      "a": "To accommodate more queries",
+      "b": "To accommodate more users",
+      "c": "To accommodate fluctuations in workload",
+      "d": "To accommodate a more complex workload"
+    },
+    "answer": ["d"],
+    "explanation": "",
+    "category": "Compute"
+  },
+  {
+    "number": 18,
+    "text": "True or False: Reader Accounts incur no additional Compute costs to the Data Provider since they are simply reading the shared data without making changes.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Sharing"
+  },
+  {
+    "number": 19,
+    "text": "Which of the following connectors allow Multi-Factor Authentication (MFA) authorization when connecting? (Choose all that apply.)",
+    "options": {
+      "a": "JDBC",
+      "b": "SnowSQL",
+      "c": "Snowflake Web Interface (UI)",
+      "d": "ODBC",
+      "e": "Python"
+    },
+    "answer": ["a", "b", "c", "d", "e"],
+    "explanation": "",
+    "category": "Security"
+  },
+  {
+    "number": 20,
+    "text": "True or False: Snowflake charges a premium for storing semi-structured data.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Storage"
+  },
+  {
+    "number": 21,
+    "text": "Which of the following statements describes a benefit of Snowflake's separation of compute and storage? (Choose all that apply.)",
+    "options": {
+      "a": "Growth of storage and compute are tightly coupled together",
+      "b": "Storage expands without the requirement to add more compute",
+      "c": "Compute can be scaled up or down without the requirement to add more storage",
+      "d": "Multiple compute clusters can access stored data without contention"
+    },
+    "answer": ["b", "c", "d"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 22,
+    "text": "True or False: It is possible to unload structured data to semi-structured formats such as JSON and Parquet.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Data Movement"
+  },
+  {
+    "number": 23,
+    "text": "In which layer of its architecture does Snowflake store its metadata statistics?",
+    "options": {
+      "a": "Storage Layer",
+      "b": "Compute Layer",
+      "c": "Database Layer",
+      "d": "Cloud Services Layer"
+    },
+    "answer": ["d"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 24,
+    "text": "True or False: Data in fail-safe can be deleted by a user or the Snowflake team before it expires.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Data Protection"
+  },
+  {
+    "number": 25,
+    "text": "True or False: Snowflake's data warehouse was built from the ground up for the cloud in lieu of using an existing database or a platform, like Hadoop, as a base.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 26,
+    "text": "Which of the following statements are true of Virtual Warehouses? (Choose all that apply.)",
+    "options": {
+      "a": "Customers can change the size of the Warehouse after creation",
+      "b": "A Warehouse can be resized while running",
+      "c": "A Warehouse can be configured to suspend after a period of inactivity",
+      "d": "A Warehouse can be configured to auto-resume when new queries are submitted"
+    },
+    "answer": ["a", "b", "c", "d"],
+    "explanation": "",
+    "category": "Compute"
+  },
+  {
+    "number": 27,
+    "text": "The PUT command: (Choose two.)",
+    "options": {
+      "a": "Automatically creates a File Format object",
+      "b": "Automatically uses the last Stage created",
+      "c": "Automatically compresses files using Gzip",
+      "d": "Automatically encrypts files"
+    },
+    "answer": ["c", "d"],
+    "explanation": "",
+    "category": "Data Movement"
+  },
+  {
+    "number": 28,
+    "text": "Which type of table corresponds to a single Snowflake session?",
+    "options": {
+      "a": "Temporary",
+      "b": "Transient",
+      "c": "Provisional",
+      "d": "Permanent"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Storage"
+  },
+  {
+    "number": 29,
+    "text": "Which interfaces can be used to create and/or manage Virtual Warehouses?",
+    "options": {
+      "a": "The Snowflake Web Interface (UI)",
+      "b": "SQL commands",
+      "c": "Data integration tools",
+      "d": "All of the above"
+    },
+    "answer": ["d"],
+    "explanation": "",
+    "category": "Compute"
+  },
+  {
+    "number": 30,
+    "text": "When a Pipe is recreated using the CREATE OR REPLACE PIPE command:",
+    "options": {
+      "a": "The Pipe load history is reset to empty",
+      "b": "The REFRESH parameter is set to TRUE",
+      "c": "Previously loaded files will be ignored",
+      "d": "All of the above"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Data Movement"
+  },
+  {
+    "number": 31,
+    "text": "What is the minimum Snowflake edition that customers planning on storing protected information in Snowflake should consider for regulatory compliance?",
+    "options": {
+      "a": "Standard",
+      "b": "Premier",
+      "c": "Enterprise",
+      "d": "Business Critical Edition"
+    },
+    "answer": ["d"],
+    "explanation": "",
+    "category": "Account Management"
+  }
+]

@@ -1,0 +1,1344 @@
+[
+  {
+    "number": 1,
+    "text": "A user with the USERADMIN role creates a custom role. They then grant this role to SYSADMIN. Who can now drop this custom role?",
+    "options": {
+      "a": "Only the user who created it",
+      "b": "USERADMIN and SECURITYADMIN",
+      "c": "SYSADMIN and ACCOUNTADMIN",
+      "d": "Only ACCOUNTADMIN"
+    },
+    "answer": [
+      "b"
+    ],
+    "category": "Domain 2.0: Account Access & Security"
+  },
+  {
+    "number": 2,
+    "text": "A warehouse is running a single complex query that is spilling to remote storage. Which action will improve the performance of this specific query while it is still running?",
+    "options": {
+      "a": "Increasing the MAX_CLUSTER_COUNT",
+      "b": "Resizing the Warehouse from Small to Large",
+      "c": "There is no action that will improve the performance of a currently running query",
+      "d": "Suspending and Resuming the warehouse"
+    },
+    "answer": [
+      "c"
+    ],
+    "category": "Domain 4.0: Performance Optimization"
+  },
+  {
+    "number": 3,
+    "text": "When a database is cloned using zero-copy cloning, what happens to the 'Pipes' within that database?",
+    "options": {
+      "a": "They are cloned and remain in the same state as the original",
+      "b": "They are cloned but are paused by default",
+      "c": "They are not cloned and must be recreated",
+      "d": "They are cloned but point to a new internal stage created for the clone"
+    },
+    "answer": [
+      "b"
+    ],
+    "category": "Domain 6.0: Data Protection & Sharing"
+  },
+  {
+    "number": 4,
+    "text": "A permanent table in Enterprise edition has a Time Travel retention of 90 days. If the table is dropped on day 1, what is the last day a user can utilize the UNDROP command?",
+    "options": {
+      "a": "Day 7",
+      "b": "Day 90",
+      "c": "Day 97",
+      "d": "Permanently unavailable once dropped"
+    },
+    "answer": [
+      "b"
+    ],
+    "category": "Domain 6.0: Data Protection & Sharing"
+  },
+  {
+    "number": 5,
+    "text": "Which command is used to load data from an external stage into a Snowflake table using the REST API for Snowpipe?",
+    "options": {
+      "a": "INSERT INTO ... FROM @stage",
+      "b": "COPY INTO ... FROM @stage",
+      "c": "insertFiles",
+      "d": "PUT file://..."
+    },
+    "answer": [
+      "c"
+    ],
+    "category": "Domain 5.0: Data Loading & Unloading"
+  },
+  {
+    "number": 6,
+    "text": "True or False: A Python UDF can be used to read files from an external stage via a scoped URL.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": [
+      "a"
+    ],
+    "category": "Domain 3.0: Data Transformation"
+  },
+  {
+    "number": 7,
+    "text": "When querying a VARIANT column, how does Snowflake distinguish between a SQL NULL and a JSON null value?",
+    "options": {
+      "a": "It treats them as identical",
+      "b": "JSON nulls are stored as strings",
+      "c": "You must use the IS_NULL_VALUE() function to identify a JSON null",
+      "d": "SQL NULLs are converted to 'undefined'"
+    },
+    "answer": [
+      "c"
+    ],
+    "category": "Domain 3.0: Data Transformation"
+  },
+  {
+    "number": 8,
+    "text": "Which role is the only one capable of creating and managing 'Shares' and 'Data Exchanges'?",
+    "options": {
+      "a": "SYSADMIN",
+      "b": "SECURITYADMIN",
+      "c": "ACCOUNTADMIN",
+      "d": "USERADMIN"
+    },
+    "answer": [
+      "c"
+    ],
+    "category": "Domain 2.0: Account Access & Security"
+  },
+  {
+    "number": 9,
+    "text": "A user needs to join data from two different databases to create a Secure View for a Data Share. What privilege must be granted to the Share for this to work?",
+    "options": {
+      "a": "USAGE on both databases",
+      "b": "REFERENCE_USAGE on the second database",
+      "c": "SELECT on all tables in both databases",
+      "d": "SHARE_ANY_DATABASE global privilege"
+    },
+    "answer": [
+      "b"
+    ],
+    "category": "Domain 6.0: Data Protection & Sharing"
+  },
+  {
+    "number": 10,
+    "text": "True or False: If a warehouse has 'Auto-resume' enabled, it will automatically resume even if the query submitted does not require compute resources (e.g., result cache).",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": [
+      "b"
+    ],
+    "category": "Domain 4.0: Performance Optimization"
+  },
+  {
+    "number": 11,
+    "text": "Which function is used to return a 'scoped URL' for a file in a stage, allowing it to be read by a UDF for a limited time?",
+    "options": {
+      "a": "GET_STAGE_FILE()",
+      "b": "BUILD_SCOPED_FILE_URL()",
+      "c": "GENERATE_SAS_URL()",
+      "d": "STAGE_URL_ENCODE()"
+    },
+    "answer": [
+      "b"
+    ],
+    "category": "Domain 5.0: Data Loading & Unloading"
+  },
+  {
+    "number": 12,
+    "text": "What is the result of a 'Lateral Flatten' on a VARIANT column containing an empty array?",
+    "options": {
+      "a": "It returns a single row with NULL values",
+      "b": "It returns an error",
+      "c": "It returns zero rows for that input",
+      "d": "It returns a single row with the array structure intact"
+    },
+    "answer": [
+      "c"
+    ],
+    "category": "Domain 3.0: Data Transformation"
+  },
+  {
+    "number": 13,
+    "text": "True or False: Zero-copy cloning is possible for a 'Temporary' table, but the clone itself must also be 'Temporary'.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": [
+      "a"
+    ],
+    "category": "Domain 6.0: Data Protection & Sharing"
+  },
+  {
+    "number": 14,
+    "text": "If a warehouse is configured with Min Clusters = 2 and Max Clusters = 10, how many clusters are started immediately when the warehouse is resumed?",
+    "options": {
+      "a": "1",
+      "b": "2",
+      "c": "6",
+      "d": "10"
+    },
+    "answer": [
+      "b"
+    ],
+    "category": "Domain 4.0: Performance Optimization"
+  },
+  {
+    "number": 15,
+    "text": "Which role is required to modify a 'Resource Monitor' once it has been created?",
+    "options": {
+      "a": "The creator of the monitor",
+      "b": "SYSADMIN",
+      "c": "ACCOUNTADMIN",
+      "d": "SECURITYADMIN"
+    },
+    "answer": [
+      "c"
+    ],
+    "category": "Domain 2.0: Account Access & Security"
+  },
+  {
+    "number": 16,
+    "text": "True or False: A Snowpark Python DataFrame operation (e.g., filter or join) consumes credits at the time the command is written in the IDE.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": [
+      "b"
+    ],
+    "category": "Domain 3.0: Data Transformation",
+    "explanation": "Snowpark uses lazy evaluation; credits are only consumed when an action like .collect() or .saveAsTable() is called."
+  },
+  {
+    "number": 17,
+    "text": "Which metadata-based function can be used in a query to see the file name a specific row was loaded from?",
+    "options": {
+      "a": "FILE_NAME()",
+      "b": "METADATA$FILENAME",
+      "c": "LOAD_SOURCE()",
+      "d": "ROW_SOURCE_FILE"
+    },
+    "answer": [
+      "b"
+    ],
+    "category": "Domain 5.0: Data Loading & Unloading"
+  },
+  {
+    "number": 18,
+    "text": "What is the specific duration of the 'Wait' period for the 'Economy' scaling policy before starting a new cluster?",
+    "options": {
+      "a": "2 minutes",
+      "b": "5 minutes",
+      "c": "6 minutes",
+      "d": "10 minutes"
+    },
+    "answer": [
+      "c"
+    ],
+    "category": "Domain 4.0: Performance Optimization"
+  },
+  {
+    "number": 19,
+    "text": "True or False: Fail-safe storage is available for Transient tables if the retention period is set to 1 day.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": [
+      "b"
+    ],
+    "category": "Domain 6.0: Data Protection & Sharing"
+  },
+  {
+    "number": 20,
+    "text": "Which privilege allows a role to see the query text of other users in the Query History page?",
+    "options": {
+      "a": "MONITOR USAGE",
+      "b": "MONITOR EXECUTION",
+      "c": "VIEW ANY QUERY",
+      "d": "OWNERSHIP"
+    },
+    "answer": [
+      "b"
+    ],
+    "category": "Domain 2.0: Account Access & Security"
+  },
+  {
+    "number": 21,
+    "text": "When unloading data using COPY INTO, which parameter is used to ensure a single file is produced regardless of the data size?",
+    "options": {
+      "a": "FILE_COUNT = 1",
+      "b": "SINGLE = TRUE",
+      "c": "OVERWRITE = TRUE",
+      "d": "MAX_FILE_SIZE = 0"
+    },
+    "answer": [
+      "b"
+    ],
+    "category": "Domain 5.0: Data Loading & Unloading"
+  },
+  {
+    "number": 22,
+    "text": "Which component of the Snowflake architecture handles 'Cloud Services' but is billed as its own separate serverless cost?",
+    "options": {
+      "a": "Snowpipe",
+      "b": "Replication",
+      "c": "Materialized View maintenance",
+      "d": "Search Optimization Service"
+    },
+    "answer": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ],
+    "category": "Domain 1.0: AI Data Cloud & Architecture"
+  },
+  {
+    "number": 23,
+    "text": "True or False: A user with the SYSADMIN role can drop an ACCOUNTADMIN user.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": [
+      "b"
+    ],
+    "category": "Domain 2.0: Account Access & Security"
+  },
+  {
+    "number": 24,
+    "text": "When a warehouse is set to 'Standard' scaling policy, what is the trigger to start an additional cluster?",
+    "options": {
+      "a": "When 5 queries are in the queue",
+      "b": "Immediately when a query is queued or the system detects more load than the current cluster can handle",
+      "c": "After 1 minute of queuing",
+      "d": "When CPU usage hits 90%"
+    },
+    "answer": [
+      "b"
+    ],
+    "category": "Domain 4.0: Performance Optimization"
+  },
+  {
+    "number": 25,
+    "text": "What is the maximum size of a single VARIANT column value?",
+    "options": {
+      "a": "8MB",
+      "b": "16MB",
+      "c": "32MB",
+      "d": "128MB"
+    },
+    "answer": [
+      "b"
+    ],
+    "category": "Domain 3.0: Data Transformation"
+  },
+  {
+    "number": 26,
+    "text": "True or False: In a 'Managed Access Schema', the object owner still has the power to grant privileges on their objects to other roles.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": [
+      "b"
+    ],
+    "category": "Domain 2.0: Account Access & Security",
+    "explanation": "In managed access schemas, only the schema owner (or a role with MANAGE GRANTS) can grant privileges."
+  },
+  {
+    "number": 27,
+    "text": "Which function allows you to determine if a table is currently undergoing 'Auto-Clustering'?",
+    "options": {
+      "a": "SYSTEM$CLUSTERING_INFORMATION",
+      "b": "AUTOMATIC_CLUSTERING_HISTORY",
+      "c": "SYSTEM$PIPE_STATUS",
+      "d": "SHOW CLUSTERING"
+    },
+    "answer": [
+      "b"
+    ],
+    "category": "Domain 4.0: Performance Optimization"
+  },
+  {
+    "number": 28,
+    "text": "True or False: Zero-copy cloning can be used to clone a table across two different cloud regions.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": [
+      "b"
+    ],
+    "category": "Domain 6.0: Data Protection & Sharing"
+  },
+  {
+    "number": 29,
+    "text": "Which role is recommended for creating a 'Resource Monitor'?",
+    "options": {
+      "a": "SYSADMIN",
+      "b": "ACCOUNTADMIN",
+      "c": "SECURITYADMIN",
+      "d": "USERADMIN"
+    },
+    "answer": [
+      "b"
+    ],
+    "category": "Domain 2.0: Account Access & Security"
+  },
+  {
+    "number": 30,
+    "text": "When using a 'Stream' on a 'View', which underlying objects must have Change Tracking enabled?",
+    "options": {
+      "a": "Only the View itself",
+      "b": "The View and all underlying source tables",
+      "c": "Only the underlying source tables",
+      "d": "Streams cannot be created on Views"
+    },
+    "answer": [
+      "b"
+    ],
+    "category": "Domain 5.0: Data Loading & Unloading"
+  },
+  {
+    "number": 31,
+    "text": "True or False: A single 'Share' object can contain tables from Database A and Database B simultaneously.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": [
+      "b"
+    ],
+    "category": "Domain 6.0: Data Protection & Sharing",
+    "explanation": "A share can only contain objects from a single database."
+  },
+  {
+    "number": 32,
+    "text": "What is the result of applying a 'Row Access Policy' to a table that already has 'Dynamic Data Masking'?",
+    "options": {
+      "a": "The Masking policy is disabled",
+      "b": "Both policies are applied: Row Access filters the rows, and Masking obscures the columns",
+      "c": "An error is returned; you can only use one",
+      "d": "Masking is applied first, then Row Access"
+    },
+    "answer": [
+      "b"
+    ],
+    "category": "Domain 2.0: Account Access & Security"
+  },
+  {
+    "number": 33,
+    "text": "Which Snowflake component handles the 'Automatic re-clustering' service?",
+    "options": {
+      "a": "Compute Layer (Virtual Warehouses)",
+      "b": "Storage Layer",
+      "c": "Cloud Services Layer",
+      "d": "Network Backbone"
+    },
+    "answer": [
+      "c"
+    ],
+    "category": "Domain 1.0: AI Data Cloud & Architecture"
+  },
+  {
+    "number": 34,
+    "text": "True or False: 'MFA' in Snowflake must be enabled manually by each user; an administrator cannot force-enable it for a user without their intervention.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": [
+      "a"
+    ],
+    "category": "Domain 2.0: Account Access & Security"
+  },
+  {
+    "number": 35,
+    "text": "What is the impact of the 'PURGE = TRUE' parameter in a COPY command?",
+    "options": {
+      "a": "It deletes the data from the Snowflake table after loading",
+      "b": "It deletes the source files from the stage after a successful load",
+      "c": "It clears the metadata cache for that table",
+      "d": "It removes all Time Travel history for that table"
+    },
+    "answer": [
+      "b"
+    ],
+    "category": "Domain 5.0: Data Loading & Unloading"
+  },
+  {
+    "number": 36,
+    "text": "True or False: A 'Task' can execute a 'PUT' command to upload files to a stage.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": [
+      "b"
+    ],
+    "category": "Domain 5.0: Data Loading & Unloading"
+  },
+  {
+    "number": 37,
+    "text": "Which command allows you to see the exact micro-partition distribution and clustering health of a table?",
+    "options": {
+      "a": "SHOW CLUSTERING",
+      "b": "DESCRIBE TABLE",
+      "c": "SELECT SYSTEM$CLUSTERING_INFORMATION('table_name')",
+      "d": "SELECT * FROM TABLE_STORAGE_METRICS"
+    },
+    "answer": [
+      "c"
+    ],
+    "category": "Domain 4.0: Performance Optimization"
+  },
+  {
+    "number": 38,
+    "text": "What is the result of using a 'Materialized View' on top of another 'Materialized View'?",
+    "options": {
+      "a": "Improved performance",
+      "b": "This is not currently supported in Snowflake",
+      "c": "It creates a nested metadata dependency",
+      "d": "Automatic re-clustering is disabled"
+    },
+    "answer": [
+      "b"
+    ],
+    "category": "Domain 4.0: Performance Optimization"
+  },
+  {
+    "number": 39,
+    "text": "True or False: A Data Consumer can clone a database created from a 'Share'.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": [
+      "b"
+    ],
+    "category": "Domain 6.0: Data Protection & Sharing"
+  },
+  {
+    "number": 40,
+    "text": "Which view provides the login history for all users in the account for the past 365 days?",
+    "options": {
+      "a": "LOGIN_HISTORY (Information Schema)",
+      "b": "LOGIN_HISTORY (Account Usage)",
+      "c": "SESSIONS_LOG",
+      "d": "ACCESS_HISTORY"
+    },
+    "answer": [
+      "b"
+    ],
+    "category": "Domain 2.0: Account Access & Security"
+  },
+  {
+    "number": 41,
+    "text": "When using 'Snowpipe', how is the 'Load History' stored differently than the COPY command?",
+    "options": {
+      "a": "Snowpipe load history is kept for 14 days",
+      "b": "Snowpipe load history is kept for 64 days",
+      "c": "Snowpipe load history is deleted immediately after success",
+      "d": "Snowpipe uses the target table's metadata instead of its own"
+    },
+    "answer": [
+      "a"
+    ],
+    "category": "Domain 5.0: Data Loading & Unloading"
+  },
+  {
+    "number": 42,
+    "text": "True or False: External Functions can return multiple rows for each input row (UDTF equivalent).",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": [
+      "b"
+    ],
+    "category": "Domain 3.0: Data Transformation"
+  },
+  {
+    "number": 43,
+    "text": "Which role is the owner of the 'Snowflake' database and the 'Account Usage' schema?",
+    "options": {
+      "a": "ACCOUNTADMIN",
+      "b": "SYSADMIN",
+      "c": "SECURITYADMIN",
+      "d": "No role; it is a system-owned read-only database"
+    },
+    "answer": [
+      "d"
+    ],
+    "category": "Domain 2.0: Account Access & Security"
+  },
+  {
+    "number": 44,
+    "text": "What is the 'Minimum' size of a Virtual Warehouse required to use the 'Search Optimization Service' effectively?",
+    "options": {
+      "a": "X-Small",
+      "b": "Small",
+      "c": "Medium",
+      "d": "No minimum size requirement"
+    },
+    "answer": [
+      "d"
+    ],
+    "category": "Domain 4.0: Performance Optimization"
+  },
+  {
+    "number": 45,
+    "text": "True or False: A 'Transient' database can contain 'Permanent' tables.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": [
+      "b"
+    ],
+    "category": "Domain 1.0: AI Data Cloud & Architecture"
+  },
+  {
+    "number": 46,
+    "text": "When a Warehouse is suspended and then resumed, what happens to its 'Local Disk Cache'?",
+    "options": {
+      "a": "It is preserved entirely",
+      "b": "It is partially preserved if resumed within 10 minutes",
+      "c": "It is completely cleared",
+      "d": "It is moved to the Cloud Services layer"
+    },
+    "answer": [
+      "c"
+    ],
+    "category": "Domain 4.0: Performance Optimization"
+  },
+  {
+    "number": 47,
+    "text": "Which command is used to grant a role to another role (creating a hierarchy)?",
+    "options": {
+      "a": "GRANT ROLE role1 TO role2",
+      "b": "ALTER ROLE role2 ADD role1",
+      "c": "SET ROLE role2 INHERITS role1",
+      "d": "GRANT PRIVILEGE ON role1 TO role2"
+    },
+    "answer": [
+      "a"
+    ],
+    "category": "Domain 2.0: Account Access & Security"
+  },
+  {
+    "number": 48,
+    "text": "What is the primary benefit of 'External Tables' compared to 'Internal Tables'?",
+    "options": {
+      "a": "Faster query performance",
+      "b": "Data remains in the customer's cloud storage bucket and is not ingested into Snowflake",
+      "c": "90 days of Time Travel is guaranteed",
+      "d": "Automatic re-clustering"
+    },
+    "answer": [
+      "b"
+    ],
+    "category": "Domain 1.0: AI Data Cloud & Architecture"
+  },
+  {
+    "number": 49,
+    "text": "True or False: You can apply a 'Masking Policy' to a column that is used as a 'Clustering Key'.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": [
+      "b"
+    ],
+    "category": "Domain 2.0: Account Access & Security"
+  },
+  {
+    "number": 50,
+    "text": "Which layer of the architecture is responsible for 'Data Compression'?",
+    "options": {
+      "a": "Storage Layer",
+      "b": "Compute Layer",
+      "c": "Cloud Services Layer",
+      "d": "Cloud Infrastructure Layer"
+    },
+    "answer": [
+      "a"
+    ],
+    "category": "Domain 1.0: AI Data Cloud & Architecture"
+  },
+  {
+    "number": 51,
+    "text": "A user runs a query that takes 1 hour. During that hour, the table data is modified 5 times. Which version of the data does the user's query see?",
+    "options": {
+      "a": "The data as it existed the moment the query finished",
+      "b": "The data as it existed the moment the query was submitted",
+      "c": "A mix of versions based on which partition was scanned",
+      "d": "The query will fail with a 'Concurrent Update' error"
+    },
+    "answer": [
+      "b"
+    ],
+    "category": "Domain 6.0: Data Protection & Sharing"
+  },
+  {
+    "number": 52,
+    "text": "What happens if a warehouse is set to 'Auto-suspend = 0'?",
+    "options": {
+      "a": "It suspends immediately after a query",
+      "b": "It never suspends automatically",
+      "c": "It suspends after 60 seconds",
+      "d": "It resizes to X-Small"
+    },
+    "answer": [
+      "b"
+    ],
+    "category": "Domain 4.0: Performance Optimization"
+  },
+  {
+    "number": 53,
+    "text": "True or False: Snowflake allows the use of 'Tri-Secret Secure' even in the Standard edition.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": [
+      "b"
+    ],
+    "category": "Domain 2.0: Account Access & Security"
+  },
+  {
+    "number": 54,
+    "text": "Which view is used to determine which files have been successfully loaded into a table via Snowpipe in the last 14 days?",
+    "options": {
+      "a": "LOAD_HISTORY",
+      "b": "COPY_HISTORY",
+      "c": "PIPE_USAGE_HISTORY",
+      "d": "SNOWPIPE_LOAD_HISTORY"
+    },
+    "answer": [
+      "b"
+    ],
+    "category": "Domain 5.0: Data Loading & Unloading"
+  },
+  {
+    "number": 55,
+    "text": "If you clone a schema that has 'Managed Access' enabled, what is the status of the cloned schema?",
+    "options": {
+      "a": "Managed access is disabled in the clone",
+      "b": "Managed access is enabled in the clone",
+      "c": "The clone becomes a standard schema",
+      "d": "Cloning is not possible for managed access schemas"
+    },
+    "answer": [
+      "b"
+    ],
+    "category": "Domain 6.0: Data Protection & Sharing"
+  },
+  {
+    "number": 56,
+    "text": "True or False: Python UDTFs (Table Functions) require a 'process' method to return rows.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": [
+      "a"
+    ],
+    "category": "Domain 3.0: Data Transformation"
+  },
+  {
+    "number": 57,
+    "text": "Which role is the only one capable of viewing 'Credit Usage' data in the Snowsight 'Usage' dashboard?",
+    "options": {
+      "a": "SYSADMIN",
+      "b": "ACCOUNTADMIN",
+      "c": "SECURITYADMIN",
+      "d": "USERADMIN"
+    },
+    "answer": [
+      "b"
+    ],
+    "category": "Domain 2.0: Account Access & Security"
+  },
+  {
+    "number": 58,
+    "text": "What is the maximum number of days a 'Resource Monitor' can track credit usage before resetting?",
+    "options": {
+      "a": "30 days",
+      "b": "365 days",
+      "c": "It is based on the reset frequency (Monthly, Yearly, Never)",
+      "d": "7 days"
+    },
+    "answer": [
+      "c"
+    ],
+    "category": "Domain 2.0: Account Access & Security"
+  },
+  {
+    "number": 59,
+    "text": "True or False: A Virtual Warehouse can be shared between two different Snowflake Organizations.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": [
+      "b"
+    ],
+    "category": "Domain 1.0: AI Data Cloud & Architecture"
+  },
+  {
+    "number": 60,
+    "text": "Which command is used to add a 'Clustering Key' to a table that was created without one?",
+    "options": {
+      "a": "UPDATE TABLE ... SET CLUSTER",
+      "b": "ALTER TABLE ... CLUSTER BY (...)",
+      "c": "CREATE CLUSTER ON TABLE",
+      "d": "RECLUSTER TABLE"
+    },
+    "answer": [
+      "b"
+    ],
+    "category": "Domain 4.0: Performance Optimization"
+  },
+  {
+    "number": 61,
+    "text": "True or False: Snowflake handles the automatic partitioning of data 'across' cloud regions for high availability.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": [
+      "b"
+    ],
+    "category": "Domain 1.0: AI Data Cloud & Architecture"
+  },
+  {
+    "number": 62,
+    "text": "Which function is used to cast a VARIANT value to a specific data type like INTEGER?",
+    "options": {
+      "a": "TO_INT()",
+      "b": "::INTEGER",
+      "c": "CAST_AS_INT()",
+      "d": "EXTRACT_INT()"
+    },
+    "answer": [
+      "b"
+    ],
+    "category": "Domain 3.0: Data Transformation"
+  },
+  {
+    "number": 63,
+    "text": "When a multi-cluster warehouse scales 'down' (removes a cluster), what happens to the queries running on that cluster?",
+    "options": {
+      "a": "They are killed",
+      "b": "They are moved to another cluster",
+      "c": "The cluster stays active until all queries on it finish, then it shuts down",
+      "d": "The queries are moved to the cloud services layer"
+    },
+    "answer": [
+      "c"
+    ],
+    "category": "Domain 4.0: Performance Optimization"
+  },
+  {
+    "number": 64,
+    "text": "True or False: A 'Reader Account' can be converted into a full Snowflake account.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": [
+      "b"
+    ],
+    "category": "Domain 6.0: Data Protection & Sharing"
+  },
+  {
+    "number": 65,
+    "text": "Which layer of the architecture performs 'Query Execution'?",
+    "options": {
+      "a": "Storage Layer",
+      "b": "Compute Layer",
+      "c": "Cloud Services Layer",
+      "d": "Infrastructure Layer"
+    },
+    "answer": [
+      "b"
+    ],
+    "category": "Domain 1.0: AI Data Cloud & Architecture"
+  },
+  {
+    "number": 66,
+    "text": "What is the primary way to optimize query performance on an 'External Table'?",
+    "options": {
+      "a": "Clustering Keys",
+      "b": "Search Optimization",
+      "c": "Creating a Partitioned Directory",
+      "d": "Result Caching"
+    },
+    "answer": [
+      "c"
+    ],
+    "category": "Domain 4.0: Performance Optimization"
+  },
+  {
+    "number": 67,
+    "text": "True or False: A 'Stream' on a table is automatically dropped if the source table is dropped.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": [
+      "a"
+    ],
+    "category": "Domain 5.0: Data Loading & Unloading"
+  },
+  {
+    "number": 68,
+    "text": "Which command is used to see the list of all 'Functions' (UDFs) in the current schema?",
+    "options": {
+      "a": "LIST FUNCTIONS",
+      "b": "SHOW FUNCTIONS",
+      "c": "DESCRIBE FUNCTIONS",
+      "d": "GET FUNCTIONS"
+    },
+    "answer": [
+      "b"
+    ],
+    "category": "Domain 3.0: Data Transformation"
+  },
+  {
+    "number": 69,
+    "text": "What is the default T-shirt size for a warehouse created via the Web UI if not specified?",
+    "options": {
+      "a": "X-Small",
+      "b": "Small",
+      "c": "Medium",
+      "d": "Large"
+    },
+    "answer": [
+      "a"
+    ],
+    "category": "Domain 1.0: AI Data Cloud & Architecture"
+  },
+  {
+    "number": 70,
+    "text": "True or False: Network Policies can block access based on a user's MAC address.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": [
+      "b"
+    ],
+    "category": "Domain 2.0: Account Access & Security"
+  },
+  {
+    "number": 71,
+    "text": "Which Snowflake edition is required for 'Database Replication' and 'Failover'?",
+    "options": {
+      "a": "Standard",
+      "b": "Enterprise",
+      "c": "Business Critical",
+      "d": "Virtual Private Snowflake"
+    },
+    "answer": [
+      "c"
+    ],
+    "category": "Domain 6.0: Data Protection & Sharing"
+  },
+  {
+    "number": 72,
+    "text": "When using FLATTEN, what does the 'SEQ' column represent?",
+    "options": {
+      "a": "The order of the elements in the array",
+      "b": "A unique identifier for each input row",
+      "c": "The schema ID",
+      "d": "The query ID"
+    },
+    "answer": [
+      "b"
+    ],
+    "category": "Domain 3.0: Data Transformation"
+  },
+  {
+    "number": 73,
+    "text": "True or False: You can set a 'Statement Timeout' at the individual User level.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": [
+      "a"
+    ],
+    "category": "Domain 2.0: Account Access & Security"
+  },
+  {
+    "number": 74,
+    "text": "Which view monitors the storage used by 'Fail-safe' for each table?",
+    "options": {
+      "a": "TABLE_STORAGE_METRICS",
+      "b": "STORAGE_USAGE",
+      "c": "DATABASE_STORAGE_USAGE_HISTORY",
+      "d": "FAIL_SAFE_LOG"
+    },
+    "answer": [
+      "a"
+    ],
+    "category": "Domain 6.0: Data Protection & Sharing"
+  },
+  {
+    "number": 75,
+    "text": "What happens if a warehouse reaches its 'Suspend Immediately' threshold on a Resource Monitor?",
+    "options": {
+      "a": "It suspends after queries finish",
+      "b": "It suspends immediately and cancels all queries",
+      "c": "It notifies the admin and waits for approval",
+      "d": "It moves queries to a different warehouse"
+    },
+    "answer": [
+      "b"
+    ],
+    "category": "Domain 2.0: Account Access & Security"
+  },
+  {
+    "number": 76,
+    "text": "True or False: You can apply 'Object Tagging' directly to an individual row in a table.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": [
+      "b"
+    ],
+    "category": "Domain 2.0: Account Access & Security"
+  },
+  {
+    "number": 77,
+    "text": "Which interface is the 'Entry Point' for configuring Federated Authentication (SSO)?",
+    "options": {
+      "a": "Snowsight UI",
+      "b": "SnowSQL",
+      "c": "SYSTEM$ALLOWLIST",
+      "d": "CREATE SECURITY INTEGRATION"
+    },
+    "answer": [
+      "d"
+    ],
+    "category": "Domain 2.0: Account Access & Security"
+  },
+  {
+    "number": 78,
+    "text": "What does 'Pruning' rely on to function properly?",
+    "options": {
+      "a": "Clustering Keys",
+      "b": "Metadata stored for each micro-partition",
+      "c": "A running warehouse",
+      "d": "Full table scans"
+    },
+    "answer": [
+      "b"
+    ],
+    "category": "Domain 1.0: AI Data Cloud & Architecture"
+  },
+  {
+    "number": 79,
+    "text": "True or False: When you clone a database, the Time Travel data for the tables is also cloned.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": [
+      "b"
+    ],
+    "category": "Domain 6.0: Data Protection & Sharing",
+    "explanation": "Clones start with a fresh Time Travel history from the moment of cloning."
+  },
+  {
+    "number": 80,
+    "text": "Which role is the 'default' role assigned to every user and role in Snowflake?",
+    "options": {
+      "a": "SYSADMIN",
+      "b": "PUBLIC",
+      "c": "USERADMIN",
+      "d": "GUEST"
+    },
+    "answer": [
+      "b"
+    ],
+    "category": "Domain 2.0: Account Access & Security"
+  },
+  {
+    "number": 81,
+    "text": "True or False: A Python UDF can be used to call a SQL Stored Procedure.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": [
+      "b"
+    ],
+    "category": "Domain 3.0: Data Transformation"
+  },
+  {
+    "number": 82,
+    "text": "Which Snowflake component manages the 'Result Cache'?",
+    "options": {
+      "a": "Storage Layer",
+      "b": "Compute Layer",
+      "c": "Cloud Services Layer",
+      "d": "Network Layer"
+    },
+    "answer": [
+      "c"
+    ],
+    "category": "Domain 1.0: AI Data Cloud & Architecture"
+  },
+  {
+    "number": 83,
+    "text": "What is the impact of changing a 'Permanent' table to a 'Transient' table?",
+    "options": {
+      "a": "It is not possible to change the type of an existing table",
+      "b": "Fail-safe is immediately disabled",
+      "c": "Time Travel is limited to 1 day",
+      "d": "The table is dropped and recreated"
+    },
+    "answer": [
+      "a"
+    ],
+    "category": "Domain 1.0: AI Data Cloud & Architecture"
+  },
+  {
+    "number": 84,
+    "text": "True or False: Snowflake allows the use of 'Named File Formats' within a Data Share.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": [
+      "b"
+    ],
+    "category": "Domain 6.0: Data Protection & Sharing"
+  },
+  {
+    "number": 85,
+    "text": "Which command is used to see the list of all 'Tasks' in an account?",
+    "options": {
+      "a": "LIST TASKS",
+      "b": "SHOW TASKS",
+      "c": "DESCRIBE TASKS",
+      "d": "GET TASKS"
+    },
+    "answer": [
+      "b"
+    ],
+    "category": "Domain 5.0: Data Loading & Unloading"
+  },
+  {
+    "number": 86,
+    "text": "When using 'Search Optimization Service', which column types are supported? (Choose two.)",
+    "options": {
+      "a": "Fixed-point numbers (INT)",
+      "b": "VARIANT",
+      "c": "GEOGRAPHY",
+      "d": "ARRAY"
+    },
+    "answer": [
+      "a",
+      "b"
+    ],
+    "category": "Domain 4.0: Performance Optimization"
+  },
+  {
+    "number": 87,
+    "text": "True or False: A warehouse consumes credits during the 'Provisioning' state before it is fully active.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": [
+      "a"
+    ],
+    "category": "Domain 4.0: Performance Optimization"
+  },
+  {
+    "number": 88,
+    "text": "Which role is the only one that can see the 'Billing' tab in the classic Snowflake UI?",
+    "options": {
+      "a": "SYSADMIN",
+      "b": "ACCOUNTADMIN",
+      "c": "SECURITYADMIN",
+      "d": "ORGADMIN"
+    },
+    "answer": [
+      "b"
+    ],
+    "category": "Domain 2.0: Account Access & Security"
+  },
+  {
+    "number": 89,
+    "text": "True or False: MFA is enabled by default for all new Snowflake users.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": [
+      "b"
+    ],
+    "category": "Domain 2.0: Account Access & Security"
+  },
+  {
+    "number": 90,
+    "text": "Which command is used to move data from a Snowflake table to an external stage (Unloading)?",
+    "options": {
+      "a": "PUT",
+      "b": "GET",
+      "c": "COPY INTO @stage",
+      "d": "EXPORT"
+    },
+    "answer": [
+      "c"
+    ],
+    "category": "Domain 5.0: Data Loading & Unloading"
+  },
+  {
+    "number": 91,
+    "text": "What is the benefit of the 'Snowflake Data Exchange' compared to the 'Snowflake Marketplace'?",
+    "options": {
+      "a": "It is free",
+      "b": "It allows for private, invited sharing within a specific group of accounts",
+      "c": "It supports larger datasets",
+      "d": "It doesn't require a warehouse"
+    },
+    "answer": [
+      "b"
+    ],
+    "category": "Domain 6.0: Data Protection & Sharing"
+  },
+  {
+    "number": 92,
+    "text": "True or False: You can apply a 'Masking Policy' to an entire Schema at once.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": [
+      "b"
+    ],
+    "category": "Domain 2.0: Account Access & Security"
+  },
+  {
+    "number": 93,
+    "text": "Which command allows you to view the privileges granted to a specific role?",
+    "options": {
+      "a": "SHOW PRIVILEGES",
+      "b": "SHOW GRANTS TO ROLE [role]",
+      "c": "DESCRIBE ROLE",
+      "d": "LIST GRANTS"
+    },
+    "answer": [
+      "b"
+    ],
+    "category": "Domain 2.0: Account Access & Security"
+  },
+  {
+    "number": 94,
+    "text": "True or False: The 'Result Cache' is shared across all warehouses in the account.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": [
+      "a"
+    ],
+    "category": "Domain 1.0: AI Data Cloud & Architecture"
+  },
+  {
+    "number": 95,
+    "text": "Which scaling policy favors 'Credit Saving' over 'Performance'?",
+    "options": {
+      "a": "Standard",
+      "b": "Economy",
+      "c": "Aggressive",
+      "d": "Optimized"
+    },
+    "answer": [
+      "b"
+    ],
+    "category": "Domain 4.0: Performance Optimization"
+  },
+  {
+    "number": 96,
+    "text": "True or False: A 'Secure UDF' can be shared via a 'Share' object.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": [
+      "a"
+    ],
+    "category": "Domain 6.0: Data Protection & Sharing"
+  },
+  {
+    "number": 97,
+    "text": "What happens if a warehouse is resized 'down' (e.g., Large to Small) during a very high query load?",
+    "options": {
+      "a": "New queries are blocked until load drops",
+      "b": "Existing queries finish on the Large servers, but new queries may queue on the Small servers",
+      "c": "The queries are moved to the services layer",
+      "d": "The warehouse resizes back up automatically"
+    },
+    "answer": [
+      "b"
+    ],
+    "category": "Domain 4.0: Performance Optimization"
+  },
+  {
+    "number": 98,
+    "text": "True or False: You can apply 'Row Access Policies' to External Tables.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": [
+      "a"
+    ],
+    "category": "Domain 2.0: Account Access & Security"
+  },
+  {
+    "number": 99,
+    "text": "Which command is used to remove a file from a stage?",
+    "options": {
+      "a": "DELETE",
+      "b": "REMOVE",
+      "c": "DROP",
+      "d": "TRUNCATE"
+    },
+    "answer": [
+      "b"
+    ],
+    "category": "Domain 5.0: Data Loading & Unloading"
+  },
+  {
+    "number": 100,
+    "text": "What is the primary function of the 'Snowflake Information Schema'?",
+    "options": {
+      "a": "Storing physical data",
+      "b": "Providing metadata views and system functions for querying account objects",
+      "c": "Managing billing history",
+      "d": "Executing Python code"
+    },
+    "answer": [
+      "b"
+    ],
+    "category": "Domain 1.0: AI Data Cloud & Architecture"
+  }
+]

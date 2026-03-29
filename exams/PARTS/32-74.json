@@ -1,0 +1,538 @@
+[
+  {
+    "number": 32,
+    "text": "Select the three types of tables that exist within Snowflake. (Choose three.)",
+    "options": {
+      "a": "Temporary",
+      "b": "Transient",
+      "c": "Provisional",
+      "d": "Permanent"
+    },
+    "answer": ["a", "b", "d"],
+    "explanation": "",
+    "category": "Storage"
+  },
+  {
+    "number": 33,
+    "text": "True or False: Snowpipe via REST API can only reference External Stages as source.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Data Movement"
+  },
+  {
+    "number": 34,
+    "text": "True or False: A third-party tool that supports standard JDBC or ODBC but has no Snowflake-specific driver will be unable to connect to Snowflake.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 35,
+    "text": "True or False: It is possible to load data into Snowflake without creating a named File Format object.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Data Movement"
+  },
+  {
+    "number": 36,
+    "text": "True or False: A table in Snowflake can only be queried using the Virtual Warehouse that was used to load the data.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Compute"
+  },
+  {
+    "number": 37,
+    "text": "Which of the following statements are true of Snowflake data loading? (Choose three.)",
+    "options": {
+      "a": "VARIANT null values are not the same as SQL NULL values",
+      "b": "It is recommended to do frequent, single row DMLs",
+      "c": "It is recommended to validate the data before loading into the Snowflake target table",
+      "d": "It is recommended to use staging tables to manage MERGE statements"
+    },
+    "answer": ["a", "c", "d"],
+    "explanation": "",
+    "category": "Data Movement"
+  },
+  {
+    "number": 38,
+    "text": "Which statements are true of micro-partitions? (Choose two.)",
+    "options": {
+      "a": "They are approximately 16MB in size",
+      "b": "They are stored compressed only if COMPRESS=TRUE on Table",
+      "c": "They are immutable",
+      "d": "They are only encrypted in the Enterprise edition and above"
+    },
+    "answer": ["a", "c"],
+    "explanation": "",
+    "category": "Storage"
+  },
+  {
+    "number": 39,
+    "text": "True or False: Query ID's are unique across all Snowflake deployments and can be used in communication with Snowflake Support to help troubleshoot issues.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 40,
+    "text": "A deterministic query is run at 8am, takes 5 minutes, and the results are cached. Which of the following statements are true? (Choose two.)",
+    "options": {
+      "a": "The exact query will ALWAYS return the precomputed result set for the RESULT_CACHE_ACTIVE = time period",
+      "b": "The same exact query will return the precomputed results if the underlying data hasn't changed and the results were last accessed within previous 24 hour period",
+      "c": "The same exact query will return the precomputed results even if the underlying data has changed as long as the results were last accessed within the previous 24 hour period",
+      "d": "The 24 hour timer on the precomputed results gets renewed every time the exact query is executed"
+    },
+    "answer": ["b", "d"],
+    "explanation": "",
+    "category": "Performance"
+  },
+  {
+    "number": 41,
+    "text": "Increasing the maximum number of clusters in a Multi-Cluster Warehouse is an example of:",
+    "options": {
+      "a": "Scaling rhythmically",
+      "b": "Scaling max",
+      "c": "Scaling out",
+      "d": "Scaling up"
+    },
+    "answer": ["c"],
+    "explanation": "",
+    "category": "Compute"
+  },
+  {
+    "number": 42,
+    "text": "Which statement best describes Snowflake tables?",
+    "options": {
+      "a": "Snowflake tables are logical representations of underlying physical data",
+      "b": "Snowflake tables are the physical instantiation of data loaded into Snowflake",
+      "c": "Snowflake tables require that clustering keys be defined to perform optimally",
+      "d": "Snowflake tables are owned by a user"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Storage"
+  },
+  {
+    "number": 43,
+    "text": "Which item in the Data Warehouse migration process does not apply in Snowflake?",
+    "options": {
+      "a": "Migrate Users",
+      "b": "Migrate Schemas",
+      "c": "Migrate Indexes",
+      "d": "Build the Data Pipeline"
+    },
+    "answer": ["c"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 44,
+    "text": "Snowflake provides two mechanisms to reduce data storage costs for short-lived tables. These mechanisms are: (Choose two.)",
+    "options": {
+      "a": "Temporary Tables",
+      "b": "Transient Tables",
+      "c": "Provisional Tables",
+      "d": "Permanent Tables"
+    },
+    "answer": ["a", "b"],
+    "explanation": "",
+    "category": "Storage"
+  },
+  {
+    "number": 45,
+    "text": "What is the maximum compressed row size in Snowflake?",
+    "options": {
+      "a": "8KB",
+      "b": "16MB",
+      "c": "50MB",
+      "d": "4000GB"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Storage"
+  },
+  {
+    "number": 46,
+    "text": "Which of the following are main sections of the top navigation of the Snowflake Web Interface (UI)? (Choose three.)",
+    "options": {
+      "a": "Databases",
+      "b": "Tables",
+      "c": "Warehouses",
+      "d": "Worksheets"
+    },
+    "answer": ["a", "c", "d"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 47,
+    "text": "What is the recommended Snowflake data type to store semi-structured data like JSON?",
+    "options": {
+      "a": "VARCHAR",
+      "b": "RAW",
+      "c": "LOB",
+      "d": "VARIANT"
+    },
+    "answer": ["d"],
+    "explanation": "",
+    "category": "Storage"
+  },
+  {
+    "number": 48,
+    "text": "Which of the following statements are true of Snowflake releases: (Choose two.)",
+    "options": {
+      "a": "They happen approximately weekly",
+      "b": "They roll up and release approximately monthly, but customers can request early release application",
+      "c": "During a release, new customer requests/queries/connections transparently move over to the newer version",
+      "d": "A customer is assigned a 30 minute window during which the system will be unavailable and customer is upgraded"
+    },
+    "answer": ["a", "c"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 49,
+    "text": "Which of the following are many common use cases for zero-copy cloning? (Choose three.)",
+    "options": {
+      "a": "Quick provisioning of Dev and Test/QA environments",
+      "b": "Data backups",
+      "c": "Point in time snapshots",
+      "d": "Performance optimization"
+    },
+    "answer": ["a", "b", "c"],
+    "explanation": "",
+    "category": "Data Protection"
+  },
+  {
+    "number": 50,
+    "text": "If a Small Warehouse is made up of 2 servers/cluster, how many servers/cluster make up a Medium Warehouse?",
+    "options": {
+      "a": "4",
+      "b": "16",
+      "c": "32",
+      "d": "128"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Compute"
+  },
+  {
+    "number": 51,
+    "text": "True or False: When a data share is established between a Data Provider and a Data Consumer, the Data Consumer can extend that data share to other Data Consumers.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Sharing"
+  },
+  {
+    "number": 52,
+    "text": "Which is true of Snowflake network policies? A Snowflake network policy: (Choose two.)",
+    "options": {
+      "a": "Is available to all Snowflake Editions",
+      "b": "Is only available to customers with Business Critical Edition",
+      "c": "Restricts or enables access to specific IP addresses",
+      "d": "Is activated using an ALTER DATABASE command"
+    },
+    "answer": ["a", "c"],
+    "explanation": "",
+    "category": "Security"
+  },
+  {
+    "number": 53,
+    "text": "True or False: Snowflake charges additional fees to Data Providers for each Share they create.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Sharing"
+  },
+  {
+    "number": 54,
+    "text": "Query results are stored in the Result Cache for how long after they are last accessed, assuming no data changes have occurred?",
+    "options": {
+      "a": "1 Hour",
+      "b": "3 Hours",
+      "c": "12 hours",
+      "d": "24 hours"
+    },
+    "answer": ["d"],
+    "explanation": "",
+    "category": "Performance"
+  },
+  {
+    "number": 55,
+    "text": "A role is created and owns 2 tables. This role is then dropped. Who will now own the two tables?",
+    "options": {
+      "a": "The tables are now orphaned",
+      "b": "The user that deleted the role",
+      "c": "SYSADMIN",
+      "d": "The assumed role that dropped the role"
+    },
+    "answer": ["d"],
+    "explanation": "",
+    "category": "Security"
+  },
+  {
+    "number": 56,
+    "text": "Which of the following connectors are available in the Downloads section of the Snowflake Web Interface (UI)? (Choose two.)",
+    "options": {
+      "a": "SnowSQL",
+      "b": "ODBC",
+      "c": "R",
+      "d": "HIVE"
+    },
+    "answer": ["a", "b"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 57,
+    "text": "Which of the following DML commands isn't supported by Snowflake?",
+    "options": {
+      "a": "UPSERT",
+      "b": "MERGE",
+      "c": "UPDATE",
+      "d": "TRUNCATE TABLE"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Storage"
+  },
+  {
+    "number": 58,
+    "text": "Which of the following statements is true of zero-copy cloning?",
+    "options": {
+      "a": "Zero-copy clones increase storage costs as cloning the table requires storing its data twice",
+      "b": "All zero-copy clone objects inherit the privileges of their original objects",
+      "c": "Zero-copy cloning is licensed as an additional Snowflake feature",
+      "d": "At the instance/instant a clone is created, all micro-partitions in the original table and the clone are fully shared"
+    },
+    "answer": ["d"],
+    "explanation": "",
+    "category": "Storage"
+  },
+  {
+    "number": 59,
+    "text": "True or False: When a user creates a role, they are initially assigned ownership of the role and they maintain ownership until it is transferred to another user.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Security"
+  },
+  {
+    "number": 60,
+    "text": "The Query History in the Snowflake Web Interface (UI) is kept for approximately:",
+    "options": {
+      "a": "60 minutes",
+      "b": "24 hours",
+      "c": "14 days",
+      "d": "30 days",
+      "e": "1 year"
+    },
+    "answer": ["c"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 61,
+    "text": "To run a Multi-Cluster Warehouse in auto-scale mode, a user would:",
+    "options": {
+      "a": "Configure the Maximum Clusters setting to Auto-Scale",
+      "b": "Set the Warehouse type to Auto",
+      "c": "Set the Minimum Clusters and Maximum Clusters settings to the same value",
+      "d": "Set the Minimum Clusters and Maximum Clusters settings to the different values"
+    },
+    "answer": ["d"],
+    "explanation": "",
+    "category": "Compute"
+  },
+  {
+    "number": 62,
+    "text": "Which of the following terms best describes Snowflake's database architecture?",
+    "options": {
+      "a": "Columnar shared nothing",
+      "b": "Shared disk",
+      "c": "Multi-cluster, shared data",
+      "d": "Cloud-native shared memory"
+    },
+    "answer": ["c"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 63,
+    "text": "Which of the following are options when creating a Virtual Warehouse? (Choose two.)",
+    "options": {
+      "a": "Auto-drop",
+      "b": "Auto-resize",
+      "c": "Auto-resume",
+      "d": "Auto-suspend"
+    },
+    "answer": ["c", "d"],
+    "explanation": "",
+    "category": "Compute"
+  },
+  {
+    "number": 64,
+    "text": "A Virtual Warehouse's auto-suspend and auto-resume settings apply to:",
+    "options": {
+      "a": "The primary cluster in the Virtual Warehouse",
+      "b": "The entire Virtual Warehouse",
+      "c": "The database the Virtual Warehouse resides in",
+      "d": "The queries currently being run by the Virtual Warehouse"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Compute"
+  },
+  {
+    "number": 65,
+    "text": "Fail-safe is unavailable on which table types? (Choose two.)",
+    "options": {
+      "a": "Temporary",
+      "b": "Transient",
+      "c": "Provisional",
+      "d": "Permanent"
+    },
+    "answer": ["a", "b"],
+    "explanation": "",
+    "category": "Storage"
+  },
+  {
+    "number": 66,
+    "text": "Which of the following objects is not covered by Time Travel?",
+    "options": {
+      "a": "Tables",
+      "b": "Schemas",
+      "c": "Databases",
+      "d": "Stages"
+    },
+    "answer": ["d"],
+    "explanation": "",
+    "category": "Data Protection"
+  },
+  {
+    "number": 67,
+    "text": "True or False: Micro-partition metadata enables some operations to be completed without requiring Compute.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Storage"
+  },
+  {
+    "number": 68,
+    "text": "Which of the following commands are not blocking operations? (Choose two.)",
+    "options": {
+      "a": "UPDATE",
+      "b": "INSERT",
+      "c": "MERGE",
+      "d": "COPY"
+    },
+    "answer": ["b", "d"],
+    "explanation": "",
+    "category": "Storage"
+  },
+  {
+    "number": 69,
+    "text": "Which of the following is true of Snowpipe via REST API? (Choose two.)",
+    "options": {
+      "a": "You can only use it on Internal Stages",
+      "b": "ALL COPY INTO options are available during pipe creation",
+      "c": "Snowflake automatically manages the compute required to execute the Pipe's COPY INTO commands",
+      "d": "Snowpipe keeps track of which files it has loaded"
+    },
+    "answer": ["c", "d"],
+    "explanation": "",
+    "category": "Data Movement"
+  },
+  {
+    "number": 70,
+    "text": "Snowflake recommends, as a minimum, that all users with the following role(s) should be enrolled in Multi-Factor Authentication (MFA):",
+    "options": {
+      "a": "SECURITYADMIN, ACCOUNTADMIN, PUBLIC, SYSADMIN",
+      "b": "SECURITYADMIN, ACCOUNTADMIN, SYSADMIN",
+      "c": "SECURITYADMIN, ACCOUNTADMIN",
+      "d": "ACCOUNTADMIN"
+    },
+    "answer": ["d"],
+    "explanation": "",
+    "category": "Security"
+  },
+  {
+    "number": 71,
+    "text": "When can a Virtual Warehouse start running queries?",
+    "options": {
+      "a": "12am-5am",
+      "b": "Only during administrator defined time slots",
+      "c": "When its provisioning is complete",
+      "d": "After replication"
+    },
+    "answer": ["c"],
+    "explanation": "",
+    "category": "Compute"
+  },
+  {
+    "number": 72,
+    "text": "True or False: Users are able to see the result sets of queries executed by other users that share their same role.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Security"
+  },
+  {
+    "number": 73,
+    "text": "True or False: The user has to specify which cluster a query will run on in a multi-cluster Warehouse.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Compute"
+  },
+  {
+    "number": 74,
+    "text": "True or False: Pipes can be suspended and resumed.",
+    "options": {
+      "a": "True",
+      "b": "False"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Data Movement"
+  }
+]

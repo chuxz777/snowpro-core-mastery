@@ -1,0 +1,664 @@
+[
+  {
+    "number": 301,
+    "text": "What happens when an external or an internal stage is dropped? (Choose two.)",
+    "options": {
+      "a": "When dropping an external stage, the files are not removed and only the stage is dropped.",
+      "b": "When dropping an external stage, both the stage and the files within the stage are removed.",
+      "c": "When dropping an internal stage, the files are deleted with the stage and the files are recoverable.",
+      "d": "When dropping an internal stage, the files are deleted with the stage and the files are not recoverable.",
+      "e": "When dropping an internal stage, only selected files are deleted with the stage and are not recoverable."
+    },
+    "answer": ["a", "d"],
+    "explanation": "",
+    "category": "Data Movement"
+  },
+  {
+    "number": 302,
+    "text": "A user has 10 files in a stage containing new customer data. The ingest operation completes with no errors, using the command: COPY INTO my_table FROM @my_stage; The next day the user adds 10 files so the stage contains a mixture of new data and updates. If the user runs the same COPY INTO command, what will happen?",
+    "options": {
+      "a": "All data from all files on the stage will be appended to the table.",
+      "b": "Only data about new customers from the new files will be appended.",
+      "c": "The operation will fail with error UNCERTAIN FILES IN STAGE.",
+      "d": "All data from only the newly-added files will be appended to the table."
+    },
+    "answer": ["d"],
+    "explanation": "",
+    "category": "Data Movement"
+  },
+  {
+    "number": 303,
+    "text": "Which parameter can be used to instruct a COPY command to verify data files instead of loading them into a specified table?",
+    "options": {
+      "a": "STRIP_NULL_VALUES",
+      "b": "SKIP_BYTE_ORDER_MARK",
+      "c": "REPLACE_INVALID_CHARACTERS",
+      "d": "VALIDATION_MODE"
+    },
+    "answer": ["d"],
+    "explanation": "",
+    "category": "Data Movement"
+  },
+  {
+    "number": 304,
+    "text": "Which of the following SQL statements will list the version of the drivers currently being used?",
+    "options": {
+      "a": "Execute SELECT CURRENT_ODBC_CLIENT(); from the Web UI",
+      "b": "Execute SELECT CURRENT_JDBC_VERSION(); from SnowSQL",
+      "c": "Execute SELECT CURRENT_CLIENT(); from an application",
+      "d": "Execute SELECT CURRENT_VERSION(); from the Python Connector"
+    },
+    "answer": ["c"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 305,
+    "text": "Which Snowflake technique can be used to improve the performance of a query?",
+    "options": {
+      "a": "Clustering",
+      "b": "Indexing",
+      "c": "Fragmenting",
+      "d": "Using INDEX_HINTS"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Performance"
+  },
+  {
+    "number": 306,
+    "text": "What happens to the shared objects for users in a consumer account from a share, once a database has been created in that account?",
+    "options": {
+      "a": "The shared objects are transferred.",
+      "b": "The shared objects are copied.",
+      "c": "The shared objects become accessible.",
+      "d": "The shared objects can be re-shared."
+    },
+    "answer": ["c"],
+    "explanation": "",
+    "category": "Sharing"
+  },
+  {
+    "number": 307,
+    "text": "Using variables in Snowflake is denoted by using which SQL character?",
+    "options": {
+      "a": "@",
+      "b": "&",
+      "c": "$",
+      "d": "#"
+    },
+    "answer": ["c"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 308,
+    "text": "Which commands should be used to grant the privilege allowing a role to select data from all current tables and any tables that will be created later in a schema? (Choose two.)",
+    "options": {
+      "a": "grant USAGE on all tables in schema DB1.SCHEMA to role MYROLE;",
+      "b": "grant USAGE on future tables in schema DB1.SCHEMA to role MYROLE;",
+      "c": "grant SELECT on all tables in schema DB1.SCHEMA to role MYROLE;",
+      "d": "grant SELECT on future tables in schema DB1.SCHEMA to role MYROLE;",
+      "e": "grant SELECT on all tables in database DB1 to role MYROLE;",
+      "f": "grant SELECT on future tables in database DB1 to role MYROLE;"
+    },
+    "answer": ["c", "d"],
+    "explanation": "",
+    "category": "Security"
+  },
+  {
+    "number": 309,
+    "text": "How can a user change which columns are referenced in a view?",
+    "options": {
+      "a": "Modify the columns in the underlying table",
+      "b": "Use the ALTER VIEW command to update the view",
+      "c": "Recreate the view with the required changes",
+      "d": "Materialize the view to perform the changes"
+    },
+    "answer": ["c"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 310,
+    "text": "Which statement describes pruning?",
+    "options": {
+      "a": "The filtering or disregarding of micro-partitions that are not needed to return a query.",
+      "b": "The return of micro-partitions values that overlap with each other to reduce a query's runtime.",
+      "c": "A service that is handled by the Snowflake Cloud Services layer to optimize caching.",
+      "d": "The ability to allow the result of a query to be accessed as if it were a table."
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Storage"
+  },
+  {
+    "number": 311,
+    "text": "Which SQL command can be used to see the CREATE definition of a masking policy?",
+    "options": {
+      "a": "SHOW MASKING POLICIES",
+      "b": "DESCRIBE MASKING POLICY",
+      "c": "GET_DDL",
+      "d": "LIST MASKING POLICIES"
+    },
+    "answer": ["c"],
+    "explanation": "",
+    "category": "Security"
+  },
+  {
+    "number": 312,
+    "text": "Which of the following is the Snowflake Account_Usage.Metering_History view used for?",
+    "options": {
+      "a": "Gathering the hourly credit usage for an account",
+      "b": "Compiling an account's average cloud services cost over the previous month",
+      "c": "Summarizing the throughput of Snowpipe costs for an account",
+      "d": "Calculating the funds left on an account's contract"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Account Management"
+  },
+  {
+    "number": 313,
+    "text": "Query parsing and compilation occurs in which architecture layer of the Snowflake Cloud Data Platform?",
+    "options": {
+      "a": "Cloud services layer",
+      "b": "Compute layer",
+      "c": "Storage layer",
+      "d": "Cloud agnostic layer"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 314,
+    "text": "Which of the following Snowflake objects can be shared using a secure share? (Choose two.)",
+    "options": {
+      "a": "Materialized views",
+      "b": "Sequences",
+      "c": "Procedures",
+      "d": "Tables",
+      "e": "Secure User Defined Functions (UDFs)"
+    },
+    "answer": ["d", "e"],
+    "explanation": "",
+    "category": "Sharing"
+  },
+  {
+    "number": 315,
+    "text": "What happens to the underlying table data when a CLUSTER BY clause is added to a Snowflake table?",
+    "options": {
+      "a": "Data is hashed by the cluster key to facilitate fast searches",
+      "b": "Larger micro-partitions are created for common data values",
+      "c": "Smaller micro-partitions are created for common data values",
+      "d": "Data may be colocated by the cluster key within micro-partitions to improve pruning performance"
+    },
+    "answer": ["d"],
+    "explanation": "",
+    "category": "Storage"
+  },
+  {
+    "number": 316,
+    "text": "Which of the following conditions must be met in order to return results from the results cache? (Choose two.)",
+    "options": {
+      "a": "The user has appropriate privileges on the objects associated with the query.",
+      "b": "Micro-partitions have been reclustered since the query was last run.",
+      "c": "The new query is run using the same virtual warehouse as previous query.",
+      "d": "The query includes a User Defined Function (UDF).",
+      "e": "The query has been run within 24 hours of the previously-run query."
+    },
+    "answer": ["a", "e"],
+    "explanation": "",
+    "category": "Performance"
+  },
+  {
+    "number": 317,
+    "text": "Which statement about billing applies to Snowflake credits?",
+    "options": {
+      "a": "Credits are billed per-minute with a 60-minute minimum.",
+      "b": "Credits are used to pay for cloud data storage usage.",
+      "c": "Credits are consumed based on the number of credits billed for each hour warehouse runs.",
+      "d": "Credits are consumed based on the warehouse size and the time the warehouse is running."
+    },
+    "answer": ["d"],
+    "explanation": "",
+    "category": "Account Management"
+  },
+  {
+    "number": 318,
+    "text": "A user needs to create a materialized view in schema MYDB.MYSCHEMA. Which statement will provide this access?",
+    "options": {
+      "a": "GRANT ROLE MYROLE TO USER USER1; CREATE MATERIALIZED VIEW ON SCHEMA MYDB.MYSCHEMA TO ROLE MYROLE;",
+      "b": "GRANT ROLE MYROLE TO USER USER1; CREATE MATERIALIZED VIEW ON SCHEMA MYDB.MYSCHEMA TO USER USER1;",
+      "c": "GRANT ROLE MYROLE TO USER USER1; CREATE MATERIALIZED VIEW ON SCHEMA MYDB.MYSCHEMA TO USER1;",
+      "d": "GRANT ROLE MYROLE TO USER USER1; CREATE MATERIALIZED VIEW ON SCHEMA MYDB.MYSCHEMA TO MYROLE;"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Security"
+  },
+  {
+    "number": 319,
+    "text": "What is the purpose of multi-cluster virtual warehouses?",
+    "options": {
+      "a": "To create separate data warehouses to increase query optimization",
+      "b": "To allow users to choose compute nodes that make up a cluster",
+      "c": "To eliminate or reduce queuing of concurrent queries",
+      "d": "To allow the warehouse to resize automatically"
+    },
+    "answer": ["c"],
+    "explanation": "",
+    "category": "Compute"
+  },
+  {
+    "number": 320,
+    "text": "Which is a valid source for an external stage when the Snowflake account is located on Microsoft Azure?",
+    "options": {
+      "a": "An FTP server with TLS encryption",
+      "b": "An HTTPS server with WebDAV",
+      "c": "A Google Cloud storage bucket",
+      "d": "A Windows server file share on Azure"
+    },
+    "answer": ["c"],
+    "explanation": "",
+    "category": "Data Movement"
+  },
+  {
+    "number": 321,
+    "text": "Which database objects can be shared with the Snowflake secure data sharing feature? (Choose two.)",
+    "options": {
+      "a": "Files",
+      "b": "External tables",
+      "c": "Secure User-Defined Functions (UDFs)",
+      "d": "Sequences",
+      "e": "Streams"
+    },
+    "answer": ["b", "c"],
+    "explanation": "",
+    "category": "Sharing"
+  },
+  {
+    "number": 322,
+    "text": "Which statements reflect key functionalities of a Snowflake Data Exchange? (Choose two.)",
+    "options": {
+      "a": "If account is enrolled with Data Exchange, it loses access to Marketplace.",
+      "b": "A Data Exchange allows groups of accounts to share data privately.",
+      "c": "A Data Exchange allows accounts to share data with third, non-Snowflake parties.",
+      "d": "Data Exchange functionality is available by default in Enterprise edition or higher.",
+      "e": "The sharing of data in a Data Exchange is bidirectional."
+    },
+    "answer": ["b", "e"],
+    "explanation": "",
+    "category": "Sharing"
+  },
+  {
+    "number": 323,
+    "text": "A Snowflake user executed a query and received results. Another user executed same query 4 hours later. Data had not changed. What will occur?",
+    "options": {
+      "a": "No virtual warehouse used, data read from result cache.",
+      "b": "No virtual warehouse used, data read from local disk cache.",
+      "c": "Default virtual warehouse used to read all data.",
+      "d": "Virtual warehouse defined at session level used to read all data."
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Performance"
+  },
+  {
+    "number": 324,
+    "text": "Which feature allows a user the ability to control the organization of data in a micro-partition?",
+    "options": {
+      "a": "Range Partitioning",
+      "b": "Search Optimization Service",
+      "c": "Automatic Clustering",
+      "d": "Horizontal Partitioning"
+    },
+    "answer": ["c"],
+    "explanation": "",
+    "category": "Storage"
+  },
+  {
+    "number": 325,
+    "text": "Which privilege must be granted to a share to allow secure views the ability to reference data in multiple databases?",
+    "options": {
+      "a": "CREATE_SHARE on the account",
+      "b": "SHARE on databases and schemas",
+      "c": "SELECT on tables used by the secure view",
+      "d": "REFERENCE_USAGE on databases"
+    },
+    "answer": ["d"],
+    "explanation": "",
+    "category": "Sharing"
+  },
+  {
+    "number": 326,
+    "text": "In which use case does Snowflake apply egress charges?",
+    "options": {
+      "a": "Data sharing within a specific region",
+      "b": "Query result retrieval",
+      "c": "Database replication",
+      "d": "Loading data into Snowflake"
+    },
+    "answer": ["c"],
+    "explanation": "",
+    "category": "Account Management"
+  },
+  {
+    "number": 327,
+    "text": "Which of the following compute resources or features are managed by Snowflake? (Choose two.)",
+    "options": {
+      "a": "Execute a COPY command",
+      "b": "Updating data",
+      "c": "Snowpipe",
+      "d": "AUTOMATIC_CLUSTERING",
+      "e": "Scaling up a warehouse"
+    },
+    "answer": ["c", "d"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 328,
+    "text": "A materialized view should be created when which of the following occurs? (Choose two.)",
+    "options": {
+      "a": "There is minimal cost associated with running the query.",
+      "b": "The query consumes many compute resources every time it runs.",
+      "c": "The base table gets updated frequently.",
+      "d": "Query is highly optimized and doesn't consume many compute resources.",
+      "e": "Results of query do not change often and are used frequently."
+    },
+    "answer": ["b", "e"],
+    "explanation": "",
+    "category": "Performance"
+  },
+  {
+    "number": 329,
+    "text": "What privilege should a user be granted to change permissions for new objects in a managed access schema?",
+    "options": {
+      "a": "Grant the OWNERSHIP privilege on the schema.",
+      "b": "Grant the OWNERSHIP privilege on the database.",
+      "c": "Grant the MANAGE GRANTS global privilege.",
+      "d": "Grant ALL privileges on the schema."
+    },
+    "answer": ["c"],
+    "explanation": "",
+    "category": "Security"
+  },
+  {
+    "number": 330,
+    "text": "What happens when a Data Provider revokes privileges to a share on an object in their source database?",
+    "options": {
+      "a": "The object immediately becomes unavailable for all Data Consumers.",
+      "b": "Any additional data arriving after this point in time will not be visible.",
+      "c": "Consumers stop seeing updates and become responsible for storage.",
+      "d": "Static copy of object at time privilege was revoked is created in Consumer account."
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Sharing"
+  },
+  {
+    "number": 331,
+    "text": "Which command can be used to load data into an internal stage?",
+    "options": {
+      "a": "LOAD",
+      "b": "COPY",
+      "c": "GET",
+      "d": "PUT"
+    },
+    "answer": ["d"],
+    "explanation": "",
+    "category": "Data Movement"
+  },
+  {
+    "number": 332,
+    "text": "What is the MINIMUM Snowflake edition required to use the periodic rekeying of micro-partitions?",
+    "options": {
+      "a": "Enterprise",
+      "b": "Business Critical",
+      "c": "Standard",
+      "d": "Virtual Private Snowflake"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Account Management"
+  },
+  {
+    "number": 333,
+    "text": "Which stage type can be altered and dropped?",
+    "options": {
+      "a": "Database stage",
+      "b": "External stage",
+      "c": "Table stage",
+      "d": "User stage"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Data Movement"
+  },
+  {
+    "number": 334,
+    "text": "Which Snowflake object enables loading data from files as soon as they are available in cloud storage?",
+    "options": {
+      "a": "Pipe",
+      "b": "External stage",
+      "c": "Task",
+      "d": "Stream"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Data Movement"
+  },
+  {
+    "number": 335,
+    "text": "A user is loading JSON documents composed of a huge array into Snowflake. The user enables STRIP_OUTER_ARRAY option. What does it do?",
+    "options": {
+      "a": "It removes the last element of the outer array.",
+      "b": "It removes outer array structure and loads records into separate rows.",
+      "c": "It removes trailing spaces and loads records into separate columns.",
+      "d": "It removes NULL elements and enables ability to load records."
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Data Movement"
+  },
+  {
+    "number": 336,
+    "text": "Which describes how multiple Snowflake accounts in a single organization relate to various cloud providers?",
+    "options": {
+      "a": "Each Snowflake account can be hosted in a different cloud vendor and region.",
+      "b": "Each Snowflake account must be hosted in a different vendor and region.",
+      "c": "All Snowflake accounts must be hosted in same cloud vendor and region.",
+      "d": "Each account can be in different cloud vendor, but must be same region."
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 337,
+    "text": "If a Snowflake user decides a table should be clustered, what should be used as the cluster key?",
+    "options": {
+      "a": "The columns that are queried in the select clause.",
+      "b": "The columns with very high cardinality.",
+      "c": "The columns with many different values.",
+      "d": "The columns most actively used in the select filters."
+    },
+    "answer": ["d"],
+    "explanation": "",
+    "category": "Storage"
+  },
+  {
+    "number": 338,
+    "text": "What are value types that a VARIANT column can store? (Choose two.)",
+    "options": {
+      "a": "STRUCT",
+      "b": "OBJECT",
+      "c": "BINARY",
+      "d": "ARRAY",
+      "e": "CLOB"
+    },
+    "answer": ["b", "d"],
+    "explanation": "",
+    "category": "Storage"
+  },
+  {
+    "number": 339,
+    "text": "A company needs to read multiple terabytes of data for initial load. How does Snowflake recommend maximizing load performance?",
+    "options": {
+      "a": "Use auto-ingest Snowpipes to load large files in serverless model.",
+      "b": "Produce largest files possible to reduce overall number of files.",
+      "c": "Produce larger number of smaller files and process with size Small warehouses.",
+      "d": "Use external tool to issue batched row-by-row inserts."
+    },
+    "answer": ["c"],
+    "explanation": "",
+    "category": "Data Movement"
+  },
+  {
+    "number": 340,
+    "text": "For non-materialized views, what column identifies whether a view is secure or not?",
+    "options": {
+      "a": "CHECK_OPTION",
+      "b": "IS_SECURE",
+      "c": "IS_UPDATEABLE",
+      "d": "TABLE_NAME"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Architecture"
+  },
+  {
+    "number": 341,
+    "text": "The bulk data load history that is available upon completion of the COPY statement is stored where and for how long?",
+    "options": {
+      "a": "In the metadata of the target table for 14 days",
+      "b": "In the metadata of the pipe for 14 days",
+      "c": "In the metadata of the target table for 64 days",
+      "d": "In the metadata of the pipe for 64 days"
+    },
+    "answer": ["c"],
+    "explanation": "",
+    "category": "Data Movement"
+  },
+  {
+    "number": 342,
+    "text": "Which command will show all privileges granted to a schema?",
+    "options": {
+      "a": "SHOW GRANTS ON ROLE ROLE_NAME",
+      "b": "SHOW GRANTS ON SCHEMA DB.SCHEMA",
+      "c": "SHOW GRANTS TO USER USER_NAME",
+      "d": "SHOW GRANTS OF ROLE ROLE_NAME"
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Security"
+  },
+  {
+    "number": 343,
+    "text": "Which of the following are characteristics of security in Snowflake?",
+    "options": {
+      "a": "Authentication is only available with Business Critical edition.",
+      "b": "Support for HIPAA and GDPR compliance is available for UI editions.",
+      "c": "Periodic rekeying of encrypted data is available with Enterprise edition and higher.",
+      "d": "Private communication to internal stages is allowed in Enterprise edition."
+    },
+    "answer": ["c"],
+    "explanation": "",
+    "category": "Security"
+  },
+  {
+    "number": 344,
+    "text": "Which of the following objects can be shared through secure data sharing?",
+    "options": {
+      "a": "Masking policy",
+      "b": "Stored procedure",
+      "c": "Task",
+      "d": "External table"
+    },
+    "answer": ["d"],
+    "explanation": "",
+    "category": "Sharing"
+  },
+  {
+    "number": 345,
+    "text": "Which formats does Snowflake store unstructured data in? (Choose two.)",
+    "options": {
+      "a": "GeoJSON",
+      "b": "Array",
+      "c": "XML",
+      "d": "Object",
+      "e": "BLOB"
+    },
+    "answer": ["b", "d"],
+    "explanation": "",
+    "category": "Storage"
+  },
+  {
+    "number": 346,
+    "text": "Which practice will provide the MOST efficient loading performance from external stage?",
+    "options": {
+      "a": "Organize files into logical paths",
+      "b": "Store files on external stage to ensure caching is maintained",
+      "c": "Use pattern matching for regular expression execution",
+      "d": "Load the data in one large file"
+    },
+    "answer": ["a"],
+    "explanation": "",
+    "category": "Data Movement"
+  },
+  {
+    "number": 347,
+    "text": "What effect does WAIT_FOR_COMPLETION = TRUE have when changing warehouse size?",
+    "options": {
+      "a": "Size doesn't change until running queries have completed.",
+      "b": "Size doesn't change until queries in queue have completed.",
+      "c": "Size doesn't change until warehouse is suspended and restarted.",
+      "d": "It does not return from command until warehouse has finished changing size."
+    },
+    "answer": ["d"],
+    "explanation": "",
+    "category": "Compute"
+  },
+  {
+    "number": 348,
+    "text": "Which of the following can be used when unloading data from Snowflake? (Choose two.)",
+    "options": {
+      "a": "Unloading semi-structured, recommended to use STRIP_OUTER_ARRAY.",
+      "b": "Use ENCODING option to change from default UTF-8.",
+      "c": "OBJECT_CONSTRUCT function can convert relational data to semi-structured.",
+      "d": "Using SINGLE = TRUE parameter, single file up to 5 GB can be exported."
+    },
+    "answer": ["c", "d"],
+    "explanation": "",
+    "category": "Data Movement"
+  },
+  {
+    "number": 349,
+    "text": "What data is stored in the Snowflake storage layer? (Choose two.)",
+    "options": {
+      "a": "Snowflake parameters",
+      "b": "Micro-partitions",
+      "c": "Query history",
+      "d": "Persisted query results",
+      "e": "Standard and secure view results"
+    },
+    "answer": ["b", "c"],
+    "explanation": "",
+    "category": "Storage"
+  },
+  {
+    "number": 350,
+    "text": "Based on a reader account configuration, what is true of the reader account?",
+    "options": {
+      "a": "The reader account will automatically use Standard edition.",
+      "b": "The reader account compute will be billed to the provider account.",
+      "c": "The reader account can clone data shared, but cannot re-share it.",
+      "d": "The reader account can create copy using CREATE TABLE AS..."
+    },
+    "answer": ["b"],
+    "explanation": "",
+    "category": "Sharing"
+  }
+]
