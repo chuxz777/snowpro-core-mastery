@@ -147,6 +147,20 @@
     flex-direction: column;
 }
 
+/* Make sidebar sticky */
+#sidebar-nav {
+    position: sticky;
+    top: 1.5rem;
+    align-self: flex-start;
+    max-height: calc(100vh - 3rem);
+}
+
+#sidebar-nav > div {
+    display: flex;
+    flex-direction: column;
+    max-height: calc(100vh - 3rem);
+}
+
 #nav-grid::-webkit-scrollbar {
     width: 6px;
 }
@@ -261,12 +275,23 @@ body.focus-active #focus-exit-btn {
 }
 
 
+/* Question text container */
+#q-text {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 /* Markdown Content Styles */
 .markdown-content {
     line-height: 1.6;
     word-wrap: break-word;
     overflow-wrap: break-word;
     width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 .markdown-content p {
