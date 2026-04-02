@@ -169,14 +169,15 @@
     width: 100%;
     box-sizing: border-box;
     flex-shrink: 0;
+    max-width: 100%;
 }
 
 #nav-grid button {
     flex-shrink: 0;
-    min-width: 2.5rem;
-    max-width: 2.5rem;
-    width: 2.5rem;
-    height: 2.5rem;
+    min-width: 2.25rem;
+    max-width: 2.25rem;
+    width: 2.25rem;
+    height: 2.25rem;
 }
 
 /* Sidebar navigation container */
