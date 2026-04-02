@@ -43,10 +43,10 @@
     {
       "text": "What are **two characteristics** of the **Gold layer**?\n\n> Select two answers",
       "options": {
-        "A": "**Read-optimized**",
+        "A": "Read-optimized",
         "B": "Normalized",
         "C": "Historical lineage",
-        "D": "**De-normalized**",
+        "D": "De-normalized",
         "E": "Raw data"
       },
       "answer": ["A", "D"],
@@ -58,20 +58,20 @@
       "text": "A data engineer needs to combine sales data from an **on-premises PostgreSQL database** with customer data in **Azure Synapse** for a comprehensive report. The goal is to prevent data duplication and ensure that information is up to date.\n\nHow should the data engineer achieve this using Databricks?",
       "options": {
         "A": "Export data from both sources to CSV files and upload them to Databricks",
-        "B": "Use **Lakehouse Federation** to query both data sources directly",
+        "B": "Use Lakehouse Federation to query both data sources directly",
         "C": "Develop custom ETL pipelines to ingest data into Databricks",
         "D": "Manually synchronize data from both sources into a single database"
       },
       "answer": "B",
       "answer_type": "single",
       "category1": "Lakehouse Federation",
-      "explanation": "**Lakehouse Federation** enables:\n\n- **Direct querying** of external data sources\n- **No data duplication** required\n- **Real-time access** to source data\n- Support for PostgreSQL, MySQL, SQL Server, and more\n\n```sql\nCREATE CONNECTION postgres_conn\nTYPE postgresql\nOPTIONS (host 'server', port '5432');\n```"
+      "explanation": "Lakehouse Federation enables:\n\n- **Direct querying** of external data sources\n- **No data duplication** required\n- **Real-time access** to source data\n- Support for PostgreSQL, MySQL, SQL Server, and more\n\n```sql\nCREATE CONNECTION postgres_conn\nTYPE postgresql\nOPTIONS (host 'server', port '5432');\n```"
     },
     {
       "text": "A data engineer is developing an ETL process based on Spark SQL. The execution fails. The data engineer checks the Spark UI and sees the errors as follows:\n\n```\njava.lang.OutOfMemoryError: Java heap space\n```\n\nWhich **two actions** should the data engineer perform to resolve this issue?\n\n> Choose 2 answers",
       "options": {
-        "A": "**Narrow the filters** in order to collect less data in the query.",
-        "B": "**Upsize the worker nodes** and activate autoshuffle partitions.",
+        "A": "Narrow the filters in order to collect less data in the query.",
+        "B": "Upsize the worker nodes and activate autoshuffle partitions.",
         "C": "Upsize the driver node and deactivate autoshuffle partitions.",
         "D": "Cache the dataset in order to boost query performance.",
         "E": "Fix the shuffle partitions to 50 to ensure the allocation."
@@ -112,7 +112,7 @@
       "options": {
         "A": "Auto Loader",
         "B": "Table encryption",
-        "C": "**Z-order**",
+        "C": "Z-order",
         "D": "Change Data Feed"
       },
       "answer": "C",
@@ -124,7 +124,7 @@
       "text": "A **Lakeflow Jobs workflow** fails at the last task because of an error in a notebook task. This workflow is scheduled to run daily. The data engineer fixes the notebook and wants to rerun the pipeline. This workflow is very **compute-intensive and expensive** to run.\n\nWhich action should the data engineer take in order to minimize downtime and compute cost?",
       "options": {
         "A": "Re-run the entire workflow",
-        "B": "**Repair run**",
+        "B": "Repair run",
         "C": "Restart the cluster",
         "D": "Switch to another cluster"
       },
@@ -162,7 +162,7 @@
     {
       "text": "A data engineer is maintaining an ETL pipeline code with a **GitHub repository** linked to their Databricks account. The data engineer wants to deploy the ETL pipeline to production as a **Databricks Job**.\n\nWhich approach should the data engineer use?",
       "options": {
-        "A": "Use **Databricks Asset Bundles (DAB)** and **GitHub Integration**",
+        "A": "Use Databricks Asset Bundles (DAB) and GitHub Integration",
         "B": "Manually create and manage the workflow in UI",
         "C": "Maintain `workflow_config.json` and deploy it using Databricks CLI",
         "D": "Maintain `workflow_config.json` and deploy it using Terraform"

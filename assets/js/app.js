@@ -176,6 +176,12 @@ function toggleFocus() {
     document.getElementById('focus-toggle').innerText = active ? "Focus On" : "Focus";
 }
 
+function exitFocusMode() {
+    if (document.body.classList.contains('focus-active')) {
+        toggleFocus();
+    }
+}
+
 function toggleDarkMode() {
     document.documentElement.classList.toggle('dark');
 }
@@ -190,4 +196,11 @@ async function clearHistory() {
 
 window.onload = () => {
     showView('home-view');
+    
+    // Add ESC key listener for focus mode
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            exitFocusMode();
+        }
+    });
 };

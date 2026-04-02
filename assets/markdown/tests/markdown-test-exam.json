@@ -44,9 +44,9 @@
     {
       "text": "Order the steps to load data into Snowflake using the **COPY INTO** command:",
       "options": {
-        "A": "Create a **stage** (internal or external)",
+        "A": "Create a stage (internal or external)",
         "B": "Upload files to the stage using `PUT` command",
-        "C": "Create a **table** with appropriate schema",
+        "C": "Create a table with appropriate schema",
         "D": "Execute `COPY INTO` command to load data"
       },
       "answer": ["C", "A", "B", "D"],
@@ -70,10 +70,10 @@
     {
       "text": "Which statements about **Virtual Warehouses** are correct?\n\n*Select all that apply*",
       "options": {
-        "A": "They are **compute clusters** that execute queries",
+        "A": "They are compute clusters that execute queries",
         "B": "They can be `suspended` and `resumed` without data loss",
         "C": "Multiple warehouses can access the *same data* simultaneously",
-        "D": "Warehouse size affects **query performance** and cost",
+        "D": "Warehouse size affects query performance and cost",
         "E": "Data is stored within the warehouse"
       },
       "answer": ["A", "B", "C", "D"],
