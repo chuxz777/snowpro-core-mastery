@@ -143,6 +143,8 @@
     scrollbar-color: var(--border-clr) transparent;
     width: 100%;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
 }
 
 #nav-grid::-webkit-scrollbar {
@@ -166,12 +168,29 @@
 #nav-grid > div {
     width: 100%;
     box-sizing: border-box;
+    flex-shrink: 0;
 }
 
 #nav-grid button {
     flex-shrink: 0;
     min-width: 2.5rem;
     max-width: 2.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+/* Sidebar navigation container */
+#sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    max-height: calc(100vh - 140px);
+}
+
+#sidebar-nav > div {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
 }
 
 body.focus-active #main-nav, body.focus-active #sidebar-nav {
