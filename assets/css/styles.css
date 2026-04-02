@@ -132,3 +132,142 @@ body.focus-active .max-w-6xl {
 .animate-pop { 
     animation: pop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
 }
+
+
+/* Markdown Content Styles */
+.markdown-content {
+    line-height: 1.6;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    width: 100%;
+}
+
+.markdown-content p {
+    margin-bottom: 0.5em;
+    margin-top: 0;
+}
+
+.markdown-content p:last-child {
+    margin-bottom: 0;
+}
+
+.markdown-content p:first-child {
+    margin-top: 0;
+}
+
+.markdown-content code {
+    background-color: var(--app-bg);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.85em;
+    border: 1px solid var(--border-clr);
+    word-break: break-all;
+    white-space: pre-wrap;
+}
+
+.markdown-content pre {
+    background-color: var(--app-bg);
+    padding: 12px;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 8px 0;
+    border: 1px solid var(--border-clr);
+    max-width: 100%;
+}
+
+.markdown-content pre code {
+    background: none;
+    padding: 0;
+    border: none;
+    white-space: pre;
+    word-break: normal;
+}
+
+.markdown-content strong {
+    font-weight: 700;
+    color: var(--txt-main);
+}
+
+.markdown-content em {
+    font-style: italic;
+}
+
+.markdown-content ul, .markdown-content ol {
+    margin-left: 1.5em;
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
+}
+
+.markdown-content li {
+    margin-bottom: 0.25em;
+}
+
+.markdown-content blockquote {
+    border-left: 4px solid var(--accent);
+    padding-left: 12px;
+    margin: 8px 0;
+    opacity: 0.8;
+}
+
+.markdown-content h1, .markdown-content h2, .markdown-content h3 {
+    font-weight: 700;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.markdown-content h1 {
+    font-size: 1.5em;
+}
+
+.markdown-content h2 {
+    font-size: 1.3em;
+}
+
+.markdown-content h3 {
+    font-size: 1.1em;
+}
+
+.markdown-content a {
+    color: var(--accent);
+    text-decoration: underline;
+}
+
+.markdown-content a:hover {
+    opacity: 0.8;
+}
+
+.markdown-content table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 8px 0;
+    font-size: 0.9em;
+    overflow-x: auto;
+    display: block;
+}
+
+.markdown-content table thead {
+    background-color: var(--app-bg);
+}
+
+.markdown-content table th,
+.markdown-content table td {
+    border: 1px solid var(--border-clr);
+    padding: 8px 12px;
+    text-align: left;
+}
+
+.markdown-content table th {
+    font-weight: 700;
+}
+
+/* Fix for option containers with markdown */
+#options-container > div {
+    overflow: hidden;
+}
+
+#options-container .markdown-content {
+    display: inline-block;
+    vertical-align: middle;
+    max-width: 100%;
+}

@@ -135,15 +135,15 @@ function filterAudit(type) {
     document.getElementById('audit-content').innerHTML = items.map((q, idx) => `
         <div class="p-8 rounded-[2rem] border-2 ${!q.isChecked ? 'border-border-clr' : (q.isCorrect ? 'border-green-500/20 bg-green-500/5' : 'border-red-500/20 bg-red-500/5')}">
             <p class="text-[10px] font-black uppercase opacity-50 mb-4">Item #${idx + 1}</p>
-            <p class="font-bold text-xl mb-6">${q.text}</p>
+            <div class="font-bold text-xl mb-6 markdown-content">${marked.parse(q.text)}</div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div class="p-4 bg-app-bg rounded-xl border border-border-clr">
                     <p class="text-[9px] font-black uppercase opacity-50">Response</p>
-                    <p class="${q.isCorrect ? 'text-green-500' : 'text-red-500'} font-bold">${q.selectedKeys.map(k => q.options[k]).join(", ") || 'None'}</p>
+                    <div class="${q.isCorrect ? 'text-green-500' : 'text-red-500'} font-bold markdown-content">${q.selectedKeys.map(k => marked.parse(q.options[k])).join(", ") || 'None'}</div>
                 </div>
                 <div class="p-4 bg-app-bg rounded-xl border border-border-clr">
                     <p class="text-[9px] font-black uppercase opacity-50">Expected</p>
-                    <p class="text-green-500 font-bold">${Array.isArray(q.answer) ? q.answer.map(k => q.options[k]).join(", ") : q.options[q.answer]}</p>
+                    <div class="text-green-500 font-bold markdown-content">${Array.isArray(q.answer) ? q.answer.map(k => marked.parse(q.options[k])).join(", ") : marked.parse(q.options[q.answer])}</div>
                 </div>
             </div>
         </div>`).join('');

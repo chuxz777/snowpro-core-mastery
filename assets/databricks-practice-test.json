@@ -1,0 +1,202 @@
+{
+  "exam": "Databricks Certified Data Engineer Associate - Practice Test",
+  "questions": [
+    {
+      "text": "A data engineer is working on a Databricks project that utilizes cloud storage. The data engineer wants to load several JSON files from containers on a storage account **as soon as the file arrives** within the storage account.\n\nWhich syntax should the data engineer follow to first load the files into a dataframe and check that it is working as expected using Python?",
+      "options": {
+        "A": "`df = spark.readStream.format(\"json\").load(\"/input/path\")`",
+        "B": "`df = spark.read.json(\"/input/path\")`",
+        "C": "`df = spark.readStream.format(\"cloud\").option(\"json\").load(\"/input/path\")`",
+        "D": "```python\ndf = spark.readStream.format(\"cloudFiles\") \\\n  .option(\"cloudFiles.format\", \"json\") \\\n  .load(\"/input/path\")\n```"
+      },
+      "answer": "D",
+      "answer_type": "single",
+      "category1": "Data Ingestion",
+      "explanation": "**Auto Loader** (cloudFiles) is the correct approach for streaming file ingestion.\n\nThe correct syntax uses:\n- `readStream` for streaming data\n- `format(\"cloudFiles\")` to enable Auto Loader\n- `option(\"cloudFiles.format\", \"json\")` to specify the file format\n\nThis automatically detects and processes new files as they arrive in cloud storage."
+    },
+    {
+      "text": "A data engineer has written a function in a Databricks Notebook to calculate the population of bacteria in a given medium.\n\n```python\ndef calculate_population_of_bacteria(initial_population, exponential_factor):\n    return future_population = initial_population ** exponential_factor\n```\n\nAnalysts use this function in the notebook and sometimes provide input arguments of the **wrong data type**, which can cause errors during execution.\n\nWhich Databricks feature will help the data engineer quickly identify if an incorrect data type has been provided as input?",
+      "options": {
+        "A": "The Databricks **debugger** enables breakpoints that will raise an error if the wrong data type is submitted.",
+        "B": "The **Spark User Interface** has a Debug tab that contains the variables used in this session.",
+        "C": "The Data Engineer should add `print` statements to determine the value of the variable.",
+        "D": "The Databricks **debugger** enables the use of a *variable explorer* to see at a glance the value of the variables."
+      },
+      "answer": "D",
+      "answer_type": "single",
+      "category1": "Debugging",
+      "explanation": "The **Databricks debugger's variable explorer** allows you to:\n\n1. Inspect variable values in real-time\n2. Check data types during execution\n3. Identify type mismatches quickly\n\nThis is more efficient than print statements and provides a visual interface for debugging."
+    },
+    {
+      "text": "A data engineer wants to delegate day-to-day permission management for the schema `main.marketing` to the `mkt-admins` group, **without making them workspace admins**. They should be able to grant and revoke privileges for other users on objects within that schema.\n\nWhich approach aligns with **Unity Catalog's** ownership and privilege model?",
+      "options": {
+        "A": "Grant `MANAGE` permissions on the **metastore** to `mkt-admins`, which allows managing privileges for all schemas and tables globally.",
+        "B": "Make `mkt-admins` workspace-level admins, then assign `SELECT` on `main.marketing` to allow privilege delegation.",
+        "C": "Grant `USE SCHEMA` on `main.marketing`, and `MODIFY` on all tables to `mkt-admins`, which enables the management of grants within the schema.",
+        "D": "**Transfer ownership** of the schema `main.marketing` to `mkt-admins`; owners can manage privileges on the schema and its contained objects."
+      },
+      "answer": "D",
+      "answer_type": "single",
+      "category1": "Unity Catalog",
+      "explanation": "In **Unity Catalog**, ownership is the key to privilege management:\n\n✅ **Schema owners can**:\n- Grant and revoke privileges on the schema\n- Manage all objects within the schema\n- Delegate permissions without being workspace admins\n\n```sql\nALTER SCHEMA main.marketing OWNER TO `mkt-admins`;\n```"
+    },
+    {
+      "text": "What are **two characteristics** of the **Gold layer**?\n\n> Select two answers",
+      "options": {
+        "A": "**Read-optimized**",
+        "B": "Normalized",
+        "C": "Historical lineage",
+        "D": "**De-normalized**",
+        "E": "Raw data"
+      },
+      "answer": ["A", "D"],
+      "answer_type": "multiple",
+      "category1": "Medallion Architecture",
+      "explanation": "The **Gold layer** characteristics:\n\n✅ **Correct**:\n- **Read-optimized**: Designed for fast query performance\n- **De-normalized**: Aggregated and joined for business use\n\n### Medallion Architecture:\n| Layer | Purpose | Characteristics |\n|-------|---------|----------------|\n| Bronze | Raw | Unprocessed, historical |\n| Silver | Cleaned | Validated, normalized |\n| Gold | Business | Aggregated, de-normalized |"
+    },
+    {
+      "text": "A data engineer needs to combine sales data from an **on-premises PostgreSQL database** with customer data in **Azure Synapse** for a comprehensive report. The goal is to prevent data duplication and ensure that information is up to date.\n\nHow should the data engineer achieve this using Databricks?",
+      "options": {
+        "A": "Export data from both sources to CSV files and upload them to Databricks",
+        "B": "Use **Lakehouse Federation** to query both data sources directly",
+        "C": "Develop custom ETL pipelines to ingest data into Databricks",
+        "D": "Manually synchronize data from both sources into a single database"
+      },
+      "answer": "B",
+      "answer_type": "single",
+      "category1": "Lakehouse Federation",
+      "explanation": "**Lakehouse Federation** enables:\n\n- **Direct querying** of external data sources\n- **No data duplication** required\n- **Real-time access** to source data\n- Support for PostgreSQL, MySQL, SQL Server, and more\n\n```sql\nCREATE CONNECTION postgres_conn\nTYPE postgresql\nOPTIONS (host 'server', port '5432');\n```"
+    },
+    {
+      "text": "A data engineer is developing an ETL process based on Spark SQL. The execution fails. The data engineer checks the Spark UI and sees the errors as follows:\n\n```\njava.lang.OutOfMemoryError: Java heap space\n```\n\nWhich **two actions** should the data engineer perform to resolve this issue?\n\n> Choose 2 answers",
+      "options": {
+        "A": "**Narrow the filters** in order to collect less data in the query.",
+        "B": "**Upsize the worker nodes** and activate autoshuffle partitions.",
+        "C": "Upsize the driver node and deactivate autoshuffle partitions.",
+        "D": "Cache the dataset in order to boost query performance.",
+        "E": "Fix the shuffle partitions to 50 to ensure the allocation."
+      },
+      "answer": ["A", "B"],
+      "answer_type": "multiple",
+      "category1": "Performance Tuning",
+      "explanation": "To resolve **OutOfMemoryError**:\n\n✅ **Correct actions**:\n1. **Narrow filters**: Reduce data volume processed\n2. **Upsize workers + autoshuffle**: More memory and better partitioning\n\n❌ **Incorrect**:\n- Caching increases memory usage\n- Fixed partitions may not help\n- Driver upsize doesn't help worker memory"
+    },
+    {
+      "text": "A company sells products across multiple categories (e.g., Electronics, Clothing) and regions. The sales team has provided the data engineer with a PySpark dataframe named `sales_df` as below, and wants the data engineer to analyze the sales data to help make strategic decisions.\n\n**sales_df:**\n\n| product_id | category | sales_amount | region |\n|------------|----------|--------------|--------|\n| 1 | Electronics | 100 | North |\n| 2 | Clothing | 200 | South |\n| 3 | Electronics | 150 | North |\n| 4 | Clothing | 300 | South |\n| 5 | Electronics | 250 | East |\n| 6 | Clothing | 400 | West |\n\nThe data engineer needs to calculate the **total sales amount for each region** and store the results in a new DataFrame called `region_sales`.\n\n**Expected result:**\n\n| region | total_sales_amount |\n|--------|-------------------|\n| North | 250 |\n| South | 500 |\n| East | 250 |\n| West | 400 |\n\nWhich code will generate the expected result?",
+      "options": {
+        "A": "```python\nregion_sales = sales_df.agg(sum(\"sales_amount\")\n  .groupBy(\"region\")\n  .alias(\"total_sales_amount\"))\n```",
+        "B": "```python\nregion_sales = sales_df.groupBy(\"category\")\n  .sum(\"sales_amount\")\n  .alias(\"total_sales_amount\")\n```",
+        "C": "```python\nregion_sales = sales_df.groupBy(\"region\")\n  .agg(sum(\"sales_amount\")\n  .alias(\"total_sales_amount\"))\n```",
+        "D": "```python\nregion_sales = sales_df.sum(\"sales_amount\")\n  .groupBy(\"region\")\n  .alias(\"total_sales_amount\")\n```"
+      },
+      "answer": "C",
+      "answer_type": "single",
+      "category1": "PySpark",
+      "explanation": "**Correct PySpark aggregation syntax**:\n\n```python\ndf.groupBy(\"column\")\n  .agg(aggregation_function)\n```\n\n✅ **Option C**:\n- Groups by `region` first\n- Then applies `sum()` aggregation\n- Uses `.alias()` for column naming\n\nThis is the standard pattern for grouped aggregations in PySpark."
+    },
+    {
+      "text": "Which PySpark code correctly sets up **Auto Loader** to stream new **Parquet files** from an S3 bucket?",
+      "options": {
+        "A": "```python\nspark.readStream.format('cloudFiles')\n  .option('format', 'parquet')\n  .load('s3://bucket/data')\n```",
+        "B": "```python\nspark.readStream.format('parquet')\n  .option('cloudFiles.format', 'parquet')\n  .load('s3://bucket/data')\n```",
+        "C": "```python\nspark.read.format('cloudFiles')\n  .option('cloudFiles.format', 'parquet')\n  .load('s3://bucket/data')\n```",
+        "D": "```python\nspark.readStream.format('cloudFiles')\n  .option('cloudFiles.format', 'parquet')\n  .load('s3://bucket/data')\n```"
+      },
+      "answer": "D",
+      "answer_type": "single",
+      "category1": "Auto Loader",
+      "explanation": "**Correct Auto Loader syntax**:\n\n```python\nspark.readStream \\\n  .format('cloudFiles') \\\n  .option('cloudFiles.format', 'parquet') \\\n  .load('s3://bucket/data')\n```\n\n✅ **Key elements**:\n- `readStream` for streaming\n- `format('cloudFiles')` for Auto Loader\n- `option('cloudFiles.format', 'parquet')` for file type"
+    },
+    {
+      "text": "A data engineer wants queries on a large Delta table to run faster, especially for filters on high-cardinality columns, such as `customer_id`.\n\nWhich feature enables data layout optimization, allowing queries to scan fewer files during execution?",
+      "options": {
+        "A": "Auto Loader",
+        "B": "Table encryption",
+        "C": "**Z-order**",
+        "D": "Change Data Feed"
+      },
+      "answer": "C",
+      "answer_type": "single",
+      "category1": "Delta Lake Optimization",
+      "explanation": "**Z-ordering** optimizes data layout:\n\n✅ **Benefits**:\n- Co-locates related data\n- Reduces files scanned\n- Improves query performance\n- Ideal for high-cardinality columns\n\n```sql\nOPTIMIZE table_name\nZORDER BY (customer_id, date);\n```"
+    },
+    {
+      "text": "A **Lakeflow Jobs workflow** fails at the last task because of an error in a notebook task. This workflow is scheduled to run daily. The data engineer fixes the notebook and wants to rerun the pipeline. This workflow is very **compute-intensive and expensive** to run.\n\nWhich action should the data engineer take in order to minimize downtime and compute cost?",
+      "options": {
+        "A": "Re-run the entire workflow",
+        "B": "**Repair run**",
+        "C": "Restart the cluster",
+        "D": "Switch to another cluster"
+      },
+      "answer": "B",
+      "answer_type": "single",
+      "category1": "Job Management",
+      "explanation": "**Repair run** allows you to:\n\n✅ **Benefits**:\n- Re-run only failed tasks\n- Skip successful tasks\n- Save compute costs\n- Minimize downtime\n\nThis is the most cost-effective approach for fixing failed workflows."
+    },
+    {
+      "text": "A data engineer is attempting to write **Python and SQL** in the same command cell and is running into an error. The engineer believed it was possible to use a Python variable in a SQL select statement.\n\nWhy does the command fail?",
+      "options": {
+        "A": "Databricks supports multiple languages, but only one per notebook.",
+        "B": "Databricks supports **one language per cell**.",
+        "C": "Databricks supports language interoperability in the same cell, but only between Scala and SQL.",
+        "D": "Databricks supports language interoperability, but only if a special character is used."
+      },
+      "answer": "B",
+      "answer_type": "single",
+      "category1": "Notebooks",
+      "explanation": "**Databricks notebook language rules**:\n\n- One language per cell\n- Use magic commands to switch: `%python`, `%sql`, `%scala`, `%r`\n- Variables can be shared between cells using `spark.sql()`\n\n```python\n# Python cell\nmy_var = \"value\"\n\n# SQL cell with magic command\n%sql\nSELECT * FROM table WHERE col = '${my_var}'\n```"
+    },
+    {
+      "text": "What is the functionality of **Auto Loader** in Databricks?",
+      "options": {
+        "A": "Auto Loader automatically ingests and processes new files from cloud storage, handling **both batch and streaming data** with support for **schema evolution**.",
+        "B": "Auto Loader automatically ingests and processes new files from cloud storage, handling batch data with support for schema evolution.",
+        "C": "Auto Loader automatically ingests and processes new files from cloud storage, handling only streaming data with no support for schema evolution.",
+        "D": "Auto Loader automatically ingests and processes new files from cloud storage, handling both batch and streaming data, but does not support schema evolution."
+      },
+      "answer": "A",
+      "answer_type": "single",
+      "category1": "Auto Loader",
+      "explanation": "**Auto Loader** (`cloudFiles`) features:\n\n✅ **Capabilities**:\n- Batch and streaming ingestion\n- Automatic schema inference\n- Schema evolution support\n- Efficient file discovery\n- Scalable processing\n\n```python\ndf = spark.readStream \\\n  .format(\"cloudFiles\") \\\n  .option(\"cloudFiles.format\", \"json\") \\\n  .option(\"cloudFiles.schemaLocation\", path) \\\n  .load(source_path)\n```"
+    },
+    {
+      "text": "A data engineer is maintaining an ETL pipeline code with a **GitHub repository** linked to their Databricks account. The data engineer wants to deploy the ETL pipeline to production as a **Databricks Job**.\n\nWhich approach should the data engineer use?",
+      "options": {
+        "A": "Use **Databricks Asset Bundles (DAB)** and **GitHub Integration**",
+        "B": "Manually create and manage the workflow in UI",
+        "C": "Maintain `workflow_config.json` and deploy it using Databricks CLI",
+        "D": "Maintain `workflow_config.json` and deploy it using Terraform"
+      },
+      "answer": "A",
+      "answer_type": "single",
+      "category1": "CI/CD",
+      "explanation": "**Databricks Asset Bundles (DAB)** with GitHub provides:\n\n✅ **Best practices**:\n- Version-controlled deployments\n- YAML-based configuration\n- CI/CD integration\n- Environment management\n- Automated testing\n\n```yaml\n# databricks.yml\nbundle:\n  name: etl-pipeline\n  \nresources:\n  jobs:\n    etl_job:\n      name: Production ETL\n```"
+    },
+    {
+      "text": "Which Databricks feature can be used to check the data sources and tables used in a workspace?",
+      "options": {
+        "A": "Use the **lineage feature** to visualize a graph that shows all dependencies, including where the table is used in notebooks, other tables, and reports.",
+        "B": "Use the lineage feature to visualize a graph that highlights where the table is used only in notebooks.",
+        "C": "Use the audit logs feature to review user activities, such as who queried or modified a table, instead of visualizing dependencies between data objects.",
+        "D": "Use the lineage feature to visualize a graph that highlights where the table is used only in reports."
+      },
+      "answer": "A",
+      "answer_type": "single",
+      "category1": "Data Lineage",
+      "explanation": "**Unity Catalog Lineage** provides:\n\n✅ **Complete visibility**:\n- Visual dependency graph\n- Upstream and downstream tracking\n- Notebook usage\n- Table dependencies\n- Report connections\n\n```sql\nSELECT * FROM system.access.table_lineage\nWHERE target_table_full_name = 'catalog.schema.table';\n```"
+    },
+    {
+      "text": "A data engineer at a company that uses Databricks with **Unity Catalog** needs to share a collection of tables with an external partner who also uses a Databricks workspace enabled for Unity Catalog. The data engineer decides to use **Delta Sharing** to accomplish this.\n\nWhat is the first piece of information the data engineer should request from the external partner to set up Delta Sharing?",
+      "options": {
+        "A": "The IP address of their Databricks workspace",
+        "B": "The name of their Databricks cluster",
+        "C": "The **sharing identifier** of their Unity Catalog metastore",
+        "D": "Their Databricks account password"
+      },
+      "answer": "C",
+      "answer_type": "single",
+      "category1": "Delta Sharing",
+      "explanation": "**Delta Sharing setup** requires:\n\n1. **Sharing identifier** (metastore ID) from recipient\n2. Create a share with tables\n3. Create a recipient with the identifier\n4. Grant access to the share\n\n```sql\nCREATE SHARE my_share;\nALTER SHARE my_share ADD TABLE catalog.schema.table;\nCREATE RECIPIENT partner USING ID 'metastore-id';\nGRANT SELECT ON SHARE my_share TO RECIPIENT partner;\n```"
+    }
+  ]
+}

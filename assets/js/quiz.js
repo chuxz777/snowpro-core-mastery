@@ -46,11 +46,11 @@ function showQuestion(shouldScroll = false) {
     const q = examState[currentIdx], isSeq = q.answer_type === "sequence";
     document.getElementById('q-meta').innerText = `ITEM ${currentIdx + 1} / ${examState.length}`;
     document.getElementById('exam-progress-bar').style.width = ((currentIdx + 1) / examState.length * 100) + '%';
-    document.getElementById('q-text').innerText = q.text;
+    document.getElementById('q-text').innerHTML = marked.parse(q.text);
     document.getElementById('clear-seq-btn').classList.toggle('hidden', !isSeq || q.isChecked);
     const explBox = document.getElementById('explanation-box');
     explBox.classList.toggle('hidden', !(q.isChecked && q.explanation));
-    if (q.isChecked && q.explanation) explBox.innerHTML = `<p class="text-[10px] font-black text-accent uppercase mb-2">Reasoning</p><p class="text-sm italic">${q.explanation}</p>`;
+    if (q.isChecked && q.explanation) explBox.innerHTML = `<p class="text-[10px] font-black text-accent uppercase mb-2">Reasoning</p><div class="text-sm italic markdown-content">${marked.parse(q.explanation)}</div>`;
     const badge = document.getElementById('instant-badge');
     badge.classList.toggle('hidden', !q.isChecked);
     if (q.isChecked) {
@@ -83,7 +83,7 @@ function showQuestion(shouldScroll = false) {
             e.preventDefault();
             if (!q.isChecked) toggleStrike(opt.key);
         };
-        div.innerHTML = ((isSel && isSeq) ? `<span class="step-badge">STEP ${stepIdx + 1}</span>` : "") + `<span>${opt.value}</span>`;
+        div.innerHTML = ((isSel && isSeq) ? `<span class="step-badge">STEP ${stepIdx + 1}</span>` : "") + `<span class="markdown-content">${marked.parse(opt.value)}</span>`;
         container.appendChild(div);
     });
     updateNavUI();
