@@ -391,13 +391,43 @@ body.focus-active #focus-exit-btn {
 
 /* Fix for option containers with markdown */
 #options-container > div {
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-word;
 }
 
 #options-container .markdown-content {
-    display: inline-block;
-    vertical-align: middle;
+    display: block;
     max-width: 100%;
+    overflow-x: hidden;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Ensure code blocks in options don't overflow */
+#options-container pre {
+    overflow-x: auto;
+    overflow-y: hidden;
+    max-width: 100%;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+#options-container code {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    word-break: break-all;
+    max-width: 100%;
+    display: inline-block;
+}
+
+/* Ensure option buttons don't overflow */
+#options-container button {
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 /* Custom Slider Styles */
