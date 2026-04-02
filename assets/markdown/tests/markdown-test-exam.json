@@ -4,7 +4,7 @@
     {
       "text": "What is **Snowflake's** primary architecture model?\n\nSnowflake uses a unique architecture that separates:\n- Storage\n- Compute\n- Services",
       "options": {
-        "A": "**Multi-cluster shared data** architecture",
+        "A": "Multi-cluster shared data architecture",
         "B": "*Traditional* shared-nothing architecture",
         "C": "Shared-disk architecture with `single compute` node",
         "D": "Hybrid on-premise and cloud model"
@@ -84,7 +84,7 @@
     {
       "text": "What does the following SQL command do?\n\n```sql\nALTER WAREHOUSE my_wh \nSET WAREHOUSE_SIZE = 'LARGE'\nAUTO_SUSPEND = 300\nAUTO_RESUME = TRUE;\n```",
       "options": {
-        "A": "Resizes warehouse to **LARGE**, suspends after `5 minutes` of inactivity, and enables *auto-resume*",
+        "A": "Resizes warehouse to LARGE, suspends after `5 minutes` of inactivity, and enables *auto-resume*",
         "B": "Creates a new warehouse with specified settings",
         "C": "Deletes and recreates the warehouse",
         "D": "Only changes the warehouse size"

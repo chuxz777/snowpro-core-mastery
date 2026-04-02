@@ -17,10 +17,10 @@
     {
       "text": "A data engineer has written a function in a Databricks Notebook to calculate the population of bacteria in a given medium.\n\n```python\ndef calculate_population_of_bacteria(initial_population, exponential_factor):\n    return future_population = initial_population ** exponential_factor\n```\n\nAnalysts use this function in the notebook and sometimes provide input arguments of the **wrong data type**, which can cause errors during execution.\n\nWhich Databricks feature will help the data engineer quickly identify if an incorrect data type has been provided as input?",
       "options": {
-        "A": "The Databricks **debugger** enables breakpoints that will raise an error if the wrong data type is submitted.",
-        "B": "The **Spark User Interface** has a Debug tab that contains the variables used in this session.",
+        "A": "The Databricks debugger enables breakpoints that will raise an error if the wrong data type is submitted.",
+        "B": "The Spark User Interface has a Debug tab that contains the variables used in this session.",
         "C": "The Data Engineer should add `print` statements to determine the value of the variable.",
-        "D": "The Databricks **debugger** enables the use of a *variable explorer* to see at a glance the value of the variables."
+        "D": "The Databricks debugger enables the use of a *variable explorer* to see at a glance the value of the variables."
       },
       "answer": "D",
       "answer_type": "single",
@@ -30,10 +30,10 @@
     {
       "text": "A data engineer wants to delegate day-to-day permission management for the schema `main.marketing` to the `mkt-admins` group, **without making them workspace admins**. They should be able to grant and revoke privileges for other users on objects within that schema.\n\nWhich approach aligns with **Unity Catalog's** ownership and privilege model?",
       "options": {
-        "A": "Grant `MANAGE` permissions on the **metastore** to `mkt-admins`, which allows managing privileges for all schemas and tables globally.",
+        "A": "Grant `MANAGE` permissions on the metastore to `mkt-admins`, which allows managing privileges for all schemas and tables globally.",
         "B": "Make `mkt-admins` workspace-level admins, then assign `SELECT` on `main.marketing` to allow privilege delegation.",
         "C": "Grant `USE SCHEMA` on `main.marketing`, and `MODIFY` on all tables to `mkt-admins`, which enables the management of grants within the schema.",
-        "D": "**Transfer ownership** of the schema `main.marketing` to `mkt-admins`; owners can manage privileges on the schema and its contained objects."
+        "D": "Transfer ownership of the schema `main.marketing` to `mkt-admins`; owners can manage privileges on the schema and its contained objects."
       },
       "answer": "D",
       "answer_type": "single",
@@ -137,7 +137,7 @@
       "text": "A data engineer is attempting to write **Python and SQL** in the same command cell and is running into an error. The engineer believed it was possible to use a Python variable in a SQL select statement.\n\nWhy does the command fail?",
       "options": {
         "A": "Databricks supports multiple languages, but only one per notebook.",
-        "B": "Databricks supports **one language per cell**.",
+        "B": "Databricks supports one language per cell.",
         "C": "Databricks supports language interoperability in the same cell, but only between Scala and SQL.",
         "D": "Databricks supports language interoperability, but only if a special character is used."
       },
@@ -149,7 +149,7 @@
     {
       "text": "What is the functionality of **Auto Loader** in Databricks?",
       "options": {
-        "A": "Auto Loader automatically ingests and processes new files from cloud storage, handling **both batch and streaming data** with support for **schema evolution**.",
+        "A": "Auto Loader automatically ingests and processes new files from cloud storage, handling both batch and streaming data with support for schema evolution.",
         "B": "Auto Loader automatically ingests and processes new files from cloud storage, handling batch data with support for schema evolution.",
         "C": "Auto Loader automatically ingests and processes new files from cloud storage, handling only streaming data with no support for schema evolution.",
         "D": "Auto Loader automatically ingests and processes new files from cloud storage, handling both batch and streaming data, but does not support schema evolution."
@@ -175,7 +175,7 @@
     {
       "text": "Which Databricks feature can be used to check the data sources and tables used in a workspace?",
       "options": {
-        "A": "Use the **lineage feature** to visualize a graph that shows all dependencies, including where the table is used in notebooks, other tables, and reports.",
+        "A": "Use the lineage feature to visualize a graph that shows all dependencies, including where the table is used in notebooks, other tables, and reports.",
         "B": "Use the lineage feature to visualize a graph that highlights where the table is used only in notebooks.",
         "C": "Use the audit logs feature to review user activities, such as who queried or modified a table, instead of visualizing dependencies between data objects.",
         "D": "Use the lineage feature to visualize a graph that highlights where the table is used only in reports."
@@ -190,7 +190,7 @@
       "options": {
         "A": "The IP address of their Databricks workspace",
         "B": "The name of their Databricks cluster",
-        "C": "The **sharing identifier** of their Unity Catalog metastore",
+        "C": "The sharing identifier of their Unity Catalog metastore",
         "D": "Their Databricks account password"
       },
       "answer": "C",
