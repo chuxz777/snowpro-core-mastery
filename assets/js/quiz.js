@@ -149,14 +149,28 @@ function handleAction() {
 function buildNavGrid() {
     const g = document.getElementById('nav-grid');
     g.innerHTML = '';
-    examState.forEach((_, i) => {
-        const b = document.createElement('button');
-        b.id = `nav-btn-${i}`;
-        b.className = "w-10 h-10 border-2 rounded-xl text-[10px] font-black border-border-clr flex items-center justify-center shrink-0";
-        b.innerText = i + 1;
-        b.onclick = () => { currentIdx = i; showQuestion(true); };
-        g.appendChild(b);
-    });
+    
+    const totalQuestions = examState.length;
+    const questionsPerRow = 10; // Display 10 questions per row
+    
+    // Create rows
+    for (let rowStart = 0; rowStart < totalQuestions; rowStart += questionsPerRow) {
+        const rowEnd = Math.min(rowStart + questionsPerRow, totalQuestions);
+        const row = document.createElement('div');
+        row.className = 'flex gap-2 justify-center';
+        
+        // Add questions to this row
+        for (let i = rowStart; i < rowEnd; i++) {
+            const b = document.createElement('button');
+            b.id = `nav-btn-${i}`;
+            b.className = "w-10 h-10 border-2 rounded-xl text-[10px] font-black border-border-clr flex items-center justify-center shrink-0 hover:scale-105 transition-transform";
+            b.innerText = i + 1;
+            b.onclick = () => { currentIdx = i; showQuestion(true); };
+            row.appendChild(b);
+        }
+        
+        g.appendChild(row);
+    }
 }
 
 function updateNavUI() {

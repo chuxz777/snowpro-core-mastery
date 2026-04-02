@@ -110,25 +110,54 @@
     overflow: visible !important;
 }
 
-.nav-pass { 
-    background-color: #10b981 !important; 
-    color: white !important; 
-    border-color: #10b981 !important; 
+.nav-pass {
+    background-color: #10b981 !important;
+    color: white !important;
+    border-color: #10b981 !important;
+    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
 }
-.nav-fail { 
-    background-color: #ef4444 !important; 
-    color: white !important; 
-    border-color: #ef4444 !important; 
+.nav-fail {
+    background-color: #ef4444 !important;
+    color: white !important;
+    border-color: #ef4444 !important;
+    box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);
 }
-.nav-completed { 
-    border-color: var(--accent) !important; 
-    color: var(--accent) !important; 
+.nav-completed {
+    border-color: var(--accent) !important;
+    color: var(--accent) !important;
+    background-color: rgba(37, 99, 235, 0.05);
 }
-.nav-active { 
-    border-width: 3px !important; 
-    transform: scale(1.05); 
-    z-index: 10; 
-    border-color: var(--accent) !important; 
+.nav-active {
+    border-width: 3px !important;
+    transform: scale(1.1);
+    z-index: 10;
+    border-color: var(--accent) !important;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+    background-color: var(--accent);
+    color: white !important;
+}
+
+/* Navigation grid scrollbar styling */
+#nav-grid {
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-clr) transparent;
+}
+
+#nav-grid::-webkit-scrollbar {
+    width: 6px;
+}
+
+#nav-grid::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#nav-grid::-webkit-scrollbar-thumb {
+    background: var(--border-clr);
+    border-radius: 10px;
+}
+
+#nav-grid::-webkit-scrollbar-thumb:hover {
+    background: var(--txt-muted);
 }
 
 body.focus-active #main-nav, body.focus-active #sidebar-nav {
