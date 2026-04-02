@@ -49,14 +49,17 @@
     </div>
 
     <div class="max-w-6xl mx-auto py-8 px-4">
-        <nav id="main-nav" class="flex flex-col md:flex-row justify-between items-center mb-8 bg-card-bg p-4 md:p-5 rounded-3xl shadow-sm border border-border-clr gap-4">
-            <h1 onclick="showView('home-view')" class="text-xl font-black italic cursor-pointer uppercase border-b-2 border-accent shrink-0">SnowPro Prep</h1>
-            <div class="nav-scroller w-full md:w-auto justify-center md:justify-end">
-                <button id="focus-toggle" class="hidden px-3 py-2 text-[10px] font-black uppercase text-accent border border-accent/20 rounded-xl" onclick="toggleFocus()">Focus</button>
-                <button onclick="showView('library-view')" class="px-3 py-2 text-[10px] font-black text-txt-main uppercase transition-all hover:text-accent">Library</button>
-                <button onclick="showView('analytics-view')" class="px-3 py-2 text-[10px] font-black text-txt-main uppercase transition-all hover:text-accent">Insights</button>
-                <button onclick="showView('lab-view')" class="bg-red-500 text-white px-4 py-2 rounded-full text-[10px] font-black uppercase shadow-lg shadow-red-500/20 active:scale-95 transition-all">The Lab</button>
-                <button onclick="toggleDarkMode()" class="p-2.5 rounded-2xl bg-app-bg border border-border-clr hover:bg-border-clr transition-all">🌙</button>
+        <nav id="main-nav" class="flex justify-between items-center bg-card-bg px-6 py-3 border-b border-border-clr">
+            <h1 onclick="showView('home-view')" class="text-sm font-bold cursor-pointer uppercase text-accent">CertPrep</h1>
+            <div class="nav-scroller flex items-center gap-1">
+                <button id="focus-toggle" class="hidden px-3 py-1.5 text-[9px] font-semibold uppercase text-accent" onclick="toggleFocus()">Focus</button>
+                <button onclick="showView('home-view')" class="px-3 py-1.5 text-[9px] font-semibold text-txt-muted uppercase transition-all hover:text-accent">Home</button>
+                <button onclick="showView('library-view')" class="px-3 py-1.5 text-[9px] font-semibold text-txt-muted uppercase transition-all hover:text-accent">Library</button>
+                <input type="file" id="file-selector" multiple accept=".json" class="hidden" onchange="handleFileSelect(event)">
+                <button onclick="document.getElementById('file-selector').click()" class="px-3 py-1.5 text-[9px] font-semibold uppercase transition-all text-green-600 hover:text-green-700">Import</button>
+                <button onclick="showView('analytics-view')" class="px-3 py-1.5 text-[9px] font-semibold text-txt-muted uppercase transition-all hover:text-accent">Insights</button>
+                <button onclick="showView('lab-view')" class="px-3 py-1.5 text-[9px] font-semibold uppercase transition-all text-red-600 hover:text-red-700">Lab</button>
+                <button onclick="toggleDarkMode()" class="px-2 py-1.5 text-sm transition-all hover:opacity-70">🌙</button>
             </div>
         </nav>
 
@@ -177,8 +180,11 @@
                     <input type="number" id="config-time" value="115" class="w-full bg-app-bg border border-border-clr p-4 rounded-xl font-bold text-accent outline-none">
                 </div>
                 <div>
-                    <label class="text-[10px] font-black uppercase mb-2 block opacity-50 tracking-widest">Questions</label>
-                    <input type="number" id="config-count" value="100" class="w-full bg-app-bg border border-border-clr p-4 rounded-xl font-bold text-accent outline-none">
+                    <label class="text-[10px] font-black uppercase mb-2 block opacity-50 tracking-widest flex justify-between items-center">
+                        <span>Questions</span>
+                        <span id="config-count-display" class="text-accent text-lg font-black">0</span>
+                    </label>
+                    <input type="range" id="config-count" min="1" max="100" class="w-full h-2 bg-app-bg border border-border-clr rounded-xl appearance-none cursor-pointer accent-accent slider">
                 </div>
                 <div class="flex items-center justify-between">
                     <label for="randomize-questions" class="text-[10px] font-black uppercase opacity-50 tracking-widest">Randomize Questions</label>

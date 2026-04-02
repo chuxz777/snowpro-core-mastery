@@ -4,19 +4,50 @@ let currentBank, currentIdx, examState, currentMode, timerInterval, timeElapsed,
 async function openConfig(id, mode) {
     currentBank = await db.examVault.get(id);
     currentMode = mode;
-    document.getElementById('config-count').value = currentBank.questions.length;
+    
+    const configInput = document.getElementById('config-count');
+    const configDisplay = document.getElementById('config-count-display');
+    const totalQuestions = currentBank.questions.length;
+    
+    // Set slider min and max based on exam
+    configInput.min = 1;
+    configInput.max = totalQuestions;
+    
+    // Set default question count based on mode
+    let questionCount;
+    if (mode === 'practice') {
+        // In practice mode, default to all questions in the bank
+        questionCount = totalQuestions;
+    } else {
+        // In test mode, keep the standard exam length (or all questions if less)
+        questionCount = Math.min(100, totalQuestions);
+    }
+    
+    // Set slider value and display
+    configInput.value = questionCount;
+    configDisplay.innerText = questionCount;
+    
+    // Update display when slider changes (use both oninput and onchange for compatibility)
+    const updateDisplay = function() {
+        configDisplay.innerText = this.value;
+    };
+    configInput.oninput = updateDisplay;
+    configInput.onchange = updateDisplay;
+    
     document.getElementById('start-btn-confirm').onclick = () => startExam();
     document.getElementById('config-modal').classList.remove('hidden');
+}
+
+function closeConfigModal() {
+    document.getElementById('config-modal').classList.add('hidden');
 }
 
 function startExam(qsToUse = null) {
     document.getElementById('config-modal').classList.add('hidden');
     let qs = qsToUse || [...currentBank.questions];
     
-    // Randomize questions if the option is selected
-    if (document.getElementById('randomize-questions').checked) {
-        qs.sort(() => Math.random() - 0.5);
-    }
+    // Always randomize questions to prevent memorization
+    qs.sort(() => Math.random() - 0.5);
 
     if (!qsToUse) {
         const limit = parseInt(document.getElementById('config-count').value);

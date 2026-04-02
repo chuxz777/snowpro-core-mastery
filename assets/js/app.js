@@ -197,9 +197,38 @@ async function clearHistory() {
 window.onload = () => {
     showView('home-view');
     
-    // Add ESC key listener for focus mode
+    // Add ESC key listener for focus mode and modals
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
+            // Check if config modal is open
+            const configModal = document.getElementById('config-modal');
+            if (configModal && !configModal.classList.contains('hidden')) {
+                closeConfigModal();
+                return;
+            }
+            
+            // Check if confirm finish modal is open
+            const confirmModal = document.getElementById('confirm-finish-modal');
+            if (confirmModal && !confirmModal.classList.contains('hidden')) {
+                closeConfirmModal();
+                return;
+            }
+            
+            // Check if generic confirm modal is open
+            const genericModal = document.getElementById('generic-confirm-modal');
+            if (genericModal && !genericModal.classList.contains('hidden')) {
+                closeGenericConfirmModal();
+                return;
+            }
+            
+            // Check if audit modal is open
+            const auditModal = document.getElementById('audit-modal');
+            if (auditModal && !auditModal.classList.contains('hidden')) {
+                closeAudit();
+                return;
+            }
+            
+            // Otherwise exit focus mode
             exitFocusMode();
         }
     });

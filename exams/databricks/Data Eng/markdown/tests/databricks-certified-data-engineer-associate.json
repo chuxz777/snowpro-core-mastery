@@ -1,0 +1,659 @@
+
+{
+  "exam": "Databricks Certified Data Engineer Associate - Practice Test",
+  "questions": [
+    {
+      "text": "A data engineer is working on a Databricks project that utilizes cloud storage. The data engineer wants to load several JSON files from containers on a storage account as soon as the file arrives within the storage account.\n\nWhich syntax should the data engineer follow to first load the files into a dataframe and check that it is working as expected using Python?",
+      "options": {
+        "A": "df = spark.readStream.format(\"json\").load(\"/input/path\")",
+        "B": "df = spark.read.json(\"/input/path\")",
+        "C": "df = spark.readStream.format(\"cloud\").option(\"json\").load(\"/input/path\")",
+        "D": "df = spark.readStream.format(\"cloudFiles\") \\\n.option(\"cloudFiles.format\", \"json\") \\\n.load(\"/input/path\")"
+      },
+      "answer": "D",
+      "answer_type": "single",
+      "category1": "Auto Loader",
+      "explanation": "Auto Loader (cloudFiles) is the correct approach for streaming JSON files from cloud storage as they arrive. It provides automatic schema inference and evolution."
+    },
+    {
+      "text": "A data engineer has written a function in a Databricks Notebook to calculate the population of bacteria in a given medium.\n\n```python\ndef calculate_population_of_bacteria(initial_population, exponential_factor)\n    return future_population = initial_population ** exponential_factor\n```\n\nAnalysts use this function in the notebook and sometimes provide input arguments of the wrong data type, which can cause errors during execution.\n\nWhich Databricks feature will help the data engineer quickly identify if an incorrect data type has been provided as input?",
+      "options": {
+        "A": "The Databricks debugger enables breakpoints that will raise an error if the wrong data type is submitted.",
+        "B": "The Spark User Interface has a Debug tab that contains the variables used in this session.",
+        "C": "The Data Engineer should add print statements to determine the value of the variable.",
+        "D": "The Databricks debugger enables the use of a variable explorer to see at a glance the value of the variables."
+      },
+      "answer": "D",
+      "answer_type": "single",
+      "category1": "Debugging",
+      "explanation": "The Databricks debugger's variable explorer allows quick inspection of variable types and values during execution, making it easy to identify type mismatches."
+    },
+    {
+      "text": "A data engineer wants to delegate day-to-day permission management for the schema `main.marketing` to the `mkt-admins` group, without making them workspace admins. They should be able to grant and revoke privileges for other users on objects within that schema.\n\nWhich approach aligns with UC's (Unity Catalog's) ownership and privilege model?",
+      "options": {
+        "A": "Grant MANAGE permissions on the metastore to mkt-admins, which allows managing privileges for all schemas and tables globally.",
+        "B": "Make mkt-admins workspace-level admins, then assign SELECT on main.marketing to allow privilege delegation.",
+        "C": "Grant USE SCHEMA on main.marketing, and MODIFY on all tables to mkt-admins, which enables the management of grants within the schema.",
+        "D": "Transfer ownership of the schema main.marketing to mkt-admins; owners can manage privileges on the schema and its contained objects."
+      },
+      "answer": "D",
+      "answer_type": "single",
+      "category1": "Unity Catalog",
+      "explanation": "In Unity Catalog, transferring ownership is the proper way to delegate privilege management without granting excessive permissions. Owners have full control over their objects."
+    },
+    {
+      "text": "A data engineer is writing a script designed to ingest new data from cloud storage. In the event of a schema change, ingestion should fail. It should fail until the changes in the downstream source can be found and verified as intended.\n\nWhich command will meet the requirements?",
+      "options": {
+        "A": "Rescue",
+        "B": "AddNewColumns",
+        "C": "None",
+        "D": "FailOnNewColumns"
+      },
+      "answer": "D",
+      "answer_type": "single",
+      "category1": "Schema Evolution",
+      "explanation": "FailOnNewColumns ensures that ingestion fails when schema changes are detected, allowing for verification before proceeding. This prevents unexpected data issues."
+    },
+    {
+      "text": "A data engineer needs to ingest data from both streaming and batch sources for a firm that relies on highly accurate data. Occasionally, some of the data picked up by the sensors that provide a streaming input are outside the expected parameters. If this occurs, the data must be dropped, but the stream should not fail.\n\nWhich feature of Spark Declarative Pipelines meets this requirement?",
+      "options": {
+        "A": "Change Data Capture",
+        "B": "Monitoring",
+        "C": "Expectations",
+        "D": "Error Handling"
+      },
+      "answer": "C",
+      "answer_type": "single",
+      "category1": "Delta Live Tables",
+      "explanation": "Expectations in Delta Live Tables allow you to define data quality rules and drop rows that don't meet criteria without failing the pipeline. You can use `ON VIOLATION DROP ROW` to handle bad data gracefully."
+    },
+    {
+      "text": "A data engineer manages multiple external tables linked to various data sources. The data engineer wants to manage these external tables efficiently and ensure that only the necessary permissions are granted to users for accessing specific external tables.\n\nHow should the data engineer manage access to these external tables?",
+      "options": {
+        "A": "Use Unity Catalog to manage access controls and permissions for each external table individually.",
+        "B": "Set up Azure Blob Storage permissions at the container level, allowing access to all external tables.",
+        "C": "Create a single user role with full access to all external tables and assign it to all users.",
+        "D": "Grant permissions on the Databricks workspace level, which will automatically apply to all external tables."
+      },
+      "answer": "A",
+      "answer_type": "single",
+      "category1": "Unity Catalog",
+      "explanation": "Unity Catalog provides fine-grained access control for individual external tables, following the principle of least privilege. This ensures proper governance and security."
+    },
+    {
+      "text": "Which SQL code snippet will correctly demonstrate a Data Definition Language (DDL) operation used to create a table?",
+      "options": {
+        "A": "DROP TABLE employees;",
+        "B": "INSERT INTO employees (id, name) VALUES (1, 'Alice');",
+        "C": "ALTER TABLE employees ADD COLUMN salary DECIMAL(10,2);",
+        "D": "CREATE TABLE employees (\n  id INT,\n  name STRING\n);"
+      },
+      "answer": "D",
+      "answer_type": "single",
+      "category1": "SQL",
+      "explanation": "CREATE TABLE is a DDL operation that defines the structure of a new table. DDL operations modify database structure, not data."
+    },
+    {
+      "text": "A departing platform owner currently holds ownership of multiple catalogs and controls storage credentials and external locations. The data engineer wants to ensure continuity: transfer catalog ownership to the platform team group, delegate ongoing privilege management, and retain the ability to receive and share data via Delta Sharing.\n\nWhich role must be in place to perform these actions across the metastore?",
+      "options": {
+        "A": "Workspace Admin, because workspace admins can transfer ownership of any Unity Catalog object.",
+        "B": "Catalog Owner, because catalog owners can transfer ownership of any catalog in the metastore.",
+        "C": "Account Admin, because account admins can only create metastores but cannot change ownership of catalogs.",
+        "D": "Metastore Admin, because metastore admins can transfer ownership and manage privileges across all metastore objects, including shares and recipients."
+      },
+      "answer": "D",
+      "answer_type": "single",
+      "category1": "Unity Catalog",
+      "explanation": "Metastore Admin has the highest level of control over Unity Catalog objects and can manage ownership transfers, storage credentials, external locations, and Delta Sharing configurations."
+    },
+    {
+      "text": "What are two characteristics of the Gold layer?\n\n> Select all that apply",
+      "options": {
+        "A": "Read-optimized",
+        "B": "Normalized",
+        "C": "Historical lineage",
+        "D": "De-normalized",
+        "E": "Raw data"
+      },
+      "answer": ["A", "D"],
+      "answer_type": "multiple",
+      "category1": "Medallion Architecture",
+      "explanation": "The Gold layer in the Medallion architecture is read-optimized and typically de-normalized for analytical queries and reporting. It contains business-level aggregates and is optimized for consumption by BI tools and data scientists."
+    },
+    {
+      "text": "A data engineer is building a nightly batch ETL pipeline that processes very large volumes of raw JSON logs from a data lake into Delta tables for reporting. The data arrives in bulk once per day, and the pipeline takes several hours to complete. Cost efficiency is important, but performance and reliability of completing the pipeline are the highest priorities.\n\nWhich type of Databricks cluster should the data engineer configure?",
+      "options": {
+        "A": "A lightweight single-node cluster with a low worker node count to reduce costs",
+        "B": "An all-purpose cluster always on to ensure low-latency job startup times",
+        "C": "A high-concurrency cluster designed for interactive SQL workloads",
+        "D": "A job cluster configured to autoscale across multiple workers during the pipeline run"
+      },
+      "answer": "D",
+      "answer_type": "single",
+      "category1": "Compute",
+      "explanation": "Job clusters with autoscaling provide the best balance of performance, reliability, and cost efficiency for batch ETL workloads. They start on-demand, scale based on workload, and terminate after completion."
+    },
+    {
+      "text": "A data engineer needs to combine sales data from an on-premises PostgreSQL database with customer data in Azure Synapse for a comprehensive report. The goal is to prevent data duplication and ensure that information is up to date.\n\nHow should the data engineer achieve this using Databricks?",
+      "options": {
+        "A": "Export data from both sources to CSV files and upload them to Databricks",
+        "B": "Use Lakehouse Federation to query both data sources directly",
+        "C": "Develop custom ETL pipelines to ingest data into Databricks",
+        "D": "Manually synchronize data from both sources into a single database"
+      },
+      "answer": "B",
+      "answer_type": "single",
+      "category1": "Lakehouse Federation",
+      "explanation": "Lakehouse Federation allows querying external data sources directly without duplication, ensuring data is always current. It provides a unified view across multiple data systems."
+    },
+    {
+      "text": "A data engineer must deliver a trustworthy customer 360 dataset in Databricks for data scientists and BI teams. The engineer plans to join deduplicated customer records with cleaned transaction data, enforce schema and data quality checks, and create a conformed \"customer_transactions\" view. Later, highly aggregated, domain-specific tables (for weekly spend and executive summaries) will be produced for dashboards.\n\nWhere should the engineer build the conformed \"customer_transactions\" dataset, and where should the aggregated, report-ready tables reside?",
+      "options": {
+        "A": "Build customer_transactions in Silver and put the aggregated, report-ready tables in Gold.",
+        "B": "Build customer_transactions in Gold and put the aggregated, report-ready tables in Silver.",
+        "C": "Build customer_transactions in Bronze and put the aggregated, report-ready tables in Silver.",
+        "D": "Build both customer_transactions and aggregated tables in Silver to keep the model simple."
+      },
+      "answer": "A",
+      "answer_type": "single",
+      "category1": "Medallion Architecture",
+      "explanation": "Silver layer is for cleaned, conformed data with quality checks applied, while Gold layer contains business-level aggregates optimized for consumption. This follows the standard Medallion architecture pattern."
+    },
+    {
+      "text": "A data engineer is developing an ETL process based on Spark SQL. The execution fails. The data engineer checks the Spark UI and sees the errors as follows:\n\n```\njava.lang.OutOfMemoryError: Java heap space\n```\n\nWhich two actions should the data engineer perform to resolve this issue?\n\n> Select 2 answers",
+      "options": {
+        "A": "Narrow the filters in order to collect less data in the query.",
+        "B": "Upsize the worker nodes and activate autoshuffle partitions.",
+        "C": "Upsize the driver node and deactivate autoshuffle partitions.",
+        "D": "Cache the dataset in order to boost query performance.",
+        "E": "Fix the shuffle partitions to 50 to ensure the allocation."
+      },
+      "answer": ["A", "B"],
+      "answer_type": "multiple",
+      "category1": "Performance Tuning",
+      "explanation": "Reducing data volume through filtering and increasing worker resources with proper partitioning helps resolve memory issues. Autoshuffle partitions (AQE) helps optimize partition sizes dynamically."
+    },
+    {
+      "text": "A data engineering project involves processing large batches of data on a daily schedule using ETL. The jobs are resource-intensive and vary in size, requiring a scalable, cost-efficient compute solution that can automatically scale based on the workload.\n\nWhich computing approach will satisfy the needs described?",
+      "options": {
+        "A": "All-Purpose Cluster",
+        "B": "Dedicated Cluster",
+        "C": "Databricks SQL Serverless",
+        "D": "Job Cluster"
+      },
+      "answer": "D",
+      "answer_type": "single",
+      "category1": "Compute",
+      "explanation": "Job clusters are designed for scheduled workloads, automatically scale, and terminate after completion, making them cost-efficient. They're ideal for automated ETL pipelines."
+    },
+    {
+      "text": "A team creates YAML manifests that declare jobs, resources, and dependencies, then deploys them to Databricks using the CLI. The deployment succeeds.\n\nWhich feature are they using?",
+      "options": {
+        "A": "Databricks Asset Bundles",
+        "B": "Terraform",
+        "C": "DataOps",
+        "D": "GitHub"
+      },
+      "answer": "A",
+      "answer_type": "single",
+      "category1": "CI/CD",
+      "explanation": "Databricks Asset Bundles (DAB) use YAML manifests and the Databricks CLI for declarative deployment of resources. They provide infrastructure-as-code capabilities native to Databricks."
+    },
+    {
+      "text": "A data engineer is migrating pipeline tasks to reduce operational toil. The workspace uses Unity Catalog and is in a region that supports serverless. The engineer wants Databricks to auto-select instance types, manage scaling, apply Photon, and handle runtime upgrades automatically for jobs.\n\nHow should the data engineer meet this requirement while adhering to Databricks constraints?",
+      "options": {
+        "A": "Use a Pro SQL warehouse and schedule Python notebook tasks to execute as pipeline steps.",
+        "B": "Run the job on a serverless compute for workflows configuration, ensuring Unity Catalog is enabled and regional support is available",
+        "C": "Create a job with a single-task job cluster and manually set instance families and min/max workers",
+        "D": "Use an all-purpose cluster with cluster policies to enforce standard sizes and enable autoscaling"
+      },
+      "answer": "B",
+      "answer_type": "single",
+      "category1": "Serverless",
+      "explanation": "Serverless compute for workflows provides fully managed compute with automatic optimization when Unity Catalog is enabled. It handles all infrastructure decisions automatically."
+    },
+    {
+      "text": "A data engineer has been provided a PySpark DataFrame named df with columns product and revenue. The data engineer needs to compute complex aggregations to determine each product's total revenue, average revenue, and transaction count.\n\nWhich code snippet should the data engineer use?",
+      "options": {
+        "A": "from pyspark.sql import functions as F\naggregated_df = df.groupBy(\"product\").agg(\n    F.sum(\"revenue\").alias(\"total_revenue\"),\n    F.avg(\"revenue\").alias(\"avg_revenue\"),\n    F.count(\"*\").alias(\"transaction_count\")\n)",
+        "B": "aggregated_df = df.groupBy(\"product\")\n    .agg(\"sum(revenue)\", \"avg(revenue)\", \"count(revenue)\")",
+        "C": "from pyspark.sql import functions as F\naggregated_df = df.select(\"product\", \"revenue\")\n    .groupBy(\"product\")\n    .agg(F.sum(\"revenue\"), F.mean(\"revenue\"))",
+        "D": "aggregated_df = df.groupBy(\"product\")\n    .agg({\"revenue\": \"sum\", \"revenue\": \"avg\", \"revenue\": \"count\"})"
+      },
+      "answer": "A",
+      "answer_type": "single",
+      "category1": "PySpark",
+      "explanation": "This is the correct syntax for multiple aggregations with proper aliasing using PySpark functions. It provides clear, readable code with named output columns."
+    },
+    {
+      "text": "A data engineer is building a simple data pipeline using Lakeflow Spark Declarative Pipelines (SDP) in Databricks to ingest customer data. The raw customer data is stored in a cloud storage location in JSON format. The task is to create an SDP that reads the raw JSON data and writes it into a Delta table for further processing.\n\nWhich code snippet will correctly ingest the raw JSON data and create a Delta table using SDP?",
+      "options": {
+        "A": "import dlt\n\n@dlt.table\ndef raw_customers():\n    return spark.read.json(\"s3://my-bucket/raw-customers/\")",
+        "B": "import dlt\n\n@dlt.view\ndef raw_customers():\n    return spark.format.json(\"s3://my-bucket/raw-customers/\")",
+        "C": "import dlt\n\n@dlt.table\ndef raw_customers():\n    return spark.read.format(\"csv\").load(\"s3://my-bucket/raw-customers/\")",
+        "D": "import dlt\n\n@dlt.table\ndef raw_customers():\n    return spark.read.format(\"parquet\").load(\"s3://my-bucket/raw-customers/\")"
+      },
+      "answer": "A",
+      "answer_type": "single",
+      "category1": "Delta Live Tables",
+      "explanation": "The @dlt.table decorator with spark.read.json() is the correct approach for creating a Delta table from JSON data in DLT. The decorator automatically handles Delta table creation."
+    },
+    {
+      "text": "A company sells products across multiple categories (e.g., Electronics, Clothing) and regions. The sales team has provided the data engineer with a PySpark dataframe named sales_df and wants the data engineer to analyze the sales data to help make strategic decisions.\n\nThe data engineer needs to calculate the total sales amount for each region and store the results in a new DataFrame called 'region_sales'.\n\nWhich code will generate the expected result?",
+      "options": {
+        "A": "region_sales = sales_df.agg(sum(\"sales_amount\")\n    .groupBy(\"region\")\n    .alias(\"total_sales_amount\"))",
+        "B": "region_sales = sales_df.groupBy(\"category\")\n    .sum(\"sales_amount\")\n    .alias(\"total_sales_amount\")",
+        "C": "region_sales = sales_df.groupBy(\"region\")\n    .agg(sum(\"sales_amount\")\n    .alias(\"total_sales_amount\"))",
+        "D": "region_sales = sales_df.sum(\"sales_amount\")\n    .groupBy(\"region\")\n    .alias(\"total_sales_amount\")"
+      },
+      "answer": "C",
+      "answer_type": "single",
+      "category1": "PySpark",
+      "explanation": "The correct syntax is to groupBy first, then use agg() with sum() and alias() for the aggregated column. This follows the standard PySpark aggregation pattern."
+    },
+    {
+      "text": "What is the maximum size of the output supported by a job cluster to ensure a notebook runs?",
+      "options": {
+        "A": "30MBs",
+        "B": "25MBs",
+        "C": "10MBs",
+        "D": "15MBs"
+      },
+      "answer": "A",
+      "answer_type": "single",
+      "category1": "Compute",
+      "explanation": "Databricks job clusters support a maximum output size of 30MB for notebook results. Outputs exceeding this limit will be truncated."
+    },
+    {
+      "text": "An engineer is troubleshooting unexpected results in a dashboard that reads from several Delta tables. They suspect that a transformation in an upstream pipeline applied two days ago introduced the issue.\n\nWhich action should the engineer perform to identify the transformations and upstream notebooks or jobs that modified the affected table's data?",
+      "options": {
+        "A": "Open the Lineage tab in the Catalog Explorer UI or query the Unity Catalog lineage system tables.",
+        "B": "Inspect the table's metadata in information_schema to determine which transformation produced the current state of the table.",
+        "C": "Run DESCRIBE HISTORY on every table used by the dashboard and inspect the output to determine which transformations were applied.",
+        "D": "Review the job scheduler audit log to identify which scheduled job most recently wrote to the table."
+      },
+      "answer": "A",
+      "answer_type": "single",
+      "category1": "Unity Catalog",
+      "explanation": "Unity Catalog's lineage feature provides a comprehensive view of data dependencies and transformations across the pipeline, showing which notebooks, jobs, and tables are connected."
+    },
+    {
+      "text": "A data engineer has developed an ETL that produces a Delta-managed table with a liquid clustering feature activated as output. Several consumers are having issues regarding the time delay when reading this table.\n\nHow can the data engineer ensure that the OPTIMIZE command has been executed explicitly?",
+      "options": {
+        "A": "Use the SHOW TABLES EXTENDED command to check the partition columns used.",
+        "B": "Use the DESCRIBE HISTORY command to check if any OPTIMIZE operation exists.",
+        "C": "Use the DESCRIBE DETAIL command to see the file size and number of files for the table.",
+        "D": "Check the system table system.storage.predictive_optimization_operations_history"
+      },
+      "answer": "B",
+      "answer_type": "single",
+      "category1": "Delta Lake",
+      "explanation": "DESCRIBE HISTORY shows all operations performed on a Delta table, including OPTIMIZE commands. It provides a complete audit trail of table operations."
+    },
+    {
+      "text": "A data engineer is reviewing the documentation on audit logs in Databricks for compliance purposes and needs to understand the format in which audit logs output events.\n\nWhat is the format of events in Databricks audit logs?",
+      "options": {
+        "A": "JSON",
+        "B": "CSV",
+        "C": "XML",
+        "D": "TXT"
+      },
+      "answer": "A",
+      "answer_type": "single",
+      "category1": "Governance",
+      "explanation": "Databricks audit logs are output in JSON format for structured logging and easy parsing. This allows for efficient querying and analysis of audit events."
+    },
+    {
+      "text": "A Lakeflow Jobs workflow fails at the last task because of an error in a notebook task. This workflow is scheduled to run daily. The data engineer fixes the notebook and wants to rerun the pipeline. This workflow is very compute-intensive and expensive to run.\n\nWhich action should the data engineer take in order to minimize downtime and compute cost?",
+      "options": {
+        "A": "Re-run the entire workflow",
+        "B": "Repair run",
+        "C": "Restart the cluster",
+        "D": "Switch to another cluster"
+      },
+      "answer": "B",
+      "answer_type": "single",
+      "category1": "Workflows",
+      "explanation": "Repair run allows rerunning only the failed tasks, saving time and compute costs by not re-executing successful tasks. This is the most cost-effective approach."
+    },
+    {
+      "text": "A data engineer is getting a partner organization up to speed with the Databricks account. Both teams share some business use cases. The data engineer has to share some of their Unity Catalog-managed delta tables and the notebook jobs creating those tables with the partner organization.\n\nHow can the data engineer seamlessly share the required information?",
+      "options": {
+        "A": "Share access to the codebase via GitHub and allow them to ingest datasets from the Data Lake.",
+        "B": "Share required datasets and notebooks via Delta Sharing. Manage permissions via Unity Catalog",
+        "C": "Data and Notebooks can be shared simply using Unity Catalog",
+        "D": "Zip all the code and share via email and allow data ingestion from your data lake."
+      },
+      "answer": "B",
+      "answer_type": "single",
+      "category1": "Delta Sharing",
+      "explanation": "Delta Sharing with Unity Catalog provides secure, governed data sharing across organizations without data duplication. It's the recommended approach for cross-organization collaboration."
+    },
+    {
+      "text": "A data engineer is attempting to write Python and SQL in the same command cell and is running into an error. The engineer believed it was possible to use a Python variable in a SQL select statement.\n\nWhy does the command fail?",
+      "options": {
+        "A": "Databricks supports multiple languages, but only one per notebook.",
+        "B": "Databricks supports one language per cell.",
+        "C": "Databricks supports language interoperability in the same cell, but only between Scala and SQL.",
+        "D": "Databricks supports language interoperability, but only if a special character is used."
+      },
+      "answer": "B",
+      "answer_type": "single",
+      "category1": "Notebooks",
+      "explanation": "Each cell in a Databricks notebook can only use one language, though you can use magic commands (%python, %sql, %scala, %r) to switch languages between cells."
+    },
+    {
+      "text": "A data engineering team is using Kafka to capture event data and then ingest it into Databricks. The team wants to be able to see these historical events. Medallion architecture is already in place and is mindful of costs.\n\nWhere should this historical event data be stored?",
+      "options": {
+        "A": "Gold",
+        "B": "Silver",
+        "C": "Bronze",
+        "D": "Raw layer"
+      },
+      "answer": "C",
+      "answer_type": "single",
+      "category1": "Medallion Architecture",
+      "explanation": "Bronze layer stores raw, historical data in its original format, providing a complete audit trail at minimal processing cost. It serves as the source of truth for all downstream processing."
+    },
+    {
+      "text": "A data engineer needs to conduct Exploratory Data Analysis (EDA) on data residing in a database within the company's custom-defined cloud network. The data engineer is using SQL for this task. Which type of SQL Warehouse will enable the data engineer to process large numbers of queries quickly and cost-effectively?",
+      "options": {
+        "A": "Classic SQL Warehouse",
+        "B": "Pro SQL Warehouse",
+        "C": "SQL Serverless Warehouse",
+        "D": "All-purpose compute cluster"
+      },
+      "answer": "B",
+      "answer_type": "single",
+      "category1": "SQL Warehouses",
+      "explanation": "Pro SQL Warehouse provides better performance for complex queries and is optimized for analytical workloads. It offers a good balance of performance and cost for EDA tasks."
+    },
+    {
+      "text": "What is the functionality of Auto Loader in Databricks?",
+      "options": {
+        "A": "Auto Loader automatically ingests and processes new files from cloud storage, handling both batch and streaming data with support for schema evolution.",
+        "B": "Auto Loader automatically ingests and processes new files from cloud storage, handling batch data with support for schema evolution.",
+        "C": "Auto Loader automatically ingests and processes new files from cloud storage, handling only streaming data with no support for schema evolution.",
+        "D": "Auto Loader automatically ingests and processes new files from cloud storage, handling both batch and streaming data, but does not support schema evolution."
+      },
+      "answer": "A",
+      "answer_type": "single",
+      "category1": "Auto Loader",
+      "explanation": "Auto Loader supports both batch and streaming ingestion with automatic schema inference and evolution capabilities. It's designed to efficiently process new files as they arrive in cloud storage."
+    },
+    {
+      "text": "A data engineer is processing ingested streaming tables and needs to filter out NULL values in the order_datetime column from the raw streaming table orders_raw and store the results in a new table, orders_valid, using a Spark Declarative Pipeline.\n\nWhich code snippet should the data engineer use?",
+      "options": {
+        "A": "CREATE OR REFRESH STREAMING TABLE orders_valid(\n    CONSTRAINT valid_date\n    EXPECT (order_datetime IS NOT NULL)\n    ON VIOLATION DROP ROW\n)\nAS SELECT * FROM STREAM orders_raw;",
+        "B": "CREATE OR REFRESH STREAMING TABLE orders_valid\n(\n    CONSTRAINT valid_date EXPECT (order_datetime IS NOT NULL) ON VIOLATION DROP ROW\n)\nAS SELECT * FROM orders_raw;",
+        "C": "CREATE OR REFRESH STREAMING TABLE orders_valid\nAS\nSELECT *\nFROM STREAM (orders_raw)\nWHERE order_datetime IS NOT NULL;",
+        "D": "CREATE OR REPLACE STREAMING TABLE orders_valid\n(\n    FILTER (order_datetime IS NOT NULL)\n)\nAS SELECT * FROM STREAM(orders_raw);"
+      },
+      "answer": "A",
+      "answer_type": "single",
+      "category1": "Delta Live Tables",
+      "explanation": "This syntax correctly uses expectations with ON VIOLATION DROP ROW to filter NULL values in a streaming DLT pipeline. The STREAM keyword is required for streaming sources."
+    },
+    {
+      "text": "A data engineer is inspecting an ETL pipeline based on a PySpark job that consistently encounters performance bottlenecks. Based on developer feedback, the data engineer assumes the job is low on compute resources. To pinpoint the issue, the data engineer observes the Spark UI and finds that the job has a high CPU time compared to task time.\n\nWhich course of action should the data engineer take?",
+      "options": {
+        "A": "High CPU time vs Task time means an under-utilized cluster. The data engineer may need to repartition data to spread the jobs more evenly throughout the cluster.",
+        "B": "High CPU time vs Task time means over-utilized memory and the need to increase parallelism.",
+        "C": "High CPU time vs Task time means a CPU over-utilized job. The data engineer may need to consider executor and core tuning or resizing",
+        "D": "High CPU time vs Task time means efficient use of the cluster and no change needed."
+      },
+      "answer": "C",
+      "answer_type": "single",
+      "category1": "Performance Tuning",
+      "explanation": "High CPU time relative to task time indicates CPU bottleneck, requiring executor/core optimization or cluster resizing. This suggests the cluster is CPU-bound and needs more compute resources."
+    },
+    {
+      "text": "A data engineer is maintaining an ETL pipeline code with a GitHub repository linked to their Databricks account. The data engineer wants to deploy the ETL pipeline to production as a Databricks Job.\n\nWhich approach should the data engineer use?",
+      "options": {
+        "A": "Use Databricks Asset Bundles (DAB) and GitHub Integration",
+        "B": "Manually create and manage the workflow in UI",
+        "C": "Maintain workflow_config.json and deploy it using Databricks CLI",
+        "D": "Maintain workflow_config.json and deploy it using Terraform"
+      },
+      "answer": "A",
+      "answer_type": "single",
+      "category1": "CI/CD",
+      "explanation": "Databricks Asset Bundles with GitHub integration provides the most streamlined CI/CD workflow for deploying pipelines. It offers native integration and follows infrastructure-as-code best practices."
+    },
+    {
+      "text": "Which PySpark code correctly sets up Auto Loader to stream new Parquet files from an S3 bucket?",
+      "options": {
+        "A": "spark.readStream.format('cloudFiles')\n    .option('format', 'parquet')\n    .load('s3://bucket/data')",
+        "B": "spark.readStream.format('parquet')\n    .option('cloudFiles.format', 'parquet')\n    .load('s3://bucket/data')",
+        "C": "spark.read.format('cloudFiles')\n    .option('cloudFiles.format', 'parquet')\n    .load('s3://bucket/data')",
+        "D": "spark.readStream.format('cloudFiles')\n    .option('cloudFiles.format', 'parquet')\n    .load('s3://bucket/data')"
+      },
+      "answer": "D",
+      "answer_type": "single",
+      "category1": "Auto Loader",
+      "explanation": "Auto Loader requires readStream with format('cloudFiles') and the cloudFiles.format option specifying the file type. This is the correct syntax for streaming file ingestion."
+    },
+    {
+      "text": "A data engineer is curating data in the silver layer. The data engineer is attempting to aggregate billing data from the billing table to generate a daily revenue fact table, daily_revenue.\n\nWhich code snippet correctly aggregates the amount billed per day with the number of invoices from a DataFrame, billing_df?",
+      "options": {
+        "A": "daily_revenue_df = billing_df.groupBy(\"billing_date\").agg(\n    sum(\"amount_billed\").alias(\"total_revenue\"),\n    sum(\"billing_id\").alias(\"num_invoices\")\n)",
+        "B": "daily_revenue_df = billing_df.groupBy(\"billing_date\").agg(\n    sum(\"amount_billed\").alias(\"total_revenue\"),\n    count(\"billing_id\").alias(\"num_invoices\")\n)",
+        "C": "daily_revenue_df = billing_df.groupBy(\"billing_date\").agg(\n    (sum(\"amount_billed\") / count(\"*\")).alias(\"total_revenue\"),\n    count(\"*\").alias(\"num_invoices\")\n)",
+        "D": "daily_revenue_df = billing_df.groupBy(\"billing_date\").agg(\n    col(\"amount_billed\").alias(\"total_revenue\"),\n    count(\"billing_id\").alias(\"num_invoices\")\n)"
+      },
+      "answer": "B",
+      "answer_type": "single",
+      "category1": "PySpark",
+      "explanation": "Use sum() for total revenue and count() for number of invoices - sum(billing_id) would be incorrect as it would sum the IDs rather than count them."
+    },
+    {
+      "text": "A company wants to automate its Databricks environment setup and deployment following software engineering best practices such as source control, CI/CD automation, and infrastructure as code.\n\nWhich two actions are enabled with Databricks Asset Bundles but are typically manual or inconsistent with traditional deployment workflows?\n\n> Choose 2 answers",
+      "options": {
+        "A": "Spinning up a local VM with Spark and Delta Lake to run all the tests (CI) and then manually deploy to production (CD)",
+        "B": "Manually uploading notebooks and libraries to the Databricks workspace with scripts or UI operations",
+        "C": "Relying on out-of-band documentation and human intervention to maintain consistency between environments",
+        "D": "Versioning deployment assets using YAML files and automating deployment with the Databricks CLI",
+        "E": "Defining all Databricks resources, infrastructure, and configuration as code in a single version-controlled bundle."
+      },
+      "answer": ["D", "E"],
+      "answer_type": "multiple",
+      "category1": "CI/CD",
+      "explanation": "DABs enable YAML-based versioning and infrastructure-as-code, replacing manual deployment processes. They provide a declarative way to define and deploy all Databricks resources."
+    },
+    {
+      "text": "A data engineer needs to parse only PNG files in a directory that contains files with different suffixes.\n\nWhich code should the data engineer use to achieve this task?",
+      "options": {
+        "A": "df = spark.readStream.format(\"cloudFiles\") \\\n    .option(\"cloudFiles.format\", \"binaryFile\") \\\n    .append(\"/*.png\")",
+        "B": "df = spark.readStream.format(\"cloudFiles\") \\\n    .option(\"cloudFiles.format\", \"binaryFile\") \\\n    .option(\"pathGlobfilter\", \"*.png\") \\\n    .load(<base-path>)",
+        "C": "df = spark.readStream.format(\"cloudFiles\") \\\n    .option(\"cloudFiles.format\", \"binaryFile\") \\\n    .load(\"/*.png\")",
+        "D": "df = spark.readStream.format(\"cloudFiles\") \\\n    .option(\"cloudFiles.format\", \"binaryFile\") \\\n    .option(\"pathGlobfilter\", \"*.png\") \\\n    .append()"
+      },
+      "answer": "B",
+      "answer_type": "single",
+      "category1": "Auto Loader",
+      "explanation": "The pathGlobfilter option with Auto Loader allows filtering specific file patterns like *.png from a directory. This is the correct way to selectively process files by extension."
+    },
+    {
+      "text": "An organization needs an optimized storage layer that supports ACID transactions and schema enforcement.\n\nWhich technology should the organization use?",
+      "options": {
+        "A": "Unity Catalog",
+        "B": "Delta Lake",
+        "C": "Data lake",
+        "D": "Cloud File Storage"
+      },
+      "answer": "B",
+      "answer_type": "single",
+      "category1": "Delta Lake",
+      "explanation": "Delta Lake provides ACID transactions, schema enforcement, and time travel on top of data lake storage. It's the foundation for reliable data lakes in Databricks."
+    },
+    {
+      "text": "A data engineer deploys a multi-task Databricks job that orchestrates three notebooks. One task intermittently fails with Exit Code 1, but succeeds on retry. The engineer needs to collect detailed logs for the failing attempts, including stdout/stderr and cluster lifecycle context, and share them with the platform team.\n\nWhich set of steps do the data engineers need to follow using built-in tools?",
+      "options": {
+        "A": "Download worker logs directly from the Spark UI and ignore driver logs, as worker logs contain stdout/stderr for all tasks and cluster events.",
+        "B": "From the job run details page, export the job's logs or configure log delivery; then retrieve the compute driver logs and event logs from the compute details page to correlate stdout/stderr with cluster events.",
+        "C": "Use the notebook interactive debugger to re-run the entire multi-task job and capture step-through traces for the failing task.",
+        "D": "Export the notebook run results to HTML; this bundle includes complete stdout, stderr, and cluster event history across all tasks"
+      },
+      "answer": "B",
+      "answer_type": "single",
+      "category1": "Debugging",
+      "explanation": "Job run details and compute logs provide comprehensive debugging information including stdout/stderr and cluster events. This is the proper way to collect diagnostic information."
+    },
+    {
+      "text": "A data engineering team wants to validate a new ingestion pipeline locally while ensuring large aggregations run on serverless compute in their Databricks workspace. They plan to use Databricks Connect and have the option to attach to either a shared cluster or a serverless cluster.\n\nWhich workspace requirement should be confirmed first to avoid connection failures?",
+      "options": {
+        "A": "Verify that only assigned access mode clusters are used because serverless is not supported by Databricks Connect.",
+        "B": "Verify that the workspace has Unity Catalog enabled and that the Databricks Connect version supports serverless for the target Runtime release.",
+        "C": "Verify that the workspace has Unity Catalog disabled and the Databricks Connect version is less than the serverless Runtime version.",
+        "D": "Verify that the local Spark version equals the serverless Spark version to satisfy Spark Connect"
+      },
+      "answer": "B",
+      "answer_type": "single",
+      "category1": "Databricks Connect",
+      "explanation": "Databricks Connect with serverless requires Unity Catalog and compatible versions of Databricks Connect and Runtime. These are prerequisites for serverless connectivity."
+    },
+    {
+      "text": "An organization plans to share a large dataset stored in a Databricks workspace on AWS with a partner organization whose Databricks workspace is hosted on Azure. The data engineer wants to minimize data transfer costs while ensuring secure and efficient data sharing. Which strategy will reduce data egress costs associated with cross-cloud data sharing?",
+      "options": {
+        "A": "Migrating the dataset to Cloudflare R2 object storage before sharing",
+        "B": "Sharing data via pre-signed URLs without monitoring egress costs",
+        "C": "Using Delta Sharing without any additional configurations",
+        "D": "Configuring a VPN connection between AWS and Azure for faster data sharing"
+      },
+      "answer": "A",
+      "answer_type": "single",
+      "category1": "Delta Sharing",
+      "explanation": "Cloudflare R2 offers zero egress fees, making it cost-effective for cross-cloud data sharing scenarios. This can significantly reduce costs when sharing large datasets across cloud providers."
+    },
+    {
+      "text": "A data engineer needs to provide access to a group named manufacturing-team. The team needs privileges to create tables in the quality schema.\n\nWhich set of SQL commands will grant a group named manufacturing-team to create tables in a schema named quality with the parent catalog named manufacturing with the least privileges?",
+      "options": {
+        "A": "GRANT USE TABLE ON SCHEMA manufacturing.quality TO manufacturing-team;\nGRANT USE SCHEMA ON SCHEMA manufacturing.quality TO manufacturing-team;\nGRANT USE CATALOG ON CATALOG manufacturing TO manufacturing-team;",
+        "B": "GRANT CREATE TABLE ON SCHEMA manufacturing.quality TO manufacturing-team;\nGRANT CREATE SCHEMA ON SCHEMA manufacturing.quality TO manufacturing-team;\nGRANT CREATE CATALOG ON CATALOG manufacturing TO manufacturing-team;",
+        "C": "GRANT CREATE TABLE ON SCHEMA manufacturing.quality TO manufacturing-team;\nGRANT USE SCHEMA ON SCHEMA manufacturing.quality TO manufacturing-team;\nGRANT USE CATALOG ON CATALOG manufacturing TO manufacturing-team;",
+        "D": "GRANT CREATE TABLE ON SCHEMA manufacturing.quality TO manufacturing-team;\nGRANT CREATE SCHEMA ON SCHEMA manufacturing.quality TO manufacturing-team;\nGRANT USE CATALOG ON CATALOG manufacturing TO manufacturing-team;"
+      },
+      "answer": "C",
+      "answer_type": "single",
+      "category1": "Unity Catalog",
+      "explanation": "CREATE TABLE on schema, USE SCHEMA, and USE CATALOG provide the minimum necessary privileges for creating tables. This follows the principle of least privilege."
+    },
+    {
+      "text": "A data engineer wants queries on a large Delta table to run faster, especially for filters on high-cardinality columns, such as customer_id.\n\nWhich feature enables data layout optimization, allowing queries to scan fewer files during execution?",
+      "options": {
+        "A": "Auto Loader",
+        "B": "Table encryption",
+        "C": "Z-order",
+        "D": "Change Data Feed"
+      },
+      "answer": "C",
+      "answer_type": "single",
+      "category1": "Delta Lake",
+      "explanation": "Z-ordering co-locates related data in the same files, reducing the number of files scanned for filtered queries. It's particularly effective for high-cardinality columns."
+    },
+    {
+      "text": "A Python file is ready for production, and the client wants to use the most efficient yet cost-effective type of cluster possible. The workload is relatively small, processing only 10 GB of data with simple joins and no complex aggregations or wide transformations.\n\nWhich cluster meets the requirement?",
+      "options": {
+        "A": "Job cluster with Photon enabled",
+        "B": "Job cluster with spot instances disabled",
+        "C": "Interactive cluster",
+        "D": "Job cluster with spot instances enabled"
+      },
+      "answer": "D",
+      "answer_type": "single",
+      "category1": "Compute",
+      "explanation": "For small, simple workloads, job clusters with spot instances provide the best cost efficiency without sacrificing reliability. Spot instances can offer significant cost savings."
+    },
+    {
+      "text": "A data engineer is working in a Python notebook on Databricks to process data, but notices that the output is not as expected. The data engineer wants to investigate the issue by stepping through the code and checking the values of certain variables during execution.\n\nWhich tool should the data engineer use to inspect the code execution and variables in real-time?",
+      "options": {
+        "A": "Job Execution Dashboard",
+        "B": "Python Notebook Interactive Debugger",
+        "C": "SQL analytics",
+        "D": "Cluster Logs"
+      },
+      "answer": "B",
+      "answer_type": "single",
+      "category1": "Debugging",
+      "explanation": "The Python Notebook Interactive Debugger allows step-by-step execution and real-time variable inspection. It's the ideal tool for debugging notebook code."
+    },
+    {
+      "text": "A data engineer is working on a personal laptop and needs to perform complex transformations on data stored in a Delta Lake on cloud storage. The engineer decides to use Databricks Connect to interact with Databricks clusters and work in their local IDE.\n\nHow does Databricks Connect enable the engineer to develop, test, and debug code seamlessly on their personal laptop while interacting with Databricks clusters?",
+      "options": {
+        "A": "By allowing direct execution of Spark jobs from the local machine without needing a network connection",
+        "B": "By providing a local environment that mimics the Databricks runtime, enabling the engineer to develop, test, and debug code using a specific IDE required by Databricks",
+        "C": "By providing a local environment that mimics the Databricks runtime, enabling the engineer to develop, test, and debug code using their preferred IDE",
+        "D": "By providing a local environment that mimics the Databricks runtime, enabling the engineer to develop, test, and debug code only through Databricks' own web interface"
+      },
+      "answer": "C",
+      "answer_type": "single",
+      "category1": "Databricks Connect",
+      "explanation": "Databricks Connect allows local development in any IDE while executing code on remote Databricks clusters. It provides flexibility in development environment choice."
+    },
+    {
+      "text": "A data team wants to run ad hoc SQL analytics in Databricks and needs an elastic compute that scales automatically and is fully managed, without setup or manual cluster handling.\n\nWhich Databricks compute option delivers this experience?",
+      "options": {
+        "A": "Automated Job cluster with custom scaling configuration",
+        "B": "Classic Spark cluster managed through external scripts",
+        "C": "Pro SQL Warehouse with manual scaling",
+        "D": "Serverless Compute in Notebooks"
+      },
+      "answer": "D",
+      "answer_type": "single",
+      "category1": "Serverless",
+      "explanation": "Serverless Compute in Notebooks provides instant, elastic compute without any cluster management. It's fully managed and scales automatically based on workload."
+    },
+    {
+      "text": "A platform team is creating a standardized template for Databricks Asset Bundles to support CI/CD. The template must specify defaults for artifacts, workspace root paths, and a run identity, while allowing a 'dev' target to be the default and override specific paths.\n\nHow should the team use databricks.yml to satisfy these requirements?",
+      "options": {
+        "A": "Use project:, packages:, environment:, identity:, and stages; set dev as default stage and override workspace under environment:",
+        "B": "Use bundle:, artifacts:, workspace:, run_as:, and targets: at the top level; set one target with default: true, and override workspace paths or artifacts under that target.",
+        "C": "Use deployment:, builds:, context:, identity:, and environments:; set dev as default environment and override paths under builds:",
+        "D": "Use root:, modules:, profiles:, actor:, and targets:, where profiles: contains workspace and artifacts defaults and actor: sets run identity."
+      },
+      "answer": "B",
+      "answer_type": "single",
+      "category1": "CI/CD",
+      "explanation": "Databricks Asset Bundles use bundle:, artifacts:, workspace:, run_as:, and targets: structure. The default: true flag designates the default target, and overrides are specified within each target."
+    },
+    {
+      "text": "Which Databricks feature can be used to check the data sources and tables used in a workspace?",
+      "options": {
+        "A": "Use the lineage feature to visualize a graph that shows all dependencies, including where the table is used in notebooks, other tables, and reports.",
+        "B": "Use the lineage feature to visualize a graph that highlights where the table is used only in notebooks.",
+        "C": "Use the audit logs feature to review user activities, such as who queried or modified a table, instead of visualizing dependencies between data objects.",
+        "D": "Use the lineage feature to visualize a graph that highlights where the table is used only in reports."
+      },
+      "answer": "A",
+      "answer_type": "single",
+      "category1": "Unity Catalog",
+      "explanation": "Unity Catalog's lineage feature provides comprehensive visualization of all data dependencies across notebooks, tables, and reports. It shows the complete data flow and usage patterns."
+    },
+    {
+      "text": "A data engineering team wants to ensure their collaborative Databricks Notebooks support tracked code versions, real-time co-authoring, and visualization.\n\nWhich built-in notebook feature supports these requirements?",
+      "options": {
+        "A": "Data lineage viewer",
+        "B": "Databricks One",
+        "C": "Version history",
+        "D": "Lakeflow Jobs UI"
+      },
+      "answer": "C",
+      "answer_type": "single",
+      "category1": "Notebooks",
+      "explanation": "Version history in Databricks notebooks tracks all changes, supports collaboration, and maintains a complete audit trail. It enables teams to review and restore previous versions."
+    },
+    {
+      "text": "A data engineer at a company that uses Databricks with Unity Catalog needs to share a collection of tables with an external partner who also uses a Databricks workspace enabled for Unity Catalog. The data engineer decides to use Delta Sharing to accomplish this.\n\nWhat is the first piece of information the data engineer should request from the external partner to set up Delta Sharing?",
+      "options": {
+        "A": "The IP address of their Databricks workspace",
+        "B": "The name of their Databricks cluster",
+        "C": "The sharing identifier of their Unity Catalog metastore",
+        "D": "Their Databricks account password"
+      },
+      "answer": "C",
+      "answer_type": "single",
+      "category1": "Delta Sharing",
+      "explanation": "The sharing identifier (metastore ID) is required to establish Delta Sharing connections between Unity Catalog metastores. This identifier uniquely identifies the recipient's metastore."
+    }
+  ]
+}

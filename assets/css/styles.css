@@ -87,17 +87,27 @@
     margin-top: 120px; /* Space for fixed navbar */
 }
 
-.nav-scroller { 
-    display: flex; 
-    align-items: center; 
-    gap: 0.5rem; 
-    overflow-x: auto; 
-    white-space: nowrap; 
-    -webkit-overflow-scrolling: touch; 
-    scrollbar-width: none; 
+.nav-scroller {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    overflow-x: visible;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    flex-wrap: wrap;
 }
-.nav-scroller::-webkit-scrollbar { 
-    display: none; 
+.nav-scroller::-webkit-scrollbar {
+    display: none;
+}
+
+/* Ensure navbar buttons are visible */
+#main-nav {
+    overflow: visible !important;
+}
+
+#main-nav .nav-scroller {
+    overflow: visible !important;
 }
 
 .nav-pass { 
@@ -325,4 +335,75 @@ body.focus-active #focus-exit-btn {
     display: inline-block;
     vertical-align: middle;
     max-width: 100%;
+}
+
+/* Custom Slider Styles */
+input[type="range"].slider {
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+/* Slider Track */
+input[type="range"].slider::-webkit-slider-track {
+    background: var(--app-bg);
+    border: 1px solid var(--border-clr);
+    border-radius: 10px;
+    height: 8px;
+}
+
+input[type="range"].slider::-moz-range-track {
+    background: var(--app-bg);
+    border: 1px solid var(--border-clr);
+    border-radius: 10px;
+    height: 8px;
+}
+
+/* Slider Thumb */
+input[type="range"].slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    background: var(--accent);
+    border: 3px solid var(--card-bg);
+    border-radius: 50%;
+    height: 24px;
+    width: 24px;
+    margin-top: -8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease;
+}
+
+input[type="range"].slider::-moz-range-thumb {
+    background: var(--accent);
+    border: 3px solid var(--card-bg);
+    border-radius: 50%;
+    height: 24px;
+    width: 24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease;
+}
+
+/* Hover Effects */
+input[type="range"].slider::-webkit-slider-thumb:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+}
+
+input[type="range"].slider::-moz-range-thumb:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+}
+
+/* Active/Focus State */
+input[type="range"].slider:focus {
+    outline: none;
+}
+
+input[type="range"].slider::-webkit-slider-thumb:active {
+    transform: scale(1.15);
+}
+
+input[type="range"].slider::-moz-range-thumb:active {
+    transform: scale(1.15);
 }
