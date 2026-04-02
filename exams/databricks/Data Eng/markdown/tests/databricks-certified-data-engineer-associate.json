@@ -3,17 +3,17 @@
   "exam": "Databricks Certified Data Engineer Associate - Practice Test",
   "questions": [
     {
-      "text": "A data engineer is working on a Databricks project that utilizes cloud storage. The data engineer wants to load several JSON files from containers on a storage account as soon as the file arrives within the storage account.\n\nWhich syntax should the data engineer follow to first load the files into a dataframe and check that it is working as expected using Python?",
+      "text": "A data engineer is working on a Databricks project that utilizes cloud storage. The data engineer wants to load several **JSON files** from containers on a storage account **as soon as the file arrives** within the storage account.\n\nWhich syntax should the data engineer follow to first load the files into a dataframe and check that it is working as expected using Python?",
       "options": {
-        "A": "df = spark.readStream.format(\"json\").load(\"/input/path\")",
-        "B": "df = spark.read.json(\"/input/path\")",
-        "C": "df = spark.readStream.format(\"cloud\").option(\"json\").load(\"/input/path\")",
-        "D": "df = spark.readStream.format(\"cloudFiles\") \\\n.option(\"cloudFiles.format\", \"json\") \\\n.load(\"/input/path\")"
+        "A": "```python\ndf = spark.readStream.format(\"json\").load(\"/input/path\")\n```",
+        "B": "```python\ndf = spark.read.json(\"/input/path\")\n```",
+        "C": "```python\ndf = spark.readStream.format(\"cloud\").option(\"json\").load(\"/input/path\")\n```",
+        "D": "```python\ndf = spark.readStream.format(\"cloudFiles\") \\\n    .option(\"cloudFiles.format\", \"json\") \\\n    .load(\"/input/path\")\n```"
       },
       "answer": "D",
       "answer_type": "single",
       "category1": "Auto Loader",
-      "explanation": "Auto Loader (cloudFiles) is the correct approach for streaming JSON files from cloud storage as they arrive. It provides automatic schema inference and evolution."
+      "explanation": "**Auto Loader** (`cloudFiles`) is the correct approach for streaming JSON files from cloud storage as they arrive.\n\n### Key Features:\n- ✅ Automatic schema inference and evolution\n- ✅ Incremental processing of new files\n- ✅ Built-in file notification mechanisms\n- ✅ Efficient handling of large-scale ingestion\n\n### Correct Syntax:\n```python\ndf = spark.readStream.format(\"cloudFiles\") \\\n    .option(\"cloudFiles.format\", \"json\") \\\n    .load(\"/input/path\")\n```"
     },
     {
       "text": "A data engineer has written a function in a Databricks Notebook to calculate the population of bacteria in a given medium.\n\n```python\ndef calculate_population_of_bacteria(initial_population, exponential_factor)\n    return future_population = initial_population ** exponential_factor\n```\n\nAnalysts use this function in the notebook and sometimes provide input arguments of the wrong data type, which can cause errors during execution.\n\nWhich Databricks feature will help the data engineer quickly identify if an incorrect data type has been provided as input?",
@@ -42,20 +42,20 @@
       "explanation": "In Unity Catalog, transferring ownership is the proper way to delegate privilege management without granting excessive permissions. Owners have full control over their objects."
     },
     {
-      "text": "A data engineer is writing a script designed to ingest new data from cloud storage. In the event of a schema change, ingestion should fail. It should fail until the changes in the downstream source can be found and verified as intended.\n\nWhich command will meet the requirements?",
+      "text": "A data engineer is writing a script designed to ingest new data from cloud storage. In the event of a **schema change**, ingestion should **fail** until the changes in the downstream source can be found and verified as intended.\n\nWhich command will meet the requirements?",
       "options": {
-        "A": "Rescue",
-        "B": "AddNewColumns",
-        "C": "None",
-        "D": "FailOnNewColumns"
+        "A": "`Rescue`",
+        "B": "`AddNewColumns`",
+        "C": "`None`",
+        "D": "`FailOnNewColumns`"
       },
       "answer": "D",
       "answer_type": "single",
       "category1": "Schema Evolution",
-      "explanation": "FailOnNewColumns ensures that ingestion fails when schema changes are detected, allowing for verification before proceeding. This prevents unexpected data issues."
+      "explanation": "`FailOnNewColumns` ensures that ingestion fails when schema changes are detected, allowing for verification before proceeding.\n\n### Schema Evolution Modes:\n\n| Mode | Behavior |\n|------|----------|\n| `FailOnNewColumns` | ❌ Fails if new columns detected |\n| `AddNewColumns` | ✅ Automatically adds new columns |\n| `None` | ⚠️ Ignores schema changes |\n| `Rescue` | 📦 Captures unparsed data |\n\n**Use `FailOnNewColumns` when:**\n- Schema changes need manual review\n- Data quality is critical\n- Downstream dependencies must be verified"
     },
     {
-      "text": "A data engineer needs to ingest data from both streaming and batch sources for a firm that relies on highly accurate data. Occasionally, some of the data picked up by the sensors that provide a streaming input are outside the expected parameters. If this occurs, the data must be dropped, but the stream should not fail.\n\nWhich feature of Spark Declarative Pipelines meets this requirement?",
+      "text": "A data engineer needs to ingest data from both streaming and batch sources for a firm that relies on **highly accurate data**. Occasionally, some of the data picked up by the sensors that provide a streaming input are **outside the expected parameters**. If this occurs, the data must be **dropped**, but the **stream should not fail**.\n\nWhich feature of Spark Declarative Pipelines meets this requirement?",
       "options": {
         "A": "Change Data Capture",
         "B": "Monitoring",
@@ -65,7 +65,7 @@
       "answer": "C",
       "answer_type": "single",
       "category1": "Delta Live Tables",
-      "explanation": "Expectations in Delta Live Tables allow you to define data quality rules and drop rows that don't meet criteria without failing the pipeline. You can use `ON VIOLATION DROP ROW` to handle bad data gracefully."
+      "explanation": "**Expectations** in Delta Live Tables allow you to define data quality rules with different enforcement levels:\n\n### Expectation Actions:\n```python\n@dlt.expect(\"valid_sensor_reading\", \"value BETWEEN 0 AND 100\")\n@dlt.expect_or_drop(\"required_field\", \"field IS NOT NULL\")\n@dlt.expect_or_fail(\"critical_check\", \"status = 'valid'\")\n```\n\n**`expect_or_drop`** is perfect for this scenario:\n- ✅ Drops invalid records\n- ✅ Continues processing valid data\n- ✅ Stream doesn't fail\n- ✅ Maintains data quality"
     },
     {
       "text": "A data engineer manages multiple external tables linked to various data sources. The data engineer wants to manage these external tables efficiently and ensure that only the necessary permissions are granted to users for accessing specific external tables.\n\nHow should the data engineer manage access to these external tables?",
@@ -81,17 +81,17 @@
       "explanation": "Unity Catalog provides fine-grained access control for individual external tables, following the principle of least privilege. This ensures proper governance and security."
     },
     {
-      "text": "Which SQL code snippet will correctly demonstrate a Data Definition Language (DDL) operation used to create a table?",
+      "text": "Which SQL code snippet will correctly demonstrate a **Data Definition Language (DDL)** operation used to **create a table**?",
       "options": {
-        "A": "DROP TABLE employees;",
-        "B": "INSERT INTO employees (id, name) VALUES (1, 'Alice');",
-        "C": "ALTER TABLE employees ADD COLUMN salary DECIMAL(10,2);",
-        "D": "CREATE TABLE employees (\n  id INT,\n  name STRING\n);"
+        "A": "```sql\nDROP TABLE employees;\n```",
+        "B": "```sql\nINSERT INTO employees (id, name) VALUES (1, 'Alice');\n```",
+        "C": "```sql\nALTER TABLE employees ADD COLUMN salary DECIMAL(10,2);\n```",
+        "D": "```sql\nCREATE TABLE employees (\n  id INT,\n  name STRING\n);\n```"
       },
       "answer": "D",
       "answer_type": "single",
       "category1": "SQL",
-      "explanation": "CREATE TABLE is a DDL operation that defines the structure of a new table. DDL operations modify database structure, not data."
+      "explanation": "`CREATE TABLE` is a DDL operation that defines the structure of a new table.\n\n### DDL vs DML:\n\n**DDL (Data Definition Language)** - Structure operations:\n- ✅ `CREATE` - Creates new objects\n- ✅ `ALTER` - Modifies existing objects\n- ✅ `DROP` - Deletes objects\n\n**DML (Data Manipulation Language)** - Data operations:\n- ❌ `INSERT` - Adds data\n- ❌ `UPDATE` - Modifies data\n- ❌ `DELETE` - Removes data"
     },
     {
       "text": "A departing platform owner currently holds ownership of multiple catalogs and controls storage credentials and external locations. The data engineer wants to ensure continuity: transfer catalog ownership to the platform team group, delegate ongoing privilege management, and retain the ability to receive and share data via Delta Sharing.\n\nWhich role must be in place to perform these actions across the metastore?",
@@ -107,7 +107,7 @@
       "explanation": "Metastore Admin has the highest level of control over Unity Catalog objects and can manage ownership transfers, storage credentials, external locations, and Delta Sharing configurations."
     },
     {
-      "text": "What are two characteristics of the Gold layer?\n\n> Select all that apply",
+      "text": "What are **two characteristics** of the **Gold layer**?\n\n> Select all that apply",
       "options": {
         "A": "Read-optimized",
         "B": "Normalized",
@@ -118,7 +118,7 @@
       "answer": ["A", "D"],
       "answer_type": "multiple",
       "category1": "Medallion Architecture",
-      "explanation": "The Gold layer in the Medallion architecture is read-optimized and typically de-normalized for analytical queries and reporting. It contains business-level aggregates and is optimized for consumption by BI tools and data scientists."
+      "explanation": "The **Gold layer** in the Medallion Architecture is characterized by:\n\n### Gold Layer Characteristics:\n- ✅ **Read-optimized** - Designed for fast query performance\n- ✅ **De-normalized** - Aggregated and joined for business use\n- Business-level aggregations\n- Report-ready datasets\n- Optimized for BI tools\n\n### Medallion Architecture:\n\n| Layer | Characteristics |\n|-------|----------------|\n| **Bronze** | Raw, unprocessed data |\n| **Silver** | Cleaned, validated, normalized |\n| **Gold** | Aggregated, de-normalized, business-ready |"
     },
     {
       "text": "A data engineer is building a nightly batch ETL pipeline that processes very large volumes of raw JSON logs from a data lake into Delta tables for reporting. The data arrives in bulk once per day, and the pipeline takes several hours to complete. Cost efficiency is important, but performance and reliability of completing the pipeline are the highest priorities.\n\nWhich type of Databricks cluster should the data engineer configure?",
@@ -213,30 +213,30 @@
       "explanation": "Serverless compute for workflows provides fully managed compute with automatic optimization when Unity Catalog is enabled. It handles all infrastructure decisions automatically."
     },
     {
-      "text": "A data engineer has been provided a PySpark DataFrame named df with columns product and revenue. The data engineer needs to compute complex aggregations to determine each product's total revenue, average revenue, and transaction count.\n\nWhich code snippet should the data engineer use?",
+      "text": "A data engineer has been provided a PySpark DataFrame named `df` with columns `product` and `revenue`. The data engineer needs to compute **complex aggregations** to determine each product's:\n- Total revenue\n- Average revenue  \n- Transaction count\n\nWhich code snippet should the data engineer use?",
       "options": {
-        "A": "from pyspark.sql import functions as F\naggregated_df = df.groupBy(\"product\").agg(\n    F.sum(\"revenue\").alias(\"total_revenue\"),\n    F.avg(\"revenue\").alias(\"avg_revenue\"),\n    F.count(\"*\").alias(\"transaction_count\")\n)",
-        "B": "aggregated_df = df.groupBy(\"product\")\n    .agg(\"sum(revenue)\", \"avg(revenue)\", \"count(revenue)\")",
-        "C": "from pyspark.sql import functions as F\naggregated_df = df.select(\"product\", \"revenue\")\n    .groupBy(\"product\")\n    .agg(F.sum(\"revenue\"), F.mean(\"revenue\"))",
-        "D": "aggregated_df = df.groupBy(\"product\")\n    .agg({\"revenue\": \"sum\", \"revenue\": \"avg\", \"revenue\": \"count\"})"
+        "A": "```python\nfrom pyspark.sql import functions as F\n\naggregated_df = df.groupBy(\"product\").agg(\n    F.sum(\"revenue\").alias(\"total_revenue\"),\n    F.avg(\"revenue\").alias(\"avg_revenue\"),\n    F.count(\"*\").alias(\"transaction_count\")\n)\n```",
+        "B": "```python\naggregated_df = df.groupBy(\"product\") \\\n    .agg(\"sum(revenue)\", \"avg(revenue)\", \"count(revenue)\")\n```",
+        "C": "```python\nfrom pyspark.sql import functions as F\n\naggregated_df = df.select(\"product\", \"revenue\") \\\n    .groupBy(\"product\") \\\n    .agg(F.sum(\"revenue\"), F.mean(\"revenue\"))\n```",
+        "D": "```python\naggregated_df = df.groupBy(\"product\") \\\n    .agg({\"revenue\": \"sum\", \"revenue\": \"avg\", \"revenue\": \"count\"})\n```"
       },
       "answer": "A",
       "answer_type": "single",
       "category1": "PySpark",
-      "explanation": "This is the correct syntax for multiple aggregations with proper aliasing using PySpark functions. It provides clear, readable code with named output columns."
+      "explanation": "**Option A** is correct because it uses proper PySpark syntax with meaningful aliases:\n\n### Correct Approach:\n```python\nfrom pyspark.sql import functions as F\n\naggregated_df = df.groupBy(\"product\").agg(\n    F.sum(\"revenue\").alias(\"total_revenue\"),\n    F.avg(\"revenue\").alias(\"avg_revenue\"),\n    F.count(\"*\").alias(\"transaction_count\")\n)\n```\n\n### Why it's correct:\n- ✅ Uses PySpark functions (`F.sum`, `F.avg`, `F.count`)\n- ✅ Provides meaningful column aliases\n- ✅ Computes all required aggregations\n- ✅ Clear, readable code\n\n### Why others fail:\n- **B**: Invalid string syntax for aggregations\n- **C**: Missing transaction count\n- **D**: Dictionary keys overwrite each other (same key \"revenue\")"
     },
     {
-      "text": "A data engineer is building a simple data pipeline using Lakeflow Spark Declarative Pipelines (SDP) in Databricks to ingest customer data. The raw customer data is stored in a cloud storage location in JSON format. The task is to create an SDP that reads the raw JSON data and writes it into a Delta table for further processing.\n\nWhich code snippet will correctly ingest the raw JSON data and create a Delta table using SDP?",
+      "text": "A data engineer is building a simple data pipeline using **Lakeflow Spark Declarative Pipelines (SDP)** in Databricks to ingest customer data. The raw customer data is stored in a cloud storage location in **JSON format**. The task is to create an SDP that reads the raw JSON data and writes it into a **Delta table** for further processing.\n\nWhich code snippet will correctly ingest the raw JSON data and create a Delta table using SDP?",
       "options": {
-        "A": "import dlt\n\n@dlt.table\ndef raw_customers():\n    return spark.read.json(\"s3://my-bucket/raw-customers/\")",
-        "B": "import dlt\n\n@dlt.view\ndef raw_customers():\n    return spark.format.json(\"s3://my-bucket/raw-customers/\")",
-        "C": "import dlt\n\n@dlt.table\ndef raw_customers():\n    return spark.read.format(\"csv\").load(\"s3://my-bucket/raw-customers/\")",
-        "D": "import dlt\n\n@dlt.table\ndef raw_customers():\n    return spark.read.format(\"parquet\").load(\"s3://my-bucket/raw-customers/\")"
+        "A": "```python\nimport dlt\n\n@dlt.table\ndef raw_customers():\n    return spark.read.json(\"s3://my-bucket/raw-customers/\")\n```",
+        "B": "```python\nimport dlt\n\n@dlt.view\ndef raw_customers():\n    return spark.format.json(\"s3://my-bucket/raw-customers/\")\n```",
+        "C": "```python\nimport dlt\n\n@dlt.table\ndef raw_customers():\n    return spark.read.format(\"csv\").load(\"s3://my-bucket/raw-customers/\")\n```",
+        "D": "```python\nimport dlt\n\n@dlt.table\ndef raw_customers():\n    return spark.read.format(\"parquet\").load(\"s3://my-bucket/raw-customers/\")\n```"
       },
       "answer": "A",
       "answer_type": "single",
       "category1": "Delta Live Tables",
-      "explanation": "The @dlt.table decorator with spark.read.json() is the correct approach for creating a Delta table from JSON data in DLT. The decorator automatically handles Delta table creation."
+      "explanation": "The `@dlt.table` decorator with `spark.read.json()` is the correct approach for creating a Delta table from JSON data in DLT.\n\n### Correct DLT Pattern:\n```python\nimport dlt\n\n@dlt.table\ndef raw_customers():\n    return spark.read.json(\"s3://my-bucket/raw-customers/\")\n```\n\n### Key Elements:\n- ✅ `@dlt.table` decorator creates a Delta table\n- ✅ `spark.read.json()` reads JSON files\n- ✅ Returns a DataFrame\n- ✅ DLT handles Delta table creation automatically\n\n### Why others are wrong:\n- **B**: `@dlt.view` creates a view, not a table; invalid syntax\n- **C**: Wrong format (CSV instead of JSON)\n- **D**: Wrong format (Parquet instead of JSON)"
     },
     {
       "text": "A company sells products across multiple categories (e.g., Electronics, Clothing) and regions. The sales team has provided the data engineer with a PySpark dataframe named `sales_df` as shown below:\n\n**sales_df:**\n\n| product_id | category    | sales_amount | region |\n|------------|-------------|--------------|--------|\n| 1          | Electronics | 100          | North  |\n| 2          | Clothing    | 200          | South  |\n| 3          | Electronics | 150          | North  |\n| 4          | Clothing    | 300          | South  |\n| 5          | Electronics | 250          | East   |\n| 6          | Clothing    | 400          | West   |\n\nThe data engineer needs to calculate the total sales amount for each region and store the results in a new DataFrame called `region_sales`.\n\n**Expected result:**\n\n| region | total_sales_amount |\n|--------|--------------------|\n| North  | 250                |\n| South  | 500                |\n| East   | 250                |\n| West   | 400                |\n\nWhich code will generate the expected result?",
@@ -382,17 +382,17 @@
       "explanation": "Auto Loader supports both batch and streaming ingestion with automatic schema inference and evolution capabilities. It's designed to efficiently process new files as they arrive in cloud storage."
     },
     {
-      "text": "A data engineer is processing ingested streaming tables and needs to filter out NULL values in the order_datetime column from the raw streaming table orders_raw and store the results in a new table, orders_valid, using a Spark Declarative Pipeline.\n\nWhich code snippet should the data engineer use?",
+      "text": "A data engineer is processing ingested streaming tables and needs to **filter out NULL values** in the `order_datetime` column from the raw streaming table `orders_raw` and store the results in a new table, `orders_valid`, using a **Spark Declarative Pipeline**.\n\nWhich code snippet should the data engineer use?",
       "options": {
-        "A": "CREATE OR REFRESH STREAMING TABLE orders_valid(\n    CONSTRAINT valid_date\n    EXPECT (order_datetime IS NOT NULL)\n    ON VIOLATION DROP ROW\n)\nAS SELECT * FROM STREAM orders_raw;",
-        "B": "CREATE OR REFRESH STREAMING TABLE orders_valid\n(\n    CONSTRAINT valid_date EXPECT (order_datetime IS NOT NULL) ON VIOLATION DROP ROW\n)\nAS SELECT * FROM orders_raw;",
-        "C": "CREATE OR REFRESH STREAMING TABLE orders_valid\nAS\nSELECT *\nFROM STREAM (orders_raw)\nWHERE order_datetime IS NOT NULL;",
-        "D": "CREATE OR REPLACE STREAMING TABLE orders_valid\n(\n    FILTER (order_datetime IS NOT NULL)\n)\nAS SELECT * FROM STREAM(orders_raw);"
+        "A": "```sql\nCREATE OR REFRESH STREAMING TABLE orders_valid(\n    CONSTRAINT valid_date\n    EXPECT (order_datetime IS NOT NULL)\n    ON VIOLATION DROP ROW\n)\nAS SELECT * FROM STREAM orders_raw;\n```",
+        "B": "```sql\nCREATE OR REFRESH STREAMING TABLE orders_valid\n(\n    CONSTRAINT valid_date EXPECT (order_datetime IS NOT NULL) ON VIOLATION DROP ROW\n)\nAS SELECT * FROM orders_raw;\n```",
+        "C": "```sql\nCREATE OR REFRESH STREAMING TABLE orders_valid\nAS\nSELECT *\nFROM STREAM (orders_raw)\nWHERE order_datetime IS NOT NULL;\n```",
+        "D": "```sql\nCREATE OR REPLACE STREAMING TABLE orders_valid\n(\n    FILTER (order_datetime IS NOT NULL)\n)\nAS SELECT * FROM STREAM(orders_raw);\n```"
       },
       "answer": "A",
       "answer_type": "single",
       "category1": "Delta Live Tables",
-      "explanation": "This syntax correctly uses expectations with ON VIOLATION DROP ROW to filter NULL values in a streaming DLT pipeline. The STREAM keyword is required for streaming sources."
+      "explanation": "**Option A** correctly uses DLT expectations with `ON VIOLATION DROP ROW` to filter NULL values:\n\n### Correct Syntax:\n```sql\nCREATE OR REFRESH STREAMING TABLE orders_valid(\n    CONSTRAINT valid_date\n    EXPECT (order_datetime IS NOT NULL)\n    ON VIOLATION DROP ROW\n)\nAS SELECT * FROM STREAM orders_raw;\n```\n\n### Key Components:\n1. ✅ `CREATE OR REFRESH STREAMING TABLE` - DLT streaming table\n2. ✅ `CONSTRAINT` - Names the expectation\n3. ✅ `EXPECT` - Defines the data quality rule\n4. ✅ `ON VIOLATION DROP ROW` - Drops rows that fail the check\n5. ✅ `FROM STREAM` - Required for streaming sources\n\n### Why others are wrong:\n- **B**: Missing `STREAM` keyword (treats as batch)\n- **C**: Uses `WHERE` instead of expectations (no DQ tracking)\n- **D**: Invalid syntax (`FILTER` is not a DLT construct)"
     },
     {
       "text": "A data engineer is inspecting an ETL pipeline based on a PySpark job that consistently encounters performance bottlenecks. Based on developer feedback, the data engineer assumes the job is low on compute resources. To pinpoint the issue, the data engineer observes the Spark UI and finds that the job has a high CPU time compared to task time.\n\nWhich course of action should the data engineer take?",
@@ -421,17 +421,17 @@
       "explanation": "Databricks Asset Bundles with GitHub integration provides the most streamlined CI/CD workflow for deploying pipelines. It offers native integration and follows infrastructure-as-code best practices."
     },
     {
-      "text": "Which PySpark code correctly sets up Auto Loader to stream new Parquet files from an S3 bucket?",
+      "text": "Which PySpark code correctly sets up **Auto Loader** to stream new **Parquet files** from an S3 bucket?",
       "options": {
-        "A": "spark.readStream.format('cloudFiles')\n    .option('format', 'parquet')\n    .load('s3://bucket/data')",
-        "B": "spark.readStream.format('parquet')\n    .option('cloudFiles.format', 'parquet')\n    .load('s3://bucket/data')",
-        "C": "spark.read.format('cloudFiles')\n    .option('cloudFiles.format', 'parquet')\n    .load('s3://bucket/data')",
-        "D": "spark.readStream.format('cloudFiles')\n    .option('cloudFiles.format', 'parquet')\n    .load('s3://bucket/data')"
+        "A": "```python\nspark.readStream.format('cloudFiles') \\\n    .option('format', 'parquet') \\\n    .load('s3://bucket/data')\n```",
+        "B": "```python\nspark.readStream.format('parquet') \\\n    .option('cloudFiles.format', 'parquet') \\\n    .load('s3://bucket/data')\n```",
+        "C": "```python\nspark.read.format('cloudFiles') \\\n    .option('cloudFiles.format', 'parquet') \\\n    .load('s3://bucket/data')\n```",
+        "D": "```python\nspark.readStream.format('cloudFiles') \\\n    .option('cloudFiles.format', 'parquet') \\\n    .load('s3://bucket/data')\n```"
       },
       "answer": "D",
       "answer_type": "single",
       "category1": "Auto Loader",
-      "explanation": "Auto Loader requires readStream with format('cloudFiles') and the cloudFiles.format option specifying the file type. This is the correct syntax for streaming file ingestion."
+      "explanation": "**Auto Loader** requires specific syntax for streaming file ingestion:\n\n### Correct Syntax:\n```python\nspark.readStream.format('cloudFiles') \\\n    .option('cloudFiles.format', 'parquet') \\\n    .load('s3://bucket/data')\n```\n\n### Required Components:\n1. ✅ `readStream` - For streaming (not `read`)\n2. ✅ `format('cloudFiles')` - Enables Auto Loader\n3. ✅ `option('cloudFiles.format', 'parquet')` - Specifies file type\n4. ✅ `load()` - Specifies source path\n\n### Why others are wrong:\n- **A**: Wrong option name (`format` instead of `cloudFiles.format`)\n- **B**: Wrong format (`parquet` instead of `cloudFiles`)\n- **C**: Uses `read` instead of `readStream` (batch, not streaming)"
     },
     {
       "text": "A data engineer is curating data in the silver layer. The data engineer is attempting to aggregate billing data from the billing table to generate a daily revenue fact table, daily_revenue.\n\nWhich code snippet correctly aggregates the amount billed per day with the number of invoices from a DataFrame, billing_df?",
