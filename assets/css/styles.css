@@ -168,7 +168,6 @@
 #nav-grid > div {
     width: 100%;
     box-sizing: border-box;
-    flex-shrink: 0;
     max-width: 100%;
 }
 
