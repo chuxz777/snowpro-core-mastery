@@ -141,6 +141,8 @@
 #nav-grid {
     scrollbar-width: thin;
     scrollbar-color: var(--border-clr) transparent;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 #nav-grid::-webkit-scrollbar {
@@ -158,6 +160,18 @@
 
 #nav-grid::-webkit-scrollbar-thumb:hover {
     background: var(--txt-muted);
+}
+
+/* Ensure navigation buttons fit properly */
+#nav-grid > div {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#nav-grid button {
+    flex-shrink: 0;
+    min-width: 2.5rem;
+    max-width: 2.5rem;
 }
 
 body.focus-active #main-nav, body.focus-active #sidebar-nav {
