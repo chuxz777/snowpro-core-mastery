@@ -351,16 +351,6 @@ async function reloadExamsFromDirectory() {
 async function autoLoadExams() {
     console.log('🔄 autoLoadExams() called');
     try {
-        // Check if we've already loaded exams (to avoid reloading on every refresh)
-        const existingExams = await getVault();
-        console.log('📊 Existing exams in DB:', existingExams.length);
-        if (existingExams.length > 0) {
-            console.log('✅ Exams already loaded in database');
-            return;
-        }
-
-        console.log('🚀 Auto-loading exams from directory...');
-        
         // Fetch the manifest file that lists all exam files
         let examFiles = [];
         try {
@@ -395,8 +385,20 @@ async function autoLoadExams() {
             ];
         }
 
+        // Check if we already have all exams from the manifest
+        const existingExams = await getVault();
+        console.log('📊 Existing exams in DB:', existingExams.length);
+        
+        if (existingExams.length >= examFiles.length) {
+            console.log('✅ All exams already loaded in database');
+            return;
+        }
+        
+        console.log(`🚀 Loading ${examFiles.length - existingExams.length} new exams...`);
+
         let loadedCount = 0;
         let errorCount = 0;
+        let skippedCount = 0;
 
         for (const filePath of examFiles) {
             console.log(`📥 Attempting to load: ${filePath}`);
@@ -429,6 +431,14 @@ async function autoLoadExams() {
                 
                 console.log(`✓ Validated: ${examName} with ${qs.length} questions`);
                 
+                // Check if this exam already exists in the database
+                const existingExam = existingExams.find(e => e.name === examName);
+                if (existingExam) {
+                    console.log(`⏭️  Skipped: ${examName} (already in database)`);
+                    skippedCount++;
+                    continue;
+                }
+                
                 try {
                     await db.examVault.add({
                         name: examName,
@@ -447,15 +457,20 @@ async function autoLoadExams() {
             }
         }
 
+        console.log(`\n📊 Summary: Loaded ${loadedCount}, Skipped ${skippedCount}, Failed ${errorCount}`);
+        
         if (loadedCount > 0) {
-            console.log(`✅ Auto-loaded ${loadedCount} exam(s)`);
             errorHandler.showSuccessMessage(
-                `Auto-loaded ${loadedCount} exam bank${loadedCount > 1 ? 's' : ''} from directory`
+                `Auto-loaded ${loadedCount} new exam bank${loadedCount > 1 ? 's' : ''}`
             );
         }
 
         if (errorCount > 0) {
             console.warn(`⚠️ Failed to load ${errorCount} exam(s)`);
+        }
+        
+        if (skippedCount > 0) {
+            console.log(`⏭️  Skipped ${skippedCount} exam(s) already in database`);
         }
 
     } catch (error) {
