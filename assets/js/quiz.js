@@ -55,14 +55,30 @@ function startExam(qsToUse = null) {
             qs = qs.slice(0, limit);
         }
     }
-    examState = qs.map(q => ({
-        ...q,
-        shuffledOptions: Object.entries(q.options).map(p => ({ key: p[0], value: p[1] })).sort(() => Math.random() - 0.5),
-        selectedKeys: [],
-        isChecked: false,
-        isCorrect: false,
-        struckKeys: []
-    }));
+    examState = qs.map(q => {
+        // Shuffle options and reassign sequential keys (A, B, C, D, etc.)
+        const shuffled = Object.entries(q.options)
+            .map(p => ({ originalKey: p[0], value: p[1] }))
+            .sort(() => Math.random() - 0.5);
+        
+        // Create a mapping from new keys to original keys
+        const keyMapping = {};
+        const newOptions = shuffled.map((opt, idx) => {
+            const newKey = String.fromCharCode(65 + idx); // A, B, C, D, etc.
+            keyMapping[newKey] = opt.originalKey;
+            return { key: newKey, value: opt.value, originalKey: opt.originalKey };
+        });
+        
+        return {
+            ...q,
+            shuffledOptions: newOptions,
+            keyMapping: keyMapping, // Store mapping for answer validation
+            selectedKeys: [],
+            isChecked: false,
+            isCorrect: false,
+            struckKeys: []
+        };
+    });
     currentIdx = 0;
     timeElapsed = 0;
     timeRemaining = parseInt(document.getElementById('config-time').value) * 60;
@@ -94,19 +110,24 @@ function showQuestion(shouldScroll = false) {
     const container = document.getElementById('options-container');
     container.innerHTML = '';
 
-    q.shuffledOptions.forEach(opt => {
+    q.shuffledOptions.forEach((opt, index) => {
         const stepIdx = q.selectedKeys.indexOf(opt.key),
             isSel = stepIdx !== -1;
         const isStruck = q.struckKeys.includes(opt.key) && !q.isChecked;
 
         const div = document.createElement('div');
-        div.className = `flex items-center p-5 border-2 rounded-2xl cursor-pointer transition-all ${isSel ? 'border-accent bg-accent/5' : 'border-border-clr'} ${isStruck ? 'opt-strike' : ''}`;
+        div.className = `flex flex-col gap-3 p-5 border-2 rounded-2xl cursor-pointer transition-all ${isSel ? 'border-accent bg-accent/5' : 'border-border-clr'} ${isStruck ? 'opt-strike' : ''}`;
+        div.setAttribute('data-option-key', opt.key);
+        div.setAttribute('data-option-index', index);
 
         if (q.isChecked) {
             const corr = Array.isArray(q.answer) ? q.answer : [q.answer];
-            const isPartCorrect = isSeq ? (q.answer[stepIdx] === opt.key) : corr.includes(opt.key);
+            // Check if this option's original key is correct
+            const isPartCorrect = isSeq ?
+                (q.answer[stepIdx] === opt.originalKey) :
+                corr.includes(opt.originalKey);
             if (isSel) div.classList.add(isPartCorrect ? 'opt-correct' : 'opt-incorrect');
-            else if (corr.includes(opt.key)) div.classList.add('border-dashed', 'border-green-500');
+            else if (corr.includes(opt.originalKey)) div.classList.add('border-dashed', 'border-green-500');
         }
 
         div.onclick = () => { if (!q.isChecked) toggleItem(opt.key); };
@@ -114,7 +135,14 @@ function showQuestion(shouldScroll = false) {
             e.preventDefault();
             if (!q.isChecked) toggleStrike(opt.key);
         };
-        div.innerHTML = ((isSel && isSeq) ? `<span class="step-badge">STEP ${stepIdx + 1}</span>` : "") + `<span class="markdown-content">${marked.parse(opt.value)}</span>`;
+        
+        // Add option label badge at the top
+        const optionLabel = `<div class="flex items-center gap-2">
+            <span class="flex-shrink-0 w-7 h-7 flex items-center justify-center rounded-full border-2 ${isSel ? 'border-accent bg-accent text-white' : 'border-border-clr bg-app-bg text-txt-muted'} font-black text-xs">${opt.key}</span>
+            ${(isSel && isSeq) ? `<span class="step-badge">STEP ${stepIdx + 1}</span>` : ""}
+        </div>`;
+        
+        div.innerHTML = optionLabel + `<div class="markdown-content">${marked.parse(opt.value)}</div>`;
         container.appendChild(div);
     });
     updateNavUI();
@@ -139,9 +167,20 @@ function toggleStrike(key) {
 function handleAction() {
     const q = examState[currentIdx];
     if (!q.selectedKeys.length) return;
-    if (q.answer_type === "sequence") q.isCorrect = q.answer.length === q.selectedKeys.length && q.answer.every((v, i) => v === q.selectedKeys[i]);
-    else if (Array.isArray(q.answer)) q.isCorrect = q.answer.length === q.selectedKeys.length && q.answer.every(v => q.selectedKeys.includes(v));
-    else q.isCorrect = q.answer === q.selectedKeys[0];
+    
+    // Map selected keys back to original keys for validation
+    const selectedOriginalKeys = q.selectedKeys.map(key => q.keyMapping[key]);
+    
+    if (q.answer_type === "sequence") {
+        q.isCorrect = q.answer.length === selectedOriginalKeys.length &&
+                      q.answer.every((v, i) => v === selectedOriginalKeys[i]);
+    } else if (Array.isArray(q.answer)) {
+        q.isCorrect = q.answer.length === selectedOriginalKeys.length &&
+                      q.answer.every(v => selectedOriginalKeys.includes(v));
+    } else {
+        q.isCorrect = q.answer === selectedOriginalKeys[0];
+    }
+    
     q.isChecked = true;
     showQuestion(false);
 }
@@ -267,4 +306,180 @@ function updateTimer(s) {
 function clearCurrentSelection() {
     examState[currentIdx].selectedKeys = [];
     showQuestion();
+}
+
+// Keyboard Shortcuts Handler
+function initKeyboardShortcuts() {
+    document.addEventListener('keydown', (e) => {
+        // Only handle shortcuts when quiz is active
+        const quizView = document.getElementById('quiz-view');
+        if (quizView.classList.contains('hidden')) return;
+        
+        // Ignore shortcuts when typing in input fields
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+        
+        const q = examState[currentIdx];
+        
+        // Arrow keys for navigation
+        if (e.key === 'ArrowLeft' && currentIdx > 0) {
+            e.preventDefault();
+            currentIdx--;
+            showQuestion();
+        } else if (e.key === 'ArrowRight' && currentIdx < examState.length - 1) {
+            e.preventDefault();
+            currentIdx++;
+            showQuestion();
+        }
+        
+        // Letter keys (A-Z) for selecting options by their key
+        else if (e.key.match(/^[a-zA-Z]$/) && !q.isChecked) {
+            const upperKey = e.key.toUpperCase();
+            // Check if this key exists in the current question's options
+            const optionExists = q.shuffledOptions.some(opt => opt.key === upperKey);
+            if (optionExists) {
+                e.preventDefault();
+                toggleItem(upperKey);
+            }
+        }
+        
+        // Enter or Space to submit answer
+        else if ((e.key === 'Enter' || e.key === ' ') && !q.isChecked && q.selectedKeys.length > 0) {
+            e.preventDefault();
+            handleAction();
+        }
+        
+        // 'n' or 'N' for next question (after checking answer)
+        else if ((e.key === 'n' || e.key === 'N') && q.isChecked) {
+            e.preventDefault();
+            nextQuestion();
+        }
+        
+        // 's' or 'S' to skip question
+        else if (e.key === 's' || e.key === 'S') {
+            e.preventDefault();
+            nextQuestion(true);
+        }
+        
+        // 'c' or 'C' to clear selection
+        else if ((e.key === 'c' || e.key === 'C') && !q.isChecked && q.selectedKeys.length > 0) {
+            e.preventDefault();
+            clearCurrentSelection();
+        }
+        
+        // 'f' or 'F' to toggle focus mode
+        else if (e.key === 'f' || e.key === 'F') {
+            e.preventDefault();
+            toggleFocus();
+        }
+        
+        // 'Escape' to exit focus mode
+        else if (e.key === 'Escape') {
+            const focusExit = document.getElementById('focus-exit');
+            if (!focusExit.classList.contains('hidden')) {
+                e.preventDefault();
+                toggleFocus();
+            }
+        }
+        
+        // '?' to show keyboard shortcuts help
+        else if (e.key === '?') {
+            e.preventDefault();
+            showKeyboardShortcutsHelp();
+        }
+    });
+}
+
+// Show keyboard shortcuts help modal
+function showKeyboardShortcutsHelp() {
+    const modal = document.createElement('div');
+    modal.id = 'shortcuts-modal';
+    modal.className = 'fixed inset-0 bg-black/80 backdrop-blur-sm z-[200] flex items-center justify-center p-4';
+    modal.innerHTML = `
+        <div class="bg-card-bg w-full max-w-2xl p-8 rounded-[2.5rem] border border-border-clr shadow-2xl max-h-[90vh] overflow-y-auto">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-black uppercase">Keyboard Shortcuts</h3>
+                <button onclick="closeShortcutsModal()" class="text-txt-muted hover:text-txt-main text-2xl font-bold">&times;</button>
+            </div>
+            <div class="space-y-6">
+                <div>
+                    <h4 class="text-sm font-black uppercase text-accent mb-3">Navigation</h4>
+                    <div class="space-y-2 text-sm">
+                        <div class="flex justify-between items-center p-3 bg-app-bg rounded-xl">
+                            <span>Previous Question</span>
+                            <kbd class="px-3 py-1 bg-card-bg border border-border-clr rounded-lg font-mono text-xs">←</kbd>
+                        </div>
+                        <div class="flex justify-between items-center p-3 bg-app-bg rounded-xl">
+                            <span>Next Question</span>
+                            <kbd class="px-3 py-1 bg-card-bg border border-border-clr rounded-lg font-mono text-xs">→</kbd>
+                        </div>
+                        <div class="flex justify-between items-center p-3 bg-app-bg rounded-xl">
+                            <span>Skip Question</span>
+                            <kbd class="px-3 py-1 bg-card-bg border border-border-clr rounded-lg font-mono text-xs">S</kbd>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-sm font-black uppercase text-accent mb-3">Answer Selection</h4>
+                    <div class="space-y-2 text-sm">
+                        <div class="flex justify-between items-center p-3 bg-app-bg rounded-xl">
+                            <span>Select Option by Letter</span>
+                            <kbd class="px-3 py-1 bg-card-bg border border-border-clr rounded-lg font-mono text-xs">A-Z</kbd>
+                        </div>
+                        <div class="flex justify-between items-center p-3 bg-app-bg rounded-xl">
+                            <span>Submit Answer</span>
+                            <kbd class="px-3 py-1 bg-card-bg border border-border-clr rounded-lg font-mono text-xs">Enter</kbd>
+                            <span class="text-txt-muted mx-2">or</span>
+                            <kbd class="px-3 py-1 bg-card-bg border border-border-clr rounded-lg font-mono text-xs">Space</kbd>
+                        </div>
+                        <div class="flex justify-between items-center p-3 bg-app-bg rounded-xl">
+                            <span>Clear Selection</span>
+                            <kbd class="px-3 py-1 bg-card-bg border border-border-clr rounded-lg font-mono text-xs">C</kbd>
+                        </div>
+                        <div class="flex justify-between items-center p-3 bg-app-bg rounded-xl">
+                            <span>Next (After Submit)</span>
+                            <kbd class="px-3 py-1 bg-card-bg border border-border-clr rounded-lg font-mono text-xs">N</kbd>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-sm font-black uppercase text-accent mb-3">View Controls</h4>
+                    <div class="space-y-2 text-sm">
+                        <div class="flex justify-between items-center p-3 bg-app-bg rounded-xl">
+                            <span>Toggle Focus Mode</span>
+                            <kbd class="px-3 py-1 bg-card-bg border border-border-clr rounded-lg font-mono text-xs">F</kbd>
+                        </div>
+                        <div class="flex justify-between items-center p-3 bg-app-bg rounded-xl">
+                            <span>Exit Focus Mode</span>
+                            <kbd class="px-3 py-1 bg-card-bg border border-border-clr rounded-lg font-mono text-xs">Esc</kbd>
+                        </div>
+                        <div class="flex justify-between items-center p-3 bg-app-bg rounded-xl">
+                            <span>Show This Help</span>
+                            <kbd class="px-3 py-1 bg-card-bg border border-border-clr rounded-lg font-mono text-xs">?</kbd>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button onclick="closeShortcutsModal()" class="w-full mt-8 bg-accent text-white py-4 rounded-2xl font-black uppercase text-xs">Got It!</button>
+        </div>
+    `;
+    document.body.appendChild(modal);
+    
+    // Close on background click
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeShortcutsModal();
+    });
+}
+
+function closeShortcutsModal() {
+    const modal = document.getElementById('shortcuts-modal');
+    if (modal) modal.remove();
+}
+
+// Initialize keyboard shortcuts when the page loads
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initKeyboardShortcuts);
+} else {
+    initKeyboardShortcuts();
 }

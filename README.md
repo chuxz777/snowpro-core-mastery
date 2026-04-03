@@ -21,15 +21,17 @@ A modern, feature-rich web application for preparing for multiple certification 
 - **Markdown Support**: Rich text formatting in questions and explanations
 
 ### Quiz Features
-- **Multiple Question Types**: 
+- **Multiple Question Types**:
   - Single-answer questions
   - Multiple-answer questions (select all that apply)
   - Sequence-based questions (order the steps)
+- **Keyboard Shortcuts**: Full keyboard navigation for efficient studying (press `?` for help)
 - **Right-Click to Eliminate**: Strike-through option answers (process of elimination)
 - **Step Indicators**: Visual badges for sequence ordering questions
 - **Instant Feedback**: Real-time pass/fail indicators after answering
 - **Detailed Explanations**: View reasoning with markdown formatting for each question
 - **Question Navigation Grid**: Jump between questions and see status at a glance
+- **Sticky Navigation**: Sidebar stays visible while scrolling through long questions
 - **Progress Tracking**: Visual progress bar showing exam completion
 - **Smart Randomization**: Shuffle questions and answers for varied practice
 
@@ -230,6 +232,25 @@ npx http-server -p 8080
 5. Click **Confirm** to lock in your answer
 6. Review feedback and explanation before proceeding
 7. Use navigation grid to jump between questions
+
+### Keyboard Shortcuts
+
+Press `?` during a quiz to view all available shortcuts, or use these commands:
+
+#### Navigation
+- `←` / `→` - Previous/Next question
+- `S` - Skip current question
+- `A-Z` - Select option by letter (matches visible option labels)
+
+#### Answer Controls
+- `Enter` or `Space` - Submit answer
+- `N` - Next question (after submitting)
+- `C` - Clear current selection
+
+#### View Controls
+- `F` - Toggle focus mode
+- `Esc` - Exit focus mode
+- `?` - Show keyboard shortcuts help
 
 ### Reviewing Results
 
