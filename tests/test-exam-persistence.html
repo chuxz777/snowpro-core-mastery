@@ -297,15 +297,20 @@
                 });
 
                 runner.it('should handle special characters', async () => {
+                    // Test that encodeURIComponent works correctly
+                    const testSpace = encodeURIComponent(' ');
+                    const testParen = encodeURIComponent('(');
+                    const testCloseParen = encodeURIComponent(')');
+                    
+                    runner.expect(testSpace).toBe('%20');
+                    runner.expect(testParen).toBe('%28');
+                    runner.expect(testCloseParen).toBe('%29');
+                    
+                    // Test path encoding
                     const path = 'exams/test file (1).json';
                     const encoded = path.split('/').map(encodeURIComponent).join('/');
-                    // Check that spaces are encoded
                     runner.expect(encoded).toContain('%20');
-                    // Check that the path structure is preserved
                     runner.expect(encoded.split('/').length).toBe(2);
-                    // Verify encoding function works
-                    const testChar = encodeURIComponent('(');
-                    runner.expect(testChar).toBe('%28');
                 });
             }));
 
