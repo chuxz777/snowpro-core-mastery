@@ -420,6 +420,28 @@ body.focus-active #focus-exit-btn {
     word-wrap: break-word;
     overflow-wrap: break-word;
     word-break: break-word;
+    padding: 1.25rem;
+    min-height: 4rem;
+}
+
+/* Make quiz view wider for better readability */
+#quiz-view {
+    max-width: 95vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Adjust for smaller screens */
+@media (max-width: 1024px) {
+    #quiz-view {
+        max-width: 95vw;
+    }
+}
+
+@media (max-width: 768px) {
+    #quiz-view {
+        max-width: 98vw;
+    }
 }
 
 #options-container .markdown-content {

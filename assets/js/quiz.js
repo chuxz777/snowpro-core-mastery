@@ -164,7 +164,7 @@ function showQuestion(shouldScroll = false) {
         const isStruck = q.struckKeys.includes(opt.key) && !q.isChecked;
 
         const div = document.createElement('div');
-        div.className = `flex flex-col gap-3 p-5 border-2 rounded-2xl cursor-pointer transition-all ${isSel ? 'border-accent bg-accent/5' : 'border-border-clr'} ${isStruck ? 'opt-strike' : ''}`;
+        div.className = `flex flex-row gap-4 p-5 border-2 rounded-2xl cursor-pointer transition-all ${isSel ? 'border-accent bg-accent/5' : 'border-border-clr'} ${isStruck ? 'opt-strike' : ''}`;
         div.setAttribute('data-option-key', opt.key);
         div.setAttribute('data-option-index', index);
 
@@ -184,13 +184,13 @@ function showQuestion(shouldScroll = false) {
             if (!q.isChecked) toggleStrike(opt.key);
         };
         
-        // Add option label badge at the top
-        const optionLabel = `<div class="flex items-center gap-2">
-            <span class="flex-shrink-0 w-7 h-7 flex items-center justify-center rounded-full border-2 ${isSel ? 'border-accent bg-accent text-white' : 'border-border-clr bg-app-bg text-txt-muted'} font-black text-xs">${opt.key}</span>
-            ${(isSel && isSeq) ? `<span class="step-badge">STEP ${stepIdx + 1}</span>` : ""}
+        // Add option label badge on the left side
+        const optionLabel = `<div class="flex flex-col items-center gap-2 flex-shrink-0">
+            <span class="w-10 h-10 flex items-center justify-center rounded-full border-2 ${isSel ? 'border-accent bg-accent text-white' : 'border-border-clr bg-app-bg text-txt-muted'} font-black text-base">${opt.key}</span>
+            ${(isSel && isSeq) ? `<span class="step-badge text-[8px] px-2 py-1">STEP ${stepIdx + 1}</span>` : ""}
         </div>`;
         
-        div.innerHTML = optionLabel + `<div class="markdown-content">${marked.parse(opt.value)}</div>`;
+        div.innerHTML = optionLabel + `<div class="markdown-content flex-1">${marked.parse(opt.value)}</div>`;
         container.appendChild(div);
     });
     updateNavUI();
