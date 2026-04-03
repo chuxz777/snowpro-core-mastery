@@ -2,8 +2,37 @@
 let currentBank, currentIdx, examState, currentMode, timerInterval, timeElapsed, timeRemaining;
 
 async function openConfig(id, mode) {
-    currentBank = await db.examVault.get(id);
-    currentMode = mode;
+    try {
+        currentBank = await db.examVault.get(id);
+        
+        if (!currentBank) {
+            errorHandler.showUserError(
+                'Question Bank Not Found',
+                'The selected question bank could not be loaded. It may have been deleted.',
+                `Bank ID: ${id}`
+            );
+            return;
+        }
+        
+        if (!currentBank.questions || currentBank.questions.length === 0) {
+            errorHandler.showUserError(
+                'Empty Question Bank',
+                'This question bank contains no questions.',
+                null
+            );
+            return;
+        }
+        
+        currentMode = mode;
+    } catch (error) {
+        errorHandler.logError('Open Config', error);
+        errorHandler.showUserError(
+            'Failed to Load Question Bank',
+            'An error occurred while loading the question bank.',
+            error.message
+        );
+        return;
+    }
     
     const configInput = document.getElementById('config-count');
     const configDisplay = document.getElementById('config-count-display');
@@ -43,17 +72,36 @@ function closeConfigModal() {
 }
 
 function startExam(qsToUse = null) {
-    document.getElementById('config-modal').classList.add('hidden');
-    let qs = qsToUse || [...currentBank.questions];
-    
-    // Always randomize questions to prevent memorization
-    qs.sort(() => Math.random() - 0.5);
-
-    if (!qsToUse) {
-        const limit = parseInt(document.getElementById('config-count').value);
-        if (limit > 0 && limit < qs.length) {
-            qs = qs.slice(0, limit);
+    try {
+        document.getElementById('config-modal').classList.add('hidden');
+        let qs = qsToUse || [...currentBank.questions];
+        
+        if (!qs || qs.length === 0) {
+            errorHandler.showUserError(
+                'No Questions Available',
+                'Cannot start exam with no questions.',
+                null
+            );
+            return;
         }
+        
+        // Always randomize questions to prevent memorization
+        qs.sort(() => Math.random() - 0.5);
+
+        if (!qsToUse) {
+            const limit = parseInt(document.getElementById('config-count').value);
+            if (limit > 0 && limit < qs.length) {
+                qs = qs.slice(0, limit);
+            }
+        }
+    } catch (error) {
+        errorHandler.logError('Start Exam', error);
+        errorHandler.showUserError(
+            'Failed to Start Exam',
+            'An error occurred while starting the exam.',
+            error.message
+        );
+        return;
     }
     examState = qs.map(q => {
         // Shuffle options and reassign sequential keys (A, B, C, D, etc.)
@@ -239,38 +287,53 @@ function closeConfirmModal() {
 }
 
 async function finishExam() {
-    clearInterval(timerInterval);
-    const totalQs = examState.length;
-    const correctQs = examState.filter(s => s.isCorrect).length;
-    const scaledScore = Math.round((correctQs / totalQs) * 1000);
-    const percentage = Math.round((correctQs / totalQs) * 100);
-    const passed = scaledScore >= 700;
+    try {
+        clearInterval(timerInterval);
+        const totalQs = examState.length;
+        const correctQs = examState.filter(s => s.isCorrect).length;
+        const scaledScore = Math.round((correctQs / totalQs) * 1000);
+        const percentage = Math.round((correctQs / totalQs) * 100);
+        const passed = scaledScore >= 700;
 
-    // Setup Result Page
-    document.getElementById('result-exam-name').innerText = currentBank.name;
-    document.getElementById('result-scaled-score').innerText = scaledScore;
-    document.getElementById('result-scaled-score').className = `text-8xl font-black leading-none tracking-tighter ${passed ? 'text-green-500' : 'text-red-500'}`;
-    document.getElementById('result-raw-score').innerText = `${correctQs} / ${totalQs}`;
-    document.getElementById('result-percentage').innerText = `${percentage}%`;
-    document.getElementById('result-status-box').innerText = passed ? "Passed" : "Failed";
-    document.getElementById('result-status-box').style.backgroundColor = passed ? "#10b981" : "#ef4444";
-    document.getElementById('results-card').style.borderColor = passed ? "#10b981" : "#ef4444";
+        // Setup Result Page
+        document.getElementById('result-exam-name').innerText = currentBank.name;
+        document.getElementById('result-scaled-score').innerText = scaledScore;
+        document.getElementById('result-scaled-score').className = `text-8xl font-black leading-none tracking-tighter ${passed ? 'text-green-500' : 'text-red-500'}`;
+        document.getElementById('result-raw-score').innerText = `${correctQs} / ${totalQs}`;
+        document.getElementById('result-percentage').innerText = `${percentage}%`;
+        document.getElementById('result-status-box').innerText = passed ? "Passed" : "Failed";
+        document.getElementById('result-status-box').style.backgroundColor = passed ? "#10b981" : "#ef4444";
+        document.getElementById('results-card').style.borderColor = passed ? "#10b981" : "#ef4444";
 
-    showView('results-view');
+        showView('results-view');
 
-    if (passed) {
-        confetti({ particleCount: 200, spread: 80, origin: { y: 0.6 }, colors: ['#38bdf8', '#ffffff', '#2563eb'] });
+        if (passed) {
+            confetti({ particleCount: 200, spread: 80, origin: { y: 0.6 }, colors: ['#38bdf8', '#ffffff', '#2563eb'] });
+        }
+
+        try {
+            await db.examHistory.add({
+                exam: currentBank.name,
+                timestamp: Date.now(),
+                score: correctQs,
+                total: totalQs,
+                scaledScore: scaledScore,
+                passed: passed,
+                details: JSON.parse(JSON.stringify(examState))
+            });
+        } catch (dbError) {
+            errorHandler.logError('Save Exam History', dbError);
+            // Don't show error to user, results are still displayed
+            console.warn('Failed to save exam history, but results are displayed');
+        }
+    } catch (error) {
+        errorHandler.logError('Finish Exam', error);
+        errorHandler.showUserError(
+            'Error Finishing Exam',
+            'An error occurred while processing your results. Your answers may not have been saved.',
+            error.message
+        );
     }
-
-    await db.examHistory.add({
-        exam: currentBank.name,
-        timestamp: Date.now(),
-        score: correctQs,
-        total: totalQs,
-        scaledScore: scaledScore,
-        passed: passed,
-        details: JSON.parse(JSON.stringify(examState))
-    });
 }
 
 async function retakeErrors(id) {

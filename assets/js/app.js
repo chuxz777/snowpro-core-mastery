@@ -5,8 +5,26 @@ db.version(1).stores({
   examHistory: '++id, timestamp' // A table for exam results
 });
 
-const getVault = async () => await db.examVault.toArray();
-const getHistory = async () => await db.examHistory.orderBy('timestamp').reverse().toArray();
+// Wrap database operations with error handling
+const getVault = async () => {
+    try {
+        return await db.examVault.toArray();
+    } catch (error) {
+        errorHandler.logError('Database: Get Vault', error);
+        errorHandler.showUserError('Database Error', 'Failed to load question banks. Please refresh the page.', error.message);
+        return [];
+    }
+};
+
+const getHistory = async () => {
+    try {
+        return await db.examHistory.orderBy('timestamp').reverse().toArray();
+    } catch (error) {
+        errorHandler.logError('Database: Get History', error);
+        errorHandler.showUserError('Database Error', 'Failed to load exam history. Please refresh the page.', error.message);
+        return [];
+    }
+};
 let activeAuditData;
 
 function showView(id) {
@@ -60,20 +78,63 @@ async function renderLibrary() {
 }
 
 async function handleFileSelect(e) {
+    let successCount = 0;
+    let errorCount = 0;
+    
     for (let file of e.target.files) {
         try {
-            const data = JSON.parse(await file.text());
-            const qs = data.questions || (Array.isArray(data) ? data : []);
-            if (qs.length) {
-                await db.examVault.add({
-                    name: data.exam || file.name.replace('.json', ''),
-                    questions: qs
-                });
+            const text = await file.text();
+            const data = JSON.parse(text);
+            
+            // Validate question bank
+            const validation = errorHandler.validateQuestionBank(data);
+            
+            if (!validation.valid) {
+                errorHandler.showUserError(
+                    `Invalid File: ${file.name}`,
+                    'The question bank file has validation errors:',
+                    validation.errors.join('\n')
+                );
+                errorCount++;
+                continue;
             }
+            
+            const qs = data.questions || (Array.isArray(data) ? data : []);
+            await db.examVault.add({
+                name: data.exam || file.name.replace('.json', ''),
+                questions: qs
+            });
+            
+            successCount++;
+            errorHandler.logError('File Import Success', `Imported ${file.name} with ${qs.length} questions`);
+            
         } catch (err) {
-            alert("Error parsing JSON");
+            errorCount++;
+            errorHandler.logError('File Import Error', err);
+            
+            if (err instanceof SyntaxError) {
+                errorHandler.showUserError(
+                    `Invalid JSON: ${file.name}`,
+                    'The file contains invalid JSON syntax. Please check the file format.',
+                    err.message
+                );
+            } else {
+                errorHandler.showUserError(
+                    `Import Failed: ${file.name}`,
+                    'An error occurred while importing the question bank.',
+                    err.message
+                );
+            }
         }
     }
+    
+    // Show success message if any files were imported
+    if (successCount > 0) {
+        errorHandler.showSuccessMessage(
+            `Successfully imported ${successCount} question bank${successCount > 1 ? 's' : ''}`
+        );
+    }
+    
     renderLibrary();
     renderDashboard();
 }
