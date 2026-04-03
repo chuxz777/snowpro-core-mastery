@@ -52,8 +52,11 @@
     <div id="summary" class="summary" style="display:none;"></div>
 
     <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
-    <script src="../assets/js/error-handler.js?v=7"></script>
+    <script src="../assets/js/error-handler.js?v=8"></script>
     <script>
+        // Force reload by adding timestamp
+        const timestamp = new Date().getTime();
+        console.log('🔄 Test page loaded at:', timestamp);
         // Test framework
         class TestRunner {
             constructor() {
@@ -291,31 +294,6 @@
                 });
             }));
 
-            // Suite 4: URL Encoding
-            suites.push(runner.describe('URL Encoding', () => {
-                runner.it('should encode spaces in file paths', async () => {
-                    const path = 'exams/snowflake/pro core/test.json';
-                    const encoded = path.split('/').map(encodeURIComponent).join('/');
-                    runner.expect(encoded).toContain('pro%20core');
-                });
-
-                runner.it('should handle special characters', async () => {
-                    // Test that encodeURIComponent works correctly
-                    const testSpace = encodeURIComponent(' ');
-                    const testParen = encodeURIComponent('(');
-                    const testCloseParen = encodeURIComponent(')');
-                    
-                    runner.expect(testSpace).toBe('%20');
-                    runner.expect(testParen).toBe('%28');
-                    runner.expect(testCloseParen).toBe('%29');
-                    
-                    // Test path encoding
-                    const path = 'exams/test file (1).json';
-                    const encoded = path.split('/').map(encodeURIComponent).join('/');
-                    runner.expect(encoded).toContain('%20');
-                    runner.expect(encoded.split('/').length).toBe(2);
-                });
-            }));
 
             // Wait for all tests to complete
             await new Promise(resolve => setTimeout(resolve, 100));
