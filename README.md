@@ -5,10 +5,19 @@ A modern, feature-rich web application for preparing for multiple certification 
 ## 🆕 Recent Updates
 
 **Latest Changes** (April 2026):
+- 🚀 **Automatic Exam Persistence**: Exams now load automatically on startup
+  - Dynamic discovery of all exam files in `exams/` directory
+  - Auto-generated manifest for efficient loading
+  - Smart incremental loading (only loads missing exams)
+  - No manual import needed after initial setup
+- 🧪 **Unit Testing**: Comprehensive test suite for exam persistence system
+  - Database operations testing
+  - Validation testing with auto-inference
+  - Manifest loading verification
+  - URL encoding tests
 - ✨ **Exams Folder Reorganized**: Cleaned up and structured for better organization
   - Snowflake SnowPro Core: 6 comprehensive test banks now available
   - Databricks Data Engineer: 1 comprehensive test bank with 50+ questions
-  - Removed outdated folder structures
   - All exams properly categorized by vendor and certification type
 - 🎨 **Enhanced UI**: Added error handler for better user experience
 - 🚀 **Quick Start Scripts**: Simplified setup with `start.sh` and `start.bat`
@@ -69,13 +78,17 @@ snowpro-core-mastery/
 ├── start.sh                    # Quick start script for Mac/Linux
 ├── start.bat                   # Quick start script for Windows
 ├── pyproject.toml              # Python project configuration
+├── exam-manifest.json          # 🆕 Auto-generated exam file list
 ├── assets/
 │   ├── css/
 │   │   └── styles.css          # Custom CSS variables and styles
 │   └── js/
 │       ├── app.js              # UI management, navigation, analytics
 │       ├── quiz.js             # Quiz logic, timer, scoring
-│       └── error-handler.js    # Error handling utilities
+│       └── error-handler.js    # Error handling & validation
+├── tests/                      # 🆕 Unit tests
+│   ├── README.md               # Testing documentation
+│   └── test-exam-persistence.html  # Browser-based test runner
 └── exams/                      # ✨ Recently cleaned up and organized
     ├── snowflake/
     │   └── pro core/           # SnowPro Core certification
@@ -451,6 +464,39 @@ exams/
 - **Topics Covered**: Auto Loader, Unity Catalog, Delta Live Tables, Medallion Architecture, Performance Tuning, Structured Streaming, Data Governance
 
 > **Note**: The exams folder has been recently cleaned up and organized for better navigation. All question banks include detailed explanations with markdown formatting support.
+
+## 🧪 Testing
+
+### Running Unit Tests
+
+1. **Start the server**:
+   ```bash
+   bash start.sh
+   ```
+
+2. **Open test page** in browser:
+   ```
+   http://localhost:8080/tests/test-exam-persistence.html
+   ```
+
+3. **Click "Run All Tests"** to execute the test suite
+
+### Test Coverage
+
+The test suite includes:
+- ✅ **Database Operations** - IndexedDB functionality
+- ✅ **Exam Validation** - Format checking and auto-inference
+- ✅ **Manifest Loading** - Dynamic exam discovery
+- ✅ **URL Encoding** - Path handling with spaces
+
+### Test Results
+
+Tests show:
+- ✅ Pass/Fail status for each test
+- 📊 Summary statistics (total, passed, failed, success rate)
+- 🐛 Detailed error messages for failures
+
+See `tests/README.md` for detailed testing documentation.
 
 ## 🔧 Development
 

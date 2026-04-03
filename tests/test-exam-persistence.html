@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam Persistence Unit Tests</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            padding: 20px;
+            background: #1e1e1e;
+            color: #d4d4d4;
+        }
+        h1 { color: #4ec9b0; }
+        .test-suite { margin: 20px 0; border-left: 3px solid #569cd6; padding-left: 15px; }
+        .test-case { margin: 10px 0; padding: 10px; background: #252526; border-radius: 4px; }
+        .pass { color: #4ec9b0; }
+        .fail { color: #f48771; }
+        .pending { color: #dcdcaa; }
+        .summary { 
+            margin-top: 30px; 
+            padding: 20px; 
+            background: #252526; 
+            border-radius: 8px;
+            border: 2px solid #569cd6;
+        }
+        button {
+            background: #0e639c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+            font-weight: bold;
+        }
+        button:hover { background: #1177bb; }
+        .clear-btn { background: #a1260d; }
+        .clear-btn:hover { background: #c72e0d; }
+    </style>
+</head>
+<body>
+    <h1>🧪 Exam Persistence Unit Tests</h1>
+    <button onclick="runAllTests()">▶️ Run All Tests</button>
+    <button onclick="clearDatabase()" class="clear-btn">🗑️ Clear Database</button>
+    <button onclick="location.reload()">🔄 Refresh</button>
+    
+    <div id="test-results"></div>
+    <div id="summary" class="summary" style="display:none;"></div>
+
+    <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
+    <script src="../assets/js/error-handler.js?v=7"></script>
+    <script>
+        // Test framework
+        class TestRunner {
+            constructor() {
+                this.results = [];
+                this.currentSuite = null;
+            }
+
+            describe(name, fn) {
+                this.currentSuite = { name, tests: [] };
+                fn();
+                return this.currentSuite;
+            }
+
+            async it(description, fn) {
+                const test = { description, status: 'pending', error: null };
+                this.currentSuite.tests.push(test);
+                
+                try {
+                    await fn();
+                    test.status = 'pass';
+                } catch (error) {
+                    test.status = 'fail';
+                    test.error = error.message;
+                }
+                
+                return test;
+            }
+
+            expect(actual) {
+                return {
+                    toBe: (expected) => {
+                        if (actual !== expected) {
+                            throw new Error(`Expected ${expected} but got ${actual}`);
+                        }
+                    },
+                    toEqual: (expected) => {
+                        if (JSON.stringify(actual) !== JSON.stringify(expected)) {
+                            throw new Error(`Expected ${JSON.stringify(expected)} but got ${JSON.stringify(actual)}`);
+                        }
+                    },
+                    toBeGreaterThan: (expected) => {
+                        if (actual <= expected) {
+                            throw new Error(`Expected ${actual} to be greater than ${expected}`);
+                        }
+                    },
+                    toBeTruthy: () => {
+                        if (!actual) {
+                            throw new Error(`Expected truthy value but got ${actual}`);
+                        }
+                    },
+                    toContain: (expected) => {
+                        if (!actual.includes(expected)) {
+                            throw new Error(`Expected array to contain ${expected}`);
+                        }
+                    },
+                    toHaveLength: (expected) => {
+                        if (actual.length !== expected) {
+                            throw new Error(`Expected length ${expected} but got ${actual.length}`);
+                        }
+                    }
+                };
+            }
+
+            renderResults(suites) {
+                const container = document.getElementById('test-results');
+                container.innerHTML = '';
+                
+                let totalTests = 0;
+                let passedTests = 0;
+                let failedTests = 0;
+
+                suites.forEach(suite => {
+                    const suiteDiv = document.createElement('div');
+                    suiteDiv.className = 'test-suite';
+                    suiteDiv.innerHTML = `<h2>📦 ${suite.name}</h2>`;
+                    
+                    suite.tests.forEach(test => {
+                        totalTests++;
+                        const testDiv = document.createElement('div');
+                        testDiv.className = 'test-case';
+                        
+                        let icon, className;
+                        if (test.status === 'pass') {
+                            icon = '✅';
+                            className = 'pass';
+                            passedTests++;
+                        } else if (test.status === 'fail') {
+                            icon = '❌';
+                            className = 'fail';
+                            failedTests++;
+                        } else {
+                            icon = '⏳';
+                            className = 'pending';
+                        }
+                        
+                        testDiv.innerHTML = `
+                            <span class="${className}">${icon} ${test.description}</span>
+                            ${test.error ? `<div style="color: #f48771; margin-top: 5px; font-size: 12px;">Error: ${test.error}</div>` : ''}
+                        `;
+                        suiteDiv.appendChild(testDiv);
+                    });
+                    
+                    container.appendChild(suiteDiv);
+                });
+
+                // Show summary
+                const summary = document.getElementById('summary');
+                summary.style.display = 'block';
+                summary.innerHTML = `
+                    <h2>📊 Test Summary</h2>
+                    <p><strong>Total Tests:</strong> ${totalTests}</p>
+                    <p class="pass"><strong>Passed:</strong> ${passedTests}</p>
+                    <p class="fail"><strong>Failed:</strong> ${failedTests}</p>
+                    <p><strong>Success Rate:</strong> ${Math.round((passedTests / totalTests) * 100)}%</p>
+                `;
+            }
+        }
+
+        const runner = new TestRunner();
+
+        // Setup database
+        const db = new Dexie('SnowProMasteryDB');
+        db.version(1).stores({
+            examVault: '++id, name',
+            examHistory: '++id, timestamp'
+        });
+
+        async function clearDatabase() {
+            await db.examVault.clear();
+            await db.examHistory.clear();
+            alert('✅ Database cleared!');
+            location.reload();
+        }
+
+        // Test Suites
+        async function runAllTests() {
+            const suites = [];
+
+            // Suite 1: Database Operations
+            suites.push(runner.describe('Database Operations', () => {
+                runner.it('should create database connection', async () => {
+                    runner.expect(db).toBeTruthy();
+                    runner.expect(db.name).toBe('SnowProMasteryDB');
+                });
+
+                runner.it('should add exam to database', async () => {
+                    const testExam = {
+                        name: 'Test Exam',
+                        questions: [
+                            { text: 'Q1', options: { a: 'A', b: 'B' }, answer: 'a', answer_type: 'single' }
+                        ]
+                    };
+                    await db.examVault.add(testExam);
+                    const exams = await db.examVault.toArray();
+                    runner.expect(exams.length).toBeGreaterThan(0);
+                });
+
+                runner.it('should retrieve exams from database', async () => {
+                    const exams = await db.examVault.toArray();
+                    runner.expect(Array.isArray(exams)).toBeTruthy();
+                });
+
+                runner.it('should find exam by name', async () => {
+                    const exam = await db.examVault.where('name').equals('Test Exam').first();
+                    runner.expect(exam).toBeTruthy();
+                    runner.expect(exam.name).toBe('Test Exam');
+                });
+            }));
+
+            // Suite 2: Validation
+            suites.push(runner.describe('Exam Validation', () => {
+                runner.it('should validate correct exam format', async () => {
+                    const validExam = {
+                        exam: 'Valid Exam',
+                        questions: [
+                            { text: 'Q1', options: { a: 'A', b: 'B' }, answer: 'a', answer_type: 'single' }
+                        ]
+                    };
+                    const result = errorHandler.validateQuestionBank(validExam);
+                    runner.expect(result.valid).toBeTruthy();
+                });
+
+                runner.it('should reject exam without questions', async () => {
+                    const invalidExam = { exam: 'Invalid' };
+                    const result = errorHandler.validateQuestionBank(invalidExam);
+                    runner.expect(result.valid).toBe(false);
+                });
+
+                runner.it('should auto-infer answer_type for single answer', async () => {
+                    const exam = {
+                        questions: [
+                            { text: 'Q1', options: { a: 'A', b: 'B' }, answer: 'a' }
+                        ]
+                    };
+                    errorHandler.validateQuestionBank(exam);
+                    runner.expect(exam.questions[0].answer_type).toBe('single');
+                });
+
+                runner.it('should auto-infer answer_type for multiple answers', async () => {
+                    const exam = {
+                        questions: [
+                            { text: 'Q1', options: { a: 'A', b: 'B' }, answer: ['a', 'b'] }
+                        ]
+                    };
+                    errorHandler.validateQuestionBank(exam);
+                    runner.expect(exam.questions[0].answer_type).toBe('multiple');
+                });
+
+                runner.it('should handle array format exams', async () => {
+                    const arrayExam = [
+                        { text: 'Q1', options: { a: 'A' }, answer: 'a' }
+                    ];
+                    const result = errorHandler.validateQuestionBank(arrayExam);
+                    runner.expect(result.valid).toBeTruthy();
+                });
+            }));
+
+            // Suite 3: Manifest Loading
+            suites.push(runner.describe('Manifest Loading', () => {
+                runner.it('should fetch manifest file', async () => {
+                    const response = await fetch('../exam-manifest.json');
+                    runner.expect(response.ok).toBeTruthy();
+                });
+
+                runner.it('should parse manifest JSON', async () => {
+                    const response = await fetch('../exam-manifest.json');
+                    const data = await response.json();
+                    runner.expect(Array.isArray(data)).toBeTruthy();
+                });
+
+                runner.it('should have exam files in manifest', async () => {
+                    const response = await fetch('../exam-manifest.json');
+                    const data = await response.json();
+                    runner.expect(data.length).toBeGreaterThan(0);
+                });
+            }));
+
+            // Suite 4: URL Encoding
+            suites.push(runner.describe('URL Encoding', () => {
+                runner.it('should encode spaces in file paths', async () => {
+                    const path = 'exams/snowflake/pro core/test.json';
+                    const encoded = path.split('/').map(encodeURIComponent).join('/');
+                    runner.expect(encoded).toContain('pro%20core');
+                });
+
+                runner.it('should handle special characters', async () => {
+                    const path = 'exams/test file (1).json';
+                    const encoded = path.split('/').map(encodeURIComponent).join('/');
+                    runner.expect(encoded).toContain('%20');
+                    runner.expect(encoded).toContain('%28');
+                    runner.expect(encoded).toContain('%29');
+                });
+            }));
+
+            // Wait for all tests to complete
+            await new Promise(resolve => setTimeout(resolve, 100));
+            
+            runner.renderResults(suites);
+        }
+
+        // Auto-run tests on load
+        window.onload = () => {
+            console.log('🧪 Test runner loaded. Click "Run All Tests" to start.');
+        };
+    </script>
+</body>
+</html>
