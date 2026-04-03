@@ -191,15 +191,42 @@ Questions and explanations support markdown formatting:
 | `category2` | string | No | Secondary category (optional) |
 | `explanation` | string | No | Explanation shown after answering (supports markdown) |
 
-## 🚀 Usage
+## 🚀 Quick Start
 
-### Running the Application
+### For Non-Technical Users
+
+**The easiest way to run the application:**
+
+#### Windows Users:
+1. Double-click `start.bat`
+2. Wait for the browser to open automatically
+3. That's it! 🎉
+
+#### Mac/Linux Users:
+1. Double-click `start.sh` (or run `./start.sh` in terminal)
+2. Wait for the browser to open automatically
+3. That's it! 🎉
+
+#### VS Code Users:
+1. Open the project in VS Code
+2. Press `Cmd+Shift+B` (Mac) or `Ctrl+Shift+B` (Windows/Linux)
+3. Select "🚀 Start Certification Mastery Suite"
+4. Or press `F5` to launch with debugger
+
+The scripts will automatically:
+- ✅ Install Python package manager (uv) if needed
+- ✅ Create a virtual environment
+- ✅ Find an available port
+- ✅ Start the web server
+- ✅ Show you the URL to open
+
+### For Developers
 
 #### Option 1: Direct File Access
 1. Open `index.html` in any modern web browser
 2. No build process or server required
 
-#### Option 2: Local Server (Recommended)
+#### Option 2: Manual Server Start
 ```bash
 # Using Python 3
 python3 -m http.server 8080
@@ -208,6 +235,16 @@ python3 -m http.server 8080
 npx http-server -p 8080
 
 # Then open http://localhost:8080
+```
+
+#### Option 3: With uv (Recommended)
+```bash
+# First time setup
+uv venv
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+
+# Start server
+python -m http.server 8080
 ```
 
 ### Importing Question Banks

@@ -1,0 +1,21 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "🚀 Launch Certification Mastery Suite",
+            "type": "python",
+            "request": "launch",
+            "module": "http.server",
+            "args": ["8080"],
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "env": {},
+            "justMyCode": true,
+            "presentation": {
+                "hidden": false,
+                "group": "",
+                "order": 1
+            }
+        }
+    ]
+}
