@@ -2,6 +2,18 @@
 
 A modern, feature-rich web application for preparing for multiple certification exams including SnowPro Core, Databricks Data Engineer Associate, and more. Built with vanilla JavaScript and Tailwind CSS, this single-page application provides an interactive quiz experience with practice and exam simulator modes.
 
+## 🆕 Recent Updates
+
+**Latest Changes** (April 2026):
+- ✨ **Exams Folder Reorganized**: Cleaned up and structured for better organization
+  - Snowflake SnowPro Core: 6 comprehensive test banks now available
+  - Databricks Data Engineer: 1 comprehensive test bank with 50+ questions
+  - Removed outdated folder structures
+  - All exams properly categorized by vendor and certification type
+- 🎨 **Enhanced UI**: Added error handler for better user experience
+- 🚀 **Quick Start Scripts**: Simplified setup with `start.sh` and `start.bat`
+- 📝 **Markdown Support**: Full markdown rendering in questions and explanations
+
 ## 🎯 Supported Certifications
 
 - **Snowflake SnowPro Core** - Complete question bank
@@ -54,18 +66,27 @@ A modern, feature-rich web application for preparing for multiple certification 
 ```
 snowpro-core-mastery/
 ├── index.html                  # Main application HTML
+├── start.sh                    # Quick start script for Mac/Linux
+├── start.bat                   # Quick start script for Windows
+├── pyproject.toml              # Python project configuration
 ├── assets/
 │   ├── css/
 │   │   └── styles.css          # Custom CSS variables and styles
 │   └── js/
 │       ├── app.js              # UI management, navigation, analytics
-│       └── quiz.js             # Quiz logic, timer, scoring
-└── exams/
+│       ├── quiz.js             # Quiz logic, timer, scoring
+│       └── error-handler.js    # Error handling utilities
+└── exams/                      # ✨ Recently cleaned up and organized
     ├── snowflake/
-    │   └── pro core/           # SnowPro Core exam files
-    │       └── New folder/
+    │   └── pro core/           # SnowPro Core certification
+    │       ├── Gemini Exam 1.json
+    │       ├── Gemini Exam 2.json
+    │       ├── Official Practice Test.json
+    │       ├── Test 19 with categories.json
+    │       ├── Test 20 with categories.json
+    │       └── Test 21 with categories.json
     └── databricks/
-        └── Data Eng/           # Databricks Data Engineer exams
+        └── Data Eng/           # Databricks Data Engineer Associate
             └── markdown/
                 └── tests/
                     └── databricks-certified-data-engineer-associate.json
@@ -414,15 +435,22 @@ exams/
 2. Create JSON file following the format above
 3. Import via Library interface
 
-## 📚 Example Question Banks
+## 📚 Available Question Banks
 
 ### Snowflake SnowPro Core
-- Location: `exams/snowflake/pro core/`
-- Topics: Architecture, Storage, Virtual Warehouses, Security, Data Sharing
+- **Location**: `exams/snowflake/pro core/`
+- **Available Exams**: 6 comprehensive test banks
+  - Gemini Exam 1 & 2 (AI-generated practice questions)
+  - Official Practice Test (vendor-aligned questions)
+  - Test 19, 20, 21 with categories (organized by topic)
+- **Topics Covered**: Architecture, Storage, Virtual Warehouses, Security, Data Sharing, Time Travel, Cloning, Data Loading, Performance Optimization
 
-### Databricks Data Engineer Associate
-- Location: `exams/databricks/Data Eng/markdown/tests/`
-- Topics: Auto Loader, Unity Catalog, Delta Live Tables, Medallion Architecture, Performance Tuning
+### Databricks Certified Data Engineer Associate
+- **Location**: `exams/databricks/Data Eng/markdown/tests/`
+- **Available Exams**: 1 comprehensive test bank (50+ questions)
+- **Topics Covered**: Auto Loader, Unity Catalog, Delta Live Tables, Medallion Architecture, Performance Tuning, Structured Streaming, Data Governance
+
+> **Note**: The exams folder has been recently cleaned up and organized for better navigation. All question banks include detailed explanations with markdown formatting support.
 
 ## 🔧 Development
 

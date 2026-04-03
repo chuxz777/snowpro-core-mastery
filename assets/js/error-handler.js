@@ -120,8 +120,17 @@ class ErrorHandler {
             if (!q.options || typeof q.options !== 'object') {
                 errors.push(`Question ${index + 1}: Missing or invalid options`);
             }
-            if (!q.answer) errors.push(`Question ${index + 1}: Missing answer`);
-            if (!q.answer_type) errors.push(`Question ${index + 1}: Missing answer_type`);
+            if (!q.answer && q.answer !== 0) errors.push(`Question ${index + 1}: Missing answer`);
+            
+            // answer_type is optional - will be inferred if missing
+            if (!q.answer_type) {
+                // Infer answer_type based on answer structure
+                if (Array.isArray(q.answer)) {
+                    q.answer_type = 'multiple';
+                } else {
+                    q.answer_type = 'single';
+                }
+            }
         });
 
         return {

@@ -35,6 +35,11 @@ while lsof -Pi :$PORT -sTCP:LISTEN -t >/dev/null 2>&1 ; do
     PORT=$((PORT + 1))
 done
 
+# Generate exam manifest
+echo "📋 Generating exam manifest..."
+find exams -name "*.json" -type f | jq -R -s -c 'split("\n") | map(select(length > 0))' > exam-manifest.json
+echo "✅ Found $(cat exam-manifest.json | jq '. | length') exam files"
+
 echo ""
 echo "✨ Setup complete!"
 echo ""

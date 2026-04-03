@@ -40,3 +40,6 @@ npm-debug.log*
 # uv
 .uv/
 uv.lock
+
+# Auto-generated files
+exam-manifest.json

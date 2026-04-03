@@ -254,8 +254,220 @@ async function clearHistory() {
         renderDashboard();
     });
 }
+// Force reload exams from directory
+async function reloadExamsFromDirectory() {
+    openGenericConfirmModal(
+        'Reload Exams', 
+        'This will clear all existing exam banks and reload them from the exams directory. Your exam history will be preserved. Continue?', 
+        async () => {
+            try {
+                // Clear existing exams
+                await db.examVault.clear();
+                console.log('Cleared existing exams');
+                
+                // Load exam files from manifest
+                let examFiles = [];
+                try {
+                    const manifestResponse = await fetch('exam-manifest.json');
+                    if (manifestResponse.ok) {
+                        examFiles = await manifestResponse.json();
+                        console.log('📋 Loaded manifest with', examFiles.length, 'exam files');
+                    }
+                } catch (err) {
+                    console.error('❌ Error loading manifest:', err);
+                }
 
-window.onload = () => {
+                let loadedCount = 0;
+                let errorCount = 0;
+
+                for (const filePath of examFiles) {
+                    try {
+                        // Encode the file path to handle spaces and special characters
+                        const encodedPath = filePath.split('/').map(encodeURIComponent).join('/');
+                        const response = await fetch(encodedPath);
+                        if (!response.ok) {
+                            console.warn(`Failed to load ${filePath}: ${response.status}`);
+                            errorCount++;
+                            continue;
+                        }
+
+                        const data = await response.json();
+                        
+                        // Validate question bank (this modifies the questions in place to add answer_type if missing)
+                        const validation = errorHandler.validateQuestionBank(data);
+                        
+                        if (!validation.valid) {
+                            console.error(`❌ Invalid exam file ${filePath}:`, validation.errors);
+                            errorCount++;
+                            continue;
+                        }
+
+                        // Get questions AFTER validation (which may have added answer_type)
+                        const qs = data.questions || (Array.isArray(data) ? data : []);
+                        const examName = data.exam || filePath.split('/').pop().replace('.json', '').replace(/%20/g, ' ');
+                        
+                        try {
+                            await db.examVault.add({
+                                name: examName,
+                                questions: qs
+                            });
+                            loadedCount++;
+                            console.log(`✅ Reloaded: ${examName} (${qs.length} questions)`);
+                        } catch (dbError) {
+                            console.error(`❌ Database error for ${examName}:`, dbError);
+                            errorCount++;
+                        }
+                        
+                    } catch (err) {
+                        console.error(`Error loading ${filePath}:`, err);
+                        errorCount++;
+                    }
+                }
+                
+                // Refresh UI
+                renderLibrary();
+                renderDashboard();
+                
+                if (loadedCount > 0) {
+                    errorHandler.showSuccessMessage(
+                        `Reloaded ${loadedCount} exam bank${loadedCount > 1 ? 's' : ''}`
+                    );
+                }
+                
+            } catch (error) {
+                errorHandler.logError('Reload Exams', error);
+                errorHandler.showUserError(
+                    'Reload Failed',
+                    'An error occurred while reloading exams from directory.',
+                    error.message
+                );
+            }
+        }
+    );
+}
+
+
+// Auto-load exams from directory structure
+async function autoLoadExams() {
+    console.log('🔄 autoLoadExams() called');
+    try {
+        // Check if we've already loaded exams (to avoid reloading on every refresh)
+        const existingExams = await getVault();
+        console.log('📊 Existing exams in DB:', existingExams.length);
+        if (existingExams.length > 0) {
+            console.log('✅ Exams already loaded in database');
+            return;
+        }
+
+        console.log('🚀 Auto-loading exams from directory...');
+        
+        // Fetch the manifest file that lists all exam files
+        let examFiles = [];
+        try {
+            const manifestResponse = await fetch('exam-manifest.json');
+            if (manifestResponse.ok) {
+                examFiles = await manifestResponse.json();
+                console.log('📋 Loaded manifest with', examFiles.length, 'exam files');
+            } else {
+                console.warn('⚠️ Manifest not found, using fallback list');
+                // Fallback to hardcoded list if manifest doesn't exist
+                examFiles = [
+                    'exams/snowflake/pro core/Gemini Exam 1.json',
+                    'exams/snowflake/pro core/Gemini Exam 2.json',
+                    'exams/snowflake/pro core/Official Practice Test.json',
+                    'exams/snowflake/pro core/Test 19 with categories.json',
+                    'exams/snowflake/pro core/Test 20 with categories.json',
+                    'exams/snowflake/pro core/Test 21 with categories.json',
+                    'exams/databricks/Data Eng/markdown/tests/databricks-certified-data-engineer-associate.json'
+                ];
+            }
+        } catch (err) {
+            console.error('❌ Error loading manifest:', err);
+            // Use fallback list
+            examFiles = [
+                'exams/snowflake/pro core/Gemini Exam 1.json',
+                'exams/snowflake/pro core/Gemini Exam 2.json',
+                'exams/snowflake/pro core/Official Practice Test.json',
+                'exams/snowflake/pro core/Test 19 with categories.json',
+                'exams/snowflake/pro core/Test 20 with categories.json',
+                'exams/snowflake/pro core/Test 21 with categories.json',
+                'exams/databricks/Data Eng/markdown/tests/databricks-certified-data-engineer-associate.json'
+            ];
+        }
+
+        let loadedCount = 0;
+        let errorCount = 0;
+
+        for (const filePath of examFiles) {
+            console.log(`📥 Attempting to load: ${filePath}`);
+            try {
+                // Encode the file path to handle spaces and special characters
+                const encodedPath = filePath.split('/').map(encodeURIComponent).join('/');
+                const response = await fetch(encodedPath);
+                console.log(`📡 Fetch response for ${filePath}:`, response.status, response.ok);
+                if (!response.ok) {
+                    console.warn(`❌ Failed to load ${filePath}: ${response.status}`);
+                    errorCount++;
+                    continue;
+                }
+
+                const data = await response.json();
+                console.log(`📄 Parsed JSON for ${filePath}`, data.exam || 'no exam name');
+                
+                // Validate question bank (this modifies the questions in place to add answer_type if missing)
+                const validation = errorHandler.validateQuestionBank(data);
+                
+                if (!validation.valid) {
+                    console.error(`❌ Invalid exam file ${filePath}:`, validation.errors);
+                    errorCount++;
+                    continue;
+                }
+
+                // Get questions AFTER validation (which may have added answer_type)
+                const qs = data.questions || (Array.isArray(data) ? data : []);
+                const examName = data.exam || filePath.split('/').pop().replace('.json', '').replace(/%20/g, ' ');
+                
+                console.log(`✓ Validated: ${examName} with ${qs.length} questions`);
+                
+                try {
+                    await db.examVault.add({
+                        name: examName,
+                        questions: qs
+                    });
+                    loadedCount++;
+                    console.log(`✅ Loaded: ${examName} (${qs.length} questions)`);
+                } catch (dbError) {
+                    console.error(`❌ Database error for ${examName}:`, dbError);
+                    errorCount++;
+                }
+                
+            } catch (err) {
+                console.error(`❌ Error loading ${filePath}:`, err);
+                errorCount++;
+            }
+        }
+
+        if (loadedCount > 0) {
+            console.log(`✅ Auto-loaded ${loadedCount} exam(s)`);
+            errorHandler.showSuccessMessage(
+                `Auto-loaded ${loadedCount} exam bank${loadedCount > 1 ? 's' : ''} from directory`
+            );
+        }
+
+        if (errorCount > 0) {
+            console.warn(`⚠️ Failed to load ${errorCount} exam(s)`);
+        }
+
+    } catch (error) {
+        console.error('Auto-load error:', error);
+        errorHandler.logError('Auto-load Exams', error);
+    }
+}
+
+window.onload = async () => {
+    // Auto-load exams first
+    await autoLoadExams();
+    
     showView('home-view');
     
     // Add ESC key listener for focus mode and modals
