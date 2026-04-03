@@ -94,16 +94,8 @@ function startExam(qsToUse = null) {
                 qs = qs.slice(0, limit);
             }
         }
-    } catch (error) {
-        errorHandler.logError('Start Exam', error);
-        errorHandler.showUserError(
-            'Failed to Start Exam',
-            'An error occurred while starting the exam.',
-            error.message
-        );
-        return;
-    }
-    examState = qs.map(q => {
+        
+        examState = qs.map(q => {
         // Shuffle options and reassign sequential keys (A, B, C, D, etc.)
         const shuffled = Object.entries(q.options)
             .map(p => ({ originalKey: p[0], value: p[1] }))
@@ -134,6 +126,14 @@ function startExam(qsToUse = null) {
     showView('quiz-view');
     buildNavGrid();
     showQuestion(true);
+    } catch (error) {
+        errorHandler.logError('Start Exam', error);
+        errorHandler.showUserError(
+            'Failed to Start Exam',
+            'An error occurred while starting the exam.',
+            error.message
+        );
+    }
 }
 
 function showQuestion(shouldScroll = false) {
